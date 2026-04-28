@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 446"
+     width="820" height="446" role="img"
+     aria-label="Animated demo of the Automate Validation tool">
+<style>
+@keyframes step0 {
+  0%, 0.0% { opacity: 0; }
+  2.4% { opacity: 1; }
+  17.6% { opacity: 1; }
+  20.0%, 100% { opacity: 0; }
+}
+@keyframes step1 {
+  0%, 20.0% { opacity: 0; }
+  22.4% { opacity: 1; }
+  37.6% { opacity: 1; }
+  40.0%, 100% { opacity: 0; }
+}
+@keyframes step2 {
+  0%, 40.0% { opacity: 0; }
+  42.4% { opacity: 1; }
+  57.6% { opacity: 1; }
+  60.0%, 100% { opacity: 0; }
+}
+@keyframes step3 {
+  0%, 60.0% { opacity: 0; }
+  62.4% { opacity: 1; }
+  77.6% { opacity: 1; }
+  80.0%, 100% { opacity: 0; }
+}
+@keyframes step4 {
+  0%, 80.0% { opacity: 0; }
+  82.4% { opacity: 1; }
+  97.6% { opacity: 1; }
+  100.0%, 100% { opacity: 0; }
+}
+@keyframes dot0 {
+  0%, 0.0% { fill: #6c7086; r: 4; }
+  1.0% { fill: #89b4fa; r: 5; }
+  19.0% { fill: #89b4fa; r: 5; }
+  20.0%, 100% { fill: #6c7086; r: 4; }
+}
+@keyframes dot1 {
+  0%, 20.0% { fill: #6c7086; r: 4; }
+  21.0% { fill: #89b4fa; r: 5; }
+  39.0% { fill: #89b4fa; r: 5; }
+  40.0%, 100% { fill: #6c7086; r: 4; }
+}
+@keyframes dot2 {
+  0%, 40.0% { fill: #6c7086; r: 4; }
+  41.0% { fill: #89b4fa; r: 5; }
+  59.0% { fill: #89b4fa; r: 5; }
+  60.0%, 100% { fill: #6c7086; r: 4; }
+}
+@keyframes dot3 {
+  0%, 60.0% { fill: #6c7086; r: 4; }
+  61.0% { fill: #89b4fa; r: 5; }
+  79.0% { fill: #89b4fa; r: 5; }
+  80.0%, 100% { fill: #6c7086; r: 4; }
+}
+@keyframes dot4 {
+  0%, 80.0% { fill: #6c7086; r: 4; }
+  81.0% { fill: #89b4fa; r: 5; }
+  99.0% { fill: #89b4fa; r: 5; }
+  100.0%, 100% { fill: #6c7086; r: 4; }
+}
+</style>
+
+<!-- Background -->
+<rect width="820" height="446" rx="10" fill="#1e1e2e"/>
+
+<!-- Title bar -->
+<rect width="820" height="38" rx="10" fill="#313244"/>
+<rect y="28" width="820" height="10" fill="#313244"/>
+<circle cx="20" cy="19" r="6" fill="#ff5f56"/><circle cx="38" cy="19" r="6" fill="#ffbd2e"/><circle cx="56" cy="19" r="6" fill="#27c93f"/>
+<text x="410" y="23" text-anchor="middle" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#a6adc8">Automate Stack Validation — Demo Workflow</text>
+
+<!-- Step panels (animated) -->
+<g transform="translate(0, 54)" opacity="0" style="animation: step0 25.0s ease-in-out infinite">
+  <rect x="24" y="0" width="772" height="276" rx="8" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <rect x="40" y="14" width="86.8" height="22" rx="11" fill="#89b4fa"/>
+  <text x="54" y="29" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1e2e" letter-spacing="0.5">1  LAUNCH</text>
+  <text x="138.8" y="30" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#6c7086">Double-click run.bat or use the command line</text>
+  <line x1="40" y1="44" x2="780" y2="44" stroke="#313244" stroke-width="1"/>
+  <text x="44" y="64" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">❯ </tspan><tspan fill="#f9e2af">run.bat</tspan></text>
+  <text x="44" y="104" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  [setup] Virtual environment found ✓</tspan></text>
+  <text x="44" y="124" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#a6e3a1">  [automate_validation] Launching GUI...</tspan></text>
+  <text x="44" y="164" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  ┌──────────────────────────────────────────────┐</tspan></text>
+  <text x="44" y="184" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  </tspan><tspan fill="#89b4fa">Automate Stack Validation</tspan><tspan fill="#313244">           │</tspan></text>
+  <text x="44" y="204" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  </tspan><tspan fill="#6c7086">Version: </tspan><tspan fill="#cdd6f4">Automate 5</tspan><tspan fill="#313244">                  │</tspan></text>
+  <text x="44" y="224" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  </tspan><tspan fill="#a6e3a1">13 test cases loaded</tspan><tspan fill="#313244">                 │</tspan></text>
+  <text x="44" y="244" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  └──────────────────────────────────────────────┘</tspan></text>
+</g><g transform="translate(0, 54)" opacity="0" style="animation: step1 25.0s ease-in-out infinite">
+  <rect x="24" y="0" width="772" height="296" rx="8" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <rect x="40" y="14" width="86.8" height="22" rx="11" fill="#89b4fa"/>
+  <text x="54" y="29" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1e2e" letter-spacing="0.5">2  BROWSE</text>
+  <text x="138.8" y="30" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#6c7086">View all test cases — filter by subcomponent or status</text>
+  <line x1="40" y1="44" x2="780" y2="44" stroke="#313244" stroke-width="1"/>
+  <text x="44" y="64" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  Subcomponent: </tspan><tspan fill="#89dceb">[All ▾]</tspan><tspan fill="#6c7086">   Status: </tspan><tspan fill="#89dceb">[All ▾]</tspan><tspan fill="#6c7086">   Result: </tspan><tspan fill="#89dceb">[All ▾]</tspan></text>
+  <text x="44" y="104" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  ID        Title                        Sub         Exec  Result</tspan></text>
+  <text x="44" y="124" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  ────────  ───────────────────────────  ──────────  ────  ──────</tspan></text>
+  <text x="44" y="144" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  SW-001    System boot and init         Software    No    </tspan><tspan fill="#6c7086">—</tspan></text>
+  <text x="44" y="164" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  SW-002    IPC validation               Software    No    </tspan><tspan fill="#6c7086">—</tspan></text>
+  <text x="44" y="184" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  MECH-001  Chassis structural integrity Mechanical  No    </tspan><tspan fill="#6c7086">—</tspan></text>
+  <text x="44" y="204" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  HFPGA-001 FPGA bitstream load          Holoscan    No    </tspan><tspan fill="#6c7086">—</tspan></text>
+  <text x="44" y="224" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  MAMC-001  Motor FPGA bitstream load    MAMC FPGA   No    </tspan><tspan fill="#6c7086">—</tspan></text>
+  <text x="44" y="264" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  Showing 13 of 13</tspan><tspan fill="#6c7086">    ✓ 0 passed  ✗ 0 failed  ○ 13 pending</tspan></text>
+</g><g transform="translate(0, 54)" opacity="0" style="animation: step2 25.0s ease-in-out infinite">
+  <rect x="24" y="0" width="772" height="336" rx="8" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <rect x="40" y="14" width="102.4" height="22" rx="11" fill="#89b4fa"/>
+  <text x="54" y="29" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1e2e" letter-spacing="0.5">3  ADD TEST</text>
+  <text x="154.4" y="30" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#6c7086">Click ＋ Add Test Case — fill in the form</text>
+  <line x1="40" y1="44" x2="780" y2="44" stroke="#313244" stroke-width="1"/>
+  <text x="44" y="64" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  ┌─ </tspan><tspan fill="#89b4fa">Add New Test Case</tspan><tspan fill="#313244"> ───────────────────────────┐</tspan></text>
+  <text x="44" y="84" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │</tspan></text>
+  <text x="44" y="104" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Subcomponent:  </tspan><tspan fill="#89dceb">[Software ▾]</tspan></text>
+  <text x="44" y="124" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Test ID (auto): </tspan><tspan fill="#a6e3a1">SW-004</tspan></text>
+  <text x="44" y="144" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Title:         </tspan><tspan fill="#cdd6f4">Config hot reload test</tspan></text>
+  <text x="44" y="164" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Description:   </tspan><tspan fill="#cdd6f4">Verify runtime config reload...</tspan></text>
+  <text x="44" y="184" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Dependencies:  </tspan><tspan fill="#fab387">SW-001</tspan></text>
+  <text x="44" y="204" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │</tspan></text>
+  <text x="44" y="224" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  </tspan><tspan fill="#6c7086">Step 1:</tspan><tspan fill="#cdd6f4"> Start service  → </tspan><tspan fill="#a6e3a1">Service running</tspan></text>
+  <text x="44" y="244" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  </tspan><tspan fill="#6c7086">Step 2:</tspan><tspan fill="#cdd6f4"> Modify config  → </tspan><tspan fill="#a6e3a1">Change detected</tspan></text>
+  <text x="44" y="264" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │</tspan></text>
+  <text x="44" y="284" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │           </tspan><tspan fill="#a6e3a1">[  Save  ]</tspan><tspan fill="#6c7086">    [Cancel]</tspan><tspan fill="#313244">              │</tspan></text>
+  <text x="44" y="304" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  └────────────────────────────────────────────────┘</tspan></text>
+</g><g transform="translate(0, 54)" opacity="0" style="animation: step3 25.0s ease-in-out infinite">
+  <rect x="24" y="0" width="772" height="316" rx="8" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <rect x="40" y="14" width="86.8" height="22" rx="11" fill="#89b4fa"/>
+  <text x="54" y="29" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1e2e" letter-spacing="0.5">4  RECORD</text>
+  <text x="138.8" y="30" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#6c7086">Select a test → Record Result → mark pass or fail</text>
+  <line x1="40" y1="44" x2="780" y2="44" stroke="#313244" stroke-width="1"/>
+  <text x="44" y="64" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#89b4fa">  ▸ </tspan><tspan fill="#6c7086">Selected: </tspan><tspan fill="#cdd6f4">SW-001 — System boot and initialization</tspan></text>
+  <text x="44" y="104" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  ┌─ </tspan><tspan fill="#89b4fa">Record Result</tspan><tspan fill="#313244"> ─────────────────────────────┐</tspan></text>
+  <text x="44" y="124" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │</tspan></text>
+  <text x="44" y="144" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Result:      </tspan><tspan fill="#a6e3a1">[ Pass ▾]</tspan></text>
+  <text x="44" y="164" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Executed by: </tspan><tspan fill="#cdd6f4">Jane Doe</tspan></text>
+  <text x="44" y="184" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │  Notes:       </tspan><tspan fill="#cdd6f4">All services up in 42s</tspan></text>
+  <text x="44" y="204" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │</tspan></text>
+  <text x="44" y="224" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  │           </tspan><tspan fill="#a6e3a1">[  Save  ]</tspan><tspan fill="#6c7086">    [Cancel]</tspan><tspan fill="#313244">              │</tspan></text>
+  <text x="44" y="244" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  └────────────────────────────────────────────────┘</tspan></text>
+  <text x="44" y="284" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#a6e3a1">  ✓ </tspan><tspan fill="#cdd6f4">SW-001 updated: </tspan><tspan fill="#a6e3a1">PASS</tspan><tspan fill="#6c7086"> by Jane Doe (2026-04-28)</tspan></text>
+</g><g transform="translate(0, 54)" opacity="0" style="animation: step4 25.0s ease-in-out infinite">
+  <rect x="24" y="0" width="772" height="316" rx="8" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <rect x="40" y="14" width="86.8" height="22" rx="11" fill="#89b4fa"/>
+  <text x="54" y="29" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1e2e" letter-spacing="0.5">5  EXPORT</text>
+  <text x="138.8" y="30" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="12" fill="#6c7086">Generate reports for Confluence via CLI or batch script</text>
+  <line x1="40" y1="44" x2="780" y2="44" stroke="#313244" stroke-width="1"/>
+  <text x="44" y="64" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">❯ </tspan><tspan fill="#f9e2af">run.bat report</tspan></text>
+  <text x="44" y="84" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  [automate_validation] Generating Markdown report...</tspan></text>
+  <text x="44" y="124" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  | Test ID  | Title               | Result |</tspan></text>
+  <text x="44" y="144" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#313244">  |----------|---------------------|--------|</tspan></text>
+  <text x="44" y="164" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  | SW-001   | System boot and init| </tspan><tspan fill="#a6e3a1">PASS</tspan><tspan fill="#cdd6f4">   |</tspan></text>
+  <text x="44" y="184" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  | SW-002   | IPC validation      | </tspan><tspan fill="#6c7086">—</tspan><tspan fill="#cdd6f4">      |</tspan></text>
+  <text x="44" y="204" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#cdd6f4">  | MECH-001 | Chassis integrity   | </tspan><tspan fill="#6c7086">—</tspan><tspan fill="#cdd6f4">      |</tspan></text>
+  <text x="44" y="244" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">❯ </tspan><tspan fill="#f9e2af">run.bat report csv</tspan></text>
+  <text x="44" y="264" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#6c7086">  [automate_validation] Generating CSV report...</tspan></text>
+  <text x="44" y="284" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="13" fill="#cdd6f4"><tspan fill="#a6e3a1">  ✓ </tspan><tspan fill="#89dceb">Saved to automate_5_results.csv</tspan><tspan fill="#6c7086"> — paste into Confluence</tspan></text>
+</g>
+
+<!-- Step indicator dots -->
+<circle cx="354.0" cy="426" r="4" fill="#6c7086" style="animation: dot0 25.0s ease-in-out infinite"/><circle cx="382.0" cy="426" r="4" fill="#6c7086" style="animation: dot1 25.0s ease-in-out infinite"/><circle cx="410.0" cy="426" r="4" fill="#6c7086" style="animation: dot2 25.0s ease-in-out infinite"/><circle cx="438.0" cy="426" r="4" fill="#6c7086" style="animation: dot3 25.0s ease-in-out infinite"/><circle cx="466.0" cy="426" r="4" fill="#6c7086" style="animation: dot4 25.0s ease-in-out infinite"/>
+
+</svg>

@@ -2,7 +2,11 @@
 
 Test case and test step database for validating Automate stack implementations across **Software**, **Mechanical**, **Holoscan FPGA**, and **Multi Axis Motor Control FPGA** subcomponents.
 
-Includes a **PyQt6 desktop GUI** for browsing, adding, filtering, and recording test results, plus a **CLI** for scripting and CI. Reports can be exported as Markdown tables or CSV for import into Confluence.
+Includes a **PyQt6 desktop GUI** for browsing, adding, filtering, and recording test results, plus a **CLI** and **batch script** for scripting and CI. Reports can be exported as Markdown tables or CSV for import into Confluence.
+
+## Demo
+
+![Demo: Automate Validation workflow](demo/demo.svg)
 
 ---
 
@@ -12,6 +16,10 @@ Includes a **PyQt6 desktop GUI** for browsing, adding, filtering, and recording 
 automate_validation/
 ├── README.md
 ├── requirements.txt
+├── run.bat                          # One-click launcher (Windows)
+├── demo/
+│   ├── demo.svg                     # Animated workflow demo
+│   └── generate_demo.py             # Script to regenerate the SVG
 ├── schema/
 │   └── test_case_schema.json        # JSON Schema defining test case fields
 ├── templates/
@@ -77,6 +85,21 @@ Each subcomponent has a prefix. IDs are sequential, zero-padded to 3 digits.
 pip install -r requirements.txt
 ```
 
+### Quick Start (Windows)
+
+Double-click **`run.bat`** or run it from a terminal:
+
+```batch
+run.bat              :: Launch the GUI (default)
+run.bat gui          :: Launch the GUI
+run.bat validate     :: Validate all Automate 5 test cases
+run.bat report       :: Print Markdown report to console
+run.bat report csv   :: Export CSV to automate_5_results.csv
+run.bat record       :: Record a result (interactive prompts)
+```
+
+The batch script auto-creates a `.venv` and installs dependencies on first run.
+
 ### Launch the GUI (recommended)
 
 ```bash
@@ -100,8 +123,6 @@ The GUI provides:
 > ```
 
 ### CLI Usage
-
-#### Validate test case files
 
 #### Validate test case files
 
