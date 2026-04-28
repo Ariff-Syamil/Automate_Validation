@@ -1,0 +1,82 @@
+# =============================================================================
+# Automate 5 - Software Validation Test Cases
+# =============================================================================
+
+test_cases:
+  - test_id: "SW-001"
+    title: "System boot and initialization"
+    subcomponent: "software"
+    description: |
+      Verify that the Automate 5 software stack boots successfully
+      and all services initialize without errors.
+    dependencies: []
+    test_steps:
+      - step_number: 1
+        action: "Power on the Automate 5 system"
+        expected_result: "System powers on and begins boot sequence"
+      - step_number: 2
+        action: "Observe boot log output"
+        expected_result: "No error messages during boot sequence"
+      - step_number: 3
+        action: "Verify all expected services are running"
+        expected_result: "All services report healthy status"
+    success_criteria: "All services start successfully with no error logs within 60 seconds of power-on"
+    failure_criteria: "Any service fails to start, crashes, or reports errors during initialization"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "SW-002"
+    title: "Inter-process communication validation"
+    subcomponent: "software"
+    description: |
+      Validate that all software modules can communicate with each other
+      through the defined IPC mechanisms.
+    dependencies:
+      - "SW-001"
+    test_steps:
+      - step_number: 1
+        action: "Start all software modules"
+        expected_result: "All modules are running and registered"
+      - step_number: 2
+        action: "Send test message from Module A to Module B"
+        expected_result: "Module B receives the message within 100ms"
+      - step_number: 3
+        action: "Verify round-trip communication across all module pairs"
+        expected_result: "All module pairs communicate successfully"
+    success_criteria: "All IPC channels pass bidirectional message exchange with latency under 100ms"
+    failure_criteria: "Any IPC channel fails to deliver messages or exceeds latency threshold"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "SW-003"
+    title: "Software error handling and recovery"
+    subcomponent: "software"
+    description: |
+      Verify that the software stack handles errors gracefully and
+      recovers from fault conditions without manual intervention.
+    dependencies:
+      - "SW-001"
+      - "SW-002"
+    test_steps:
+      - step_number: 1
+        action: "Inject a simulated fault into a non-critical service"
+        expected_result: "System detects the fault and logs it"
+      - step_number: 2
+        action: "Observe system behavior after fault injection"
+        expected_result: "Affected service restarts automatically"
+      - step_number: 3
+        action: "Verify system returns to normal operation"
+        expected_result: "All services healthy, no data loss"
+    success_criteria: "System detects fault, restarts affected service, and returns to normal within 30 seconds"
+    failure_criteria: "System crashes, hangs, or requires manual intervention to recover"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""

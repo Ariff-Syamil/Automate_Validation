@@ -1,0 +1,81 @@
+# =============================================================================
+# Automate 5 - Mechanical Validation Test Cases
+# =============================================================================
+
+test_cases:
+  - test_id: "MECH-001"
+    title: "Chassis structural integrity"
+    subcomponent: "mechanical"
+    description: |
+      Verify the Automate 5 chassis meets structural integrity
+      requirements under standard operating loads.
+    dependencies: []
+    test_steps:
+      - step_number: 1
+        action: "Visually inspect chassis for manufacturing defects"
+        expected_result: "No visible cracks, warping, or misalignment"
+      - step_number: 2
+        action: "Apply rated load to all mounting points"
+        expected_result: "No deformation beyond specified tolerances"
+      - step_number: 3
+        action: "Measure deflection at critical points under load"
+        expected_result: "Deflection within design specifications"
+    success_criteria: "All structural measurements within tolerance and no visible defects"
+    failure_criteria: "Any measurement out of tolerance or visible structural defect found"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "MECH-002"
+    title: "Thermal management verification"
+    subcomponent: "mechanical"
+    description: |
+      Validate that the mechanical thermal management system maintains
+      component temperatures within operating limits during sustained load.
+    dependencies:
+      - "MECH-001"
+    test_steps:
+      - step_number: 1
+        action: "Install thermal sensors at all critical component locations"
+        expected_result: "Sensors reporting baseline ambient temperature"
+      - step_number: 2
+        action: "Run system at full load for 60 minutes"
+        expected_result: "All temperatures remain within operating limits"
+      - step_number: 3
+        action: "Record peak temperatures and steady-state values"
+        expected_result: "Peak temps below maximum rated values"
+    success_criteria: "All component temperatures stay below rated maximums during sustained full-load operation"
+    failure_criteria: "Any component exceeds its maximum rated temperature"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "MECH-003"
+    title: "Connector and cable routing validation"
+    subcomponent: "mechanical"
+    description: |
+      Verify all connectors are properly seated and cable routing
+      meets bend radius and strain relief requirements.
+    dependencies:
+      - "MECH-001"
+    test_steps:
+      - step_number: 1
+        action: "Inspect all connector mating pairs for proper engagement"
+        expected_result: "All connectors fully seated and latched"
+      - step_number: 2
+        action: "Verify cable bend radii meet minimum specifications"
+        expected_result: "No cable bend radius violations"
+      - step_number: 3
+        action: "Check strain relief at all cable termination points"
+        expected_result: "Strain relief properly installed at all points"
+    success_criteria: "All connectors seated, cables routed within spec, strain relief intact"
+    failure_criteria: "Any connector unseated, bend radius violated, or missing strain relief"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""

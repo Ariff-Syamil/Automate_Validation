@@ -1,0 +1,33 @@
+# =============================================================================
+# Automate Validation - Test Case Template
+# =============================================================================
+# Copy this template to the appropriate subcomponent folder and fill in values.
+#
+# Test ID Prefixes:
+#   SW-     Software
+#   MECH-   Mechanical
+#   HFPGA-  Holoscan FPGA
+#   MAMC-   Multi Axis Motor Control FPGA
+# =============================================================================
+
+- test_id: "<PREFIX>-001"
+  title: "<Short descriptive title>"
+  subcomponent: "<software | mechanical | holoscan_fpga | multi_axis_motor_control_fpga>"
+  description: |
+    <Detailed description of what this test validates.>
+  dependencies:
+    - "<test_id or prerequisite description>"
+  test_steps:
+    - step_number: 1
+      action: "<What to do>"
+      expected_result: "<What should happen>"
+    - step_number: 2
+      action: "<What to do>"
+      expected_result: "<What should happen>"
+  success_criteria: "<What constitutes a passing test>"
+  failure_criteria: "<What constitutes a failing test>"
+  executed: false
+  result: null
+  execution_date: null
+  executed_by: null
+  notes: ""

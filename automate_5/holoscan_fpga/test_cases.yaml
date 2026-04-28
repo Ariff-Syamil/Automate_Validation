@@ -1,0 +1,82 @@
+# =============================================================================
+# Automate 5 - Holoscan FPGA Validation Test Cases
+# =============================================================================
+
+test_cases:
+  - test_id: "HFPGA-001"
+    title: "FPGA bitstream load and configuration"
+    subcomponent: "holoscan_fpga"
+    description: |
+      Verify that the Holoscan FPGA loads its bitstream correctly
+      and enters a configured state without errors.
+    dependencies: []
+    test_steps:
+      - step_number: 1
+        action: "Power on the FPGA board and initiate bitstream load"
+        expected_result: "DONE pin asserts indicating successful configuration"
+      - step_number: 2
+        action: "Read FPGA status registers"
+        expected_result: "Status registers report valid configuration with correct version"
+      - step_number: 3
+        action: "Run built-in self-test (BIST)"
+        expected_result: "BIST passes with no errors reported"
+    success_criteria: "FPGA configures successfully, status registers correct, BIST passes"
+    failure_criteria: "DONE pin does not assert, status registers incorrect, or BIST fails"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "HFPGA-002"
+    title: "Holoscan data pipeline throughput"
+    subcomponent: "holoscan_fpga"
+    description: |
+      Validate that the Holoscan FPGA data pipeline meets the
+      required throughput specifications under sustained operation.
+    dependencies:
+      - "HFPGA-001"
+    test_steps:
+      - step_number: 1
+        action: "Configure FPGA pipeline with test data source"
+        expected_result: "Pipeline configured and ready"
+      - step_number: 2
+        action: "Stream test data at rated throughput for 10 minutes"
+        expected_result: "No data drops or pipeline stalls"
+      - step_number: 3
+        action: "Verify output data integrity against expected values"
+        expected_result: "Output matches expected data with zero errors"
+    success_criteria: "Sustained throughput at rated speed with zero data errors for 10 minutes"
+    failure_criteria: "Data drops, pipeline stalls, or output data corruption detected"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
+
+  - test_id: "HFPGA-003"
+    title: "Holoscan FPGA host interface communication"
+    subcomponent: "holoscan_fpga"
+    description: |
+      Verify reliable communication between the Holoscan FPGA
+      and the host processor over the defined interface (e.g., PCIe).
+    dependencies:
+      - "HFPGA-001"
+      - "SW-001"
+    test_steps:
+      - step_number: 1
+        action: "Enumerate FPGA device on host bus"
+        expected_result: "FPGA device detected with correct vendor/device IDs"
+      - step_number: 2
+        action: "Perform register read/write test across interface"
+        expected_result: "All register accesses return expected values"
+      - step_number: 3
+        action: "Run DMA transfer test with known data pattern"
+        expected_result: "DMA transfers complete with correct data"
+    success_criteria: "Host interface enumeration, register access, and DMA all function correctly"
+    failure_criteria: "Device not detected, register access errors, or DMA data mismatch"
+    executed: false
+    result: null
+    execution_date: null
+    executed_by: null
+    notes: ""
