@@ -1,0 +1,11 @@
+Test run log (overwritten each run)
+Finished: 2026-06-16 06:05:21 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_hil
+
+Results:
+  SKIPPED   tests/test_suite_hil/testcase_hil_gates.py::TestHilGates::test_gesture_assets_present
+  SKIPPED   tests/test_suite_hil/testcase_hil_gates.py::TestHilGates::test_hololink_board_reachable
+  SKIPPED   tests/test_suite_hil/testcase_hil_gates.py::TestHilGates::test_real_usb_camera_available
+  SKIPPED   tests/test_suite_hil/testcase_hil_gates.py::TestHilGates::test_vla_service_reachable
+
+OVERALL: PASSED

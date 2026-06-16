@@ -1,0 +1,47 @@
+Test run log (overwritten each run)
+Finished: 2026-06-16 06:09:21 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_packets
+
+Results:
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_str_and_code
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10000]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10001]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10002]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10003]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10004]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10005]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10006]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10007]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10008]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10009]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10010]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10011]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10012]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10013]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10014]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10015]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10016]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[10017]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11000]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11001]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11002]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11003]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11004]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11005]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_coded_error_string_contains_code_name_and_value[11006]
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_enum_values_are_unique
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_error_code_includes_diagram_spelling
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_gesture_code_values
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_phase_code_pipeline_order
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_phase_code_range
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_subsystem_complete_mapping
+  PASSED    tests/test_suite_packets/testcase_codes.py::test_subsystem_values
+  PASSED    tests/test_suite_packets/testcase_ecb_codec.py::TestEcbCodec::test_builders_default_payload_and_masks
+  PASSED    tests/test_suite_packets/testcase_ecb_codec.py::TestEcbCodec::test_ecb_header_and_data_pair_roundtrip
+  PASSED    tests/test_suite_packets/testcase_ecb_codec.py::TestEcbCodec::test_ecb_message_and_thor_payload_roundtrip
+  PASSED    tests/test_suite_packets/testcase_packets.py::TestPacketWireFormats::test_ethercat_command_roundtrip_and_validation
+  PASSED    tests/test_suite_packets/testcase_packets.py::TestPacketWireFormats::test_ethercat_status_flags_and_telemetry
+  PASSED    tests/test_suite_packets/testcase_packets.py::TestPacketWireFormats::test_udp_header_roundtrip_and_bounds
+  PASSED    tests/test_suite_packets/testcase_packets.py::TestPacketWireFormats::test_vla_ethercat_packet_layout_and_length_guard
+
+OVERALL: PASSED

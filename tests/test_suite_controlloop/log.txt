@@ -1,0 +1,9 @@
+Test run log (overwritten each run)
+Finished: 2026-06-16 06:05:24 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_controlloop
+
+Results:
+  PASSED    tests/test_suite_controlloop/testcase_control_loop.py::TestControlLoop::test_error_handling
+  PASSED    tests/test_suite_controlloop/testcase_control_loop.py::TestControlLoop::test_zmq_roundtrip
+
+OVERALL: PASSED

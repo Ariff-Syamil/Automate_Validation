@@ -1,0 +1,11 @@
+suite_name: gesture
+tags:
+  - backend
+  - gesture
+  - mediapipe
+description: "Hand gesture acceptance tests (left/right hand, video-based, MediaPipe)"
+environment:
+  requires_video_fixtures: true
+  requires_mediapipe_model: true
+mocks: []
+skip_in_ci: true

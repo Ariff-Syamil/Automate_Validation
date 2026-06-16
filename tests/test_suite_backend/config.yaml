@@ -1,0 +1,11 @@
+suite_name: backend
+tags:
+  - backend
+  - unit
+description: "Backend mock data, camera, Hololink, and gesture lifecycle tests"
+environment: {}
+mocks:
+  - camera_controller
+  - gesture_worker
+  - hololink_pipeline
+skip_in_ci: false

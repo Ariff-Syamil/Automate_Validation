@@ -1,0 +1,8 @@
+suite_name: log
+tags:
+  - log
+  - unit
+description: "RuntimeLogger dual-sink structured logging tests"
+environment: {}
+mocks: []
+skip_in_ci: false

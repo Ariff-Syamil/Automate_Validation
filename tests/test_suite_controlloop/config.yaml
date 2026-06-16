@@ -1,0 +1,11 @@
+suite_name: controlloop
+tags:
+  - controlloop
+  - unit
+  - zmq
+description: "ControlLoop orchestrator tests (headless / CLI)"
+environment: {}
+mocks:
+  - zmq_service
+  - video_capture
+skip_in_ci: false

@@ -1,0 +1,8 @@
+# Optional execution overrides for TC-GUI automation.
+#
+# By default, the executor maps:
+#   TC-GUI-020 -> tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
+#
+# Add entries here only when a case needs a non-standard pytest target,
+# environment variable, timeout, or explicit blocked reason.
+test_cases: {}

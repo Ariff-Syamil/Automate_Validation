@@ -1,82 +1,279 @@
-# =============================================================================
-# Automate 5 - Holoscan FPGA Validation Test Cases
-# =============================================================================
-
 test_cases:
-  - test_id: "HFPGA-001"
-    title: "FPGA bitstream load and configuration"
-    subcomponent: "holoscan_fpga"
-    description: |
-      Verify that the Holoscan FPGA loads its bitstream correctly
-      and enters a configured state without errors.
-    dependencies: []
-    test_steps:
-      - step_number: 1
-        action: "Power on the FPGA board and initiate bitstream load"
-        expected_result: "DONE pin asserts indicating successful configuration"
-      - step_number: 2
-        action: "Read FPGA status registers"
-        expected_result: "Status registers report valid configuration with correct version"
-      - step_number: 3
-        action: "Run built-in self-test (BIST)"
-        expected_result: "BIST passes with no errors reported"
-    success_criteria: "FPGA configures successfully, status registers correct, BIST passes"
-    failure_criteria: "DONE pin does not assert, status registers incorrect, or BIST fails"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "HFPGA-002"
-    title: "Holoscan data pipeline throughput"
-    subcomponent: "holoscan_fpga"
-    description: |
-      Validate that the Holoscan FPGA data pipeline meets the
-      required throughput specifications under sustained operation.
-    dependencies:
-      - "HFPGA-001"
-    test_steps:
-      - step_number: 1
-        action: "Configure FPGA pipeline with test data source"
-        expected_result: "Pipeline configured and ready"
-      - step_number: 2
-        action: "Stream test data at rated throughput for 10 minutes"
-        expected_result: "No data drops or pipeline stalls"
-      - step_number: 3
-        action: "Verify output data integrity against expected values"
-        expected_result: "Output matches expected data with zero errors"
-    success_criteria: "Sustained throughput at rated speed with zero data errors for 10 minutes"
-    failure_criteria: "Data drops, pipeline stalls, or output data corruption detected"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "HFPGA-003"
-    title: "Holoscan FPGA host interface communication"
-    subcomponent: "holoscan_fpga"
-    description: |
-      Verify reliable communication between the Holoscan FPGA
-      and the host processor over the defined interface (e.g., PCIe).
-    dependencies:
-      - "HFPGA-001"
-      - "SW-001"
-    test_steps:
-      - step_number: 1
-        action: "Enumerate FPGA device on host bus"
-        expected_result: "FPGA device detected with correct vendor/device IDs"
-      - step_number: 2
-        action: "Perform register read/write test across interface"
-        expected_result: "All register accesses return expected values"
-      - step_number: 3
-        action: "Run DMA transfer test with known data pattern"
-        expected_result: "DMA transfers complete with correct data"
-    success_criteria: "Host interface enumeration, register access, and DMA all function correctly"
-    failure_criteria: "Device not detected, register access errors, or DMA data mismatch"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
+- test_case_id: TC-FPGA-001
+  owner: Seow Jie / Kin Nam
+  component: MIPI Camera Input
+  dependency: null
+  precondition: Hardware Dependency
+  test_name: Single Camera MIPI Capture
+  steps:
+  - Connect camera
+  - load bitstream
+  - start pipeline
+  - monitor errors
+  expected_result: Stable video stream without errors
+  fail_conditions: Camera not detected; frame drops
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: Ready
+  test_environment_ci_hil: HIL
+  observations: Baseline Phase-1 validation
+  jira_link: null
+  next_action_if_fail: Check lane mapping and clocking
+- test_case_id: TC-FPGA-002
+  owner: Seow Jie / Kin Nam
+  component: MIPI Camera Input
+  dependency:
+  - TC-FPGA-001
+  precondition: null
+  test_name: Dual Camera MIPI Capture
+  steps:
+  - Connect two cameras
+  - regenerate bitstream
+  - enable streams
+  expected_result: Two stable video streams
+  fail_conditions: One stream missing; low FPS
+  priority: P1
+  severity: Major
+  automation_readiness: Semi-Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: WIP per roadmap
+  jira_link: null
+  next_action_if_fail: Profile bandwidth and PLL timing
+- test_case_id: TC-FPGA-003
+  owner: Sheng Li
+  component: Ethernet MAC/PCS
+  dependency: null
+  precondition: null
+  test_name: 10G Ethernet Stability
+  steps:
+  - Bring up link
+  - send traffic
+  - monitor errors
+  expected_result: Stable 10G link with no packet loss
+  fail_conditions: Link flap; packet loss
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Re-validation needed
+  jira_link: null
+  next_action_if_fail: Inspect PCS and signal integrity
+- test_case_id: TC-FPGA-004
+  owner: Sheng Li
+  component: Ethernet MAC/PCS (25G)
+  dependency:
+  - TC-FPGA-003
+  precondition: null
+  test_name: 25G Ethernet Bring-Up
+  steps:
+  - Configure FPGA for 25G Ethernet
+  - configure Thor networking stack
+  - attempt link bring-up
+  - send sustained traffic
+  expected_result: 25G link established with stable throughput
+  fail_conditions: Link does not come up; excessive CRC or packet loss
+  priority: P1
+  severity: Major
+  automation_readiness: Semi-Automatable
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Known Thor dependency; WIP per roadmap
+  jira_link: null
+  next_action_if_fail: Resolve Thor drivers/firmware and re-check FPGA timing
+- test_case_id: TC-FPGA-005
+  owner: Sheng Li
+  component: Ethernet RX / SGDMA
+  dependency:
+  - TC-FPGA-003
+  - TC-FPGA-004
+  precondition: null
+  test_name: PCS Loopback DMA Capture
+  steps:
+  - Enable PCS loopback
+  - send known payload
+  - verify memory buffer
+  expected_result: Payload correctly stored in memory
+  fail_conditions: Corrupted or incomplete DMA
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Core ingress validation
+  jira_link: null
+  next_action_if_fail: Debug DMA descriptors and AXI path
+- test_case_id: TC-FPGA-006
+  owner: Kin Nam / Haikal
+  component: RISC-V Firmware
+  dependency:
+  - TC-FPGA-003
+  - TC-FPGA-004
+  - TC-FPGA-005
+  precondition: null
+  test_name: Firmware Payload Verification
+  steps:
+  - Configure SGDMA
+  - trigger DMA
+  - read and validate payload
+  expected_result: Payload matches expected pattern
+  fail_conditions: Read failure; data mismatch
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: null
+  test_environment_ci_hil: CI
+  observations: Phase-2 firmware deliverable
+  jira_link: null
+  next_action_if_fail: Add firmware logging and cache checks
+- test_case_id: TC-VLA-001
+  owner: Seow Jie / Kin Nam
+  component: Holoscan Vision
+  dependency:
+  - TC-FPGA-001
+  - TC-FPGA-002
+  precondition: null
+  test_name: Live Vision Pipeline
+  steps:
+  - Start Holoscan pipeline
+  - monitor FPS and latency
+  expected_result: Stable stream at target FPS
+  fail_conditions: Pipeline crash; high latency
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Phase-3 system proof
+  jira_link: null
+  next_action_if_fail: Profile GPU and pipeline stages
+- test_case_id: TC-VLA-002
+  owner: Kin Nam / Haikal
+  component: VLA Control Loop
+  dependency:
+  - TC-FPGA-001
+  - TC-FPGA-002
+  - TC-FPGA-003
+  - TC-FPGA-004
+  - TC-FPGA-005
+  - TC-FPGA-006
+  - TC-SW-001
+  - TC-SW-002
+  - TC-SW-003
+  - TC-VLA-001
+  precondition: null
+  test_name: Gesture to Motor Mapping
+  steps:
+  - Perform hand gesture
+  - run inference
+  - observe motor speed
+  expected_result: Motor speed follows gesture
+  fail_conditions: Unstable or incorrect motion
+  priority: P3
+  severity: Major
+  automation_readiness: Manual
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Human-in-loop validation
+  jira_link: null
+  next_action_if_fail: Tune thresholds or retrain model
+- test_case_id: TC-VLA-003
+  owner: Automate5 QA
+  component: Gesture Recognition
+  dependency:
+  - TC-VLA-001
+  precondition: MediaPipe hand_landmarker.task exists; left/right gesture videos are available.
+  test_name: Offline gesture videos satisfy left-hand selection and right-hand speed/stop acceptance
+  steps:
+  - Load detector settings and fixture scenarios
+  - Run MediaPipe over left-hand fixture video
+  - Verify selections 1, 2, 3, 4, and ALL
+  - Run right-hand fixture video
+  - Verify speed below threshold, speed above threshold, and fist stop
+  expected_result: All must_observe gestures are detected before video end; missing assets skip rather
+    than fail CI.
+  fail_conditions: Required gesture never appears, detector fails to load, or fixture path is wrong when
+    assets are expected.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: HIL
+  observations: Derived from tests/test_suite_gesture/testcase_gesture.py; skip_in_ci remains true because
+    video/model assets are required.
+  jira_link: null
+  next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
+- test_case_id: TC-VLA-004
+  owner: Automate5 QA
+  component: Hololink Camera Pipeline
+  dependency:
+  - TC-FPGA-001
+  - TC-FPGA-003
+  - TC-SW-020
+  precondition: Hololink board reachable at configured IP; camera sensor connected; display or video sink
+    available.
+  test_name: Hololink single-camera configure success emits live state and frames
+  steps:
+  - Register QVideoSink for CAM1
+  - Call apply_preview in single-camera mode
+  - Wait for live signal and frame delivery
+  - Verify no last_error and shutdown clears live state
+  expected_result: CAM1 becomes live, frames arrive, no configure error is recorded, and shutdown is clean.
+  fail_conditions: Board not discovered, no live signal, no frames, configure error emitted, or shutdown
+    leaks worker state.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Optional hardware success-path counterpart to CI negative-path tests.
+  jira_link: null
+  next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
+- test_case_id: TC-VLA-005
+  owner: Automate5 QA
+  component: Hololink Camera Pipeline
+  dependency:
+  - TC-VLA-004
+  precondition: Two cameras/sensors available through Hololink and configured for dual preview.
+  test_name: Hololink dual-camera mode reports both previews live
+  steps:
+  - Register CAM1 and CAM2 video sinks
+  - Configure dual-camera mode
+  - Wait for both live signals and frame delivery
+  - Verify shutdown clears both live states
+  expected_result: Both camera slots become live, emit frames, and cleanly stop.
+  fail_conditions: Only one slot becomes live, sinks receive no frames, dual-mode configure fails, or
+    cleanup leaves live state active.
+  priority: P1
+  severity: Major
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Covers dual preview behavior used by Base and VLA GUI panels.
+  jira_link: null
+  next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
+- test_case_id: TC-VLA-006
+  owner: Automate5 QA
+  component: VLA Policy Server
+  dependency:
+  - TC-SYS-003
+  precondition: VLA policy server or simulator reachable; synthetic observation fixture available.
+  test_name: VLA policy server returns valid action chunk for synthetic observation
+  steps:
+  - Connect to configured VLA policy endpoint
+  - Send synthetic observation and prompt
+  - Receive action chunk response
+  - Validate shape, numeric ranges, timeout behavior, and motor command conversion
+  expected_result: Policy service returns valid action within timeout and failure paths map to coded errors.
+  fail_conditions: Timeout, malformed action, invalid range, missing prompt handling, or no coded error
+    on failure.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Bridges mocked control-loop contract tests to real VLA service validation.
+  jira_link: null
+  next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.

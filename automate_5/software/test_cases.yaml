@@ -1,82 +1,608 @@
-# =============================================================================
-# Automate 5 - Software Validation Test Cases
-# =============================================================================
-
 test_cases:
-  - test_id: "SW-001"
-    title: "System boot and initialization"
-    subcomponent: "software"
-    description: |
-      Verify that the Automate 5 software stack boots successfully
-      and all services initialize without errors.
-    dependencies: []
-    test_steps:
-      - step_number: 1
-        action: "Power on the Automate 5 system"
-        expected_result: "System powers on and begins boot sequence"
-      - step_number: 2
-        action: "Observe boot log output"
-        expected_result: "No error messages during boot sequence"
-      - step_number: 3
-        action: "Verify all expected services are running"
-        expected_result: "All services report healthy status"
-    success_criteria: "All services start successfully with no error logs within 60 seconds of power-on"
-    failure_criteria: "Any service fails to start, crashes, or reports errors during initialization"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "SW-002"
-    title: "Inter-process communication validation"
-    subcomponent: "software"
-    description: |
-      Validate that all software modules can communicate with each other
-      through the defined IPC mechanisms.
-    dependencies:
-      - "SW-001"
-    test_steps:
-      - step_number: 1
-        action: "Start all software modules"
-        expected_result: "All modules are running and registered"
-      - step_number: 2
-        action: "Send test message from Module A to Module B"
-        expected_result: "Module B receives the message within 100ms"
-      - step_number: 3
-        action: "Verify round-trip communication across all module pairs"
-        expected_result: "All module pairs communicate successfully"
-    success_criteria: "All IPC channels pass bidirectional message exchange with latency under 100ms"
-    failure_criteria: "Any IPC channel fails to deliver messages or exceeds latency threshold"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "SW-003"
-    title: "Software error handling and recovery"
-    subcomponent: "software"
-    description: |
-      Verify that the software stack handles errors gracefully and
-      recovers from fault conditions without manual intervention.
-    dependencies:
-      - "SW-001"
-      - "SW-002"
-    test_steps:
-      - step_number: 1
-        action: "Inject a simulated fault into a non-critical service"
-        expected_result: "System detects the fault and logs it"
-      - step_number: 2
-        action: "Observe system behavior after fault injection"
-        expected_result: "Affected service restarts automatically"
-      - step_number: 3
-        action: "Verify system returns to normal operation"
-        expected_result: "All services healthy, no data loss"
-    success_criteria: "System detects fault, restarts affected service, and returns to normal within 30 seconds"
-    failure_criteria: "System crashes, hangs, or requires manual intervention to recover"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
+- test_case_id: TC-SW-001
+  owner: Kin Nam / Haikal
+  component: UDP Communication
+  dependency:
+  - TC-FPGA-003
+  - TC-FPGA-004
+  precondition: null
+  test_name: UDP Packet Exchange
+  steps:
+  - Start UDP listener
+  - send packet from FPGA
+  expected_result: Packet received intact
+  fail_conditions: Packet loss; malformed data
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: null
+  test_environment_ci_hil: CI
+  observations: Foundation networking test
+  jira_link: null
+  next_action_if_fail: Check MTU and socket buffers
+- test_case_id: TC-SW-002
+  owner: Kin Nam / Haikal
+  component: CAN-FD Protocol
+  dependency: null
+  precondition: null
+  test_name: CAN-FD Encode/Decode
+  steps:
+  - Encode CAN-FD frame
+  - transmit
+  - decode and validate
+  expected_result: Correct frame format and values
+  fail_conditions: Frame rejected; mismatch
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: null
+  test_environment_ci_hil: CI
+  observations: Motor control dependency
+  jira_link: null
+  next_action_if_fail: Validate bit timing and DBC
+- test_case_id: TC-SW-003
+  owner: Sheng Li
+  component: EtherCAT Stack
+  dependency:
+  - TC-FPGA-003
+  - TC-FPGA-004
+  - TC-FPGA-005
+  - TC-SW-001
+  precondition: null
+  test_name: EtherCAT PDO Exchange
+  steps:
+  - Initialize master
+  - discover slave
+  - run cyclic exchange
+  expected_result: Deterministic cyclic exchange
+  fail_conditions: Slave not discovered; jitter
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Core motion control path
+  jira_link: null
+  next_action_if_fail: Inspect state machine and DC sync
+- test_case_id: TC-SYS-001
+  owner: Ji Lik / Ariff
+  component: End-to-End System
+  dependency:
+  - TC-FPGA-001
+  - TC-FPGA-002
+  - TC-FPGA-003
+  - TC-FPGA-004
+  - TC-FPGA-005
+  - TC-FPGA-006
+  - TC-SW-001
+  - TC-SW-002
+  - TC-SW-003
+  - TC-VLA-001
+  - TC-VLA-002
+  precondition: null
+  test_name: Full System Validation
+  steps:
+  - Run vision
+  - send action data
+  - observe motor actuation
+  expected_result: Correct end-to-end behavior
+  fail_conditions: Latency or dropped commands
+  priority: P0
+  severity: Critical
+  automation_readiness: Manual
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: Final acceptance criteria
+  jira_link: null
+  next_action_if_fail: Isolate failing subsystem
+- test_case_id: TC-SW-004
+  owner: Automate5 QA
+  component: Packet Layer
+  dependency:
+  - TC-SW-001
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: UDP header binary round-trip and bounds validation
+  steps:
+  - Create UdpHeader values
+  - Pack to bytes
+  - Unpack and compare fields
+  - Assert invalid lengths and buffers fail
+  expected_result: Packed header is 8 bytes; round-trip fields match; invalid values are rejected.
+  fail_conditions: Wrong byte order/length, mismatch, or silent acceptance of invalid data.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers automate5/packets/udp_header.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-005
+  owner: Automate5 QA
+  component: Packet Layer
+  dependency:
+  - TC-SW-004
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: EtherCAT motor command encoding and field validation
+  steps:
+  - Create speed, position, and torque commands
+  - Compare packed bytes with golden vectors
+  - Unpack and verify fields
+  - Exercise out-of-range values
+  expected_result: Commands encode to documented 9-byte payload and reject invalid fields.
+  fail_conditions: Incorrect flag layout, payload size, validation, or round-trip result.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers EthercatMotorCommand.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-006
+  owner: Automate5 QA
+  component: Packet Layer
+  dependency:
+  - TC-SW-005
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: EtherCAT motor status flag decoding and telemetry fields
+  steps:
+  - Build status packets covering each flag
+  - Pack to golden bytes
+  - Unpack and verify telemetry fields
+  - Test malformed buffers
+  expected_result: All flags and telemetry decode exactly; invalid buffers fail.
+  fail_conditions: Wrong flag bit, telemetry mismatch, or invalid bytes accepted.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers EthercatMotorStatus.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-007
+  owner: Automate5 QA
+  component: Packet Layer
+  dependency:
+  - TC-SW-004
+  - TC-SW-005
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: VLA to EtherCAT full UDP packet layout
+  steps:
+  - Create VlaEthercatPacket
+  - Pack combined message
+  - Verify 8-byte header plus 9-byte payload
+  - Unpack and test wrong-length buffers
+  expected_result: Full packet is 17 bytes with stable header/payload layout.
+  fail_conditions: Wrong length/layout or malformed buffers accepted.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers vla_ethercat_packet.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-008
+  owner: Automate5 QA
+  component: ECB Protocol Codec
+  dependency:
+  - TC-SW-001
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: ECB header and data pair encode/decode
+  steps:
+  - Create ECB header and data-pair objects
+  - Pack and unpack bytes
+  - Verify dword helper conversions
+  - Assert invalid byte lengths fail
+  expected_result: ECB header/data pair round-trips match exactly and invalid lengths raise errors.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers ecb_header.py and ecb_codec.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-009
+  owner: Automate5 QA
+  component: ECB Protocol Codec
+  dependency:
+  - TC-SW-008
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: ECB message and Thor UDP payload round-trip
+  steps:
+  - Build ECB UDP payloads
+  - Pack and unpack full ECB messages
+  - Pack and unpack Thor UDP payloads
+  - Verify length helpers
+  expected_result: ECB and Thor helpers preserve payload data and produce stable lengths.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers pack_ecb_message, Thor payload helpers, and length helpers.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-010
+  owner: Automate5 QA
+  component: Stable Codes and Errors
+  dependency: null
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Subsystem, phase, error, and gesture code mappings remain stable
+  steps:
+  - Import public code enums
+  - Assert documented numeric values
+  - Verify enum values are unique
+  expected_result: All public numeric codes match documented values and remain unique.
+  fail_conditions: Unexpected value change, duplicate value, or missing enum member.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Extends enum spot checks.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-011
+  owner: Automate5 QA
+  component: Stable Codes and Errors
+  dependency:
+  - TC-SW-010
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: CodedError preserves ErrorCode and string diagnostics
+  steps:
+  - Create CodedError values
+  - Assert .code is preserved
+  - Assert str(error) includes symbolic name and numeric value
+  - Raise and catch through pytest.raises
+  expected_result: CodedError preserves machine-readable code and useful string diagnostics.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers automate5/errors.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-012
+  owner: Automate5 QA
+  component: Test Framework Configuration
+  dependency: null
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Suite config YAML loader validates defaults and tag coercion
+  steps:
+  - Create temporary config.yaml variants
+  - Load with TestConfig.from_yaml
+  - Assert tags, environment, mocks, and skip_in_ci
+  - Assert missing suite_name fails
+  expected_result: Valid configs load; defaults and tag coercion work; invalid required data fails.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers tests/framework/config.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-013
+  owner: Automate5 QA
+  component: Test Framework Configuration
+  dependency:
+  - TC-SW-012
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Suite discovery and environment gates behave deterministically
+  steps:
+  - Create temporary test_suite_* configs
+  - Verify sorted discovery
+  - Monkeypatch display/CI environment
+  - Verify environment_blocks_run decisions
+  expected_result: Suite discovery is stable and environment gates skip only when resources are absent.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers config.py and env_checks.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-014
+  owner: Automate5 QA
+  component: Runtime Logging
+  dependency:
+  - TC-SW-010
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: RuntimeLogger writes human log and JSONL records
+  steps:
+  - Create RuntimeLogger with tmp_path
+  - Write debug/info/warn/error records
+  - Read .log and .jsonl files
+  - Validate JSON coded metadata
+  expected_result: Logger creates both sinks and preserves coded metadata.
+  fail_conditions: Missing sink, invalid JSONL, missing code/phase fields, or wrong severity output.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Covers runtime_logger.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-015
+  owner: Automate5 QA
+  component: Benchmark Instrumentation
+  dependency:
+  - TC-SW-010
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Benchmark measures, reports, and exports phase timings
+  steps:
+  - Record benchmark measurements
+  - Verify entries and elapsed_ms
+  - Export CSV and validate rows
+  - Validate report totals and empty report behavior
+  expected_result: Benchmark entries, report, and CSV export are internally consistent.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Extends testcase_benchmark.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-016
+  owner: Automate5 QA
+  component: Mock Motor Data
+  dependency: null
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Mock motor bank deterministic golden snapshots
+  steps:
+  - Create MotorBank with committed seed_base
+  - Sample all configured motors
+  - Compare rpm, position, angle, torque, temperature, and current values
+  expected_result: Each motor reproduces committed deterministic sequence within tolerance.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Existing pytest in tests/test_suite_backend/testcase_mock_motor.py; backend config should
+    enable it.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-017
+  owner: Automate5 QA
+  component: Mock Motor Data
+  dependency:
+  - TC-SW-016
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Mock motor boundary and stream behavior
+  steps:
+  - Create maximum and over-maximum motor banks
+  - Verify over-maximum IDs raise ValueError
+  - Create subset and custom target motors
+  - Validate stream output shape
+  expected_result: MotorBank enforces MAX_MOTORS and stream outputs keep stable schema.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Additional backend coverage for MotorBank and MockMotor helpers.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-018
+  owner: Automate5 QA
+  component: Camera Controller
+  dependency: null
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Camera enumeration returns matched labels and devices without crashing
+  steps:
+  - Call enumerate_video_inputs
+  - Verify labels/devices are lists
+  - Verify equal lengths
+  - Run safely with no camera present
+  expected_result: Enumeration is safe in headless/no-device environments and returns aligned lists.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Existing coverage appears in GUI base panel tests.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-019
+  owner: Automate5 QA
+  component: Hololink Camera Controller
+  dependency:
+  - TC-FPGA-003
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Hololink configure to unreachable IP emits deterministic error
+  steps:
+  - Create HololinkCameraController
+  - Configure preview with unreachable IP
+  - Wait for configure_error or last_error
+  - Verify controller is not live
+  expected_result: Controller reports no board responding, stores last_error, and remains not live.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Derived from tests/test_hololink_controller.py.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-020
+  owner: Automate5 QA
+  component: Hololink Camera Controller
+  dependency:
+  - TC-SW-019
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Hololink controller lifecycle, debounce, sink registration, and shutdown
+  steps:
+  - Monkeypatch Hololink app/thread dependencies
+  - Register QVideoSink objects
+  - Call apply_preview twice during transition
+  - Call shutdown and verify cleanup
+  expected_result: Lifecycle transitions are deterministic without hardware and cleanup is safe.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: CI
+  observations: New CI-safe lifecycle coverage recommended from backend gap analysis.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-021
+  owner: Automate5 QA
+  component: Gesture Controller
+  dependency: null
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: GestureController worker lifecycle and signal forwarding
+  steps:
+  - Monkeypatch GestureWorker with fake worker
+  - Call start_recognition twice
+  - Emit fake gesture, speed, stop, bbox, frame, and error signals
+  - Verify forwarding, error propagation, stop, and reset cleanup
+  expected_result: Start/stop is idempotent, signals are forwarded, and cleanup is deterministic.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: CI
+  observations: Fills backend/gesture_controller.py lifecycle coverage gap.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SW-022
+  owner: Automate5 QA
+  component: Gesture Worker
+  dependency:
+  - TC-SW-021
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Gesture helper functions classify synthetic landmarks
+  steps:
+  - Build synthetic landmark containers
+  - Call count_extended_fingers for selection poses
+  - Call is_fist for stop poses
+  - Call calc_pinch_speed below and above threshold
+  expected_result: Helpers classify motor selections, stop gesture, and speed thresholds consistently.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Fast unit coverage for backend/gesture_worker.py geometry helpers.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SYS-002
+  owner: Automate5 QA
+  component: End-to-End Software Smoke
+  dependency:
+  - TC-SW-004
+  - TC-SW-010
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Headless imports, QApplication, packet round-trip, and navigation
+  steps:
+  - Set QT_QPA_PLATFORM=offscreen
+  - Import automate5 core, logger, and gui.main_window
+  - Create QApplication
+  - Perform packet round-trip
+  - Verify Base, VLA, and Analytics navigation state
+  expected_result: Imports, Qt initialization, packet serialization, and navigation complete without crash.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Extends smoke suite to match documented smoke scope.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SYS-003
+  owner: Automate5 QA
+  component: Control Loop Contract
+  dependency:
+  - TC-SW-007
+  - TC-SW-010
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Mocked observation to action control-loop contract
+  steps:
+  - Build synthetic observation
+  - Send through fake ZMQ REQ/REP service
+  - Return synthetic action chunk
+  - Validate action shape and convert command to packet
+  - Exercise timeout and invalid-action errors
+  expected_result: Contract validates schemas, converts commands, and reports coded errors.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: CI
+  observations: Replaces placeholder control-loop tests with mocked ZMQ contract checks.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SYS-004
+  owner: Automate5 QA
+  component: Structured Observability
+  dependency:
+  - TC-SW-014
+  - TC-SYS-003
+  precondition: Automate5 source checkout and declared test dependencies available.
+  test_name: Pipeline phase logging covers capture through joint write
+  steps:
+  - Run or simulate pipeline phases from CAPTURE through PROTOCOL
+  - Write logs with RuntimeLogger
+  - Read JSONL output
+  - Verify expected phase IDs and error codes
+  expected_result: Every important phase is visible in machine-readable logs.
+  fail_conditions: Unexpected exception, mismatch, missing artifact, or unsafe response.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Ready
+  test_environment_ci_hil: CI
+  observations: Connects RuntimeLogger, PhaseCode, and Analytics requirements.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
+- test_case_id: TC-SYS-005
+  owner: Automate5 QA
+  component: End-to-End System
+  dependency:
+  - TC-SW-019
+  - TC-VLA-001
+  - TC-SW-003
+  precondition: Hololink board, cameras, VLA policy server, EtherCAT hardware, and motor rig connected
+    and calibrated.
+  test_name: HIL camera to VLA to EtherCAT motor command validation
+  steps:
+  - Start Hololink camera pipeline
+  - Start VLA policy server
+  - Submit known prompt or gesture
+  - Capture action command and encoded packet
+  - Observe motor response against safe envelope
+  expected_result: Live input produces valid VLA action, correct packet, and safe motor response.
+  fail_conditions: Camera not live, VLA timeout, malformed action, packet mismatch, dropped command, or
+    unsafe motion.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Optional HIL lane for full-stack acceptance.
+  jira_link: null
+  next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.

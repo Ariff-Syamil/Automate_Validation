@@ -1,0 +1,32 @@
+Test run log (overwritten each run)
+Finished: 2026-06-16 06:09:21 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_benchmark
+
+Results:
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_csv_export
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_empty_csv_export
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_empty_report
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_entries_returns_copy
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_measure_exception_path_does_not_record_entry
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_packet_throughput
+  PASSED    tests/test_suite_benchmark/testcase_benchmark.py::TestBenchmark::test_report_format
+
+--- Suite run log (TestCaseFramework.log) ---
+[06:09:21.499] === Benchmark Report ===
+Subsystem    Phase     Label             Time (ms)
+──────────────────────────────────────────────────
+COMProtocol  ETHERCAT  pack x10000            2.12 ms
+COMProtocol  CANFD     unpack x10000         26.90 ms
+──────────────────────────────────────────────────
+Total                                        29.02 ms
+[06:09:21.506] CSV exported to C:\Users\midrus\AppData\Local\Temp\pytest-of-midrus\pytest-10\test_csv_export0\bench.csv (2 lines)
+[06:09:21.508] === Benchmark Report ===
+Subsystem  Phase  Label               Time (ms)
+───────────────────────────────────────────────
+VLA        INFER  dummy inference          0.01 ms
+───────────────────────────────────────────────
+Total                                      0.01 ms
+[06:09:21.509] === Benchmark Report ===
+(no entries recorded)
+
+OVERALL: PASSED

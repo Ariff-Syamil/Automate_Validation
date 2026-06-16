@@ -1,0 +1,9 @@
+suite_name: smoke
+tags:
+  - smoke
+  - linux
+  - full_stack
+description: "Full-stack smoke: imports, packet roundtrip, QApplication offscreen launch"
+environment: {}
+mocks: []
+skip_in_ci: false

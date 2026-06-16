@@ -1,0 +1,9 @@
+Test run log (overwritten each run)
+Finished: 2026-06-16 06:09:21 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_log
+
+Results:
+  PASSED    tests/test_suite_log/testcase_runtime_logger.py::TestRuntimeLogger::test_convenience_methods_and_log_dir_creation
+  PASSED    tests/test_suite_log/testcase_runtime_logger.py::TestRuntimeLogger::test_dual_sink_write
+
+OVERALL: PASSED

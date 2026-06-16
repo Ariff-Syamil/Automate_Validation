@@ -1,0 +1,9 @@
+suite_name: packets
+tags:
+  - backend
+  - packets
+  - unit
+description: "Packet / codec / error-code unit tests (pure Python, no external SDK)"
+environment: {}
+mocks: []
+skip_in_ci: false

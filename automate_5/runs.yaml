@@ -1,0 +1,23 @@
+# =============================================================================
+# Automate 5 - Test-Case Run Records
+# =============================================================================
+# Append-only log of test-case executions. Edit/delete is done via the GUI's
+# Timeline view. The Timeline is purely a visualisation of these records.
+# =============================================================================
+
+year: 2026
+work_weeks:
+- WW17
+- WW18
+- WW19
+- WW20
+- WW21
+- WW22
+- WW23
+- WW24
+- WW25
+- WW26
+- WW27
+- WW28
+- WW29
+runs: []

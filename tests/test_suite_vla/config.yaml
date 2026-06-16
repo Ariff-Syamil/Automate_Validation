@@ -1,0 +1,10 @@
+suite_name: vla
+tags:
+  - vla
+  - mock
+description: "VLA integration tests: client, worker, presenter, server supervisor, end-to-end"
+environment:
+  requires_display: false
+mocks:
+  - gr00t_policy_server
+skip_in_ci: true

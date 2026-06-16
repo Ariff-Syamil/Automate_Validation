@@ -1,0 +1,13 @@
+suite_name: gui
+tags:
+  - gui
+  - ui
+  - mock
+description: "PySide6 GUI panels and widgets validation"
+environment:
+  requires_display: true
+  qt_version: "6.x"
+mocks:
+  - grpc_server
+  - telemetry_stream
+skip_in_ci: true

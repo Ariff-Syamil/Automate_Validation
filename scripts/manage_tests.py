@@ -2,19 +2,21 @@
 Automate Validation - Test Case Management Tools
 
 Provides utilities to:
-  - Validate test case YAML files against the schema
-  - Generate summary reports (Confluence-ready tables in Markdown/CSV)
-  - Add new test cases interactively
-  - Update test execution results
+  - Validate test case YAML files against the Excel-aligned schema
+  - Generate summary reports (Confluence-ready tables in Markdown / CSV)
+
+The YAML schema mirrors the column headers in Automate5_Test_Cases.xlsx
+(sheet 'Automate5_Test_Cases'), snake-cased.
 """
+
+from __future__ import annotations
 
 import argparse
 import csv
 import io
-import json
-import os
+import re
 import sys
-from datetime import date
+from collections import Counter
 from pathlib import Path
 
 import yaml
@@ -23,23 +25,69 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_PATH = REPO_ROOT / "schema" / "test_case_schema.json"
 
-SUBCOMPONENTS = [
+# Subcomponent folders under an Automate version directory.
+SUBCOMPONENTS: list[str] = [
     "software",
     "mechanical",
     "holoscan_fpga",
     "multi_axis_motor_control_fpga",
+    "gui",
 ]
 
-PREFIX_MAP = {
-    "software": "SW",
-    "mechanical": "MECH",
-    "holoscan_fpga": "HFPGA",
-    "multi_axis_motor_control_fpga": "MAMC",
+DISPLAY_NAMES: dict[str, str] = {
+    "software": "Software",
+    "mechanical": "Mechanical",
+    "holoscan_fpga": "Holoscan FPGA",
+    "multi_axis_motor_control_fpga": "Multi Axis Motor Control FPGA",
+    "gui": "GUI",
 }
+
+# Allowed Test Case ID prefixes per subcomponent folder. Prefixes come from
+# the Excel `Legend` tab plus a few additional ones used in the data.
+ALLOWED_PREFIXES: dict[str, tuple[str, ...]] = {
+    "software": ("TC-SW", "TC-SYS"),
+    "mechanical": ("TC-HW",),
+    "holoscan_fpga": ("TC-FPGA", "TC-VLA"),
+    "multi_axis_motor_control_fpga": ("TC-MAMC",),
+    "gui": ("TC-GUI",),
+}
+
+# Default prefix used when generating new IDs from the GUI / template.
+DEFAULT_PREFIX: dict[str, str] = {
+    "software": "TC-SW",
+    "mechanical": "TC-HW",
+    "holoscan_fpga": "TC-FPGA",
+    "multi_axis_motor_control_fpga": "TC-MAMC",
+    "gui": "TC-GUI",
+}
+
+REQUIRED_FIELDS: tuple[str, ...] = ("test_case_id", "test_name")
+
+ALL_FIELDS: tuple[str, ...] = (
+    "test_case_id",
+    "owner",
+    "component",
+    "dependency",
+    "precondition",
+    "test_name",
+    "steps",
+    "expected_result",
+    "fail_conditions",
+    "priority",
+    "severity",
+    "automation_readiness",
+    "automation_status",
+    "test_environment_ci_hil",
+    "observations",
+    "jira_link",
+    "next_action_if_fail",
+)
+
+ID_PATTERN = re.compile(r"^TC-[A-Z]+-\d+$")
 
 
 # ---------------------------------------------------------------------------
-# Helpers
+# I/O helpers
 # ---------------------------------------------------------------------------
 
 def load_test_cases(yaml_path: Path) -> list[dict]:
@@ -50,20 +98,21 @@ def load_test_cases(yaml_path: Path) -> list[dict]:
 
 
 def save_test_cases(yaml_path: Path, test_cases: list[dict]) -> None:
-    """Save test cases back to a YAML file."""
+    """Save test cases back to a YAML file (overwrites)."""
     with open(yaml_path, "w", encoding="utf-8") as f:
-        yaml.dump(
+        yaml.safe_dump(
             {"test_cases": test_cases},
             f,
             default_flow_style=False,
             sort_keys=False,
             allow_unicode=True,
+            width=100,
         )
 
 
 def discover_test_files(automate_dir: Path) -> dict[str, Path]:
-    """Find all test_cases.yaml files under an Automate version directory."""
-    found = {}
+    """Find all `test_cases.yaml` files under an Automate version directory."""
+    found: dict[str, Path] = {}
     for sub in SUBCOMPONENTS:
         p = automate_dir / sub / "test_cases.yaml"
         if p.exists():
@@ -71,26 +120,56 @@ def discover_test_files(automate_dir: Path) -> dict[str, Path]:
     return found
 
 
-def next_test_id(existing_cases: list[dict], prefix: str) -> str:
-    """Compute the next sequential test ID for a given prefix."""
+def id_prefix(test_case_id: str) -> str:
+    """Return the prefix portion of a Test Case ID (e.g. 'TC-FPGA-001' -> 'TC-FPGA')."""
+    parts = test_case_id.split("-")
+    if len(parts) <= 1:
+        return test_case_id
+    return "-".join(parts[:-1])
+
+
+def next_test_id(existing_cases: list[dict], prefix: str, pad: int = 3) -> str:
+    """Compute the next sequential test_case_id for a given prefix.
+
+    Looks at all existing IDs sharing the prefix and returns prefix-(max+1)
+    zero-padded to `pad` digits. Honours a wider existing pad if present.
+    """
     max_num = 0
+    used_pad = pad
     for tc in existing_cases:
-        tid = tc.get("test_id", "")
-        if tid.startswith(prefix + "-"):
-            try:
-                num = int(tid.split("-")[1])
-                max_num = max(max_num, num)
-            except ValueError:
-                pass
-    return f"{prefix}-{max_num + 1:03d}"
+        tid = (tc.get("test_case_id") or "").strip()
+        if id_prefix(tid) != prefix:
+            continue
+        num_part = tid.split("-")[-1]
+        try:
+            max_num = max(max_num, int(num_part))
+            used_pad = max(used_pad, len(num_part))
+        except ValueError:
+            continue
+    return f"{prefix}-{max_num + 1:0{used_pad}d}"
 
 
 # ---------------------------------------------------------------------------
 # Validate
 # ---------------------------------------------------------------------------
 
+def _is_str_or_none(value) -> bool:
+    return value is None or isinstance(value, str)
+
+
+def _is_str_list_or_none(value) -> bool:
+    if value is None:
+        return True
+    if not isinstance(value, list):
+        return False
+    return all(isinstance(v, str) for v in value)
+
+
 def validate_test_cases(automate_version: str) -> bool:
-    """Validate all test case files for a given Automate version."""
+    """Validate all test case files for a given Automate version.
+
+    Returns True iff every file passes all checks.
+    """
     automate_dir = REPO_ROOT / automate_version
     if not automate_dir.exists():
         print(f"ERROR: Directory '{automate_dir}' does not exist.")
@@ -102,38 +181,61 @@ def validate_test_cases(automate_version: str) -> bool:
         return False
 
     all_valid = True
-    all_ids = set()
+    seen_ids: dict[str, str] = {}  # test_case_id -> subcomponent
 
     for sub, path in files.items():
         cases = load_test_cases(path)
-        prefix = PREFIX_MAP[sub]
+        allowed = ALLOWED_PREFIXES.get(sub, ())
         for tc in cases:
-            tid = tc.get("test_id", "<missing>")
+            tid = (tc.get("test_case_id") or "<missing>").strip()
 
-            # Check ID format
-            if not tid.startswith(prefix + "-"):
-                print(f"  WARN: {tid} in {sub} has wrong prefix (expected {prefix}-)")
-                all_valid = False
-
-            # Check duplicate IDs
-            if tid in all_ids:
-                print(f"  ERROR: Duplicate test_id '{tid}'")
-                all_valid = False
-            all_ids.add(tid)
-
-            # Check required fields
-            for field in ["title", "subcomponent", "test_steps", "success_criteria",
-                          "failure_criteria", "executed", "result"]:
-                if field not in tc:
-                    print(f"  ERROR: {tid} missing required field '{field}'")
+            for field in REQUIRED_FIELDS:
+                if not tc.get(field):
+                    print(f"  ERROR [{sub}] {tid}: missing required field '{field}'")
                     all_valid = False
 
-            # Check test_steps have required sub-fields
-            for step in tc.get("test_steps", []):
-                for sf in ["step_number", "action", "expected_result"]:
-                    if sf not in step:
-                        print(f"  ERROR: {tid} step missing '{sf}'")
-                        all_valid = False
+            if tid != "<missing>" and not ID_PATTERN.match(tid):
+                print(
+                    f"  ERROR [{sub}] {tid}: test_case_id does not match pattern "
+                    f"TC-<PREFIX>-<NN[N]>"
+                )
+                all_valid = False
+
+            prefix = id_prefix(tid)
+            if allowed and prefix not in allowed:
+                print(
+                    f"  WARN  [{sub}] {tid}: prefix {prefix!r} not in allowed "
+                    f"{list(allowed)} for this folder"
+                )
+                all_valid = False
+
+            if tid in seen_ids and tid != "<missing>":
+                print(
+                    f"  ERROR [{sub}] {tid}: duplicate test_case_id (also in "
+                    f"{seen_ids[tid]})"
+                )
+                all_valid = False
+            elif tid != "<missing>":
+                seen_ids[tid] = sub
+
+            for field in ("owner", "component", "precondition", "expected_result",
+                          "fail_conditions", "priority", "severity",
+                          "automation_readiness", "automation_status",
+                          "test_environment_ci_hil", "observations", "jira_link",
+                          "next_action_if_fail"):
+                if field in tc and not _is_str_or_none(tc[field]):
+                    print(f"  ERROR [{sub}] {tid}: '{field}' must be string or null")
+                    all_valid = False
+
+            for field in ("dependency", "steps"):
+                if field in tc and not _is_str_list_or_none(tc[field]):
+                    print(f"  ERROR [{sub}] {tid}: '{field}' must be list of strings or null")
+                    all_valid = False
+
+            unknown = set(tc.keys()) - set(ALL_FIELDS)
+            if unknown:
+                print(f"  WARN  [{sub}] {tid}: unknown field(s) {sorted(unknown)}")
+                all_valid = False
 
         print(f"  {sub}: {len(cases)} test case(s) checked.")
 
@@ -148,25 +250,64 @@ def validate_test_cases(automate_version: str) -> bool:
 # Report generation (Confluence-friendly)
 # ---------------------------------------------------------------------------
 
+# Mirrors the 17 columns of `Automate5_Test_Cases.xlsx` in their original order.
+REPORT_COLUMNS: tuple[tuple[str, str], ...] = (
+    ("Test Case ID",              "test_case_id"),
+    ("Owner",                     "owner"),
+    ("Component",                 "component"),
+    ("Dependency",                "dependency"),
+    ("PreCondition",              "precondition"),
+    ("Test Name",                 "test_name"),
+    ("Steps",                     "steps"),
+    ("Expected Result",           "expected_result"),
+    ("Fail Conditions",           "fail_conditions"),
+    ("Priority",                  "priority"),
+    ("Severity",                  "severity"),
+    ("Automation Readiness",      "automation_readiness"),
+    ("Automation Status",         "automation_status"),
+    ("Test Environment (CI/HIL)", "test_environment_ci_hil"),
+    ("Observations",              "observations"),
+    ("Jira Link",                 "jira_link"),
+    ("Next Action (if Fail)",     "next_action_if_fail"),
+)
+
+
+EMPTY_CELL = "-"
+
+
+def _format_cell(key: str, value) -> str:
+    """Format a YAML field value for tabular output.
+
+    Empty cells render as `EMPTY_CELL`. Lists are joined with separators
+    appropriate to the field; pipes inside markdown cells are escaped.
+    """
+    if value is None or value == "":
+        return EMPTY_CELL
+    if key == "dependency" and isinstance(value, list):
+        return ", ".join(value) if value else EMPTY_CELL
+    if key == "steps" and isinstance(value, list):
+        return " ; ".join(f"{i}. {s}" for i, s in enumerate(value, 1)) if value else EMPTY_CELL
+    if isinstance(value, list):
+        return "; ".join(str(v) for v in value) if value else EMPTY_CELL
+    return str(value)
+
+
+def _md_escape(text: str) -> str:
+    """Escape characters that would break a Markdown table cell."""
+    return text.replace("|", "\\|").replace("\r\n", " ").replace("\n", " ")
+
+
 def generate_report(automate_version: str, fmt: str = "markdown") -> str:
     """Generate a summary report of all test cases."""
     automate_dir = REPO_ROOT / automate_version
     files = discover_test_files(automate_dir)
 
-    rows = []
+    rows: list[dict[str, str]] = []
     for sub, path in files.items():
         for tc in load_test_cases(path):
-            rows.append({
-                "Test ID": tc.get("test_id", ""),
-                "Title": tc.get("title", ""),
-                "Subcomponent": tc.get("subcomponent", ""),
-                "Dependencies": ", ".join(tc.get("dependencies", [])) or "None",
-                "# Steps": len(tc.get("test_steps", [])),
-                "Executed": "Yes" if tc.get("executed") else "No",
-                "Result": (tc.get("result") or "—").upper() if tc.get("result") else "—",
-                "Date": tc.get("execution_date") or "—",
-                "Executed By": tc.get("executed_by") or "—",
-            })
+            row = {header: _format_cell(key, tc.get(key))
+                   for header, key in REPORT_COLUMNS}
+            rows.append(row)
 
     if fmt == "csv":
         return _to_csv(rows)
@@ -176,84 +317,87 @@ def generate_report(automate_version: str, fmt: str = "markdown") -> str:
 def _to_markdown_table(rows: list[dict]) -> str:
     if not rows:
         return "_No test cases found._"
-    headers = list(rows[0].keys())
+    headers = [h for h, _ in REPORT_COLUMNS]
     lines = ["| " + " | ".join(headers) + " |"]
     lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
     for r in rows:
-        lines.append("| " + " | ".join(str(r[h]) for h in headers) + " |")
+        lines.append("| " + " | ".join(_md_escape(r[h]) for h in headers) + " |")
     return "\n".join(lines)
 
 
 def _to_csv(rows: list[dict]) -> str:
     if not rows:
         return ""
+    headers = [h for h, _ in REPORT_COLUMNS]
     output = io.StringIO()
-    writer = csv.DictWriter(output, fieldnames=list(rows[0].keys()))
+    writer = csv.DictWriter(output, fieldnames=headers)
     writer.writeheader()
     writer.writerows(rows)
     return output.getvalue()
 
 
 # ---------------------------------------------------------------------------
-# Record execution results
+# Summary (priority / automation breakdown)
 # ---------------------------------------------------------------------------
 
-def record_result(automate_version: str, test_id: str, result: str,
-                  executed_by: str, notes: str = "") -> None:
-    """Mark a test as executed with pass/fail result."""
-    if result not in ("pass", "fail"):
-        print("ERROR: result must be 'pass' or 'fail'")
-        sys.exit(1)
-
+def summarise(automate_version: str) -> str:
+    """Return a textual summary of priority / automation_status counts."""
     automate_dir = REPO_ROOT / automate_version
     files = discover_test_files(automate_dir)
 
-    for sub, path in files.items():
-        cases = load_test_cases(path)
-        for tc in cases:
-            if tc["test_id"] == test_id:
-                tc["executed"] = True
-                tc["result"] = result
-                tc["execution_date"] = str(date.today())
-                tc["executed_by"] = executed_by
-                if notes:
-                    tc["notes"] = notes
-                save_test_cases(path, cases)
-                print(f"Recorded {test_id}: {result} (by {executed_by})")
-                return
+    priority = Counter()
+    auto_status = Counter()
+    auto_ready = Counter()
+    total = 0
+    by_sub: Counter[str] = Counter()
 
-    print(f"ERROR: Test ID '{test_id}' not found in {automate_version}.")
-    sys.exit(1)
+    for sub, path in files.items():
+        for tc in load_test_cases(path):
+            total += 1
+            by_sub[sub] += 1
+            priority[tc.get("priority") or "(unset)"] += 1
+            auto_status[tc.get("automation_status") or "(unset)"] += 1
+            auto_ready[tc.get("automation_readiness") or "(unset)"] += 1
+
+    def _fmt(counter: Counter) -> str:
+        if not counter:
+            return "(none)"
+        return ", ".join(f"{k}: {v}" for k, v in sorted(counter.items()))
+
+    lines = [
+        f"Total test cases: {total}",
+        "",
+        "By subcomponent:",
+        *(f"  {DISPLAY_NAMES.get(s, s)}: {by_sub[s]}" for s in SUBCOMPONENTS),
+        "",
+        f"Priority           {_fmt(priority)}",
+        f"Automation status  {_fmt(auto_status)}",
+        f"Automation readiness {_fmt(auto_ready)}",
+    ]
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="Automate Validation - Test Case Management"
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    # validate
     p_val = sub.add_parser("validate", help="Validate test case files")
     p_val.add_argument("version", help="Automate version directory (e.g. automate_5)")
 
-    # report
-    p_rep = sub.add_parser("report", help="Generate test summary report")
+    p_rep = sub.add_parser("report", help="Generate test summary table")
     p_rep.add_argument("version", help="Automate version directory (e.g. automate_5)")
     p_rep.add_argument("--format", choices=["markdown", "csv"], default="markdown",
                        help="Output format (default: markdown)")
     p_rep.add_argument("--output", "-o", help="Write report to file instead of stdout")
 
-    # record
-    p_rec = sub.add_parser("record", help="Record test execution result")
-    p_rec.add_argument("version", help="Automate version directory (e.g. automate_5)")
-    p_rec.add_argument("test_id", help="Test ID (e.g. SW-001)")
-    p_rec.add_argument("result", choices=["pass", "fail"], help="Test result")
-    p_rec.add_argument("--by", required=True, help="Name of person who executed the test")
-    p_rec.add_argument("--notes", default="", help="Additional notes")
+    p_sum = sub.add_parser("summary", help="Show priority / automation status counts")
+    p_sum.add_argument("version", help="Automate version directory (e.g. automate_5)")
 
     args = parser.parse_args()
 
@@ -270,9 +414,8 @@ def main():
         else:
             print(report)
 
-    elif args.command == "record":
-        record_result(args.version, args.test_id, args.result,
-                      executed_by=args.by, notes=args.notes)
+    elif args.command == "summary":
+        print(summarise(args.version))
 
 
 if __name__ == "__main__":

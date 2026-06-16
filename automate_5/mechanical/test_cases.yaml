@@ -1,81 +1,213 @@
 # =============================================================================
 # Automate 5 - Mechanical Validation Test Cases
 # =============================================================================
+# Imported from Automate5_Test_Cases.xlsx
+# Field names mirror the Excel column headers (snake_case).
+# =============================================================================
 
 test_cases:
-  - test_id: "MECH-001"
-    title: "Chassis structural integrity"
-    subcomponent: "mechanical"
-    description: |
-      Verify the Automate 5 chassis meets structural integrity
-      requirements under standard operating loads.
-    dependencies: []
-    test_steps:
-      - step_number: 1
-        action: "Visually inspect chassis for manufacturing defects"
-        expected_result: "No visible cracks, warping, or misalignment"
-      - step_number: 2
-        action: "Apply rated load to all mounting points"
-        expected_result: "No deformation beyond specified tolerances"
-      - step_number: 3
-        action: "Measure deflection at critical points under load"
-        expected_result: "Deflection within design specifications"
-    success_criteria: "All structural measurements within tolerance and no visible defects"
-    failure_criteria: "Any measurement out of tolerance or visible structural defect found"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "MECH-002"
-    title: "Thermal management verification"
-    subcomponent: "mechanical"
-    description: |
-      Validate that the mechanical thermal management system maintains
-      component temperatures within operating limits during sustained load.
-    dependencies:
-      - "MECH-001"
-    test_steps:
-      - step_number: 1
-        action: "Install thermal sensors at all critical component locations"
-        expected_result: "Sensors reporting baseline ambient temperature"
-      - step_number: 2
-        action: "Run system at full load for 60 minutes"
-        expected_result: "All temperatures remain within operating limits"
-      - step_number: 3
-        action: "Record peak temperatures and steady-state values"
-        expected_result: "Peak temps below maximum rated values"
-    success_criteria: "All component temperatures stay below rated maximums during sustained full-load operation"
-    failure_criteria: "Any component exceeds its maximum rated temperature"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
-
-  - test_id: "MECH-003"
-    title: "Connector and cable routing validation"
-    subcomponent: "mechanical"
-    description: |
-      Verify all connectors are properly seated and cable routing
-      meets bend radius and strain relief requirements.
-    dependencies:
-      - "MECH-001"
-    test_steps:
-      - step_number: 1
-        action: "Inspect all connector mating pairs for proper engagement"
-        expected_result: "All connectors fully seated and latched"
-      - step_number: 2
-        action: "Verify cable bend radii meet minimum specifications"
-        expected_result: "No cable bend radius violations"
-      - step_number: 3
-        action: "Check strain relief at all cable termination points"
-        expected_result: "Strain relief properly installed at all points"
-    success_criteria: "All connectors seated, cables routed within spec, strain relief intact"
-    failure_criteria: "Any connector unseated, bend radius violated, or missing strain relief"
-    executed: false
-    result: null
-    execution_date: null
-    executed_by: null
-    notes: ""
+- test_case_id: TC-HW-01
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-SYS-001
+  precondition: null
+  test_name: Power-On Initialization
+  steps:
+  - Power on system
+  - observe startup
+  - check homing
+  expected_result: Arm reaches home position; no abnormal noise
+  fail_conditions: Fails to home; abnormal vibration/noise
+  priority: null
+  severity: Critical
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-02
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  precondition: null
+  test_name: Single Joint Movement
+  steps:
+  - Move shoulder, elbow, wrist individually
+  expected_result: Smooth movement within limits
+  fail_conditions: Jerky motion; exceeds angle limits
+  priority: null
+  severity: Major
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-03
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  precondition: null
+  test_name: Multi-Joint Coordination
+  steps:
+  - Command arm to reach target point
+  expected_result: Smooth trajectory; accurate positioning
+  fail_conditions: Erratic path; misses target
+  priority: null
+  severity: Critical
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-04
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency: null
+  precondition: null
+  test_name: Gripper Function
+  steps:
+  - Open/close gripper
+  - pick object
+  expected_result: Gripper operates fully; object held securely
+  fail_conditions: Fails to grip; object slips/drops
+  priority: null
+  severity: Major
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-05
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  precondition: null
+  test_name: Payload Handling
+  steps:
+  - Lift object at rated weight
+  expected_result: Stable lift; no strain or drift
+  fail_conditions: Cannot lift; drift or instability
+  priority: null
+  severity: Critical
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-06
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  precondition: null
+  test_name: Speed Control
+  steps:
+  - Test low, medium, high speeds
+  expected_result: Speed adjusts correctly; stable motion
+  fail_conditions: Incorrect speed; unstable motion
+  priority: null
+  severity: Major
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-07
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  - TC-HW-03
+  precondition: null
+  test_name: Position Accuracy
+  steps:
+  - Move to predefined coordinates
+  expected_result: Within acceptable tolerance
+  fail_conditions: Exceeds tolerance range
+  priority: null
+  severity: Major
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-08
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  - TC-HW-03
+  - TC-HW-07
+  precondition: null
+  test_name: Emergency Stop
+  steps:
+  - Trigger E-stop during motion
+  expected_result: Immediate halt; safe state
+  fail_conditions: Delayed stop; unsafe condition
+  priority: null
+  severity: Critical
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-09
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  - TC-HW-03
+  - TC-HW-07
+  precondition: null
+  test_name: Collision Detection
+  steps:
+  - Introduce obstacle during movement
+  expected_result: Stops/retracts safely
+  fail_conditions: Fails to detect; excessive force
+  priority: null
+  severity: Major
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null
+- test_case_id: TC-HW-10
+  owner: Ji Lik / Ariff
+  component: Hardware
+  dependency:
+  - TC-HW-01
+  - TC-HW-02
+  - TC-HW-03
+  - TC-HW-07
+  precondition: null
+  test_name: Continuous Operation
+  steps:
+  - Run repeated cycles for extended time
+  expected_result: No overheating or faults
+  fail_conditions: Overheating; system fault
+  priority: null
+  severity: Critical
+  automation_readiness: null
+  automation_status: null
+  test_environment_ci_hil: HIL
+  observations: null
+  jira_link: null
+  next_action_if_fail: null

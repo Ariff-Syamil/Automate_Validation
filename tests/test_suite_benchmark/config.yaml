@@ -1,0 +1,8 @@
+suite_name: benchmark
+tags:
+  - benchmark
+  - performance
+description: "Benchmark timings for packet throughput and subsystem phase operations"
+environment: {}
+mocks: []
+skip_in_ci: false

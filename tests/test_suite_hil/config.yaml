@@ -1,0 +1,11 @@
+suite_name: hil
+tags:
+  - hil
+  - camera
+  - hololink
+  - mediapipe
+  - vla
+description: "Optional hardware-in-the-loop acceptance gates"
+environment: {}
+mocks: []
+skip_in_ci: true

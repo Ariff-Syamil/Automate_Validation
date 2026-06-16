@@ -8,13 +8,13 @@
 ::   run.bat validate     Validate test cases (Automate 5)
 ::   run.bat report       Generate Markdown report
 ::   run.bat report csv   Generate CSV report to automate_5_results.csv
-::   run.bat record       Record a test result (interactive prompts)
+::   run.bat summary      Print priority / automation-status counts
 :: ============================================================================
 
 setlocal
-set "ROOT=%~dp0"
-set "VENV=%ROOT%.venv"
-set "PYTHON=%VENV%\Scripts\python.exe"
+@REM set "ROOT=%~dp0"
+@REM set "VENV=%ROOT%.venv"
+set "PYTHON="C:\Users\midrus\AppData\Local\Programs\Python\Python313\python.exe""
 
 :: Check for venv
 if not exist "%PYTHON%" (
@@ -60,15 +60,11 @@ if /i "%CMD%"=="report" (
     goto :eof
 )
 
-:: ── Record ──────────────────────────────────────────────────────────────────
-if /i "%CMD%"=="record" (
-    set /p "TID=Test ID (e.g. SW-001): "
-    set /p "RES=Result (pass/fail): "
-    set /p "BY=Your name: "
-    set /p "NOTES=Notes (optional): "
-    "%PYTHON%" "%ROOT%scripts\manage_tests.py" record automate_5 %TID% %RES% --by "%BY%" --notes "%NOTES%"
+:: ── Summary ─────────────────────────────────────────────────────────────────
+if /i "%CMD%"=="summary" (
+    "%PYTHON%" "%ROOT%scripts\manage_tests.py" summary automate_5
     goto :eof
 )
 
 echo Unknown command: %CMD%
-echo Usage: run.bat [gui ^| validate ^| report ^| report csv ^| record]
+echo Usage: run.bat [gui ^| validate ^| report ^| report csv ^| summary]
