@@ -3,108 +3,149 @@ test_cases:
   owner: Seow Jie / Kin Nam
   component: MIPI Camera Input
   dependency: null
-  precondition: Hardware Dependency
-  test_name: Single Camera MIPI Capture
+  precondition: Supported MIPI camera connected; FPGA bitstream loaded; lane mapping, clocks, and capture
+    sink are configured.
+  test_name: Single Camera Capture
+  description: Checks the MIPI Camera Input area in simple terms. A pass means Camera is detected, frame
+    stream remains stable for the validation interval, frame rate stays within target tolerance, and no
+    lane, CRC, or frame-drop errors accumulate.
   steps:
-  - Connect camera
-  - load bitstream
-  - start pipeline
-  - monitor errors
-  expected_result: Stable video stream without errors
-  fail_conditions: Camera not detected; frame drops
+  - Connect the supported MIPI camera to the validated FPGA input.
+  - Load the camera-capture bitstream and confirm PLL/clock lock.
+  - Start the capture pipeline and stream frames to the validation sink.
+  - Monitor frame counters, error counters, and reported frame rate for the validation interval.
+  - Stop the pipeline and confirm counters are readable for post-run review.
+  expected_result: Camera is detected, frame stream remains stable for the validation interval, frame
+    rate stays within target tolerance, and no lane, CRC, or frame-drop errors accumulate.
+  fail_conditions: Camera is not detected, PLL/clock does not lock, stream does not start, frame rate
+    is below tolerance, frames drop, or error counters increase.
   priority: P0
   severity: Critical
   automation_readiness: Semi-Automatable
   automation_status: Ready
   test_environment_ci_hil: HIL
-  observations: Baseline Phase-1 validation
+  observations: Baseline Phase-1 HIL validation for the camera ingress path.
   jira_link: null
-  next_action_if_fail: Check lane mapping and clocking
+  next_action_if_fail: Check camera power, lane mapping, PLL/clock configuration, bitstream version, and
+    capture error counters.
 - test_case_id: TC-FPGA-002
   owner: Seow Jie / Kin Nam
   component: MIPI Camera Input
   dependency:
   - TC-FPGA-001
-  precondition: null
-  test_name: Dual Camera MIPI Capture
+  precondition: TC-FPGA-001 passed; two supported cameras are connected; dual-camera bitstream and clocking
+    configuration are available.
+  test_name: Dual Camera Capture
+  description: Checks the MIPI Camera Input area in simple terms. A pass means Both camera streams are
+    detected, active simultaneously, maintain target frame rate, and report independent clean frame counters
+    with no cross-stream corruption.
   steps:
-  - Connect two cameras
-  - regenerate bitstream
-  - enable streams
-  expected_result: Two stable video streams
-  fail_conditions: One stream missing; low FPS
+  - Connect both supported cameras to the validated FPGA inputs.
+  - Load or regenerate the dual-camera bitstream and verify clock lock for both lanes.
+  - Enable both streams and route each to a distinct validation sink.
+  - Monitor per-camera frame counters, frame rate, and error counters for the validation interval.
+  - Stop both streams and verify no cross-stream frame mix-up occurred.
+  expected_result: Both camera streams are detected, active simultaneously, maintain target frame rate,
+    and report independent clean frame counters with no cross-stream corruption.
+  fail_conditions: Either stream is missing, frame rate is below tolerance, one stream starves the other,
+    frame data is mixed, or error counters increase.
   priority: P1
   severity: Major
   automation_readiness: Semi-Automatable
   automation_status: Not Ready
   test_environment_ci_hil: HIL
-  observations: WIP per roadmap
+  observations: Dual-camera HIL bring-up is Not Ready until bandwidth and timing constraints are confirmed.
   jira_link: null
-  next_action_if_fail: Profile bandwidth and PLL timing
+  next_action_if_fail: Profile aggregate bandwidth, PLL timing, lane mapping, and per-stream buffer allocation.
 - test_case_id: TC-FPGA-003
   owner: Sheng Li
   component: Ethernet MAC/PCS
   dependency: null
-  precondition: null
-  test_name: 10G Ethernet Stability
+  precondition: FPGA image with 10G Ethernet MAC/PCS is loaded; link partner and traffic generator are
+    configured.
+  test_name: 10G Ethernet Link Stability
+  description: Checks the Ethernet MAC/PCS area in simple terms. A pass means 10G link remains up for
+    the validation interval, throughput meets target rate, packet loss is zero, and CRC/error counters
+    do not increase.
   steps:
-  - Bring up link
-  - send traffic
-  - monitor errors
-  expected_result: Stable 10G link with no packet loss
-  fail_conditions: Link flap; packet loss
+  - Load the FPGA image containing the 10G Ethernet MAC/PCS design.
+  - Connect the configured 10G link partner or traffic generator.
+  - Bring the link up and confirm negotiated speed and link status.
+  - Send sustained bidirectional traffic at the nominal validation rate.
+  - Monitor link flaps, packet loss, CRC errors, and throughput counters.
+  expected_result: 10G link remains up for the validation interval, throughput meets target rate, packet
+    loss is zero, and CRC/error counters do not increase.
+  fail_conditions: Link fails to come up, flaps during traffic, throughput is below target, packets are
+    lost, or CRC/error counters increase.
   priority: P0
   severity: Critical
   automation_readiness: Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Re-validation needed
+  observations: Re-validation needed before software UDP and EtherCAT dependencies can be trusted.
   jira_link: null
-  next_action_if_fail: Inspect PCS and signal integrity
+  next_action_if_fail: Inspect PCS status, clocking, cable/SFP, link partner configuration, and signal-integrity
+    counters.
 - test_case_id: TC-FPGA-004
   owner: Sheng Li
   component: Ethernet MAC/PCS (25G)
   dependency:
   - TC-FPGA-003
-  precondition: null
-  test_name: 25G Ethernet Bring-Up
+  precondition: TC-FPGA-003 passed; FPGA image and Thor networking stack support 25G operation; compatible
+    25G link partner is connected.
+  test_name: 25G Ethernet Link Bring-Up
+  description: Checks the Ethernet MAC/PCS (25G) area in simple terms. A pass means 25G link establishes
+    at expected speed, sustains target throughput, and shows no excessive CRC errors, packet loss, or
+    link flaps.
   steps:
-  - Configure FPGA for 25G Ethernet
-  - configure Thor networking stack
-  - attempt link bring-up
-  - send sustained traffic
-  expected_result: 25G link established with stable throughput
-  fail_conditions: Link does not come up; excessive CRC or packet loss
+  - Load the FPGA image and Thor networking stack build that supports 25G Ethernet.
+  - Connect a compatible 25G link partner and verify physical link readiness.
+  - Configure the MAC/PCS and Thor host-side settings for 25G operation.
+  - Attempt link bring-up and record negotiated speed/status.
+  - Run sustained traffic and monitor throughput, packet loss, and CRC/error counters.
+  expected_result: 25G link establishes at expected speed, sustains target throughput, and shows no excessive
+    CRC errors, packet loss, or link flaps.
+  fail_conditions: Link does not come up, negotiates the wrong speed, throughput is unstable, CRC errors
+    exceed tolerance, or packets are lost.
   priority: P1
   severity: Major
   automation_readiness: Semi-Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Known Thor dependency; WIP per roadmap
+  observations: Known Thor dependency; WIP until driver/firmware and FPGA timing are stable.
   jira_link: null
-  next_action_if_fail: Resolve Thor drivers/firmware and re-check FPGA timing
+  next_action_if_fail: Resolve Thor driver/firmware configuration, verify transceiver timing, and compare
+    PCS counters against 10G baseline.
 - test_case_id: TC-FPGA-005
   owner: Sheng Li
   component: Ethernet RX / SGDMA
   dependency:
   - TC-FPGA-003
   - TC-FPGA-004
-  precondition: null
-  test_name: PCS Loopback DMA Capture
+  precondition: TC-FPGA-003 and TC-FPGA-004 passed; PCS loopback mode and SGDMA buffer region are configured.
+  test_name: Loopback DMA Capture
+  description: Checks the Ethernet RX / SGDMA area in simple terms. A pass means SGDMA writes the full
+    deterministic payload into memory with correct byte order, length, ordering, and successful descriptor
+    completion.
   steps:
-  - Enable PCS loopback
-  - send known payload
-  - verify memory buffer
-  expected_result: Payload correctly stored in memory
-  fail_conditions: Corrupted or incomplete DMA
+  - Confirm 10G/25G Ethernet dependencies have passed on the current bitstream.
+  - Enable PCS loopback mode for the receive path.
+  - Transmit a deterministic payload sequence through the loopback path.
+  - Trigger SGDMA capture into the configured memory buffer.
+  - Read back the buffer and compare payload bytes, length, ordering, and descriptor status.
+  expected_result: SGDMA writes the full deterministic payload into memory with correct byte order, length,
+    ordering, and successful descriptor completion.
+  fail_conditions: Payload is missing, truncated, reordered, corrupted, written to the wrong buffer, or
+    descriptor/error status indicates DMA failure.
   priority: P0
   severity: Critical
   automation_readiness: Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Core ingress validation
+  observations: Core ingress validation for Ethernet RX to memory path before firmware payload processing.
   jira_link: null
-  next_action_if_fail: Debug DMA descriptors and AXI path
+  next_action_if_fail: Debug SGDMA descriptors, buffer alignment, AXI path, cache coherency, and PCS loopback
+    configuration.
 - test_case_id: TC-FPGA-006
   owner: Kin Nam / Haikal
   component: RISC-V Firmware
@@ -112,43 +153,62 @@ test_cases:
   - TC-FPGA-003
   - TC-FPGA-004
   - TC-FPGA-005
-  precondition: null
-  test_name: Firmware Payload Verification
+  precondition: Ethernet and SGDMA dependencies passed; RISC-V firmware image is loaded with payload validation
+    logging enabled.
+  test_name: Firmware Payload Check
+  description: Checks the RISC-V Firmware area in simple terms. A pass means Firmware reads the SGDMA
+    payload, reports the expected pattern or checksum, and logs a deterministic pass result without bus
+    or cache errors.
   steps:
-  - Configure SGDMA
-  - trigger DMA
-  - read and validate payload
-  expected_result: Payload matches expected pattern
-  fail_conditions: Read failure; data mismatch
+  - Load the RISC-V firmware image with payload validation logging enabled.
+  - Configure SGDMA and memory regions for the deterministic validation payload.
+  - Trigger DMA transfer and allow firmware to read the captured payload.
+  - Compare firmware-reported payload bytes/checksum against the expected pattern.
+  - Verify firmware logs contain pass/fail status and no bus/cache errors.
+  expected_result: Firmware reads the SGDMA payload, reports the expected pattern or checksum, and logs
+    a deterministic pass result without bus or cache errors.
+  fail_conditions: Firmware cannot read the payload, data mismatches, checksum fails, logging is absent,
+    or bus/cache errors are reported.
   priority: P0
   severity: Critical
   automation_readiness: Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: CI
-  observations: Phase-2 firmware deliverable
+  observations: Phase-2 firmware deliverable connecting DMA capture to embedded validation logic.
   jira_link: null
-  next_action_if_fail: Add firmware logging and cache checks
+  next_action_if_fail: Add firmware logging around DMA descriptors, cache maintenance, memory barriers,
+    and payload comparison.
 - test_case_id: TC-VLA-001
   owner: Seow Jie / Kin Nam
   component: Holoscan Vision
   dependency:
   - TC-FPGA-001
   - TC-FPGA-002
-  precondition: null
+  precondition: Camera capture dependencies passed; Holoscan runtime, GPU, and pipeline configuration
+    are available.
   test_name: Live Vision Pipeline
+  description: Checks the Holoscan Vision area in simple terms. A pass means Pipeline runs for the validation
+    interval at target FPS, latency remains within tolerance, GPU utilization is stable, and no crashes
+    or frame drops occur.
   steps:
-  - Start Holoscan pipeline
-  - monitor FPS and latency
-  expected_result: Stable stream at target FPS
-  fail_conditions: Pipeline crash; high latency
+  - Start the Holoscan vision pipeline with the validated camera input configuration.
+  - Confirm the pipeline receives frames from the capture source.
+  - Monitor FPS, per-stage latency, GPU utilization, and dropped-frame counters.
+  - Run the pipeline for the validation interval using representative scene input.
+  - Stop the pipeline and collect logs for latency and stability review.
+  expected_result: Pipeline runs for the validation interval at target FPS, latency remains within tolerance,
+    GPU utilization is stable, and no crashes or frame drops occur.
+  fail_conditions: Pipeline crashes, frame input stalls, FPS falls below target, latency exceeds tolerance,
+    GPU errors occur, or dropped-frame counters increase.
   priority: P0
   severity: Critical
   automation_readiness: Semi-Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Phase-3 system proof
+  observations: Phase-3 HIL system proof for live camera-to-vision processing.
   jira_link: null
-  next_action_if_fail: Profile GPU and pipeline stages
+  next_action_if_fail: Profile GPU kernels, Holoscan stage timings, capture source health, and memory
+    transfer bottlenecks.
 - test_case_id: TC-VLA-002
   owner: Kin Nam / Haikal
   component: VLA Control Loop
@@ -163,29 +223,40 @@ test_cases:
   - TC-SW-002
   - TC-SW-003
   - TC-VLA-001
-  precondition: null
-  test_name: Gesture to Motor Mapping
+  precondition: Vision, FPGA, and software communication dependencies passed; gesture input setup and
+    motor-control HIL bench are ready.
+  test_name: Gesture Motor Control
+  description: Checks the VLA Control Loop area in simple terms. A pass means Gesture or action input
+    produces the expected motor command, transported values match inference output, and motor speed/direction
+    follows the mapping within tolerance.
   steps:
-  - Perform hand gesture
-  - run inference
-  - observe motor speed
-  expected_result: Motor speed follows gesture
-  fail_conditions: Unstable or incorrect motion
+  - Confirm vision, FPGA, and software communication dependencies passed on the current HIL bench.
+  - Start the live vision pipeline and VLA/control-loop runtime.
+  - Perform the documented hand gesture or action prompt sequence.
+  - Record inferred action output and transported motor command values.
+  - Observe motor response and compare speed/direction against the expected gesture mapping.
+  expected_result: Gesture or action input produces the expected motor command, transported values match
+    inference output, and motor speed/direction follows the mapping within tolerance.
+  fail_conditions: Gesture is misclassified, action output is missing, command transport corrupts values,
+    motor speed/direction is wrong, unstable, or unsafe.
   priority: P3
   severity: Major
   automation_readiness: Manual
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Human-in-loop validation
+  observations: Human-in-loop validation for the full vision-to-action-to-motor path.
   jira_link: null
-  next_action_if_fail: Tune thresholds or retrain model
+  next_action_if_fail: Review gesture thresholds, model output, transport logs, and motor-control response
+    before retraining or retuning.
 - test_case_id: TC-VLA-003
   owner: Automate5 QA
   component: Gesture Recognition
   dependency:
   - TC-VLA-001
   precondition: MediaPipe hand_landmarker.task exists; left/right gesture videos are available.
-  test_name: Offline gesture videos satisfy left-hand selection and right-hand speed/stop acceptance
+  test_name: Offline Gesture Detection
+  description: Checks the Gesture Recognition area in simple terms. A pass means All must_observe gestures
+    are detected before video end; missing assets skip rather than fail CI.
   steps:
   - Load detector settings and fixture scenarios
   - Run MediaPipe over left-hand fixture video
@@ -214,7 +285,9 @@ test_cases:
   - TC-SW-020
   precondition: Hololink board reachable at configured IP; camera sensor connected; display or video sink
     available.
-  test_name: Hololink single-camera configure success emits live state and frames
+  test_name: Hololink Single Camera Live
+  description: Checks the Hololink Camera Pipeline area in simple terms. A pass means CAM1 becomes live,
+    frames arrive, no configure error is recorded, and shutdown is clean.
   steps:
   - Register QVideoSink for CAM1
   - Call apply_preview in single-camera mode
@@ -237,7 +310,9 @@ test_cases:
   dependency:
   - TC-VLA-004
   precondition: Two cameras/sensors available through Hololink and configured for dual preview.
-  test_name: Hololink dual-camera mode reports both previews live
+  test_name: Hololink Dual Camera Live
+  description: Checks the Hololink Camera Pipeline area in simple terms. A pass means Both camera slots
+    become live, emit frames, and cleanly stop.
   steps:
   - Register CAM1 and CAM2 video sinks
   - Configure dual-camera mode
@@ -260,7 +335,9 @@ test_cases:
   dependency:
   - TC-SYS-003
   precondition: VLA policy server or simulator reachable; synthetic observation fixture available.
-  test_name: VLA policy server returns valid action chunk for synthetic observation
+  test_name: VLA Policy Action Response
+  description: Checks the VLA Policy Server area in simple terms. A pass means Policy service returns
+    valid action within timeout and failure paths map to coded errors.
   steps:
   - Connect to configured VLA policy endpoint
   - Send synthetic observation and prompt

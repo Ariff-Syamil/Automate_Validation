@@ -629,8 +629,8 @@ AUTO_STATUS_COLOR = {
     "Blocked": COLOR_NOT_RDY,
 }
 
-# Table columns mirror the 17 columns of `Automate5_Test_Cases.xlsx` in
-# their original order. Tuple shape: (display header, dict key, default width px).
+# Table columns mirror the catalog fields shown in the GUI.
+# Tuple shape: (display header, dict key, default width px).
 TABLE_COLUMNS: tuple[tuple[str, str, int], ...] = (
     ("Test Case ID",              "test_case_id",            120),
     ("Owner",                     "owner",                   140),
@@ -638,6 +638,7 @@ TABLE_COLUMNS: tuple[tuple[str, str, int], ...] = (
     ("Dependency",                "dependency",              180),
     ("PreCondition",              "precondition",            140),
     ("Test Name",                 "test_name",               220),
+    ("Description",               "description",             280),
     ("Steps",                     "steps",                   320),
     ("Expected Result",           "expected_result",         260),
     ("Fail Conditions",           "fail_conditions",         220),
@@ -694,6 +695,12 @@ class DetailDialog(QDialog):
             sub = QLabel(sub_text)
             sub.setObjectName("subheading")
             layout.addWidget(sub)
+
+        desc = tc.get("description")
+        if desc:
+            desc_lbl = self._make_value_label(desc)
+            desc_lbl.setObjectName("description")
+            layout.addWidget(desc_lbl)
 
         meta = self._build_form_group(
             "Metadata",
@@ -884,6 +891,11 @@ class TestCaseFormDialog(QDialog):
         self.txt_name = QLineEdit()
         self.txt_name.setPlaceholderText("Short descriptive name")
         rl.addRow(self._make_field_label("Test Name:"), self.txt_name)
+
+        self.txt_description = QTextEdit()
+        self.txt_description.setPlaceholderText("Plain-language explanation for a non-expert user")
+        self.txt_description.setMinimumHeight(70)
+        rl.addRow(self._make_field_label("Description:"), self.txt_description)
 
         body.addWidget(routing)
 
@@ -1099,6 +1111,7 @@ class TestCaseFormDialog(QDialog):
         self.combo_prefix.setEnabled(False)
 
         self.txt_name.setText(tc.get("test_name") or "")
+        self.txt_description.setPlainText(tc.get("description") or "")
         self.txt_owner.setText(tc.get("owner") or "")
         self.txt_component.setText(tc.get("component") or "")
         self.txt_precondition.setText(tc.get("precondition") or "")
@@ -1141,6 +1154,7 @@ class TestCaseFormDialog(QDialog):
             "dependency": deps or None,
             "precondition": self._none_if_blank(self.txt_precondition.text()),
             "test_name": test_name,
+            "description": self._none_if_blank(self.txt_description.toPlainText()),
             "steps": steps or None,
             "expected_result": self._none_if_blank(self.txt_expected.text()),
             "fail_conditions": self._none_if_blank(self.txt_fail.text()),
@@ -1310,7 +1324,7 @@ class RunFormDialog(QDialog):
             top_row = QHBoxLayout()
             self._search = QLineEdit()
             self._search.setPlaceholderText("Filter by ID or name…")
-            self._search.textChanged.connect(self._on_search_changed)
+            self._search.textChanged.connect(self._apply_picker_filters)
             top_row.addWidget(self._search, 1)
 
             btn_select_all = QPushButton("Select All Visible")
@@ -1324,20 +1338,42 @@ class RunFormDialog(QDialog):
             top_row.addWidget(btn_clear)
             pl.addLayout(top_row)
 
+            filter_row = QHBoxLayout()
+            filter_row.addWidget(QLabel("Automation Status:"))
+            self.combo_picker_status = QComboBox()
+            self.combo_picker_status.addItem("All", "all")
+            self.combo_picker_status.addItem("Ready", "Ready")
+            self.combo_picker_status.currentIndexChanged.connect(self._apply_picker_filters)
+            filter_row.addWidget(self.combo_picker_status)
+
+            filter_row.addWidget(QLabel("Env:"))
+            self.combo_picker_env = QComboBox()
+            self.combo_picker_env.addItem("All", "all")
+            for env in ("CI", "HIL"):
+                self.combo_picker_env.addItem(env, env)
+            self.combo_picker_env.currentIndexChanged.connect(self._apply_picker_filters)
+            filter_row.addWidget(self.combo_picker_env)
+            filter_row.addStretch()
+            pl.addLayout(filter_row)
+
+            self._picker_summary = QLabel()
+            self._picker_summary.setProperty("role", "fieldLabel")
+            self._picker_summary.setWordWrap(False)
+            self._picker_summary.setMinimumHeight(20)
+            pl.addWidget(self._picker_summary)
+
             self._picker_list = QListWidget()
             self._picker_list.setMinimumHeight(160)
             self._picker_list.itemChanged.connect(self._on_picker_changed)
             self._populate_picker()
-            pl.addWidget(self._picker_list)
-
-            self._picker_summary = QLabel()
-            self._picker_summary.setProperty("role", "fieldLabel")
-            pl.addWidget(self._picker_summary)
+            pl.addWidget(self._picker_list, 1)
             self._update_picker_summary()
 
             if self._lock_selection and self._test_case_ids:
                 self._picker_list.setEnabled(False)
                 self._search.setEnabled(False)
+                self.combo_picker_status.setEnabled(False)
+                self.combo_picker_env.setEnabled(False)
                 btn_select_all.setEnabled(False)
                 btn_clear.setEnabled(False)
 
@@ -1387,8 +1423,9 @@ class RunFormDialog(QDialog):
         self.txt_notes.setPlaceholderText(
             "Optional notes. Automation output is appended to each saved run."
         )
-        self.txt_notes.setMinimumHeight(70)
-        form.addRow(self._field_label("Notes:"), self.txt_notes)
+        self.txt_notes.setMinimumHeight(96)
+        form.addRow(self._field_label("Notes:"))
+        form.addRow(self.txt_notes)
 
         outer.addWidget(form_grp)
         outer.addStretch()
@@ -1454,24 +1491,10 @@ class RunFormDialog(QDialog):
 
     # ── picker helpers ──────────────────────────────────────────────────────
 
-    def _tc_label(self, tid: str) -> str:
-        # Cache test case names so we don't re-read YAMLs on every keystroke.
-        if not hasattr(self, "_name_cache"):
-            self._name_cache: dict[str, str] = {}
-            for sub in SUBCOMPONENTS:
-                p = REPO_ROOT / self.version / sub / "test_cases.yaml"
-                if not p.exists():
-                    continue
-                for tc in load_test_cases(p):
-                    t = tc.get("test_case_id")
-                    if t:
-                        self._name_cache[t] = tc.get("test_name") or ""
-        name = self._name_cache.get(tid, "")
-        return f"{tid}    —  {name}" if name else tid
-
-    def _test_case_subcomponent(self, tid: str) -> str | None:
-        if not hasattr(self, "_subcomponent_cache"):
-            self._subcomponent_cache: dict[str, str] = {}
+    def _test_case_meta(self, tid: str) -> dict:
+        # Cache picker metadata so text/status/env filters do not re-read YAMLs.
+        if not hasattr(self, "_test_case_meta_cache"):
+            self._test_case_meta_cache: dict[str, dict] = {}
             for sub in SUBCOMPONENTS:
                 p = REPO_ROOT / self.version / sub / "test_cases.yaml"
                 if not p.exists():
@@ -1479,11 +1502,80 @@ class RunFormDialog(QDialog):
                 for tc in load_test_cases(p):
                     test_case_id = tc.get("test_case_id")
                     if test_case_id:
-                        self._subcomponent_cache[test_case_id] = sub
-        return self._subcomponent_cache.get(tid)
+                        self._test_case_meta_cache[test_case_id] = {
+                            "subcomponent": sub,
+                            "test_name": tc.get("test_name") or "",
+                            "description": tc.get("description") or "",
+                            "dependency": tc.get("dependency") or [],
+                            "automation_status": tc.get("automation_status") or "",
+                            "test_environment_ci_hil": tc.get("test_environment_ci_hil") or "",
+                        }
+        return self._test_case_meta_cache.get(tid, {})
+
+    def _tc_label(self, tid: str) -> str:
+        name = self._test_case_meta(tid).get("test_name") or ""
+        return f"{tid}    —  {name}" if name else tid
+
+    def _test_case_subcomponent(self, tid: str) -> str | None:
+        return self._test_case_meta(tid).get("subcomponent")
 
     def _is_executable_test_case(self, tid: str) -> bool:
         return self._test_case_subcomponent(tid) == "gui" and tid.startswith("TC-GUI-")
+
+    def _dependency_ids(self, tid: str) -> list[str]:
+        deps = self._test_case_meta(tid).get("dependency") or []
+        if isinstance(deps, str):
+            deps = [part.strip() for part in deps.replace("\n", ",").split(",")]
+        return [dep for dep in deps if dep]
+
+    def _with_dependencies(self, tids: list[str]) -> tuple[list[str], list[str]]:
+        known_tids = set(self._all_tids)
+        seen: set[str] = set()
+        missing: list[str] = []
+        closure: list[str] = []
+
+        def add_with_deps(tid: str) -> None:
+            if tid in seen:
+                return
+            seen.add(tid)
+            for dep in self._dependency_ids(tid):
+                if dep in known_tids:
+                    add_with_deps(dep)
+                elif dep not in missing:
+                    missing.append(dep)
+            closure.append(tid)
+
+        for tid in tids:
+            add_with_deps(tid)
+        return self._dependency_priority_order(closure), missing
+
+    def _dependency_priority_order(self, tids: list[str]) -> list[str]:
+        """Run dependency-free cases first, then cases whose dependencies passed.
+
+        The executor checks dependency status from the persisted run history, so
+        this topological order gives prerequisite cases a chance to record PASS
+        before dependent cases execute.
+        """
+        unique_tids = list(dict.fromkeys(tids))
+        pending = set(unique_tids)
+        ordered: list[str] = []
+
+        while pending:
+            ready = [
+                tid
+                for tid in unique_tids
+                if tid in pending
+                and not any(dep in pending for dep in self._dependency_ids(tid))
+            ]
+            if not ready:
+                # Cycle or malformed dependency chain; keep deterministic order
+                # rather than blocking the whole run before validation reports it.
+                ready = [tid for tid in unique_tids if tid in pending]
+            for tid in ready:
+                ordered.append(tid)
+                pending.remove(tid)
+
+        return ordered
 
     @staticmethod
     def _combine_run_notes(user_notes: str, detail_notes: str) -> str:
@@ -1495,9 +1587,8 @@ class RunFormDialog(QDialog):
         name, ok = QInputDialog.getText(
             self,
             "Name Multiple Run Tests",
-            f"You selected {run_count} tests. Optionally name this run group so "
-            "you can easily find and delete these multiple run tests by name "
-            "in the Timeline.\n\nRun group name:",
+            f"{run_count} tests will run.\n"
+            "Optional group name for Timeline delete/search:",
         )
         if not ok:
             return None
@@ -1531,13 +1622,27 @@ class RunFormDialog(QDialog):
                 out.append(it.data(Qt.ItemDataRole.UserRole))
         return out
 
-    def _on_search_changed(self, text: str) -> None:
+    def _apply_picker_filters(self, *_args) -> None:
         if self._picker_list is None:
             return
-        needle = text.strip().lower()
+        needle = self._search.text().strip().lower()
+        status_filter = self.combo_picker_status.currentData()
+        env_filter = self.combo_picker_env.currentData()
         for i in range(self._picker_list.count()):
             it = self._picker_list.item(i)
-            it.setHidden(bool(needle) and needle not in it.text().lower())
+            tid = it.data(Qt.ItemDataRole.UserRole)
+            meta = self._test_case_meta(tid)
+            matches_text = not needle or needle in it.text().lower()
+            matches_status = (
+                status_filter == "all"
+                or meta.get("automation_status") == status_filter
+            )
+            matches_env = (
+                env_filter == "all"
+                or meta.get("test_environment_ci_hil") == env_filter
+            )
+            it.setHidden(not (matches_text and matches_status and matches_env))
+        self._update_picker_summary()
 
     def _on_select_all_visible(self) -> None:
         if self._picker_list is None:
@@ -1573,8 +1678,13 @@ class RunFormDialog(QDialog):
             return
         n = len(self._picker_selected_ids())
         total = self._picker_list.count() if self._picker_list else 0
+        visible = sum(
+            1 for i in range(total)
+            if self._picker_list and not self._picker_list.item(i).isHidden()
+        )
         self._picker_summary.setText(
-            f"{n} of {total} test case{'s' if total != 1 else ''} selected"
+            f"Selected: {n}/{total} test case{'s' if total != 1 else ''}  |  "
+            f"Visible with filters: {visible}"
         )
 
     def _on_date_changed(self, qdate: QDate) -> None:
@@ -1624,13 +1734,21 @@ class RunFormDialog(QDialog):
             })
             runs[self._existing_index] = existing
         else:
-            tids = self._picker_selected_ids()
-            if not tids:
+            selected_tids = self._picker_selected_ids()
+            if not selected_tids:
                 QMessageBox.warning(
                     self, "No Test Cases Selected",
                     "Tick at least one test case in the picker before saving."
                 )
                 return
+            tids, missing_dependencies = self._with_dependencies(selected_tids)
+            if missing_dependencies:
+                QMessageBox.warning(
+                    self,
+                    "Missing Dependencies",
+                    "These dependency test cases were not found and will not run:\n"
+                    + ", ".join(missing_dependencies),
+                )
             run_name = ""
             if len(tids) > 1:
                 prompt_result = self._prompt_multi_run_name(len(tids))
@@ -1686,16 +1804,27 @@ class RunFormDialog(QDialog):
                     if duration is not None:
                         run_record["duration_seconds"] = duration
                     runs.append(run_record)
+                    self._state["runs"] = runs
+                    try:
+                        save_runs(self.version, self._state)
+                    except Exception as exc:
+                        QMessageBox.critical(
+                            self,
+                            "Save Failed",
+                            f"Could not save run for {tid}:\n{exc}",
+                        )
+                        return
             finally:
                 QApplication.restoreOverrideCursor()
 
-        self._state["runs"] = runs
-        try:
-            save_runs(self.version, self._state)
-        except Exception as exc:
-            QMessageBox.critical(self, "Save Failed",
-                                 f"Could not save runs:\n{exc}")
-            return
+        if self._is_edit:
+            self._state["runs"] = runs
+            try:
+                save_runs(self.version, self._state)
+            except Exception as exc:
+                QMessageBox.critical(self, "Save Failed",
+                                     f"Could not save runs:\n{exc}")
+                return
         if execution_results is not None:
             summary = ", ".join(
                 f"{tid}: {run_result}" for tid, run_result in execution_results
@@ -2007,13 +2136,48 @@ class TimelineDialog(QDialog):
         outer.addLayout(summary_row)
 
         hint = QLabel(
-            "View-only. Double-click any cell to view, edit or delete its run "
-            "records. New runs are created from the main window's ▶ Run button "
-            "after selecting one or more test cases."
+            "Click a Test Case ID to view details. Double-click any result cell "
+            "to view, edit or delete its run records. New runs are created from "
+            "the main window's ▶ Run button."
         )
         hint.setProperty("role", "fieldLabel")
         hint.setWordWrap(True)
         outer.addWidget(hint)
+
+        # ── Named run-group filter ──────────────────────────────────────────
+        group_filter = QGroupBox("Named Multiple Run")
+        gfl = QHBoxLayout(group_filter)
+        gfl.setSpacing(8)
+
+        group_hint = QLabel("Filter by name:")
+        group_hint.setProperty("role", "fieldLabel")
+        gfl.addWidget(group_hint)
+
+        self._group_filter_list = QListWidget()
+        self._group_filter_list.setMinimumHeight(44)
+        self._group_filter_list.setMaximumHeight(64)
+        self._group_filter_list.itemChanged.connect(self._on_run_group_filter_changed)
+        gfl.addWidget(self._group_filter_list, 1)
+
+        group_buttons = QHBoxLayout()
+        group_buttons.setSpacing(4)
+        btn_select_groups = QPushButton("Select All Names")
+        btn_select_groups.setObjectName("secondary")
+        btn_select_groups.clicked.connect(self._select_all_run_groups)
+        group_buttons.addWidget(btn_select_groups)
+        btn_clear_groups = QPushButton("Show All")
+        btn_clear_groups.setObjectName("secondary")
+        btn_clear_groups.clicked.connect(self._clear_run_group_filter)
+        group_buttons.addWidget(btn_clear_groups)
+        btn_delete_group = QPushButton("Delete Run Group")
+        btn_delete_group.setObjectName("danger")
+        btn_delete_group.setStyleSheet(DANGER_BUTTON_STYLE)
+        btn_delete_group.setToolTip("Delete all timeline run records with the selected run group name.")
+        btn_delete_group.clicked.connect(self._on_delete_run_group)
+        group_buttons.addWidget(btn_delete_group)
+        gfl.addLayout(group_buttons)
+        outer.addWidget(group_filter)
+        self._populate_run_group_filter()
 
         # ── Table ───────────────────────────────────────────────────────────
         self.model = QStandardItemModel()
@@ -2027,6 +2191,7 @@ class TimelineDialog(QDialog):
         self.table.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.table.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.table.verticalHeader().setVisible(False)
+        self.table.clicked.connect(self._on_click)
         self.table.doubleClicked.connect(self._on_double_click)
         hh = self.table.horizontalHeader()
         hh.setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
@@ -2062,15 +2227,130 @@ class TimelineDialog(QDialog):
         self._weeks: list[str] = list(self._state.get("work_weeks") or DEFAULT_WORK_WEEKS)
         self._tids: list[str] = _all_test_case_ids(self.version)
         self._runs: list[dict] = list(self._state.get("runs") or [])
+        self._test_cases_by_id = self._load_test_cases_by_id()
+
+    def _load_test_cases_by_id(self) -> dict[str, dict]:
+        out: dict[str, dict] = {}
+        automate_dir = REPO_ROOT / self.version
+        for sub, path in discover_test_files(automate_dir).items():
+            for tc in load_test_cases(path):
+                tid = tc.get("test_case_id")
+                if tid:
+                    row = dict(tc)
+                    row["__subcomponent"] = sub
+                    out[tid] = row
+        return out
 
     def _status_text(self) -> str:
+        display_runs = self._display_runs()
+        display_tids = self._display_tids(display_runs)
+        selected_groups = self._selected_run_groups()
+        run_text = f"{len(display_runs)} run record{'s' if len(display_runs) != 1 else ''}"
+        if selected_groups:
+            run_text = (
+                f"{len(display_runs)} of {len(self._runs)} run record"
+                f"{'s' if len(self._runs) != 1 else ''} shown"
+            )
         return (
-            f"{len(self._tids)} test cases × {len(self._weeks)} work-weeks  •  "
-            f"{len(self._runs)} run record{'s' if len(self._runs) != 1 else ''}"
+            f"{len(display_tids)} test cases × {len(self._weeks)} work-weeks  •  "
+            f"{run_text}"
         )
 
     def _year_text(self) -> str:
         return f"Year: {self._state.get('year') or _dt.date.today().year}"
+
+    def _run_group_counts(self) -> dict[str, int]:
+        counts: dict[str, int] = {}
+        for run in self._runs:
+            run_name = (run.get("run_name") or "").strip()
+            if run_name:
+                counts[run_name] = counts.get(run_name, 0) + 1
+        return counts
+
+    def _selected_run_groups(self) -> set[str]:
+        if not hasattr(self, "_group_filter_list"):
+            return set()
+        selected: set[str] = set()
+        for i in range(self._group_filter_list.count()):
+            item = self._group_filter_list.item(i)
+            name = item.data(Qt.ItemDataRole.UserRole)
+            if name and item.checkState() == Qt.CheckState.Checked:
+                selected.add(name)
+        return selected
+
+    def _display_runs(self) -> list[dict]:
+        selected_groups = self._selected_run_groups()
+        if not selected_groups:
+            return list(self._runs)
+        return [
+            run for run in self._runs
+            if (run.get("run_name") or "").strip() in selected_groups
+        ]
+
+    def _display_tids(self, display_runs: list[dict]) -> list[str]:
+        if not self._selected_run_groups():
+            return list(self._tids)
+        visible_tids = {
+            run.get("test_case_id") for run in display_runs
+            if run.get("test_case_id")
+        }
+        return [tid for tid in self._tids if tid in visible_tids]
+
+    def _populate_run_group_filter(self, keep_selection: set[str] | None = None) -> None:
+        if not hasattr(self, "_group_filter_list"):
+            return
+        if keep_selection is None:
+            keep_selection = self._selected_run_groups()
+
+        group_counts = self._run_group_counts()
+        self._group_filter_list.blockSignals(True)
+        try:
+            self._group_filter_list.clear()
+            if not group_counts:
+                item = QListWidgetItem("(no named multiple-test runs)")
+                item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEnabled)
+                self._group_filter_list.addItem(item)
+                return
+
+            for name, count in sorted(group_counts.items(), key=lambda item: item[0].casefold()):
+                item = QListWidgetItem(
+                    f"{name} ({count} record{'s' if count != 1 else ''})"
+                )
+                item.setData(Qt.ItemDataRole.UserRole, name)
+                item.setFlags(item.flags() | Qt.ItemFlag.ItemIsUserCheckable)
+                item.setCheckState(
+                    Qt.CheckState.Checked
+                    if name in keep_selection
+                    else Qt.CheckState.Unchecked
+                )
+                self._group_filter_list.addItem(item)
+        finally:
+            self._group_filter_list.blockSignals(False)
+
+    def _on_run_group_filter_changed(self, *_args) -> None:
+        self._build_model()
+        self.lbl_status.setText(self._status_text())
+
+    def _set_all_run_groups_checked(self, checked: bool) -> None:
+        if not hasattr(self, "_group_filter_list"):
+            return
+        self._group_filter_list.blockSignals(True)
+        try:
+            for i in range(self._group_filter_list.count()):
+                item = self._group_filter_list.item(i)
+                if item.flags() & Qt.ItemFlag.ItemIsUserCheckable:
+                    item.setCheckState(
+                        Qt.CheckState.Checked if checked else Qt.CheckState.Unchecked
+                    )
+        finally:
+            self._group_filter_list.blockSignals(False)
+        self._on_run_group_filter_changed()
+
+    def _select_all_run_groups(self) -> None:
+        self._set_all_run_groups_checked(True)
+
+    def _clear_run_group_filter(self) -> None:
+        self._set_all_run_groups_checked(False)
 
     # ── table build ─────────────────────────────────────────────────────────
 
@@ -2078,8 +2358,10 @@ class TimelineDialog(QDialog):
         self.model.clear()
         self.model.setHorizontalHeaderLabels(["Test Case ID", *self._weeks])
 
-        for tid in self._tids:
-            row = self._make_row(tid)
+        display_runs = self._display_runs()
+        display_tids = self._display_tids(display_runs)
+        for tid in display_tids:
+            row = self._make_row(tid, display_runs)
             self.model.appendRow(row)
 
         self.table.setColumnWidth(0, 140)
@@ -2090,7 +2372,7 @@ class TimelineDialog(QDialog):
 
         self._refresh_metric_labels()
 
-    def _make_row(self, tid: str) -> list[QStandardItem]:
+    def _make_row(self, tid: str, display_runs: list[dict]) -> list[QStandardItem]:
         head = QStandardItem(tid)
         head.setEditable(False)
         head.setForeground(self.ID_TEXT_COLOR)
@@ -2106,7 +2388,7 @@ class TimelineDialog(QDialog):
             cell.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
             cell.setData({"tid": tid, "week": week}, Qt.ItemDataRole.UserRole)
 
-            cell_runs = runs_for_cell(self._runs, tid, week)
+            cell_runs = runs_for_cell(display_runs, tid, week)
             if cell_runs:
                 latest = cell_runs[0]
                 result = latest.get("result") or "NOT RUN"
@@ -2140,7 +2422,8 @@ class TimelineDialog(QDialog):
         return items
 
     def _refresh_metric_labels(self) -> None:
-        metrics = compute_run_metrics(self._runs, self._tids)
+        display_runs = self._display_runs()
+        metrics = compute_run_metrics(display_runs, self._display_tids(display_runs))
         for label, value_lbl in self.metric_value_lbls.items():
             value_lbl.setText(metrics.get(label, "0%"))
         # Color-tint each value to mirror the run-result palette.
@@ -2155,6 +2438,50 @@ class TimelineDialog(QDialog):
         )
 
     # ── interactions ────────────────────────────────────────────────────────
+
+    def _on_click(self, index) -> None:
+        if not index.isValid() or index.column() != 0:
+            return
+        item = self.model.itemFromIndex(index)
+        if item is None:
+            return
+        meta = item.data(Qt.ItemDataRole.UserRole) or {}
+        tid = meta.get("tid")
+        if tid:
+            self._open_test_case_detail(tid)
+
+    def _open_test_case_detail(self, tid: str) -> None:
+        tc = self._test_cases_by_id.get(tid)
+        if not tc:
+            QMessageBox.information(
+                self,
+                "Test Case Not Found",
+                f"Could not find details for {tid}.",
+            )
+            return
+
+        dlg = DetailDialog(tc, self)
+        result = dlg.exec()
+        if result != DetailDialog.EDIT_REQUESTED:
+            return
+
+        sub = tc.get("__subcomponent")
+        if not sub:
+            QMessageBox.critical(
+                self,
+                "Error",
+                "Cannot determine which subcomponent file owns this test case.",
+            )
+            return
+        edit_dlg = TestCaseFormDialog(
+            self.version,
+            existing_tc=tc,
+            existing_subcomponent=sub,
+            parent=self,
+        )
+        edit_result = edit_dlg.exec()
+        if edit_result in (QDialog.DialogCode.Accepted, TestCaseFormDialog.DELETED):
+            self._on_refresh()
 
     def _on_double_click(self, index) -> None:
         if not index.isValid():
@@ -2173,10 +2500,70 @@ class TimelineDialog(QDialog):
             self._on_refresh()
 
     def _on_refresh(self) -> None:
+        selected_groups = self._selected_run_groups()
         self._reload_state()
+        self._populate_run_group_filter(selected_groups)
         self._build_model()
         self.lbl_status.setText(self._status_text())
         self.lbl_year.setText(self._year_text())
+
+    def _on_delete_run_group(self) -> None:
+        group_counts = self._run_group_counts()
+        if not group_counts:
+            QMessageBox.information(
+                self,
+                "No Named Run Groups",
+                "There are no named multiple-run groups to delete.",
+            )
+            return
+
+        choices = [
+            f"{name} ({count} record{'s' if count != 1 else ''})"
+            for name, count in sorted(group_counts.items(), key=lambda item: item[0].casefold())
+        ]
+        choice, ok = QInputDialog.getItem(
+            self,
+            "Delete Run Group",
+            "Choose a named multiple-run group to delete from the Timeline:",
+            choices,
+            0,
+            False,
+        )
+        if not ok or not choice:
+            return
+
+        run_name = choice.rsplit(" (", 1)[0]
+        record_count = group_counts.get(run_name, 0)
+        confirm = QMessageBox.question(
+            self,
+            "Delete Run Group?",
+            f"Delete all {record_count} run record"
+            f"{'s' if record_count != 1 else ''} named {run_name!r}?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No,
+        )
+        if confirm != QMessageBox.StandardButton.Yes:
+            return
+
+        state = load_runs(self.version)
+        runs = list(state.get("runs") or [])
+        state["runs"] = [
+            run for run in runs
+            if (run.get("run_name") or "").strip() != run_name
+        ]
+        try:
+            save_runs(self.version, state)
+        except Exception as exc:
+            QMessageBox.critical(self, "Save Failed", f"Could not save runs:\n{exc}")
+            return
+
+        self._on_refresh()
+        QMessageBox.information(
+            self,
+            "Run Group Deleted",
+            f"Deleted {record_count} run record"
+            f"{'s' if record_count != 1 else ''} named {run_name!r}.",
+        )
 
     def _on_export_csv(self) -> None:
         output_path = REPO_ROOT / f"{self.version}_results.csv"
@@ -2195,9 +2582,11 @@ class TimelineDialog(QDialog):
             ]
             writer = csv.DictWriter(output, fieldnames=headers)
             writer.writeheader()
-            for tid in self._tids:
+            display_runs = self._display_runs()
+            display_tids = self._display_tids(display_runs)
+            for tid in display_tids:
                 for week in self._weeks:
-                    latest = latest_run_for_cell(self._runs, tid, week)
+                    latest = latest_run_for_cell(display_runs, tid, week)
                     if latest is None:
                         continue
                     writer.writerow({

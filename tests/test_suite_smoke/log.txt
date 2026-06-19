@@ -1,19 +1,19 @@
 Test run log (overwritten each run)
-Finished: 2026-06-08 06:50:48 UTC
-Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\tests\test_suite_smoke
+Finished: 2026-06-19 02:42:11 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_smoke
 
 Results:
   PASSED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_import_smoke
   PASSED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_qapplication_launch
 
 --- Suite run log (TestCaseFramework.log) ---
-[06:50:48.240] test_qapplication_launch: begin
-[06:50:48.264] test_qapplication_launch: QApplication created — platform=offscreen
-[06:50:48.264] test_qapplication_launch: quit() called successfully
-[06:50:48.267] test_import_smoke: begin
-[06:50:48.268] test_import_smoke: automate5 OK
-[06:50:48.268] test_import_smoke: automate5.log OK
-[06:50:48.271] test_import_smoke: gui.main_window OK
-[06:50:48.272] test_import_smoke: all imports passed
+[02:42:11.500] test_qapplication_launch: begin
+[02:42:11.500] test_qapplication_launch: QApplication created — platform=windows
+[02:42:11.500] test_qapplication_launch: quit() called successfully
+[02:42:11.502] test_import_smoke: begin
+[02:42:11.502] test_import_smoke: automate5 OK
+[02:42:11.503] test_import_smoke: automate5.log OK
+[02:42:11.508] test_import_smoke: gui.main_window OK
+[02:42:11.508] test_import_smoke: all imports passed
 
 OVERALL: PASSED

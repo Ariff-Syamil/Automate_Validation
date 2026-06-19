@@ -70,6 +70,7 @@ ALL_FIELDS: tuple[str, ...] = (
     "dependency",
     "precondition",
     "test_name",
+    "description",
     "steps",
     "expected_result",
     "fail_conditions",
@@ -84,6 +85,12 @@ ALL_FIELDS: tuple[str, ...] = (
 )
 
 ID_PATTERN = re.compile(r"^TC-[A-Z]+-\d+$")
+
+VALID_PRIORITIES = {"P0", "P1", "P2", "P3"}
+VALID_SEVERITIES = {"Critical", "Major", "Minor"}
+VALID_AUTOMATION_READINESS = {"Automatable", "Semi-Automatable", "Manual"}
+VALID_AUTOMATION_STATUS = {"Ready", "Not Ready", "In Progress", "Blocked"}
+VALID_TEST_ENVIRONMENTS = {"CI", "HIL"}
 
 
 # ---------------------------------------------------------------------------
@@ -182,9 +189,16 @@ def validate_test_cases(automate_version: str) -> bool:
 
     all_valid = True
     seen_ids: dict[str, str] = {}  # test_case_id -> subcomponent
+    cases_by_sub = {sub: load_test_cases(path) for sub, path in files.items()}
+    known_ids = {
+        tc.get("test_case_id")
+        for cases in cases_by_sub.values()
+        for tc in cases
+        if tc.get("test_case_id")
+    }
 
     for sub, path in files.items():
-        cases = load_test_cases(path)
+        cases = cases_by_sub[sub]
         allowed = ALLOWED_PREFIXES.get(sub, ())
         for tc in cases:
             tid = (tc.get("test_case_id") or "<missing>").strip()
@@ -222,7 +236,7 @@ def validate_test_cases(automate_version: str) -> bool:
                           "fail_conditions", "priority", "severity",
                           "automation_readiness", "automation_status",
                           "test_environment_ci_hil", "observations", "jira_link",
-                          "next_action_if_fail"):
+                          "next_action_if_fail", "description"):
                 if field in tc and not _is_str_or_none(tc[field]):
                     print(f"  ERROR [{sub}] {tid}: '{field}' must be string or null")
                     all_valid = False
@@ -230,6 +244,27 @@ def validate_test_cases(automate_version: str) -> bool:
             for field in ("dependency", "steps"):
                 if field in tc and not _is_str_list_or_none(tc[field]):
                     print(f"  ERROR [{sub}] {tid}: '{field}' must be list of strings or null")
+                    all_valid = False
+
+            for dep in (tc.get("dependency") or []):
+                if dep not in known_ids:
+                    print(f"  ERROR [{sub}] {tid}: dependency {dep!r} is not a known test_case_id")
+                    all_valid = False
+
+            enum_checks = (
+                ("priority", VALID_PRIORITIES),
+                ("severity", VALID_SEVERITIES),
+                ("automation_readiness", VALID_AUTOMATION_READINESS),
+                ("automation_status", VALID_AUTOMATION_STATUS),
+                ("test_environment_ci_hil", VALID_TEST_ENVIRONMENTS),
+            )
+            for field, allowed_values in enum_checks:
+                value = tc.get(field)
+                if value not in (None, "") and value not in allowed_values:
+                    print(
+                        f"  ERROR [{sub}] {tid}: '{field}' must be one of "
+                        f"{sorted(allowed_values)}, got {value!r}"
+                    )
                     all_valid = False
 
             unknown = set(tc.keys()) - set(ALL_FIELDS)
@@ -250,7 +285,7 @@ def validate_test_cases(automate_version: str) -> bool:
 # Report generation (Confluence-friendly)
 # ---------------------------------------------------------------------------
 
-# Mirrors the 17 columns of `Automate5_Test_Cases.xlsx` in their original order.
+# Mirrors the catalog fields in report/export order.
 REPORT_COLUMNS: tuple[tuple[str, str], ...] = (
     ("Test Case ID",              "test_case_id"),
     ("Owner",                     "owner"),
@@ -258,6 +293,7 @@ REPORT_COLUMNS: tuple[tuple[str, str], ...] = (
     ("Dependency",                "dependency"),
     ("PreCondition",              "precondition"),
     ("Test Name",                 "test_name"),
+    ("Description",               "description"),
     ("Steps",                     "steps"),
     ("Expected Result",           "expected_result"),
     ("Fail Conditions",           "fail_conditions"),

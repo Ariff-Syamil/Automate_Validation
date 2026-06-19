@@ -31,6 +31,10 @@
       "type": "string",
       "description": "Short descriptive name for the test."
     },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Plain-language explanation of what the test proves, written for a non-expert user."
+    },
     "steps": {
       "type": ["array", "null"],
       "items": { "type": "string" },
@@ -46,22 +50,27 @@
     },
     "priority": {
       "type": ["string", "null"],
+      "enum": ["P0", "P1", "P2", "P3", null],
       "description": "Priority level (e.g., P0, P1, P2)."
     },
     "severity": {
       "type": ["string", "null"],
+      "enum": ["Critical", "Major", "Minor", null],
       "description": "Severity if the test fails (e.g., Critical, Major, Minor)."
     },
     "automation_readiness": {
       "type": ["string", "null"],
+      "enum": ["Automatable", "Semi-Automatable", "Manual", null],
       "description": "How automatable the test is (e.g., Automatable, Semi-Automatable, Manual)."
     },
     "automation_status": {
       "type": ["string", "null"],
+      "enum": ["Ready", "Not Ready", "In Progress", "Blocked", null],
       "description": "Current automation implementation status (e.g., Ready, Not Ready, In Progress)."
     },
     "test_environment_ci_hil": {
       "type": ["string", "null"],
+      "enum": ["CI", "HIL", null],
       "description": "Where the test runs (CI, HIL)."
     },
     "observations": {

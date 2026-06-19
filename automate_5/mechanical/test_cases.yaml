@@ -1,129 +1,162 @@
-# =============================================================================
-# Automate 5 - Mechanical Validation Test Cases
-# =============================================================================
-# Imported from Automate5_Test_Cases.xlsx
-# Field names mirror the Excel column headers (snake_case).
-# =============================================================================
-
 test_cases:
 - test_case_id: TC-HW-01
   owner: Ji Lik / Ariff
   component: Hardware
   dependency:
   - TC-SYS-001
-  precondition: null
+  precondition: Robot arm mounted on HIL bench; safety boundary clear; emergency stop verified before
+    power-on.
   test_name: Power-On Initialization
+  description: Checks the Hardware area in simple terms. A pass means Arm reaches home position; no abnormal
+    noise.
   steps:
   - Power on system
   - observe startup
   - check homing
   expected_result: Arm reaches home position; no abnormal noise
   fail_conditions: Fails to home; abnormal vibration/noise
-  priority: null
+  priority: P0
   severity: Critical
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: HIL acceptance case for safe startup and homing before any movement tests.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Collect controller boot logs, servo fault state, and homing sensor readings before
+    retrying.
 - test_case_id: TC-HW-02
   owner: Ji Lik / Ariff
   component: Hardware
   dependency:
   - TC-HW-01
-  precondition: null
+  precondition: TC-HW-01 passed; arm is homed; joint angle limits are configured.
   test_name: Single Joint Movement
+  description: Checks the Hardware area in simple terms. A pass means Each joint moves smoothly in both
+    directions, follows commanded speed, stops within configured limits, and reports stable encoder feedback
+    without abnormal noise.
   steps:
-  - Move shoulder, elbow, wrist individually
-  expected_result: Smooth movement within limits
-  fail_conditions: Jerky motion; exceeds angle limits
-  priority: null
+  - 'Select one joint at a time: shoulder, elbow, then wrist.'
+  - Command each joint through low-speed positive and negative movement within its safe range.
+  - Repeat the movement at nominal validation speed.
+  - Observe encoder feedback, limit enforcement, vibration, and audible noise for each joint.
+  expected_result: Each joint moves smoothly in both directions, follows commanded speed, stops within
+    configured limits, and reports stable encoder feedback without abnormal noise.
+  fail_conditions: Any joint stalls, moves in the wrong direction, exceeds configured limits, oscillates,
+    or reports unstable encoder feedback.
+  priority: P1
   severity: Major
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Foundational HIL motion case for validating individual joint actuation before coordinated
+    movement.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Disable the affected joint and inspect motor driver status, encoder calibration,
+    and configured soft limits.
 - test_case_id: TC-HW-03
   owner: Ji Lik / Ariff
   component: Hardware
   dependency:
   - TC-HW-01
   - TC-HW-02
-  precondition: null
+  precondition: TC-HW-01 and TC-HW-02 passed; target coordinates are inside the safe workspace.
   test_name: Multi-Joint Coordination
+  description: Checks the Hardware area in simple terms. A pass means The arm reaches each target with
+    a smooth coordinated trajectory and settles within the configured position tolerance.
   steps:
-  - Command arm to reach target point
-  expected_result: Smooth trajectory; accurate positioning
-  fail_conditions: Erratic path; misses target
-  priority: null
+  - Load a predefined reachable target point in the robot controller.
+  - Command the arm to move from home position to the target point.
+  - Monitor each joint trajectory and end-effector position during movement.
+  - Return the arm to home and repeat with a second target point in a different workspace quadrant.
+  expected_result: The arm reaches each target with a smooth coordinated trajectory and settles within
+    the configured position tolerance.
+  fail_conditions: Trajectory is erratic, joints fight each other, the end effector misses tolerance,
+    or any controller fault is raised.
+  priority: P0
   severity: Critical
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Validates coordinated motion after individual joint movement is proven.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Review trajectory planner output, joint calibration, and controller fault logs
+    for the failed target.
 - test_case_id: TC-HW-04
   owner: Ji Lik / Ariff
   component: Hardware
   dependency: null
-  precondition: null
+  precondition: Gripper mounted and object fixture placed in the validated pickup zone.
   test_name: Gripper Function
+  description: Checks the Hardware area in simple terms. A pass means Gripper operates fully; object held
+    securely.
   steps:
   - Open/close gripper
   - pick object
   expected_result: Gripper operates fully; object held securely
   fail_conditions: Fails to grip; object slips/drops
-  priority: null
+  priority: P1
   severity: Major
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: HIL case requires a physical object and visual confirmation of grip retention.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Inspect gripper actuation command, force setting, object alignment, and mechanical
+    wear.
 - test_case_id: TC-HW-05
   owner: Ji Lik / Ariff
   component: Hardware
   dependency:
   - TC-HW-01
   - TC-HW-02
-  precondition: null
+  precondition: TC-HW-01 and TC-HW-02 passed; rated payload fixture is secured and weighed.
   test_name: Payload Handling
+  description: Checks the Hardware area in simple terms. A pass means Payload lifts and lowers under control,
+    remains stable during dwell, and shows no excessive current, strain, or position drift.
   steps:
-  - Lift object at rated weight
-  expected_result: Stable lift; no strain or drift
-  fail_conditions: Cannot lift; drift or instability
-  priority: null
+  - Attach the rated payload fixture to the gripper or end effector.
+  - Command a controlled lift from the pickup position to the validation hold position.
+  - Hold the payload for the specified dwell period while monitoring joint current and position drift.
+  - Lower the payload back to the fixture and verify release without uncontrolled motion.
+  expected_result: Payload lifts and lowers under control, remains stable during dwell, and shows no excessive
+    current, strain, or position drift.
+  fail_conditions: Arm cannot lift the payload, drifts during dwell, trips current limits, vibrates excessively,
+    or releases the load unsafely.
+  priority: P0
   severity: Critical
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Critical HIL load case; do not run before basic motion validation passes.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Stop load testing and inspect torque limits, payload rating, joint current traces,
+    and mechanical mounting.
 - test_case_id: TC-HW-06
   owner: Ji Lik / Ariff
   component: Hardware
   dependency:
   - TC-HW-01
-  precondition: null
+  precondition: TC-HW-01 passed; speed profiles for low, medium, and high validation modes are configured.
   test_name: Speed Control
+  description: Checks the Hardware area in simple terms. A pass means Measured speed tracks each commanded
+    profile within tolerance and motion remains stable at low, medium, and high validation speeds.
   steps:
-  - Test low, medium, high speeds
-  expected_result: Speed adjusts correctly; stable motion
-  fail_conditions: Incorrect speed; unstable motion
-  priority: null
+  - Command the same safe joint movement at low speed and record measured speed.
+  - Repeat the movement at medium speed and record measured speed.
+  - Repeat the movement at high validation speed while monitoring stability and stop distance.
+  - Compare commanded speed against measured encoder feedback for all three profiles.
+  expected_result: Measured speed tracks each commanded profile within tolerance and motion remains stable
+    at low, medium, and high validation speeds.
+  fail_conditions: Measured speed is outside tolerance, speed does not change between profiles, motion
+    becomes unstable, or stop distance exceeds the safe limit.
+  priority: P1
   severity: Major
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Validates controller speed profile handling across representative operating modes.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Review speed profile configuration, controller scaling, and encoder feedback timing.
 - test_case_id: TC-HW-07
   owner: Ji Lik / Ariff
   component: Hardware
@@ -131,20 +164,30 @@ test_cases:
   - TC-HW-01
   - TC-HW-02
   - TC-HW-03
-  precondition: null
+  precondition: TC-HW-01, TC-HW-02, and TC-HW-03 passed; measurement fixture or calibrated reference is
+    available.
   test_name: Position Accuracy
+  description: Checks the Hardware area in simple terms. A pass means All measured positions are within
+    configured tolerance and no coordinate shows repeatable bias outside the acceptance band.
   steps:
-  - Move to predefined coordinates
-  expected_result: Within acceptable tolerance
-  fail_conditions: Exceeds tolerance range
-  priority: null
+  - Command the arm to the first predefined coordinate and wait for settled state.
+  - Measure end-effector position using the calibrated reference method.
+  - Repeat for at least three coordinates across the validated workspace.
+  - Compare measured coordinates against commanded coordinates and record the maximum error.
+  expected_result: All measured positions are within configured tolerance and no coordinate shows repeatable
+    bias outside the acceptance band.
+  fail_conditions: Any measured coordinate exceeds tolerance, position repeatability is unstable, or the
+    arm cannot settle at a commanded coordinate.
+  priority: P1
   severity: Major
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Position accuracy depends on prior coordinated movement validation and calibrated measurement
+    setup.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Recalibrate home position, inspect kinematic parameters, and repeat the failed
+    coordinate set.
 - test_case_id: TC-HW-08
   owner: Ji Lik / Ariff
   component: Hardware
@@ -153,20 +196,29 @@ test_cases:
   - TC-HW-02
   - TC-HW-03
   - TC-HW-07
-  precondition: null
+  precondition: TC-HW-01, TC-HW-02, TC-HW-03, and TC-HW-07 passed; emergency stop circuit has been pre-checked.
   test_name: Emergency Stop
+  description: Checks the Hardware area in simple terms. A pass means Emergency stop halts motion immediately,
+    prevents further movement until reset, and leaves the system in the documented safe state.
   steps:
-  - Trigger E-stop during motion
-  expected_result: Immediate halt; safe state
-  fail_conditions: Delayed stop; unsafe condition
-  priority: null
+  - Command a slow controlled movement along a safe path.
+  - Trigger the emergency stop while motion is active.
+  - Verify all motion commands are inhibited immediately and motor power enters the configured safe state.
+  - Attempt a normal movement command before reset and confirm it is rejected.
+  - Reset the emergency stop and confirm the controller requires the documented recovery sequence.
+  expected_result: Emergency stop halts motion immediately, prevents further movement until reset, and
+    leaves the system in the documented safe state.
+  fail_conditions: Stop response is delayed, any joint continues moving, movement commands are accepted
+    before reset, or recovery bypasses safety interlocks.
+  priority: P0
   severity: Critical
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Safety-critical HIL case; run with operator ready to remove power.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Keep the system disabled and inspect E-stop wiring, safety relay status, and controller
+    interlock handling.
 - test_case_id: TC-HW-09
   owner: Ji Lik / Ariff
   component: Hardware
@@ -175,20 +227,29 @@ test_cases:
   - TC-HW-02
   - TC-HW-03
   - TC-HW-07
-  precondition: null
+  precondition: TC-HW-01, TC-HW-02, TC-HW-03, and TC-HW-07 passed; compliant obstacle fixture is installed.
   test_name: Collision Detection
+  description: Checks the Hardware area in simple terms. A pass means Collision is detected within the
+    configured threshold, motion stops or retracts safely, and recovery requires documented operator action.
   steps:
-  - Introduce obstacle during movement
-  expected_result: Stops/retracts safely
-  fail_conditions: Fails to detect; excessive force
-  priority: null
+  - Command movement along the validated collision-detection path.
+  - Introduce the compliant obstacle fixture at the documented point in the path.
+  - Observe detection timing, stop or retract behavior, and force/current response.
+  - Remove the obstacle and verify the system requires an operator-approved recovery before continuing.
+  expected_result: Collision is detected within the configured threshold, motion stops or retracts safely,
+    and recovery requires documented operator action.
+  fail_conditions: Obstacle is not detected, excessive force is applied, motion continues into the obstacle,
+    or recovery resumes without acknowledgement.
+  priority: P1
   severity: Major
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: HIL safety behavior depends on configured force/current thresholds and obstacle fixture
+    placement.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Inspect collision thresholds, current sensing, and obstacle placement before repeating
+    the case.
 - test_case_id: TC-HW-10
   owner: Ji Lik / Ariff
   component: Hardware
@@ -197,17 +258,26 @@ test_cases:
   - TC-HW-02
   - TC-HW-03
   - TC-HW-07
-  precondition: null
+  precondition: TC-HW-01, TC-HW-02, TC-HW-03, and TC-HW-07 passed; thermal/current logging is enabled.
   test_name: Continuous Operation
+  description: Checks the Hardware area in simple terms. A pass means The arm completes the full duration
+    or cycle count without overheating, controller faults, position drift, or abnormal mechanical behavior.
   steps:
-  - Run repeated cycles for extended time
-  expected_result: No overheating or faults
-  fail_conditions: Overheating; system fault
-  priority: null
+  - Load the repeated-cycle validation program with representative movement and dwell phases.
+  - Run the cycle for the specified duration or cycle count while logging temperatures, currents, and
+    controller faults.
+  - Check for drift, missed steps, abnormal noise, and thermal rise at regular intervals.
+  - Stop the cycle and verify the arm returns to a safe parked state.
+  expected_result: The arm completes the full duration or cycle count without overheating, controller
+    faults, position drift, or abnormal mechanical behavior.
+  fail_conditions: Any over-temperature condition, repeated controller fault, position drift, missed motion,
+    abnormal noise, or unsafe shutdown occurs.
+  priority: P0
   severity: Critical
-  automation_readiness: null
-  automation_status: null
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: null
+  observations: Long-duration HIL soak case; schedule after all shorter safety and motion cases pass.
   jira_link: null
-  next_action_if_fail: null
+  next_action_if_fail: Collect thermal/current logs and inspect mechanical wear or controller fault history
+    before retrying.

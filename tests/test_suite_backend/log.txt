@@ -1,5 +1,5 @@
 Test run log (overwritten each run)
-Finished: 2026-06-16 06:05:24 UTC
+Finished: 2026-06-19 06:56:33 UTC
 Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_backend
 
 Results:
@@ -27,17 +27,17 @@ Results:
   PASSED    tests/test_suite_backend/testcase_service_supervisor.py::TestServiceSupervisor::test_restart_backoff
 
 --- Suite run log (TestCaseFramework.log) ---
-[06:05:23.431] test_per_motor_golden_snapshot: begin
-[06:05:23.432]   M1: 5 samples match golden
-[06:05:23.433]   M2: 5 samples match golden
-[06:05:23.434]   M3: 5 samples match golden
-[06:05:23.434]   M4: 5 samples match golden
-[06:05:23.434] test_per_motor_golden_snapshot: PASSED
-[06:05:23.440] test_per_motor_target_rpm_convergence: begin
-[06:05:23.447]   M1: target=1500  mean(last 50)=1504.2
-[06:05:23.448]   M2: target=1200  mean(last 50)=1200.0
-[06:05:23.449]   M3: target=900  mean(last 50)=903.0
-[06:05:23.449]   M4: target=600  mean(last 50)=602.7
-[06:05:23.450] test_per_motor_target_rpm_convergence: PASSED
+[06:56:25.607] test_per_motor_golden_snapshot: begin
+[06:56:25.607]   M1: 5 samples match golden
+[06:56:25.607]   M2: 5 samples match golden
+[06:56:25.608]   M3: 5 samples match golden
+[06:56:25.608]   M4: 5 samples match golden
+[06:56:25.608] test_per_motor_golden_snapshot: PASSED
+[06:56:25.611] test_per_motor_target_rpm_convergence: begin
+[06:56:25.615]   M1: target=1500  mean(last 50)=1504.2
+[06:56:25.615]   M2: target=1200  mean(last 50)=1200.0
+[06:56:25.615]   M3: target=900  mean(last 50)=903.0
+[06:56:25.616]   M4: target=600  mean(last 50)=602.7
+[06:56:25.616] test_per_motor_target_rpm_convergence: PASSED
 
 OVERALL: PASSED

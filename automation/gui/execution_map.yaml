@@ -5,4 +5,18 @@
 #
 # Add entries here only when a case needs a non-standard pytest target,
 # environment variable, timeout, or explicit blocked reason.
-test_cases: {}
+test_cases:
+  TC-GUI-183:
+    pytest: tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+  TC-GUI-184:
+    pytest: tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+  TC-GUI-185:
+    pytest: tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_vla_presenter_prompt_transport_and_camera
+  TC-GUI-186:
+    pytest: tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
+  TC-GUI-187:
+    pytest: tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
+  TC-GUI-188:
+    pytest: tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_camera_source_forcing
+  TC-GUI-189:
+    pytest: tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_gesture_overlay_handlers

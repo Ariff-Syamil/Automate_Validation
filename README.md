@@ -57,6 +57,7 @@ Field names mirror the column headers in `Automate5_Test_Cases.xlsx` (sheet `Aut
 | `dependency` | Dependency | list / null | List of test IDs that must pass first |
 | `precondition` | PreCondition | string / null | Required setup or hardware state before running |
 | `test_name` | Test Name | string | Short descriptive name |
+| `description` | Description | string / null | Plain-language explanation for a non-expert user |
 | `steps` | Steps | list / null | Ordered list of action strings |
 | `expected_result` | Expected Result | string / null | What constitutes a **pass** |
 | `fail_conditions` | Fail Conditions | string / null | What constitutes a **fail** |
@@ -213,7 +214,8 @@ Append this to `automate_5/software/test_cases.yaml` under the `test_cases:` lis
     dependency:
       - TC-SW-001
     precondition: Service running with default config
-    test_name: Configuration file hot reload
+    test_name: Config Hot Reload
+    description: Checks that the service notices a config file change and applies it without restarting.
     steps:
       - Start the target service with default config
       - Modify a configuration value in the config file

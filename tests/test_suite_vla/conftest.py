@@ -13,6 +13,7 @@ from __future__ import annotations
 import os
 import sys
 import types
+import importlib
 
 # Native display by default; CI can opt in via QT_QPA_PLATFORM=offscreen.
 # Must be set before importing PySide6 (this conftest is loaded first).
@@ -36,6 +37,11 @@ def _install_hololink_stub() -> None:
     name = "backend.hololink_camera_controller"
     if name in sys.modules:
         return
+    try:
+        importlib.import_module(name)
+        return
+    except ImportError:
+        pass
 
     from PySide6.QtCore import QObject, Signal
 
@@ -50,8 +56,18 @@ def _install_hololink_stub() -> None:
         def apply_preview(self, *args, **kwargs) -> None:  # noqa: ARG002
             return None
 
+        def is_live(self) -> bool:
+            return False
+
+        def shutdown(self) -> None:
+            return None
+
+        def register_sinks(self, *_args, **_kwargs) -> None:
+            return None
+
     module = types.ModuleType(name)
     module.HololinkCameraController = _StubHololinkCameraController
+    module.enumerate_video_inputs = lambda: (["IMX274 Sensor 0", "IMX274 Sensor 1"], [None, None])
     sys.modules[name] = module
 
 

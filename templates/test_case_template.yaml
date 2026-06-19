@@ -22,6 +22,7 @@
     - "<TC-XXX-NNN>"
   precondition: "<Required setup or hardware state>"
   test_name: "<Short descriptive name>"
+  description: "<Plain-language explanation for a non-expert user>"
   steps:
     - "<First action>"
     - "<Second action>"

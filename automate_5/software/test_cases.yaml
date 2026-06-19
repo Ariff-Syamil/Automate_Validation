@@ -5,41 +5,61 @@ test_cases:
   dependency:
   - TC-FPGA-003
   - TC-FPGA-004
-  precondition: null
-  test_name: UDP Packet Exchange
+  precondition: 10G/25G FPGA Ethernet dependencies are available; host UDP listener port is open; packet
+    format is agreed with FPGA sender.
+  test_name: UDP Packet Round Trip
+  description: Checks the UDP Communication area in simple terms. A pass means Every transmitted UDP packet
+    is received once, with intact payload bytes, expected sequence order, and no malformed length or checksum
+    indicators.
   steps:
-  - Start UDP listener
-  - send packet from FPGA
-  expected_result: Packet received intact
-  fail_conditions: Packet loss; malformed data
+  - Start the host UDP listener on the configured validation port.
+  - Transmit a known payload from the FPGA sender through the validated Ethernet path.
+  - Capture the received packet bytes and metadata on the host.
+  - Compare payload, sequence number, and length against the expected packet contract.
+  - Repeat for a short burst to verify no drops under nominal rate.
+  expected_result: Every transmitted UDP packet is received once, with intact payload bytes, expected
+    sequence order, and no malformed length or checksum indicators.
+  fail_conditions: Any packet is lost, duplicated, malformed, received out of order, or rejected by the
+    host listener.
   priority: P1
   severity: Major
   automation_readiness: Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: CI
-  observations: Foundation networking test
+  observations: Foundation networking test for host-to-FPGA packet exchange after Ethernet link validation.
   jira_link: null
-  next_action_if_fail: Check MTU and socket buffers
+  next_action_if_fail: Check FPGA sender counters, host MTU, socket buffers, firewall rules, and packet
+    capture for loss or corruption.
 - test_case_id: TC-SW-002
   owner: Kin Nam / Haikal
   component: CAN-FD Protocol
   dependency: null
-  precondition: null
-  test_name: CAN-FD Encode/Decode
+  precondition: CAN-FD encode/decode library is installed; representative DBC or frame definition is available
+    for validation.
+  test_name: CAN-FD Frame Round Trip
+  description: Checks the CAN-FD Protocol area in simple terms. A pass means Valid frames round-trip with
+    matching identifier, DLC, flags, and payload values; invalid frames fail deterministically without
+    corrupting state.
   steps:
-  - Encode CAN-FD frame
-  - transmit
-  - decode and validate
-  expected_result: Correct frame format and values
-  fail_conditions: Frame rejected; mismatch
+  - Build representative CAN-FD frames covering nominal motor command, boundary payload length, and invalid
+    field cases.
+  - Encode each frame using the software protocol helper.
+  - Transmit or loop back the encoded frame through the available CAN-FD validation path.
+  - Decode the received bytes and compare identifier, DLC, flags, and payload fields.
+  - Verify invalid frames are rejected with a clear error.
+  expected_result: Valid frames round-trip with matching identifier, DLC, flags, and payload values; invalid
+    frames fail deterministically without corrupting state.
+  fail_conditions: Frame fields mismatch after decode, invalid data is accepted, payload length is wrong,
+    or transmission rejects a valid frame.
   priority: P1
   severity: Major
   automation_readiness: Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: CI
-  observations: Motor control dependency
+  observations: Protocol validation for motor-control messaging before HIL bus integration.
   jira_link: null
-  next_action_if_fail: Validate bit timing and DBC
+  next_action_if_fail: Validate bit timing, DBC/frame definitions, endian handling, and encode/decode
+    boundary checks.
 - test_case_id: TC-SW-003
   owner: Sheng Li
   component: EtherCAT Stack
@@ -48,22 +68,31 @@ test_cases:
   - TC-FPGA-004
   - TC-FPGA-005
   - TC-SW-001
-  precondition: null
-  test_name: EtherCAT PDO Exchange
+  precondition: EtherCAT master runtime is installed; FPGA Ethernet path and UDP packet exchange dependencies
+    have passed; target slave is reachable.
+  test_name: EtherCAT PDO Cycle
+  description: Checks the EtherCAT Stack area in simple terms. A pass means Expected slave is discovered,
+    reaches operational state, exchanges PDO data cyclically within jitter tolerance, and shuts down cleanly.
   steps:
-  - Initialize master
-  - discover slave
-  - run cyclic exchange
-  expected_result: Deterministic cyclic exchange
-  fail_conditions: Slave not discovered; jitter
+  - Start the EtherCAT master runtime with the target network interface selected.
+  - Discover the expected slave device and confirm it reaches the operational state.
+  - Run cyclic PDO exchange for the configured validation duration.
+  - Record cycle time, jitter, missed frames, and process-data values.
+  - Stop the master cleanly and confirm the slave returns to a safe state.
+  expected_result: Expected slave is discovered, reaches operational state, exchanges PDO data cyclically
+    within jitter tolerance, and shuts down cleanly.
+  fail_conditions: Slave is not discovered, state transition fails, PDO values mismatch, jitter exceeds
+    tolerance, frames are missed, or shutdown leaves an unsafe state.
   priority: P0
   severity: Critical
   automation_readiness: Semi-Automatable
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Core motion control path
+  observations: Core HIL motion-control communication path; depends on stable Ethernet and UDP packet
+    exchange.
   jira_link: null
-  next_action_if_fail: Inspect state machine and DC sync
+  next_action_if_fail: Inspect EtherCAT state machine transitions, distributed-clock sync, NIC binding,
+    and slave diagnostics.
 - test_case_id: TC-SYS-001
   owner: Ji Lik / Ariff
   component: End-to-End System
@@ -79,29 +108,40 @@ test_cases:
   - TC-SW-003
   - TC-VLA-001
   - TC-VLA-002
-  precondition: null
-  test_name: Full System Validation
+  precondition: All listed FPGA, software, and VLA prerequisite tests have passed in the current HIL configuration.
+  test_name: End-to-End System Flow
+  description: Checks the End-to-End System area in simple terms. A pass means Vision input, action generation,
+    command transport, and motor actuation complete the scenario within latency tolerance with no dropped
+    commands or subsystem faults.
   steps:
-  - Run vision
-  - send action data
-  - observe motor actuation
-  expected_result: Correct end-to-end behavior
-  fail_conditions: Latency or dropped commands
+  - Confirm all listed FPGA, software, and VLA prerequisite cases have passed in the same bench configuration.
+  - Start the live vision pipeline and verify image stream health.
+  - Issue a representative gesture or policy action through the VLA/control-loop path.
+  - Observe command transport through software networking and motor-control layers.
+  - Verify motor actuation matches the commanded action and record end-to-end latency.
+  expected_result: Vision input, action generation, command transport, and motor actuation complete the
+    scenario within latency tolerance with no dropped commands or subsystem faults.
+  fail_conditions: Any prerequisite subsystem regresses, action data is dropped or malformed, motor response
+    is incorrect, latency exceeds tolerance, or a safety fault occurs.
   priority: P0
   severity: Critical
   automation_readiness: Manual
-  automation_status: null
+  automation_status: In Progress
   test_environment_ci_hil: HIL
-  observations: Final acceptance criteria
+  observations: Final HIL acceptance gate tying together FPGA capture, software transport, VLA action
+    generation, and mechanical actuation.
   jira_link: null
-  next_action_if_fail: Isolate failing subsystem
+  next_action_if_fail: Use prerequisite results and logs to isolate the first failing subsystem, then
+    rerun the relevant lower-level case before repeating E2E validation.
 - test_case_id: TC-SW-004
   owner: Automate5 QA
   component: Packet Layer
   dependency:
   - TC-SW-001
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: UDP header binary round-trip and bounds validation
+  test_name: Packet Layer Round Trip
+  description: Checks the Packet Layer area in simple terms. A pass means Packed header is 8 bytes; round-trip
+    fields match; invalid values are rejected.
   steps:
   - Create UdpHeader values
   - Pack to bytes
@@ -123,7 +163,9 @@ test_cases:
   dependency:
   - TC-SW-004
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: EtherCAT motor command encoding and field validation
+  test_name: EtherCAT Command Encoding
+  description: Checks the Packet Layer area in simple terms. A pass means Commands encode to documented
+    9-byte payload and reject invalid fields.
   steps:
   - Create speed, position, and torque commands
   - Compare packed bytes with golden vectors
@@ -145,7 +187,9 @@ test_cases:
   dependency:
   - TC-SW-005
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: EtherCAT motor status flag decoding and telemetry fields
+  test_name: EtherCAT Status Decoding
+  description: Checks the Packet Layer area in simple terms. A pass means All flags and telemetry decode
+    exactly; invalid buffers fail.
   steps:
   - Build status packets covering each flag
   - Pack to golden bytes
@@ -168,7 +212,9 @@ test_cases:
   - TC-SW-004
   - TC-SW-005
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: VLA to EtherCAT full UDP packet layout
+  test_name: VLA EtherCAT Full UDP Packet Layout
+  description: Checks the Packet Layer area in simple terms. A pass means Full packet is 17 bytes with
+    stable header/payload layout.
   steps:
   - Create VlaEthercatPacket
   - Pack combined message
@@ -190,7 +236,9 @@ test_cases:
   dependency:
   - TC-SW-001
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: ECB header and data pair encode/decode
+  test_name: ECB Protocol Codec Round Trip
+  description: Checks the ECB Protocol Codec area in simple terms. A pass means ECB header/data pair round-trips
+    match exactly and invalid lengths raise errors.
   steps:
   - Create ECB header and data-pair objects
   - Pack and unpack bytes
@@ -212,7 +260,9 @@ test_cases:
   dependency:
   - TC-SW-008
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: ECB message and Thor UDP payload round-trip
+  test_name: ECB Protocol Codec Round Trip
+  description: Checks the ECB Protocol Codec area in simple terms. A pass means ECB and Thor helpers preserve
+    payload data and produce stable lengths.
   steps:
   - Build ECB UDP payloads
   - Pack and unpack full ECB messages
@@ -233,7 +283,9 @@ test_cases:
   component: Stable Codes and Errors
   dependency: null
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Subsystem, phase, error, and gesture code mappings remain stable
+  test_name: Code Mapping Stability
+  description: Checks the Stable Codes and Errors area in simple terms. A pass means All public numeric
+    codes match documented values and remain unique.
   steps:
   - Import public code enums
   - Assert documented numeric values
@@ -254,7 +306,9 @@ test_cases:
   dependency:
   - TC-SW-010
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: CodedError preserves ErrorCode and string diagnostics
+  test_name: CodedError Diagnostics
+  description: Checks the Stable Codes and Errors area in simple terms. A pass means CodedError preserves
+    machine-readable code and useful string diagnostics.
   steps:
   - Create CodedError values
   - Assert .code is preserved
@@ -275,7 +329,9 @@ test_cases:
   component: Test Framework Configuration
   dependency: null
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Suite config YAML loader validates defaults and tag coercion
+  test_name: Suite Config Loader
+  description: Checks the Test Framework Configuration area in simple terms. A pass means Valid configs
+    load; defaults and tag coercion work; invalid required data fails.
   steps:
   - Create temporary config.yaml variants
   - Load with TestConfig.from_yaml
@@ -297,7 +353,9 @@ test_cases:
   dependency:
   - TC-SW-012
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Suite discovery and environment gates behave deterministically
+  test_name: Suite Discovery Gates
+  description: Checks the Test Framework Configuration area in simple terms. A pass means Suite discovery
+    is stable and environment gates skip only when resources are absent.
   steps:
   - Create temporary test_suite_* configs
   - Verify sorted discovery
@@ -319,7 +377,9 @@ test_cases:
   dependency:
   - TC-SW-010
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: RuntimeLogger writes human log and JSONL records
+  test_name: Runtime Logger Output
+  description: Checks the Runtime Logging area in simple terms. A pass means Logger creates both sinks
+    and preserves coded metadata.
   steps:
   - Create RuntimeLogger with tmp_path
   - Write debug/info/warn/error records
@@ -341,7 +401,9 @@ test_cases:
   dependency:
   - TC-SW-010
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Benchmark measures, reports, and exports phase timings
+  test_name: Benchmark Phase Timing
+  description: Checks the Benchmark Instrumentation area in simple terms. A pass means Benchmark entries,
+    report, and CSV export are internally consistent.
   steps:
   - Record benchmark measurements
   - Verify entries and elapsed_ms
@@ -362,7 +424,9 @@ test_cases:
   component: Mock Motor Data
   dependency: null
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Mock motor bank deterministic golden snapshots
+  test_name: Mock Motor Snapshots
+  description: Checks the Mock Motor Data area in simple terms. A pass means Each motor reproduces committed
+    deterministic sequence within tolerance.
   steps:
   - Create MotorBank with committed seed_base
   - Sample all configured motors
@@ -384,7 +448,9 @@ test_cases:
   dependency:
   - TC-SW-016
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Mock motor boundary and stream behavior
+  test_name: Mock Motor Boundary Stream Behavior
+  description: Checks the Mock Motor Data area in simple terms. A pass means MotorBank enforces MAX_MOTORS
+    and stream outputs keep stable schema.
   steps:
   - Create maximum and over-maximum motor banks
   - Verify over-maximum IDs raise ValueError
@@ -405,7 +471,9 @@ test_cases:
   component: Camera Controller
   dependency: null
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Camera enumeration returns matched labels and devices without crashing
+  test_name: Camera Label Matching
+  description: Checks the Camera Controller area in simple terms. A pass means Enumeration is safe in
+    headless/no-device environments and returns aligned lists.
   steps:
   - Call enumerate_video_inputs
   - Verify labels/devices are lists
@@ -427,7 +495,9 @@ test_cases:
   dependency:
   - TC-FPGA-003
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Hololink configure to unreachable IP emits deterministic error
+  test_name: Hololink IP Error
+  description: Checks the Hololink Camera Controller area in simple terms. A pass means Controller reports
+    no board responding, stores last_error, and remains not live.
   steps:
   - Create HololinkCameraController
   - Configure preview with unreachable IP
@@ -449,7 +519,9 @@ test_cases:
   dependency:
   - TC-SW-019
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Hololink controller lifecycle, debounce, sink registration, and shutdown
+  test_name: Hololink Lifecycle Debounce
+  description: Checks the Hololink Camera Controller area in simple terms. A pass means Lifecycle transitions
+    are deterministic without hardware and cleanup is safe.
   steps:
   - Monkeypatch Hololink app/thread dependencies
   - Register QVideoSink objects
@@ -470,7 +542,9 @@ test_cases:
   component: Gesture Controller
   dependency: null
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: GestureController worker lifecycle and signal forwarding
+  test_name: Gesture Worker Signals
+  description: Checks the Gesture Controller area in simple terms. A pass means Start/stop is idempotent,
+    signals are forwarded, and cleanup is deterministic.
   steps:
   - Monkeypatch GestureWorker with fake worker
   - Call start_recognition twice
@@ -492,7 +566,9 @@ test_cases:
   dependency:
   - TC-SW-021
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Gesture helper functions classify synthetic landmarks
+  test_name: Synthetic Gesture Classification
+  description: Checks the Gesture Worker area in simple terms. A pass means Helpers classify motor selections,
+    stop gesture, and speed thresholds consistently.
   steps:
   - Build synthetic landmark containers
   - Call count_extended_fingers for selection poses
@@ -515,7 +591,9 @@ test_cases:
   - TC-SW-004
   - TC-SW-010
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Headless imports, QApplication, packet round-trip, and navigation
+  test_name: End-to-End Software Smoke Round Trip
+  description: Checks the End-to-End Software Smoke area in simple terms. A pass means Imports, Qt initialization,
+    packet serialization, and navigation complete without crash.
   steps:
   - Set QT_QPA_PLATFORM=offscreen
   - Import automate5 core, logger, and gui.main_window
@@ -539,7 +617,9 @@ test_cases:
   - TC-SW-007
   - TC-SW-010
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Mocked observation to action control-loop contract
+  test_name: Observation Action Contract
+  description: Checks the Control Loop Contract area in simple terms. A pass means Contract validates
+    schemas, converts commands, and reports coded errors.
   steps:
   - Build synthetic observation
   - Send through fake ZMQ REQ/REP service
@@ -563,7 +643,9 @@ test_cases:
   - TC-SW-014
   - TC-SYS-003
   precondition: Automate5 source checkout and declared test dependencies available.
-  test_name: Pipeline phase logging covers capture through joint write
+  test_name: Pipeline Phase Logging
+  description: Checks the Structured Observability area in simple terms. A pass means Every important
+    phase is visible in machine-readable logs.
   steps:
   - Run or simulate pipeline phases from CAPTURE through PROTOCOL
   - Write logs with RuntimeLogger
@@ -588,7 +670,9 @@ test_cases:
   - TC-SW-003
   precondition: Hololink board, cameras, VLA policy server, EtherCAT hardware, and motor rig connected
     and calibrated.
-  test_name: HIL camera to VLA to EtherCAT motor command validation
+  test_name: HIL Camera VLA EtherCAT Motor Command
+  description: Checks the End-to-End System area in simple terms. A pass means Live input produces valid
+    VLA action, correct packet, and safe motor response.
   steps:
   - Start Hololink camera pipeline
   - Start VLA policy server

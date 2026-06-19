@@ -1,8 +1,186 @@
-# =============================================================================
-# Automate 5 - Multi Axis Motor Control FPGA Validation Test Cases
-# =============================================================================
-# Imported from Automate5_Test_Cases.xlsx
-# Field names mirror the Excel column headers (snake_case).
-# =============================================================================
-
-test_cases: []
+test_cases:
+- test_case_id: TC-MAMC-001
+  owner: Multi Axis Motor Control Team
+  component: MAMC FPGA Bring-Up
+  dependency:
+  - TC-SW-002
+  precondition: MAMC FPGA bitstream is built; CAN-FD command format is available; bench power supply and
+    safe dummy load are connected.
+  test_name: MAMC FPGA Bring-Up
+  description: Checks the MAMC FPGA Bring-Up area in simple terms. A pass means FPGA programs successfully,
+    register reads return expected version/axis metadata, all axes are disabled at boot, and no unexpected
+    faults are latched.
+  steps:
+  - Program the MAMC FPGA bitstream onto the target board.
+  - Release reset and verify all clocks and reset-done indicators.
+  - Read the control/status register block through the configured host interface.
+  - Verify firmware or register version, axis count, and fault status fields.
+  - Assert the design powers up with all axes disabled and no latched faults.
+  expected_result: FPGA programs successfully, register reads return expected version/axis metadata, all
+    axes are disabled at boot, and no unexpected faults are latched.
+  fail_conditions: Bitstream does not program, clocks do not lock, register access fails, axis metadata
+    is wrong, or any unexpected fault is latched at boot.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Foundation bring-up case for the reserved MAMC validation area.
+  jira_link: null
+  next_action_if_fail: Check bitstream version, clock/reset tree, host-interface wiring, and power sequencing
+    before running axis tests.
+- test_case_id: TC-MAMC-002
+  owner: Multi Axis Motor Control Team
+  component: Command Decoder
+  dependency:
+  - TC-MAMC-001
+  - TC-SW-002
+  precondition: TC-MAMC-001 passed; host can send representative CAN-FD or register-mapped motor commands.
+  test_name: MAMC Command Decode
+  description: Checks the Command Decoder area in simple terms. A pass means Valid commands decode to
+    the expected axis, mode, and setpoint values; malformed commands are rejected and reported without
+    changing active state.
+  steps:
+  - Send valid speed, position, torque, reset, and estop command frames for each supported axis.
+  - Read decoded command fields from debug/status registers or telemetry output.
+  - Send malformed frames covering bad axis ID, invalid mode, out-of-range setpoint, and wrong payload
+    length.
+  - Verify malformed commands are rejected without changing active command state.
+  expected_result: Valid commands decode to the expected axis, mode, and setpoint values; malformed commands
+    are rejected and reported without changing active state.
+  fail_conditions: A valid command decodes incorrectly, malformed input is accepted, active state changes
+    after a rejected command, or error reporting is missing.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: CI
+  observations: Can be partially automated with command-decoder simulation before HIL execution.
+  jira_link: null
+  next_action_if_fail: Inspect frame parsing, axis bounds checks, payload length validation, and command-state
+    update ordering.
+- test_case_id: TC-MAMC-003
+  owner: Multi Axis Motor Control Team
+  component: PWM and Current Loop
+  dependency:
+  - TC-MAMC-001
+  - TC-MAMC-002
+  precondition: Motor drivers are connected to dummy load or safe test motor; current limits and PWM frequency
+    are configured.
+  test_name: MAMC PWM Current Loop
+  description: Checks the PWM and Current Loop area in simple terms. A pass means PWM frequency and duty
+    cycle match configuration, current-loop response remains stable, overshoot is within tolerance, and
+    current limits are enforced for every axis.
+  steps:
+  - Enable one axis at low duty cycle with the safe load connected.
+  - Measure PWM frequency, duty cycle, and dead-time using the configured instrumentation.
+  - Command a step change in current or torque setpoint.
+  - Record loop response, overshoot, settling time, and current-limit behavior.
+  - Repeat for each supported axis at safe validation levels.
+  expected_result: PWM frequency and duty cycle match configuration, current-loop response remains stable,
+    overshoot is within tolerance, and current limits are enforced for every axis.
+  fail_conditions: PWM timing is wrong, dead-time is unsafe, loop oscillates, overshoot exceeds tolerance,
+    current limit is not enforced, or axes behave inconsistently.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Safety-critical HIL case; start with dummy load before live motor validation.
+  jira_link: null
+  next_action_if_fail: Review PWM timer configuration, current-sense scaling, PI gains, and current-limit
+    comparator wiring.
+- test_case_id: TC-MAMC-004
+  owner: Multi Axis Motor Control Team
+  component: Fault Interlocks
+  dependency:
+  - TC-MAMC-001
+  - TC-MAMC-002
+  precondition: Fault injection path is available for over-current, over-temperature, encoder fault, and
+    emergency stop inputs.
+  test_name: MAMC Fault Interlocks
+  description: Checks the Fault Interlocks area in simple terms. A pass means Each fault disables the
+    affected axis or all axes as specified, latches a readable fault code, rejects movement commands while
+    active, and requires explicit recovery.
+  steps:
+  - Enable an axis at a safe command level.
+  - Inject each supported fault condition one at a time.
+  - Verify PWM output is disabled and fault code is latched.
+  - Attempt to send a normal movement command while the fault is active.
+  - Clear the fault using the documented recovery sequence and verify movement remains disabled until
+    re-enabled.
+  expected_result: Each fault disables the affected axis or all axes as specified, latches a readable
+    fault code, rejects movement commands while active, and requires explicit recovery.
+  fail_conditions: Fault does not disable output, wrong fault code is reported, movement commands are
+    accepted while faulted, or recovery bypasses the documented sequence.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Defines the safety gate for all later live-axis MAMC tests.
+  jira_link: null
+  next_action_if_fail: Keep outputs disabled and inspect fault input synchronization, latch logic, and
+    recovery state machine.
+- test_case_id: TC-MAMC-005
+  owner: Multi Axis Motor Control Team
+  component: Telemetry Path
+  dependency:
+  - TC-MAMC-001
+  - TC-MAMC-002
+  precondition: Telemetry transport is connected; command source and host logger are synchronized to the
+    same test run.
+  test_name: MAMC Telemetry Readback
+  description: Checks the Telemetry Path area in simple terms. A pass means Telemetry reflects the latest
+    accepted command and measured feedback for each axis, reports faults/errors coherently, and does not
+    expose stale or cross-axis data.
+  steps:
+  - Send a sequence of representative commands to each axis.
+  - Capture telemetry frames or status registers after every command.
+  - Compare reported mode, setpoint, feedback, enable state, and fault fields against expected values.
+  - Inject a rejected command and verify telemetry reports the error without stale data.
+  expected_result: Telemetry reflects the latest accepted command and measured feedback for each axis,
+    reports faults/errors coherently, and does not expose stale or cross-axis data.
+  fail_conditions: Telemetry fields mismatch command state, feedback is stale, axis data is swapped, fault
+    fields are missing, or rejected commands corrupt telemetry.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: CI
+  observations: Supports CI simulation and HIL readback; pairs with command decoder validation.
+  jira_link: null
+  next_action_if_fail: Inspect telemetry packing, axis indexing, register snapshot timing, and host parser
+    alignment.
+- test_case_id: TC-MAMC-006
+  owner: Multi Axis Motor Control Team
+  component: Multi-Axis Soak
+  dependency:
+  - TC-MAMC-003
+  - TC-MAMC-004
+  - TC-MAMC-005
+  precondition: PWM/current-loop, fault interlock, and telemetry cases passed; thermal/current logging
+    is enabled for all axes.
+  test_name: MAMC Multi-Axis Soak
+  description: Checks the Multi-Axis Soak area in simple terms. A pass means All axes complete the soak
+    profile without unexpected faults, telemetry gaps, thermal/current violations, command starvation,
+    or unsafe shutdown behavior.
+  steps:
+  - Enable all supported axes with safe validation loads.
+  - Run the coordinated multi-axis command profile for the specified cycle count or duration.
+  - Log current, temperature, command state, feedback, and fault telemetry for every axis.
+  - Verify no axis starves, drifts, or misses command updates during the run.
+  - Stop the profile and verify all axes enter the documented safe state.
+  expected_result: All axes complete the soak profile without unexpected faults, telemetry gaps, thermal/current
+    violations, command starvation, or unsafe shutdown behavior.
+  fail_conditions: Any axis faults unexpectedly, telemetry drops, current/temperature exceeds limit, command
+    updates starve, drift exceeds tolerance, or safe shutdown fails.
+  priority: P1
+  severity: Major
+  automation_readiness: Semi-Automatable
+  automation_status: In Progress
+  test_environment_ci_hil: HIL
+  observations: Endurance case for MAMC FPGA after individual safety and telemetry paths pass.
+  jira_link: null
+  next_action_if_fail: Correlate axis telemetry, current/thermal logs, and command scheduler traces to
+    identify the first failing axis or shared resource.
