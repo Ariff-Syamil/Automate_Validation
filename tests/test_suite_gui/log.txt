@@ -1,8 +1,8 @@
 Test run log (overwritten each run)
-Finished: 2026-06-19 02:56:31 UTC
+Finished: 2026-06-22 02:18:42 UTC
 Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_gui
 
 Results:
-  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
 
 OVERALL: PASSED

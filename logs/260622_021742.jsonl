@@ -1,0 +1,5 @@
+{"ts": "2026-06-22T02:17:42.552022", "level": "WARN", "subsystem": "ROBOT_ARM", "sub_id": 7, "phase": "ARM_CONNECT", "phase_id": 108, "code": 0, "code_name": "", "message": "lerobot unavailable \u2014 arm disabled (No module named 'lerobot')"}
+{"ts": "2026-06-22T02:17:42.554018", "level": "INFO", "subsystem": "VLA", "sub_id": 4, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "VLA preflight: arm DISABLED (robot.enabled=false) \u2014 actions will drive the GUI gauges only, not a physical SO-101."}
+{"ts": "2026-06-22T02:17:42.555763", "level": "INFO", "subsystem": "VLA", "sub_id": 4, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "VlaInferenceWorker started"}
+{"ts": "2026-06-22T02:17:42.565194", "level": "INFO", "subsystem": "VLA", "sub_id": 4, "phase": "PLAY", "phase_id": 114, "code": 0, "code_name": "", "message": "VLA transport: Play"}
+{"ts": "2026-06-22T02:17:42.567372", "level": "INFO", "subsystem": "VLA", "sub_id": 4, "phase": "STOP", "phase_id": 116, "code": 0, "code_name": "", "message": "VLA transport: Stop"}

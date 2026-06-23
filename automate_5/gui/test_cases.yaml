@@ -8,8 +8,9 @@ test_cases:
 
     '
   test_name: Configured App Launch
-  description: 'Checks the Application Window area in simple terms. A pass means Window title equals the
-    value of window.title in gui_configuration.yaml (default: "Automate5 Industrial Control Hub").'
+  description: 'Verifies that Configured App Launch works as expected in the Application Window section.
+    The test passes when the window title matches the title set in the GUI configuration (default: "Automate5
+    Industrial Control Hub").'
   steps:
   - Launch main.py (python main.py)
   - Wait for MainWindow to become visible
@@ -42,8 +43,9 @@ test_cases:
   dependency: null
   precondition: gui_configuration.yaml present; PySide6 installed.
   test_name: Configured Window Size
-  description: Checks the Application Window area in simple terms. A pass means window.width() == YAML
-    window.width (default 1920) and window.height() == YAML window.height (default 1080).
+  description: Verifies that Configured Window Size works as expected in the Application Window section.
+    The test passes when the window width matches the configured width (default 1920) and the window height
+    matches the configured height (default 1080).
   steps:
   - Launch main.py
   - Capture the window geometry after it is shown
@@ -73,9 +75,9 @@ test_cases:
   dependency: null
   precondition: PySide6 installed; gui_configuration.yaml temporarily renamed or corrupted.
   test_name: Config Fallback Defaults
-  description: Checks the Application Window area in simple terms. A pass means Application starts; window
-    title is 'Automate5 Industrial Control Hub'; window is 1920x1080; no Python traceback is printed to
-    stderr.
+  description: Verifies that Config Fallback Defaults works as expected in the Application Window section.
+    The test passes when application starts; window title is 'Automate5 Industrial Control Hub'; window
+    is 1920x1080; the app starts without showing a startup error.
   steps:
   - Rename configs/gui/gui_configuration.yaml to gui_configuration.yaml.bak
   - Launch main.py
@@ -107,8 +109,9 @@ test_cases:
   - TC-GUI-001
   precondition: Application is running; Base panel is initially visible.
   test_name: Base Panel Navigation
-  description: Checks the Navigation area in simple terms. A pass means QStackedWidget current index is
-    0; base_bridge.base_active_section == 'base'; Base nav pill is visually highlighted.
+  description: Verifies that Base Panel Navigation works as expected in the Navigation section. The test
+    passes when the Base page is displayed; the Base page is marked as active; Base nav pill is visually
+    highlighted.
   steps:
   - Navigate away to the VLA or Analytics panel
   - Click the 'Base' nav pill in the LeftRail
@@ -140,8 +143,9 @@ test_cases:
   - TC-GUI-001
   precondition: Application is running; any panel may be active.
   test_name: VLA Panel Navigation
-  description: Checks the Navigation area in simple terms. A pass means QStackedWidget current index is
-    1; all bridge active_section properties are set to 'vla'; VLA pill is highlighted.
+  description: Verifies that VLA Panel Navigation works as expected in the Navigation section. The test
+    passes when the VLA page is displayed; the VLA page is marked as active throughout the app; VLA pill
+    is highlighted.
   steps:
   - Click the 'VLA' nav pill in the LeftRail
   - Check QStackedWidget.currentIndex()
@@ -166,8 +170,9 @@ test_cases:
   - TC-GUI-001
   precondition: Application is running; any panel may be active.
   test_name: Analytics Panel Navigation
-  description: Checks the Navigation area in simple terms. A pass means QStackedWidget current index is
-    2; active_section properties set to 'analysis'; Analysis pill is highlighted.
+  description: Verifies that Analytics Panel Navigation works as expected in the Navigation section. The
+    test passes when the Analysis page is displayed; the Analysis page is marked as active throughout
+    the app; Analysis pill is highlighted.
   steps:
   - Click the 'Analysis' nav pill in the LeftRail
   - Check QStackedWidget.currentIndex()
@@ -193,8 +198,9 @@ test_cases:
   - TC-GUI-010
   precondition: Application is running; Base panel is currently active.
   test_name: Active Navigation Idempotence
-  description: Checks the Navigation area in simple terms. A pass means Stack index stays 0; base_active_section
-    remains 'base'; no crash or visual flicker.
+  description: Verifies that Active Navigation Idempotence works as expected in the Navigation section.
+    The test passes when the app stays on the Base page; the Base page remains active; no crash or visual
+    flicker.
   steps:
   - Confirm Base panel is active (stack index 0)
   - Click the 'Base' nav pill again
@@ -224,9 +230,10 @@ test_cases:
 
     '
   test_name: Play Starts System
-  description: Checks the Transport Controls area in simple terms. A pass means base_start_clicked signal
-    emits; KPI status text becomes 'RUNNING'; at least one motor RPM gauge shows a non-zero value from
-    mock data; base_gesture_enabled is True (gesture pipeline started).
+  description: Verifies that Play Starts System works as expected in the Transport Controls section. The
+    test passes when the Play button is accepted; the status display changes to 'RUNNING'; at least one
+    motor RPM gauge shows a non-zero value from simulated data; gesture control is turned on (gesture
+    pipeline started).
   steps:
   - Click the Play button in the LeftRail transport row
   - 'Wait 600 ms for at least one mock-data timer tick (tick interval: 500 ms)'
@@ -261,8 +268,9 @@ test_cases:
   - TC-GUI-020
   precondition: System is in RUNNING state (Play was clicked).
   test_name: Stop Returns Ready
-  description: Checks the Transport Controls area in simple terms. A pass means base_stop_clicked signal
-    emits; KPI status becomes 'READY'; base_gesture_enabled is False; mock timer stops.
+  description: Verifies that Stop Returns Ready works as expected in the Transport Controls section. The
+    test passes when the Stop button is accepted; the status display changes to 'READY'; gesture control
+    is turned off; simulated data stops updating.
   steps:
   - Click the Stop button in the LeftRail transport row
   - Read the KPI strip status label
@@ -292,8 +300,9 @@ test_cases:
   - TC-GUI-021
   precondition: System is in READY (stopped) state.
   test_name: Play Stop Play Round Trip
-  description: Checks the Transport Controls area in simple terms. A pass means System transitions READY
-    → RUNNING → READY → RUNNING without error; mock RPM is non-zero on second start.
+  description: Verifies that Play Stop Play Round Trip works as expected in the Transport Controls section.
+    The test passes when system transitions READY → RUNNING → READY → RUNNING without error; mock RPM
+    is non-zero on second start.
   steps:
   - Click Play; verify RUNNING
   - Click Stop; verify READY
@@ -324,9 +333,9 @@ test_cases:
   - TC-GUI-020
   precondition: System is in RUNNING state.
   test_name: Reset Clears Motor Gauges
-  description: Checks the Transport Controls area in simple terms. A pass means base_reset_clicked signal
-    emits; all motor bridge data is zeroed via update_motor_data; KPI status is READY; no further mock
-    ticks occur.
+  description: Verifies that Reset Clears Motor Gauges works as expected in the Transport Controls section.
+    The test passes when the Reset button is accepted; all motor the app data is zeroed via update motor
+    data; KPI status is READY; no further mock ticks occur.
   steps:
   - Click the Reset button in the LeftRail transport row
   - Verify KPI status reverts to READY
@@ -357,8 +366,8 @@ test_cases:
   - TC-GUI-001
   precondition: Base panel visible; system has not been started.
   test_name: Initial Ready KPI Strip
-  description: Checks the Base Panel / KPI Strip area in simple terms. A pass means Status field shows
-    'READY'; totalRpm shows 0; fault count shows 0.
+  description: Verifies that Initial Ready KPI Strip works as expected in the Base Panel and KPI Strip
+    section. The test passes when status field shows 'READY'; totalRpm shows 0; fault count shows 0.
   steps:
   - Open Base panel
   - Read the KPI strip status field value
@@ -381,8 +390,9 @@ test_cases:
   - TC-GUI-020
   precondition: 'System is RUNNING; mock_data.enabled: true.'
   test_name: KPI RPM Aggregation
-  description: Checks the Base Panel / KPI Strip area in simple terms. A pass means KPI totalRpm equals
-    the sum of individual motor card RPM gauge values (within rounding tolerance of ±1 RPM).
+  description: Verifies that KPI RPM Aggregation works as expected in the Base Panel and KPI Strip section.
+    The test passes when the total RPM display shows the sum of individual motor card RPM gauge values
+    (within rounding tolerance of ±1 RPM).
   steps:
   - Start the system (Play)
   - Wait 1000 ms for mock data to populate motor gauges
@@ -414,8 +424,8 @@ test_cases:
   - TC-GUI-020
   precondition: System is RUNNING.
   test_name: Running Uptime Counter
-  description: Checks the Base Panel / KPI Strip area in simple terms. A pass means Uptime has increased
-    by approximately 3 seconds.
+  description: Verifies that Running Uptime Counter works as expected in the Base Panel and KPI Strip
+    section. The test passes when uptime has increased by approximately 3 seconds.
   steps:
   - Click Play; note the uptime display value (should be near 0)
   - Wait 3 seconds
@@ -442,8 +452,8 @@ test_cases:
 
     '
   test_name: Node Tab Count Node Count YAML
-  description: 'Checks the Base Panel / Node Tabs area in simple terms. A pass means Number of visible
-    tabs equals base_panel.node_count (default: 2).'
+  description: 'Verifies that Node Tab Count Node Count YAML works as expected in the Base Panel and Node
+    Tabs section. The test passes when number of visible tabs equals base panel.node count (default: 2).'
   steps:
   - Open Base panel
   - Count the number of tabs visible in the NodeTabBar
@@ -470,8 +480,8 @@ test_cases:
   - TC-GUI-040
   precondition: Base panel visible; at least 2 node tabs present.
   test_name: Node Tab Updates Base Active Node
-  description: Checks the Base Panel / Node Tabs area in simple terms. A pass means bridge.base_active_node
-    == 1 after clicking the second tab.
+  description: Verifies that Node Tab Updates Base Active Node works as expected in the Base Panel and
+    Node Tabs section. The test passes when the app.base active node == 1 after clicking the second tab.
   steps:
   - 'Note current base_active_node value (default: 0)'
   - Click the second node tab (index 1)
@@ -496,8 +506,9 @@ test_cases:
 
     '
   test_name: Motor Card Count Per Node Motors
-  description: 'Checks the Base Panel / Motor Cards area in simple terms. A pass means Visible motor card
-    count equals motors_per_node (default: 4).'
+  description: 'Verifies that Motor Card Count Per Node Motors works as expected in the Base Panel and
+    Motor Cards section. The test passes when visible motor card count equals motors per node (default:
+    4).'
   steps:
   - Open Base panel; select node 0
   - Count the number of MotorCard widgets rendered in NodeView
@@ -519,8 +530,8 @@ test_cases:
   - TC-GUI-050
   precondition: Base panel visible; motor card 0 on node 0 is visible and stopped.
   test_name: Motor Start Base Motor Start Signal
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_start
-    emitted once with arguments (0, 0).
+  description: Verifies that the Start button on a motor card works as expected in the Base Panel and
+    Motor Cards section. The test passes when the selected motor receives one Start command.
   steps:
   - Connect a signal spy to base_bridge.base_motor_start
   - Click the Start button on motor card 0, node 0
@@ -542,8 +553,8 @@ test_cases:
   - TC-GUI-051
   precondition: Motor card 0, node 0 is in a started / running state.
   test_name: Motor Stop Base Motor Stop Signal
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_stop
-    emitted once with correct (node, motor) arguments.
+  description: Verifies that the Stop button on a motor card works as expected in the Base Panel and Motor
+    Cards section. The test passes when the selected motor receives one Stop command.
   steps:
   - Connect a signal spy to base_bridge.base_motor_stop
   - Click the Stop button on motor card 0, node 0
@@ -565,8 +576,9 @@ test_cases:
   - TC-GUI-050
   precondition: Motor card 0, node 0 is visible.
   test_name: Base Motor Direction Toggle
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_direction
-    emitted once; direction value alternates on successive clicks.
+  description: Verifies that Base Motor Direction Toggle works as expected in the Base Panel and Motor
+    Cards section. The test passes when the motor direction changes each time the user clicks the direction
+    control.
   steps:
   - Connect a signal spy to base_bridge.base_motor_direction
   - Click the direction toggle on motor card 0, node 0
@@ -588,8 +600,9 @@ test_cases:
   - TC-GUI-050
   precondition: Motor card 0, node 0 is visible.
   test_name: Setpoint Input Change Base Motor Setpoint
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_setpoint
-    emitted with the entered value and correct indices.
+  description: Verifies that Setpoint Input Change Base Motor Setpoint works as expected in the Base Panel
+    and Motor Cards section. The test passes when the motor setpoint updates to the value entered by the
+    user.
   steps:
   - Connect a signal spy to base_bridge.base_motor_setpoint
   - Enter a new numeric value (e.g., 250) in the setpoint field of motor card 0
@@ -612,8 +625,8 @@ test_cases:
   - TC-GUI-050
   precondition: Motor card 0, node 0 is visible.
   test_name: Torque Limit Change Base Motor Torque
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_torque_limit
-    emitted with correct (node, motor, value) arguments.
+  description: Verifies that Torque Limit Change Base Motor Torque works as expected in the Base Panel
+    and Motor Cards section. The test passes when the motor torque limit updates to the selected value.
   steps:
   - Connect a signal spy to base_bridge.base_motor_torque_limit
   - Modify the torque limit control on motor card 0
@@ -637,8 +650,9 @@ test_cases:
 
     '
   test_name: Motor Reset Zeroes Motor Gauge Base
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_reset
-    emitted with (node=0, motor=0); motor card 0 RPM gauge displays 0 immediately after reset.
+  description: Verifies that Motor Reset Zeroes Motor Gauge Base works as expected in the Base Panel and
+    Motor Cards section. The test passes when the selected motor resets and its RPM gauge immediately
+    returns to 0.
   steps:
   - Confirm motor card 0 shows non-zero RPM
   - Connect a signal spy to base_bridge.base_motor_reset
@@ -664,9 +678,9 @@ test_cases:
   - TC-GUI-020
   precondition: System is RUNNING; at least one motor has non-zero RPM.
   test_name: E-Stop Clears Motor Fields
-  description: Checks the Base Panel / Motor Cards area in simple terms. A pass means base_motor_estop
-    signal emitted; motor bridge fields (rpm, speed, position, torque) zeroed for the affected motor;
-    RPM gauge shows 0.
+  description: Verifies that E-Stop Clears Motor Fields works as expected in the Base Panel and Motor
+    Cards section. The test passes when Emergency Stop clears the selected motor readings and the RPM
+    gauge shows 0.
   steps:
   - Confirm motor card 0 shows non-zero RPM
   - Click the E-Stop button on motor card 0, node 0
@@ -698,8 +712,9 @@ test_cases:
   - TC-GUI-050
   precondition: Base panel visible; at least one motor card is visible.
   test_name: Manual Override Overlay Opens Motor Card
-  description: Checks the Base Panel / Manual Override Overlay area in simple terms. A pass means ManualOverrideOverlay
-    is rendered on top of the panel; motor index shown is correct.
+  description: Verifies that Manual Override Overlay Opens Motor Card works as expected in the Base Panel
+    and Manual Override Overlay section. The test passes when the manual override panel opens above the
+    motor card and shows the correct motor.
   steps:
   - Click the manual override / detail button on motor card 0, node 0
   - Verify ManualOverrideOverlay becomes visible
@@ -723,8 +738,9 @@ test_cases:
   - TC-GUI-060
   precondition: ManualOverrideOverlay is open for motor 0, node 0.
   test_name: Mode Selection Overlay Base Motor Mode
-  description: Checks the Base Panel / Manual Override Overlay area in simple terms. A pass means base_motor_mode
-    emitted with the selected mode and (node=0, motor=0).
+  description: Verifies that Mode Selection Overlay Base Motor Mode works as expected in the Base Panel
+    and Manual Override Overlay section. The test passes when the selected motor mode is applied to the
+    correct motor.
   steps:
   - Connect a signal spy to base_bridge.base_motor_mode
   - Select a mode option (e.g., 'Position') in the overlay dropdown/radio
@@ -746,8 +762,9 @@ test_cases:
   - TC-GUI-060
   precondition: ManualOverrideOverlay is open.
   test_name: Target RPM Entry Overlay Base Motor
-  description: Checks the Base Panel / Manual Override Overlay area in simple terms. A pass means base_motor_target_rpm
-    emitted with 300 and correct (node, motor) indices.
+  description: Verifies that Target RPM Entry Overlay Base Motor works as expected in the Base Panel and
+    Manual Override Overlay section. The test passes when the target RPM entered by the user is applied
+    to the correct motor.
   steps:
   - Connect a signal spy to base_bridge.base_motor_target_rpm
   - Enter a target RPM value (e.g., 300) in the overlay input
@@ -770,8 +787,9 @@ test_cases:
   - TC-GUI-060
   precondition: ManualOverrideOverlay is open.
   test_name: Full Rotation Toggle Base Motor Full
-  description: Checks the Base Panel / Manual Override Overlay area in simple terms. A pass means base_motor_full_rotation
-    emitted with True or False matching toggle state.
+  description: Verifies that Full Rotation Toggle Base Motor Full works as expected in the Base Panel
+    and Manual Override Overlay section. The test passes when the full-rotation setting follows the user-selected
+    toggle state.
   steps:
   - Connect a signal spy to base_bridge.base_motor_full_rotation
   - Toggle the full rotation switch in the overlay
@@ -794,8 +812,9 @@ test_cases:
   - TC-GUI-060
   precondition: ManualOverrideOverlay is open.
   test_name: IQ Torque Entry Overlay Base Motor
-  description: Checks the Base Panel / Manual Override Overlay area in simple terms. A pass means base_motor_iq_torque
-    emitted with 1.5 and correct motor indices.
+  description: Verifies that IQ Torque Entry Overlay Base Motor works as expected in the Base Panel and
+    Manual Override Overlay section. The test passes when the IQ torque value entered by the user is applied
+    to the correct motor.
   steps:
   - Connect a signal spy to base_bridge.base_motor_iq_torque
   - Enter an IQ torque value (e.g., 1.5) in the overlay input
@@ -818,8 +837,9 @@ test_cases:
   - TC-GUI-010
   precondition: Base panel visible; inspector dock is closed.
   test_name: Inspector Toggle Opens Inspector Dock
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means InspectorDock
-    slides in / becomes visible; Settings tab is selected by default.
+  description: Verifies that Inspector Toggle Opens Inspector Dock works as expected in the Base Panel
+    and Inspector Dock section. The test passes when the inspector drawer opens and shows the Settings
+    tab first.
   steps:
   - Verify inspector dock is not visible
   - Click the inspector/settings toggle button in the LeftRail
@@ -841,8 +861,9 @@ test_cases:
   - TC-GUI-070
   precondition: Inspector dock is currently open.
   test_name: Inspector Toggle Closes Inspector Dock
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means InspectorDock
-    hides; main content area re-expands.
+  description: Verifies that Inspector Toggle Closes Inspector Dock works as expected in the Base Panel
+    and Inspector Dock section. The test passes when the inspector drawer closes and the main content
+    expands again.
   steps:
   - Click the inspector toggle button again (dock is open)
   - Verify InspectorDock is no longer visible
@@ -863,8 +884,9 @@ test_cases:
   - TC-GUI-070
   precondition: Inspector dock is open; Settings tab is active.
   test_name: Camera Mode Toggle Settings Tab Base
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means base_toggle_changed
-    emitted once with the new camera mode integer.
+  description: Verifies that Camera Mode Toggle Settings Tab Base works as expected in the Base Panel
+    and Inspector Dock section. The test passes when changing the camera mode is applied once with the
+    selected mode.
   steps:
   - Connect a signal spy to base_bridge.base_toggle_changed
   - Click the camera mode toggle (single ↔ double) in the Settings tab
@@ -889,8 +911,8 @@ test_cases:
   - TC-GUI-072
   precondition: Inspector dock open; Settings tab active; camera mode selected.
   test_name: Settings Configure Click
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means base_configure_clicked
-    emitted with the three integer arguments matching selections.
+  description: Verifies that Settings Configure Click works as expected in the Base Panel and Inspector
+    Dock section. The test passes when the Configure action uses the camera options selected by the user.
   steps:
   - Connect a signal spy to base_bridge.base_configure_clicked
   - Select camera mode and camera source indices in the Settings tab
@@ -914,8 +936,9 @@ test_cases:
   - TC-GUI-070
   precondition: Inspector dock open; at least one gesture defined in gui_configuration.yaml.
   test_name: Gestures Tab Renders Gesture Model Items
-  description: 'Checks the Base Panel / Inspector Dock area in simple terms. A pass means Gesture list
-    shows the same number of items as gesture entries in YAML (default: 8).'
+  description: 'Verifies that Gestures Tab Renders Gesture Model Items works as expected in the Base Panel
+    and Inspector Dock section. The test passes when the gesture list shows every gesture configured for
+    the app (default: 8).'
   steps:
   - Click the 'GESTURES' tab in InspectorDock
   - Count the gesture items rendered
@@ -940,8 +963,9 @@ test_cases:
   - TC-GUI-074
   precondition: Inspector dock open; Gestures tab active; system is running.
   test_name: Gesture Enable Toggle Gestures Tab Updates
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means base_gesture_enabled
-    flips between True and False on each toggle click.
+  description: Verifies that Gesture Enable Toggle Gestures Tab Updates works as expected in the Base
+    Panel and Inspector Dock section. The test passes when the gesture enable switch turns gestures on
+    and off each time it is toggled click.
   steps:
   - Read current base_gesture_enabled value on bridge
   - Click the gesture enable/disable toggle in the Gestures tab
@@ -966,8 +990,9 @@ test_cases:
   - TC-GUI-070
   precondition: Inspector dock open; log entries have been generated (system was run).
   test_name: Logs Tab Inspector Renders Log Entries
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means At least one
-    log entry is visible in the Logs tab ListView.
+  description: Verifies that Logs Tab Inspector Renders Log Entries works as expected in the Base Panel
+    and Inspector Dock section. The test passes when at least one log entry is visible in the Logs tab
+    list.
   steps:
   - Start and stop the system to generate log entries
   - Click the 'LOGS' tab in InspectorDock
@@ -989,8 +1014,9 @@ test_cases:
   - TC-GUI-076
   precondition: Inspector Logs tab has at least one entry.
   test_name: Clear Logs Inspector Logs Tab Clears
-  description: Checks the Base Panel / Inspector Dock area in simple terms. A pass means Log ListView
-    has 0 items after Clear; analytic panel log file is NOT affected.
+  description: Verifies that Clear Logs Inspector Logs Tab Clears works as expected in the Base Panel
+    and Inspector Dock section. The test passes when log list has 0 items after Clear; analytic panel
+    log file is NOT affected.
   steps:
   - Click the 'Clear' button in the InspectorDock Logs tab
   - Verify the log ListView is empty
@@ -1015,9 +1041,9 @@ test_cases:
 
     '
   test_name: Base Bridge Defaults
-  description: Checks the Base Panel / Camera area in simple terms. A pass means base_mock_camera_enabled
-    is True; base_mock_camera_count >= 1; url_at(0) returns a non-empty file:// URL; url_at(999) returns
-    an empty string.
+  description: Verifies that Base Bridge Defaults works as expected in the Base Panel and Camera section.
+    The test passes when base mock camera enabled is on; base mock camera count >= 1; url at(0) returns
+    a non-empty file:// URL; url at(999) returns an empty string.
   steps:
   - Instantiate BasePanelBridge() headlessly (no QQuickWidget)
   - Read base_mock_camera_enabled, base_mock_camera_count
@@ -1045,8 +1071,8 @@ test_cases:
   - TC-GUI-100
   precondition: 'gui_configuration.yaml camera_enabled: true; mock sources >= 1.'
   test_name: Mock CAM1 Live Configure
-  description: Checks the Base Panel / Camera area in simple terms. A pass means cam1 live flag is True;
-    cam2 live flag is False; source 1 URL set.
+  description: Verifies that Mock CAM1 Live Configure works as expected in the Base Panel and Camera section.
+    The test passes when cam1 live flag is on; cam2 live flag is off; source 1 URL set.
   steps:
   - Emit base_configure_clicked(cam_mode=0, cam1_idx=0, cam2_idx=0)
   - Verify base_cam1_preview_live is True
@@ -1071,8 +1097,9 @@ test_cases:
   - TC-GUI-100
   precondition: 'gui_configuration.yaml camera_enabled: true; mock sources >= 2.'
   test_name: Mock Dual Camera Configure
-  description: Checks the Base Panel / Camera area in simple terms. A pass means Both cam live flags are
-    True; source URLs are set and differ when 2+ mock sources exist.
+  description: Verifies that Mock Dual Camera Configure works as expected in the Base Panel and Camera
+    section. The test passes when both cam live flags are on; source URLs are set and differ when 2+ mock
+    sources exist.
   steps:
   - Emit base_configure_clicked(cam_mode=1, cam1_idx=0, cam2_idx=1)
   - Verify base_cam1_preview_live is True
@@ -1097,8 +1124,9 @@ test_cases:
   dependency: null
   precondition: No mock camera; runtime environment has at least one USB/capture device.
   test_name: Video Input Enumeration
-  description: Checks the Base Panel / Camera area in simple terms. A pass means Both lists are the same
-    length (>= 0); no exception raised even if no cameras present.
+  description: Verifies that Video Input Enumeration works as expected in the Base Panel and Camera section.
+    The test passes when both lists are the same length (>= 0); no exception raised even if no cameras
+    present.
   steps:
   - Call backend.camera_controller.enumerate_video_inputs()
   - Compare len(labels) and len(devices)
@@ -1124,8 +1152,9 @@ test_cases:
 
     '
   test_name: No-Camera Warning
-  description: 'Checks the Base Panel / Camera area in simple terms. A pass means Presenter prints ''[BasePanelPresenter]
-    Configure: no cameras available''; no exception; cam1 live flag stays False.'
+  description: 'Verifies that No-Camera Warning works as expected in the Base Panel and Camera section.
+    The test passes when the screen logic prints ''[BasePanelthe screen logic] Configure: no cameras available'';
+    no exception; cam1 live flag stays off.'
   steps:
   - With zero cameras available, emit base_configure_clicked(0, 0, 0)
   - Verify application does not raise an exception
@@ -1153,8 +1182,9 @@ test_cases:
 
     '
   test_name: GestureOverlay Becomes Visible After Play
-  description: Checks the Base Panel / Gesture Overlay area in simple terms. A pass means base_gesture_enabled
-    is True; GestureOverlay.visible == True in QML.
+  description: Verifies that GestureOverlay Becomes Visible After Play works as expected in the Base Panel
+    and Gesture Overlay section. The test passes when gesture control is turned on; GestureOverlay.visible
+    == on in screen.
   steps:
   - Click Play
   - Verify base_gesture_enabled is True on bridge
@@ -1184,8 +1214,8 @@ test_cases:
   - TC-GUI-110
   precondition: System is RUNNING; GestureOverlay is visible.
   test_name: GestureOverlay Hides After Stop
-  description: Checks the Base Panel / Gesture Overlay area in simple terms. A pass means Overlay is no
-    longer visible; gesture pipeline stopped.
+  description: Verifies that GestureOverlay Hides After Stop works as expected in the Base Panel and Gesture
+    Overlay section. The test passes when overlay is no longer visible; gesture pipeline stopped.
   steps:
   - Click Stop
   - Verify base_gesture_enabled is False on bridge
@@ -1207,8 +1237,9 @@ test_cases:
   - TC-GUI-110
   precondition: System RUNNING; GestureOverlay visible; gesture detection active.
   test_name: Detected Gesture Updates Bridge Motor Id
-  description: Checks the Base Panel / Gesture Overlay area in simple terms. A pass means Bridge gesture
-    properties (motor_id, speed, stopped) are updated matching the detected gesture payload.
+  description: Verifies that Detected Gesture Updates Bridge Motor Id works as expected in the Base Panel
+    and Gesture Overlay section. The test passes when the app gesture properties (motor id, speed, stopped)
+    are updated matching the detected gesture payload.
   steps:
   - Trigger a gesture event (simulate via signal or physical gesture in front of camera)
   - Verify base_gesture_motor_id is set to the expected motor index
@@ -1236,8 +1267,9 @@ test_cases:
   dependency: null
   precondition: PySide6 installed; gui_configuration.yaml present.
   test_name: VLA Bridge Defaults
-  description: Checks the VLA Panel area in simple terms. A pass means vla_active_section == 'vla'; vla_node_count
-    >= 1 (from YAML base_panel.node_count); vla_motors_per_node >= 1.
+  description: Verifies that VLA Bridge Defaults works as expected in the VLA Panel section. The test
+    passes when vla active section == 'vla'; vla node count >= 1 (from configuration base panel.node count);
+    vla motors per node >= 1.
   steps:
   - Instantiate VlaPanelBridge() headlessly
   - Read vla_active_section, vla_node_count, vla_motors_per_node
@@ -1261,8 +1293,9 @@ test_cases:
   - TC-GUI-011
   precondition: Application is running; VLA panel is active.
   test_name: VLA Panel Renders Motor Cards Node
-  description: Checks the VLA Panel area in simple terms. A pass means Node tab count equals vla_node_count;
-    motor card count equals vla_motors_per_node; layout is visually consistent with Base panel.
+  description: Verifies that VLA Panel Renders Motor Cards Node works as expected in the VLA Panel section.
+    The test passes when node tab count equals vla node count; motor card count equals vla motors per
+    node; layout is visually consistent with Base panel.
   steps:
   - Navigate to VLA panel
   - Count node tabs and motor cards on node 0
@@ -1286,8 +1319,8 @@ test_cases:
   - TC-GUI-011
   precondition: VLA panel is active; a text prompt input field is visible.
   test_name: VLA Text Prompt Submission VLA Prompt
-  description: Checks the VLA Panel area in simple terms. A pass means vla_prompt_submitted emitted once
-    with 'Pick up the red block'.
+  description: Verifies that VLA Text Prompt Submission VLA Prompt works as expected in the VLA Panel
+    section. The test passes when the VLA prompt is submitted once with 'Pick up the red block'.
   steps:
   - Connect a signal spy to vla_bridge.vla_prompt_submitted
   - Type a prompt string (e.g., 'Pick up the red block') into the VLA prompt field
@@ -1313,8 +1346,9 @@ test_cases:
   - TC-GUI-011
   precondition: VLA panel is active; system is in READY state.
   test_name: VLA Play/Stop Transport Mirrors Base Panel
-  description: Checks the VLA Panel area in simple terms. A pass means VLA transport play/stop behaves
-    identically to Base except vla_gesture_enabled does not become True.
+  description: Verifies that VLA Play/Stop Transport Mirrors Base Panel works as expected in the VLA Panel
+    section. The test passes when vLA transport play/stop behaves identically to Base except vla gesture
+    enabled does not become on.
   steps:
   - Click Play on the VLA panel LeftRail
   - Verify KPI shows RUNNING; mock motor timer fires
@@ -1346,8 +1380,9 @@ test_cases:
   - TC-GUI-120
   precondition: 'gui_configuration.yaml camera_enabled: true; mock sources >= 1.'
   test_name: VLA Mock Camera Configure Single Double
-  description: Checks the VLA Panel area in simple terms. A pass means VLA camera configure behavior is
-    identical to Base panel equivalents (TC-GUI-101/102).
+  description: Verifies that VLA Mock Camera Configure Single Double works as expected in the VLA Panel
+    section. The test passes when vLA camera configure behavior is identical to Base panel equivalents
+    (TC-GUI-101/102).
   steps:
   - Emit vla_configure_clicked(cam_mode=0, 0, 0); verify vla_cam1_preview_live=True, vla_cam2_preview_live=False
   - Emit vla_configure_clicked(cam_mode=1, 0, 1); verify both live flags are True
@@ -1367,8 +1402,8 @@ test_cases:
   dependency: null
   precondition: PySide6 installed; AppComponents import path resolvable.
   test_name: VLA QML Compile
-  description: Checks the VLA Panel area in simple terms. A pass means Status is Ready; component.errors()
-    is empty.
+  description: Verifies that VLA screen Compile works as expected in the VLA Panel section. The test passes
+    when the screen loads successfully; there are no screen loading errors.
   steps:
   - Create a QQmlEngine; add gui/components to import path
   - Load vla_panel.qml via QQmlComponent
@@ -1390,9 +1425,10 @@ test_cases:
   dependency: null
   precondition: PySide6 installed; gui_configuration.yaml present with analytic_panel section.
   test_name: Analytics Bridge Defaults
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means analytic_active_section
-    == 'analysis'; analytic_display_mode == 'both' (YAML default_display_mode); analytic_split_ratio ≈
-    0.55 (YAML default_split_ratio) within 1e-6.
+  description: Verifies that Analytics Bridge Defaults works as expected in the Analytics Panel and Layout
+    section. The test passes when analytic active section == 'analysis'; analytic display mode == 'both'
+    (configuration default display mode); analytic split ratio ≈ 0.55 (configuration default split ratio)
+    within 1e-6.
   steps:
   - Instantiate AnalyticPanelBridge() headlessly
   - Read analytic_active_section, analytic_display_mode, analytic_split_ratio
@@ -1419,9 +1455,8 @@ test_cases:
 
     '
   test_name: Benchmark Log Autoload
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means analytic_log_entries
-    is a non-empty list; analytic_bench_entries is a non-empty list; analytic_log_error and analytic_bench_error
-    are both empty strings.
+  description: Verifies that Benchmark Log Autoload works as expected in the Analytics Panel and Layout
+    section. The test passes when log and benchmark data load automatically without errors.
   steps:
   - Instantiate AnalyticPanelBridge() and AnalyticPanelPresenter(bridge)
   - Allow presenter __init__ to complete
@@ -1452,9 +1487,9 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible; currently in 'both' or 'bench' display mode.
   test_name: Selecting LOGS Mode Hides Benchmark Pane
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means analytic_display_mode
-    set to 'logs' via analytic_set_display_mode; benchmark pane has height 0 or is hidden; logs pane fills
-    available space.
+  description: Verifies that Selecting LOGS Mode Hides Benchmark Pane works as expected in the Analytics
+    Panel and Layout section. The test passes when analytic display mode set to 'logs' via analytic set
+    display mode; benchmark pane has height 0 or is hidden; logs pane fills available space.
   steps:
   - Click the 'LOGS' option in the mode picker row
   - Verify analytic_bridge.analytic_display_mode == 'logs'
@@ -1479,8 +1514,8 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible.
   test_name: Selecting BENCH Mode Hides Logs Pane
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means Benchmark pane fills
-    space; logs pane is hidden.
+  description: Verifies that Selecting BENCH Mode Hides Logs Pane works as expected in the Analytics Panel
+    and Layout section. The test passes when benchmark pane fills space; logs pane is hidden.
   steps:
   - Click the 'BENCH' option in the mode picker row
   - Verify analytic_display_mode == 'bench'
@@ -1503,8 +1538,9 @@ test_cases:
   - TC-GUI-132
   precondition: Analytics panel visible; currently in 'logs' or 'bench' mode.
   test_name: Selecting BOTH Mode Split View Both
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means Both panes visible
-    separated by draggable split handle; ratio ≈ 0.55.
+  description: Verifies that Selecting BOTH Mode Split View Both works as expected in the Analytics Panel
+    and Layout section. The test passes when both panes visible separated by draggable split handle; ratio
+    ≈ 0.55.
   steps:
   - Click the 'BOTH' option in the mode picker row
   - Verify analytic_display_mode == 'both'
@@ -1526,8 +1562,9 @@ test_cases:
   - TC-GUI-134
   precondition: Analytics panel in 'both' mode; split handle is visible.
   test_name: Analytics Split Drag
-  description: Checks the Analytics Panel / Layout area in simple terms. A pass means Ratio is updated
-    to ≈ 0.30 on first drag; clamped to 0.15 at lower bound; clamped to 0.85 at upper bound.
+  description: Verifies that Analytics Split Drag works as expected in the Analytics Panel and Layout
+    section. The test passes when ratio is updated to ≈ 0.30 on first drag; clamped to 0.15 at lower bound;
+    clamped to 0.85 at upper bound.
   steps:
   - Drag split handle to a position corresponding to ratio ≈ 0.30
   - Read analytic_split_ratio from bridge
@@ -1558,9 +1595,9 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible; no log file currently loaded.
   test_name: OPEN Logs Pane Opens FileDialog Accepted
-  description: Checks the Analytics Panel / Logs Pane area in simple terms. A pass means FileDialog opens;
-    on acceptance, analytic_open_logs(path) is invoked; analytic_log_path is set to the selected file
-    path.
+  description: Verifies that OPEN Logs Pane Opens FileDialog Accepted works as expected in the Analytics
+    Panel and Logs Pane section. The test passes when the file picker opens and the selected log file
+    is loaded.
   steps:
   - Click the 'OPEN' button in LogsAnalyticsPane header
   - In the FileDialog, select a valid .log or .jsonl file and accept
@@ -1588,8 +1625,9 @@ test_cases:
   - TC-GUI-160
   precondition: A log file is loaded; log entries are visible.
   test_name: REFRESH Reloads Current Log File Updates
-  description: Checks the Analytics Panel / Logs Pane area in simple terms. A pass means analytic_refresh_logs()
-    is called; log entries list is re-parsed; new entries from the appended data appear in the ListView.
+  description: Verifies that REFRESH Reloads Current Log File Updates works as expected in the Analytics
+    Panel and Logs Pane section. The test passes when refresh reloads the current log file and shows newly
+    added log entries.
   steps:
   - Note the current number of log entries
   - Append new entries to the log file on disk
@@ -1615,8 +1653,9 @@ test_cases:
   - TC-GUI-160
   precondition: A log file is loaded; log entries are visible.
   test_name: CLEAR Resets Log Data Path Summary
-  description: Checks the Analytics Panel / Logs Pane area in simple terms. A pass means All log-related
-    bridge properties reset to empty/null defaults; ListView shows 'No log file loaded' placeholder.
+  description: Verifies that CLEAR Resets Log Data Path Summary works as expected in the Analytics Panel
+    and Logs Pane section. The test passes when all log-related the app properties reset to empty/null
+    defaults; list shows 'No log file loaded' placeholder.
   steps:
   - Click the 'CLEAR' button in LogsAnalyticsPane
   - Verify analytic_log_entries is empty
@@ -1645,8 +1684,9 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible; no log file loaded.
   test_name: Loading Invalid Missing Log File Path
-  description: Checks the Analytics Panel / Logs Pane area in simple terms. A pass means analytic_log_error
-    contains a descriptive error message; error banner is visible; log entries list remains empty.
+  description: Verifies that Loading Invalid Missing Log File Path works as expected in the Analytics
+    Panel and Logs Pane section. The test passes when analytic log error contains a descriptive error
+    message; error banner is visible; log entries list remains empty.
   steps:
   - Call analytic_bridge.analytic_open_logs('/nonexistent/path/run.jsonl')
   - Verify analytic_log_error is non-empty
@@ -1677,8 +1717,9 @@ test_cases:
   - TC-GUI-160
   precondition: A valid JSONL log file exists with at least 5 entries.
   test_name: JSONL Log File Populates Log ListView
-  description: Checks the Analytics Panel / Logs Pane area in simple terms. A pass means Entries visible
-    in ListView; subsystem filter reduces displayed items to only matching entries.
+  description: Verifies that JSONL Log File Populates Log ListView works as expected in the Analytics
+    Panel and Logs Pane section. The test passes when entries visible in list; subsystem filter reduces
+    displayed items to only matching entries.
   steps:
   - Open the JSONL file via analytic_open_logs(path)
   - Verify analytic_log_error is empty
@@ -1711,8 +1752,9 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible; no benchmark file loaded.
   test_name: OPEN Benchmark Pane Opens CSV FileDialog
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means FileDialog
-    opens with CSV filter; on acceptance analytic_open_bench(path) is called; analytic_bench_path is set.
+  description: Verifies that OPEN Benchmark Pane Opens CSV FileDialog works as expected in the Analytics
+    Panel and Benchmark Pane section. The test passes when the file picker opens for CSV files and the
+    selected benchmark file is loaded.
   steps:
   - Click the 'OPEN' button in BenchmarkAnalyticsPane header
   - Select a valid .csv benchmark file and accept
@@ -1740,8 +1782,8 @@ test_cases:
   - TC-GUI-170
   precondition: A benchmark CSV is loaded; totals tiles show data.
   test_name: Benchmark CSV Refresh
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means analytic_refresh_bench()
-    is called; benchmark data is re-parsed; totals (count, total_ms, avg_ms) reflect the appended rows.
+  description: Verifies that Benchmark CSV Refresh works as expected in the Analytics Panel and Benchmark
+    Pane section. The test passes when refresh reloads the benchmark CSV and updates the summary totals.
   steps:
   - Note analytic_bench_totals.count
   - Append rows to the benchmark CSV on disk
@@ -1767,8 +1809,9 @@ test_cases:
   - TC-GUI-170
   precondition: A benchmark CSV is loaded.
   test_name: CLEAR Resets Benchmark Data Path Totals
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means All benchmark
-    bridge properties reset to empty/zero defaults; pane shows 'Load a benchmark CSV to begin' placeholder.
+  description: Verifies that CLEAR Resets Benchmark Data Path Totals works as expected in the Analytics
+    Panel and Benchmark Pane section. The test passes when all benchmark the app properties reset to empty/zero
+    defaults; pane shows 'Load a benchmark CSV to begin' placeholder.
   steps:
   - Click 'CLEAR' in BenchmarkAnalyticsPane
   - Verify analytic_bench_entries is empty
@@ -1797,8 +1840,9 @@ test_cases:
   - TC-GUI-012
   precondition: Analytics panel visible; no benchmark file loaded.
   test_name: Loading Invalid Missing CSV Path Error
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means analytic_bench_error
-    contains an error message; red error banner visible; totals remain at zeros; no application crash.
+  description: Verifies that Loading Invalid Missing CSV Path Error works as expected in the Analytics
+    Panel and Benchmark Pane section. The test passes when analytic bench error contains an error message;
+    red error banner visible; totals remain at zeros; no application crash.
   steps:
   - Call analytic_bridge.analytic_open_bench('/nonexistent/benchmark.csv')
   - Verify analytic_bench_error is non-empty
@@ -1826,9 +1870,10 @@ test_cases:
   - TC-GUI-170
   precondition: A valid benchmark CSV with at least 3 distinct phases is loaded.
   test_name: Benchmark Totals KPI Tiles Display Correct
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means MEASUREMENTS
-    tile shows correct count; TOTAL tile shows correct total_ms; AVG tile shows correct avg_ms (±0.01
-    ms tolerance); SLOWEST PHASE tile shows the phase with highest avg_ms.
+  description: Verifies that Benchmark Totals KPI Tiles Display Correct works as expected in the Analytics
+    Panel and Benchmark Pane section. The test passes when mEASUREMENTS tile shows correct count; TOTAL
+    tile shows correct total ms; AVG tile shows correct avg ms (±0.01 ms tolerance); SLOWEST PHASE tile
+    shows the phase with highest avg ms.
   steps:
   - Load a known benchmark CSV; note expected count, total_ms, avg_ms, slowest_phase
   - Read analytic_bench_totals from bridge
@@ -1859,8 +1904,9 @@ test_cases:
   - TC-GUI-174
   precondition: Benchmark CSV loaded with at least 2 distinct phases.
   test_name: Per-phase Bar Chart Renders One Row
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means BarChart
-    row count equals len(analytic_bench_by_phase); each row label matches a phase name from the CSV.
+  description: Verifies that Per-phase Bar Chart Renders One Row works as expected in the Analytics Panel
+    and Benchmark Pane section. The test passes when barChart row count equals len(analytic bench by phase);
+    each row label matches a phase name from the CSV.
   steps:
   - Count the number of bar rows in the 'AVG BY PHASE' BarChart
   - Compare against the number of distinct phase values in analytic_bench_by_phase
@@ -1886,9 +1932,9 @@ test_cases:
   - TC-GUI-174
   precondition: Benchmark CSV loaded with at least 2 distinct subsystems.
   test_name: Subsystem Bar Chart
-  description: Checks the Analytics Panel / Benchmark Pane area in simple terms. A pass means Row count
-    equals len(analytic_bench_by_subsystem); each row label matches a subsystem name; total_ms values
-    are correct per row.
+  description: Verifies that Subsystem Bar Chart works as expected in the Analytics Panel and Benchmark
+    Pane section. The test passes when row count equals len(analytic bench by subsystem); each row label
+    matches a subsystem name; total ms values are correct per row.
   steps:
   - Count the number of bar rows in the 'SUBSYSTEM ROLLUP' BarChart
   - Compare against the number of distinct subsystem values in analytic_bench_by_subsystem
@@ -1917,8 +1963,9 @@ test_cases:
 
     '
   test_name: Base QML Compile
-  description: Checks the QML Compilation area in simple terms. A pass means Status is Ready; component.errors()
-    is empty; AppComponents import resolves.
+  description: Verifies that Base screen Compile works as expected in the screen Compilation section.
+    The test passes when the screen loads successfully; there are no screen loading errors; shared screen
+    components resolves.
   steps:
   - Create QQmlEngine; add gui/components to import path
   - Load gui/panels/base_design/qml/base_panel.qml via QQmlComponent
@@ -1945,7 +1992,8 @@ test_cases:
   dependency: null
   precondition: Same as TC-GUI-180.
   test_name: VLA QML Compile
-  description: Checks the QML Compilation area in simple terms. A pass means Status is Ready; no QML errors.
+  description: Verifies that VLA screen Compile works as expected in the screen Compilation section. The
+    test passes when the screen loads successfully; no screen errors.
   steps:
   - Create QQmlEngine; add gui/components to import path
   - Load gui/panels/vla_design/qml/vla_panel.qml via QQmlComponent
@@ -1967,7 +2015,8 @@ test_cases:
   dependency: null
   precondition: Same as TC-GUI-180.
   test_name: Analytics QML Compile
-  description: Checks the QML Compilation area in simple terms. A pass means Status is Ready; no QML errors.
+  description: Verifies that Analytics screen Compile works as expected in the screen Compilation section.
+    The test passes when the screen loads successfully; no screen errors.
   steps:
   - Create QQmlEngine; add gui/components to import path
   - Load gui/panels/analytic_design/qml/analytic_panel.qml via QQmlComponent
@@ -1993,8 +2042,8 @@ test_cases:
   precondition: PySide6 installed; QT_QPA_PLATFORM=offscreen or display available; heavy hardware controllers
     mocked.
   test_name: MainWindow Navigation Sync
-  description: Checks the Main Window Integration area in simple terms. A pass means Full MainWindow navigation
-    works without the lightweight stub stack.
+  description: Verifies that MainWindow Navigation Sync works as expected in the Main Window Integration
+    section. The test passes when full MainWindow navigation works without the lightweight stub stack.
   steps:
   - Instantiate MainWindow with Base, VLA, and Analytics panels
   - Emit each panel bridge navigation signal
@@ -2019,8 +2068,8 @@ test_cases:
   - TC-GUI-057
   precondition: BasePanelBridge and BasePanelPresenter can run headless; GestureController mocked.
   test_name: Base Presenter Motor Handlers Update State
-  description: Checks the Base Panel Presenter area in simple terms. A pass means Presenter consumes motor
-    signals and updates state/logs consistently.
+  description: Verifies that motor actions update the Base Panel correctly. The test passes when motor
+    controls update the screen state and activity logs consistently.
   steps:
   - Create bridge and presenter
   - Emit motor start/stop/direction/setpoint/torque/reset/estop/mode signals
@@ -2044,8 +2093,9 @@ test_cases:
   - TC-GUI-123
   precondition: VlaPanelBridge and VlaPanelPresenter can run headless; camera/Hololink dependencies mocked.
   test_name: VLA Presenter Branches
-  description: Checks the VLA Panel Presenter area in simple terms. A pass means VLA presenter handles
-    prompt, transport, and camera configuration paths deterministically.
+  description: Verifies that VLA Presenter Branches works as expected in the VLA Panel Presenter section.
+    The test passes when vLA the screen logic handles prompt, transport, and camera configuration paths
+    deterministically.
   steps:
   - Create bridge and presenter
   - Emit prompt and transport signals
@@ -2070,8 +2120,9 @@ test_cases:
   - TC-GUI-170
   precondition: Sample JSONL, log CSV, benchmark CSV, malformed files, and empty files available.
   test_name: Analytics Loader Errors
-  description: Checks the Analytics Data area in simple terms. A pass means Analytics parser returns correct
-    data for valid files and deterministic errors for invalid files.
+  description: Verifies that Analytics Loader Errors works as expected in the Analytics Data section.
+    The test passes when analytics parser returns correct data for valid files and deterministic errors
+    for invalid files.
   steps:
   - Load valid RuntimeLogger JSONL and benchmark CSV fixtures
   - Verify entries, summaries, phase aggregates, and subsystem aggregates
@@ -2098,8 +2149,8 @@ test_cases:
   - TC-GUI-182
   precondition: PySide6 installed; gui/components/AppComponents/qmldir present.
   test_name: Analytics QML Risk Files
-  description: Checks the QML Compilation area in simple terms. A pass means Selected QML components resolve
-    imports and reach Ready.
+  description: Verifies that Analytics screen Risk Files works as expected in the screen Compilation section.
+    The test passes when selected screen components load successfully.
   steps:
   - Create QQmlEngine and add gui/components import path
   - Compile LogsAnalyticsPane and BenchmarkAnalyticsPane
@@ -2124,8 +2175,9 @@ test_cases:
   - TC-GUI-102
   precondition: GUI loaded with double-camera mode and at least two camera options.
   test_name: Duplicate Camera Rejection
-  description: Checks the Camera Configuration UI area in simple terms. A pass means Duplicate source
-    selection is blocked and configure is not emitted with identical indexes.
+  description: Verifies that Duplicate Camera Rejection works as expected in the Camera Configuration
+    UI section. The test passes when the app prevents the same camera source from being selected for both
+    cameras.
   steps:
   - Open Configure drawer or InspectorDock harness
   - Select double-camera mode
@@ -2151,8 +2203,9 @@ test_cases:
   - TC-GUI-111
   precondition: BasePanelPresenter uses injectable fake GestureController; no real camera required.
   test_name: Gesture Overlay Updates
-  description: Checks the Gesture Overlay area in simple terms. A pass means Gesture overlay state is
-    testable without HIL camera by injecting deterministic events.
+  description: Verifies that Gesture Overlay Updates works as expected in the Gesture Overlay section.
+    The test passes when gesture overlay state is testable without HIL camera by injecting deterministic
+    events.
   steps:
   - Create Base bridge and presenter with fake GestureController
   - Enable gestures and emit motor, speed, stop, bbox, and frame-size events

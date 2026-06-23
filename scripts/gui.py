@@ -172,6 +172,16 @@ def format_duration(value) -> str:
     return f"{hours}h {mins:02d}m"
 
 
+def format_total_duration(runs: list[dict]) -> str:
+    """Format the sum of stored run durations."""
+    total = 0.0
+    for run in runs:
+        seconds = _coerce_duration_seconds(run.get("duration_seconds"))
+        if seconds is not None:
+            total += seconds
+    return format_duration(total)
+
+
 def runs_path(version: str) -> Path:
     return REPO_ROOT / version / "runs.yaml"
 
@@ -2063,6 +2073,134 @@ class CellRunsDialog(QDialog):
             self._rebuild_list()
 
 
+class FrozenFirstColumnTableView(QTableView):
+    """QTableView with an Excel-like frozen first column."""
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._frozen_view = QTableView(self)
+        self._frozen_column_width = 140
+        self._frozen_margin_width = -1
+        self._configure_frozen_view()
+
+        self.viewport().stackUnder(self._frozen_view)
+        self.horizontalHeader().sectionResized.connect(self._on_section_resized)
+        self.verticalHeader().sectionResized.connect(self._update_frozen_geometry)
+        self.verticalScrollBar().valueChanged.connect(
+            self._frozen_view.verticalScrollBar().setValue
+        )
+        self._frozen_view.verticalScrollBar().valueChanged.connect(
+            self.verticalScrollBar().setValue
+        )
+        self._frozen_view.clicked.connect(lambda index: self.clicked.emit(index))
+        self._frozen_view.doubleClicked.connect(
+            lambda index: self.doubleClicked.emit(index)
+        )
+
+    def setModel(self, model) -> None:
+        super().setModel(model)
+        self._frozen_view.setModel(model)
+        if self.selectionModel() is not None:
+            self._frozen_view.setSelectionModel(self.selectionModel())
+        self.refresh_frozen_columns()
+
+    def setColumnWidth(self, column: int, width: int) -> None:
+        super().setColumnWidth(column, width)
+        if column == 0:
+            self._frozen_column_width = width
+            self._frozen_view.setColumnWidth(column, width)
+            self._update_frozen_geometry()
+
+    def setRowHeight(self, row: int, height: int) -> None:
+        super().setRowHeight(row, height)
+        self._frozen_view.setRowHeight(row, height)
+
+    def setVerticalScrollMode(self, mode) -> None:
+        super().setVerticalScrollMode(mode)
+        self._frozen_view.setVerticalScrollMode(mode)
+
+    def setHorizontalScrollMode(self, mode) -> None:
+        super().setHorizontalScrollMode(mode)
+        self._frozen_view.setHorizontalScrollMode(mode)
+
+    def resizeEvent(self, event) -> None:
+        super().resizeEvent(event)
+        self._update_frozen_geometry()
+
+    def updateGeometries(self) -> None:
+        super().updateGeometries()
+        self._update_frozen_geometry()
+
+    def scrollTo(self, index, hint=QAbstractItemView.ScrollHint.EnsureVisible) -> None:
+        if index.column() > 0:
+            super().scrollTo(index, hint)
+
+    def refresh_frozen_columns(self) -> None:
+        model = self.model()
+        if model is None:
+            return
+        self.setColumnHidden(0, False)
+        self._frozen_column_width = self.columnWidth(0)
+        for column in range(model.columnCount()):
+            self._frozen_view.setColumnHidden(column, column != 0)
+        self._frozen_view.setColumnWidth(0, self._frozen_column_width)
+        self._update_frozen_geometry()
+
+    def _configure_frozen_view(self) -> None:
+        self._frozen_view.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self._frozen_view.setAutoFillBackground(True)
+        self._frozen_view.viewport().setAutoFillBackground(True)
+        self._frozen_view.setFrameShape(QFrame.Shape.NoFrame)
+        self._frozen_view.verticalHeader().setVisible(False)
+        self._frozen_view.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self._frozen_view.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self._frozen_view.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self._frozen_view.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self._frozen_view.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self._frozen_view.setSelectionBehavior(
+            QAbstractItemView.SelectionBehavior.SelectItems
+        )
+        self._frozen_view.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+        self._frozen_view.setAlternatingRowColors(True)
+        self._frozen_view.horizontalHeader().setSectionResizeMode(
+            QHeaderView.ResizeMode.Fixed
+        )
+        self._frozen_view.horizontalHeader().setSectionsClickable(False)
+        self._frozen_view.setStyleSheet(
+            "QTableView {"
+            "  background-color: #181825;"
+            "  border: none;"
+            "  border-right: 1px solid #45475a;"
+            "}"
+            "QTableView::item { background-color: #1e1e2e; }"
+        )
+        self._frozen_view.show()
+
+    def _on_section_resized(self, logical_index: int, _old_size: int, new_size: int) -> None:
+        if logical_index == 0:
+            self._frozen_column_width = new_size
+            self._frozen_view.setColumnWidth(0, new_size)
+        self._update_frozen_geometry()
+
+    def _update_frozen_geometry(self) -> None:
+        width = self.columnWidth(0)
+        self._frozen_column_width = width
+        if width != self._frozen_margin_width:
+            self._frozen_margin_width = width
+            self.setViewportMargins(width, 0, 0, 0)
+        self._frozen_view.horizontalHeader().setFixedHeight(
+            self.horizontalHeader().height()
+        )
+        self._frozen_view.setGeometry(
+            self.frameWidth(),
+            self.frameWidth(),
+            width,
+            self.viewport().height() + self.horizontalHeader().height(),
+        )
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 #  Timeline Dialog – view-only week-by-week schedule grid
 # ═══════════════════════════════════════════════════════════════════════════
@@ -2132,6 +2270,15 @@ class TimelineDialog(QDialog):
             )
             summary_row.addWidget(value_lbl)
             self.metric_value_lbls[label] = value_lbl
+
+        total_time_lbl = QLabel("Total Time Taken:")
+        total_time_lbl.setProperty("role", "fieldLabel")
+        summary_row.addWidget(total_time_lbl)
+        self.lbl_total_time = QLabel("0s")
+        self.lbl_total_time.setStyleSheet(
+            "color: #cdd6f4; font-weight: bold; font-size: 13px;"
+        )
+        summary_row.addWidget(self.lbl_total_time)
         summary_row.addStretch()
         outer.addLayout(summary_row)
 
@@ -2181,7 +2328,7 @@ class TimelineDialog(QDialog):
 
         # ── Table ───────────────────────────────────────────────────────────
         self.model = QStandardItemModel()
-        self.table = QTableView()
+        self.table = FrozenFirstColumnTableView()
         self.table.setModel(self.model)
         self.table.setAlternatingRowColors(True)
         self.table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectItems)
@@ -2267,6 +2414,29 @@ class TimelineDialog(QDialog):
                 counts[run_name] = counts.get(run_name, 0) + 1
         return counts
 
+    def _run_group_duration_totals(self) -> dict[str, float]:
+        totals: dict[str, float] = {}
+        for run in self._runs:
+            run_name = (run.get("run_name") or "").strip()
+            if not run_name:
+                continue
+            seconds = _coerce_duration_seconds(run.get("duration_seconds"))
+            if seconds is not None:
+                totals[run_name] = totals.get(run_name, 0.0) + seconds
+        return totals
+
+    def _run_group_result_counts(self) -> dict[str, dict[str, int]]:
+        counts: dict[str, dict[str, int]] = {}
+        for run in self._runs:
+            run_name = (run.get("run_name") or "").strip()
+            if not run_name:
+                continue
+            result = (run.get("result") or "NOT RUN").strip().upper()
+            group_counts = counts.setdefault(run_name, {"PASS": 0, "BLOCKED": 0, "FAIL": 0})
+            if result in group_counts:
+                group_counts[result] += 1
+        return counts
+
     def _selected_run_groups(self) -> set[str]:
         if not hasattr(self, "_group_filter_list"):
             return set()
@@ -2303,6 +2473,8 @@ class TimelineDialog(QDialog):
             keep_selection = self._selected_run_groups()
 
         group_counts = self._run_group_counts()
+        group_duration_totals = self._run_group_duration_totals()
+        group_result_counts = self._run_group_result_counts()
         self._group_filter_list.blockSignals(True)
         try:
             self._group_filter_list.clear()
@@ -2313,8 +2485,17 @@ class TimelineDialog(QDialog):
                 return
 
             for name, count in sorted(group_counts.items(), key=lambda item: item[0].casefold()):
+                total_time = format_duration(group_duration_totals.get(name, 0.0))
+                result_counts = group_result_counts.get(
+                    name,
+                    {"PASS": 0, "BLOCKED": 0, "FAIL": 0},
+                )
                 item = QListWidgetItem(
-                    f"{name} ({count} record{'s' if count != 1 else ''})"
+                    f"{name} ({count} record{'s' if count != 1 else ''}, "
+                    f"PASS {result_counts['PASS']}, "
+                    f"BLOCK {result_counts['BLOCKED']}, "
+                    f"FAIL {result_counts['FAIL']}, "
+                    f"total {total_time})"
                 )
                 item.setData(Qt.ItemDataRole.UserRole, name)
                 item.setFlags(item.flags() | Qt.ItemFlag.ItemIsUserCheckable)
@@ -2369,6 +2550,7 @@ class TimelineDialog(QDialog):
             self.table.setRowHeight(row, 46)
         for col in range(1, self.model.columnCount()):
             self.table.setColumnWidth(col, 110)
+        self.table.refresh_frozen_columns()
 
         self._refresh_metric_labels()
 
@@ -2426,6 +2608,7 @@ class TimelineDialog(QDialog):
         metrics = compute_run_metrics(display_runs, self._display_tids(display_runs))
         for label, value_lbl in self.metric_value_lbls.items():
             value_lbl.setText(metrics.get(label, "0%"))
+        self.lbl_total_time.setText(format_total_duration(display_runs))
         # Color-tint each value to mirror the run-result palette.
         self.metric_value_lbls["% PASS"].setStyleSheet(
             "color: #a6e3a1; font-weight: bold; font-size: 13px;"

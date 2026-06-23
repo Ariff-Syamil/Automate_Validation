@@ -1,5 +1,317 @@
-Test Case ID,Work Week,Date,Result,Notes,Jira Link,Executed By
-TC-SW-001,WW20,2026-05-11,PASS,,test2,
-TC-SW-002,WW20,2026-05-11,PASS,,test2,
-TC-SW-003,WW20,2026-05-11,PASS,,https// test.com,
-TC-SYS-001,WW20,2026-05-11,PASS,,https// test.com,
+Test Case ID,Work Week,Date,Result,Run Group,Time Taken,Notes,Jira Link,Executed By
+TC-SW-001,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-004,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-005,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-006,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-007,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-008,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-009,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-010,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-011,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-012,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-013,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-014,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-015,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-016,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-017,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-018,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-019,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-021,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SW-022,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SYS-002,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SYS-003,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-SYS-004,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-FPGA-003,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-FPGA-004,WW29,2026-06-22,BLOCKED,Test_01,,Automation unavailable: only TC-GUI cases can be executed automatically.,,Adam
+TC-GUI-001,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.19s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001 -q --tb=short --disable-warnings",,Adam
+TC-GUI-002,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.13s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002 -q --tb=short --disable-warnings",,Adam
+TC-GUI-003,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.14s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003 -q --tb=short --disable-warnings",,Adam
+TC-GUI-010,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.14s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010 -q --tb=short --disable-warnings",,Adam
+TC-GUI-011,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.13s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011 -q --tb=short --disable-warnings",,Adam
+TC-GUI-012,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.13s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012 -q --tb=short --disable-warnings",,Adam
+TC-GUI-013,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.13s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013 -q --tb=short --disable-warnings",,Adam
+TC-GUI-020,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 4 warnings in 0.49s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020 -q --tb=short --disable-warnings",,Adam
+TC-GUI-021,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 5 warnings in 0.52s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021 -q --tb=short --disable-warnings",,Adam
+TC-GUI-022,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 8 warnings in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022 -q --tb=short --disable-warnings",,Adam
+TC-GUI-023,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 5 warnings in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023 -q --tb=short --disable-warnings",,Adam
+TC-GUI-030,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.46s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030 -q --tb=short --disable-warnings",,Adam
+TC-GUI-031,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 4 warnings in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031 -q --tb=short --disable-warnings",,Adam
+TC-GUI-032,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 4 warnings in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032 -q --tb=short --disable-warnings",,Adam
+TC-GUI-040,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040 -q --tb=short --disable-warnings",,Adam
+TC-GUI-041,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.48s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041 -q --tb=short --disable-warnings",,Adam
+TC-GUI-050,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.48s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050 -q --tb=short --disable-warnings",,Adam
+TC-GUI-051,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051 -q --tb=short --disable-warnings",,Adam
+TC-GUI-052,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.53s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052 -q --tb=short --disable-warnings",,Adam
+TC-GUI-053,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.49s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053 -q --tb=short --disable-warnings",,Adam
+TC-GUI-054,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054 -q --tb=short --disable-warnings",,Adam
+TC-GUI-055,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055 -q --tb=short --disable-warnings",,Adam
+TC-GUI-056,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.53s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056 -q --tb=short --disable-warnings",,Adam
+TC-GUI-057,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057 -q --tb=short --disable-warnings",,Adam
+TC-GUI-060,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060 -q --tb=short --disable-warnings",,Adam
+TC-GUI-061,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.53s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061 -q --tb=short --disable-warnings",,Adam
+TC-GUI-062,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.54s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062 -q --tb=short --disable-warnings",,Adam
+TC-GUI-063,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.53s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063 -q --tb=short --disable-warnings",,Adam
+TC-GUI-064,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.55s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064 -q --tb=short --disable-warnings",,Adam
+TC-GUI-070,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.47s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070 -q --tb=short --disable-warnings",,Adam
+TC-GUI-071,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.47s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071 -q --tb=short --disable-warnings",,Adam
+TC-GUI-072,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072 -q --tb=short --disable-warnings",,Adam
+TC-GUI-073,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 5 warnings in 0.52s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073 -q --tb=short --disable-warnings",,Adam
+TC-GUI-074,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.14s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074 -q --tb=short --disable-warnings",,Adam
+TC-GUI-075,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 2 warnings in 0.55s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075 -q --tb=short --disable-warnings",,Adam
+TC-GUI-076,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.50s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076 -q --tb=short --disable-warnings",,Adam
+TC-GUI-077,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.26s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077 -q --tb=short --disable-warnings",,Adam
+TC-GUI-100,WW29,2026-06-22,BLOCKED,Test_01,1s,"s                                                                        [100%]
+1 skipped, 1 warning in 0.66s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings",,Adam
+TC-GUI-101,WW29,2026-06-22,BLOCKED,Test_01,,Dependency not PASS: TC-GUI-100,,Adam
+TC-GUI-102,WW29,2026-06-22,BLOCKED,Test_01,,Dependency not PASS: TC-GUI-100,,Adam
+TC-GUI-104,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 4 warnings in 0.62s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104 -q --tb=short --disable-warnings",,Adam
+TC-GUI-110,WW29,2026-06-22,BLOCKED,Test_01,,Automation status is Not Ready.,,Adam
+TC-GUI-111,WW29,2026-06-22,BLOCKED,Test_01,,Automation status is Not Ready.,,Adam
+TC-GUI-120,WW29,2026-06-22,FAIL,Test_01,2s,".                                                                        [100%]
+1 passed, 4 warnings in 0.54s
+
+QThread: Destroyed while thread 'VlaInferenceWorker' is still running
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120 -q --tb=short --disable-warnings",,Adam
+TC-GUI-121,WW29,2026-06-22,FAIL,Test_01,2s,".                                                                        [100%]
+1 passed, 4 warnings in 0.54s
+
+QThread: Destroyed while thread 'VlaInferenceWorker' is still running
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121 -q --tb=short --disable-warnings",,Adam
+TC-GUI-122,WW29,2026-06-22,FAIL,Test_01,2s,".                                                                        [100%]
+1 passed, 8 warnings in 0.52s
+
+QThread: Destroyed while thread 'VlaInferenceWorker' is still running
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122 -q --tb=short --disable-warnings",,Adam
+TC-GUI-123,WW29,2026-06-22,FAIL,Test_01,2s,".                                                                        [100%]
+1 passed, 6 warnings in 0.50s
+
+QThread: Destroyed while thread 'VlaInferenceWorker' is still running
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123 -q --tb=short --disable-warnings",,Adam
+TC-GUI-124,WW29,2026-06-22,BLOCKED,Test_01,,Dependency not PASS: TC-GUI-120,,Adam
+TC-GUI-125,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.53s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125 -q --tb=short --disable-warnings",,Adam
+TC-GUI-130,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130 -q --tb=short --disable-warnings",,Adam
+TC-GUI-131,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131 -q --tb=short --disable-warnings",,Adam
+TC-GUI-132,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.27s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132 -q --tb=short --disable-warnings",,Adam
+TC-GUI-133,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133 -q --tb=short --disable-warnings",,Adam
+TC-GUI-134,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.26s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134 -q --tb=short --disable-warnings",,Adam
+TC-GUI-135,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135 -q --tb=short --disable-warnings",,Adam
+TC-GUI-160,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160 -q --tb=short --disable-warnings",,Adam
+TC-GUI-161,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.31s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161 -q --tb=short --disable-warnings",,Adam
+TC-GUI-162,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.30s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162 -q --tb=short --disable-warnings",,Adam
+TC-GUI-163,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.29s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163 -q --tb=short --disable-warnings",,Adam
+TC-GUI-164,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.29s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164 -q --tb=short --disable-warnings",,Adam
+TC-GUI-170,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.30s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170 -q --tb=short --disable-warnings",,Adam
+TC-GUI-171,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.30s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171 -q --tb=short --disable-warnings",,Adam
+TC-GUI-172,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.29s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172 -q --tb=short --disable-warnings",,Adam
+TC-GUI-173,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.28s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173 -q --tb=short --disable-warnings",,Adam
+TC-GUI-174,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.30s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174 -q --tb=short --disable-warnings",,Adam
+TC-GUI-175,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.31s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175 -q --tb=short --disable-warnings",,Adam
+TC-GUI-176,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.32s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176 -q --tb=short --disable-warnings",,Adam
+TC-GUI-180,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.41s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180 -q --tb=short --disable-warnings",,Adam
+TC-GUI-181,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.43s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181 -q --tb=short --disable-warnings",,Adam
+TC-GUI-182,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed in 0.43s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182 -q --tb=short --disable-warnings",,Adam
+TC-GUI-183,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.12s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown -q --tb=short --disable-warnings",,Adam
+TC-GUI-184,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 5 warnings in 0.55s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers -q --tb=short --disable-warnings",,Adam
+TC-GUI-185,WW29,2026-06-22,BLOCKED,Test_01,,"Dependency not PASS: TC-GUI-120, TC-GUI-123",,Adam
+TC-GUI-186,WW29,2026-06-22,PASS,Test_01,1s,".                                                                        [100%]
+1 passed, 1 warning in 0.51s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow -q --tb=short --disable-warnings",,Adam
+TC-GUI-187,WW29,2026-06-22,PASS,Test_01,1s,"........                                                                 [100%]
+8 passed in 0.52s
+
+Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles -q --tb=short --disable-warnings",,Adam
+TC-GUI-188,WW29,2026-06-22,BLOCKED,Test_01,,"Dependency not PASS: TC-GUI-101, TC-GUI-102",,Adam
+TC-GUI-189,WW29,2026-06-22,BLOCKED,Test_01,,"Dependency not PASS: TC-GUI-110, TC-GUI-111",,Adam
