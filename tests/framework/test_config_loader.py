@@ -6,7 +6,6 @@ from pathlib import Path
 
 import pytest
 import yaml
-from pydantic import ValidationError
 
 from tests.framework import env_checks
 from tests.framework.config import TestConfig, discover_suite_config_paths
@@ -35,7 +34,7 @@ def test_test_config_rejects_missing_suite_name(tmp_path: Path) -> None:
     path = tmp_path / "config.yaml"
     _write_yaml(path, {"tags": ["unit"]})
 
-    with pytest.raises(ValidationError):
+    with pytest.raises(ValueError, match="suite_name"):
         TestConfig.from_yaml(path)
 
 

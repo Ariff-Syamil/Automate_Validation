@@ -1,0 +1,4 @@
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 06:40:16  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0

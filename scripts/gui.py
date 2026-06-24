@@ -13,6 +13,7 @@ import csv
 import datetime as _dt
 import io
 import sys
+import time
 import uuid
 from pathlib import Path
 
@@ -25,6 +26,7 @@ from PyQt6.QtWidgets import (
     QDialog, QFormLayout, QLineEdit, QTextEdit, QDateEdit,
     QMessageBox, QGroupBox, QFrame, QInputDialog,
     QScrollArea, QAbstractItemView, QListWidget, QListWidgetItem,
+    QProgressDialog,
 )
 
 try:
@@ -172,11 +174,31 @@ def format_duration(value) -> str:
     return f"{hours}h {mins:02d}m"
 
 
+def _effective_duration_seconds(run: dict) -> float | None:
+    """Prefer full Execute Run batch duration, falling back to per-case runtime."""
+    return _coerce_duration_seconds(
+        run.get("batch_duration_seconds", run.get("duration_seconds"))
+    )
+
+
+def format_run_duration(run: dict) -> str:
+    """Format the duration shown in Timeline/cell/export rows."""
+    return format_duration(_effective_duration_seconds(run))
+
+
 def format_total_duration(runs: list[dict]) -> str:
-    """Format the sum of stored run durations."""
+    """Format total elapsed time without double-counting batch records."""
     total = 0.0
+    counted_batches: set[str] = set()
     for run in runs:
-        seconds = _coerce_duration_seconds(run.get("duration_seconds"))
+        batch_id = (run.get("batch_id") or "").strip()
+        if batch_id and run.get("batch_duration_seconds") not in (None, ""):
+            if batch_id in counted_batches:
+                continue
+            counted_batches.add(batch_id)
+            seconds = _coerce_duration_seconds(run.get("batch_duration_seconds"))
+        else:
+            seconds = _coerce_duration_seconds(run.get("duration_seconds"))
         if seconds is not None:
             total += seconds
     return format_duration(total)
@@ -234,6 +256,12 @@ def _normalise_run(raw: dict) -> dict | None:
     duration = _coerce_duration_seconds(raw.get("duration_seconds"))
     if duration is not None:
         clean["duration_seconds"] = duration
+    batch_id = (raw.get("batch_id") or "").strip()
+    if batch_id:
+        clean["batch_id"] = batch_id
+    batch_duration = _coerce_duration_seconds(raw.get("batch_duration_seconds"))
+    if batch_duration is not None:
+        clean["batch_duration_seconds"] = batch_duration
     return clean
 
 
@@ -1710,6 +1738,7 @@ class RunFormDialog(QDialog):
     # ── save ────────────────────────────────────────────────────────────────
 
     def _on_save(self) -> None:
+        execute_started_at = time.perf_counter()
         date_text = self.date_edit.date().toString("yyyy-MM-dd")
         week = self.combo_week.currentText().strip()
         result = self.combo_result.currentText().strip().upper()
@@ -1766,10 +1795,30 @@ class RunFormDialog(QDialog):
                     return
                 run_name = prompt_result
             now = _dt.datetime.now().isoformat(timespec="seconds")
-            QApplication.setOverrideCursor(Qt.CursorShape.WaitCursor)
+            batch_id = uuid.uuid4().hex[:12]
+            batch_started_at = execute_started_at
+            batch_record_indexes: list[int] = []
+            progress = QProgressDialog(
+                "Preparing test execution...",
+                None,
+                0,
+                len(tids),
+                self,
+            )
+            progress.setWindowTitle("Running Test Cases")
+            progress.setWindowModality(Qt.WindowModality.ApplicationModal)
+            progress.setMinimumDuration(0)
+            progress.setAutoClose(False)
+            progress.setAutoReset(False)
+            progress.setValue(0)
+            progress.show()
+            QApplication.processEvents()
             try:
                 execution_results = []
-                for tid in tids:
+                for idx, tid in enumerate(tids, start=1):
+                    progress.setLabelText(f"Running {idx}/{len(tids)}: {tid}")
+                    progress.setValue(idx - 1)
+                    QApplication.processEvents()
                     if self._is_executable_test_case(tid):
                         try:
                             execution = run_case(
@@ -1807,6 +1856,7 @@ class RunFormDialog(QDialog):
                         "jira_link":    jira,
                         "executed_by":  executed_by,
                         "created_at":   now,
+                        "batch_id":     batch_id,
                     }
                     if run_name:
                         run_record["run_name"] = run_name
@@ -1814,6 +1864,7 @@ class RunFormDialog(QDialog):
                     if duration is not None:
                         run_record["duration_seconds"] = duration
                     runs.append(run_record)
+                    batch_record_indexes.append(len(runs) - 1)
                     self._state["runs"] = runs
                     try:
                         save_runs(self.version, self._state)
@@ -1824,8 +1875,26 @@ class RunFormDialog(QDialog):
                             f"Could not save run for {tid}:\n{exc}",
                         )
                         return
+                    progress.setLabelText(
+                        f"Completed {idx}/{len(tids)}: {tid} -> {run_result}"
+                    )
+                    progress.setValue(idx)
+                    QApplication.processEvents()
+                batch_duration = round(time.perf_counter() - batch_started_at, 3)
+                for run_index in batch_record_indexes:
+                    runs[run_index]["batch_duration_seconds"] = batch_duration
+                self._state["runs"] = runs
+                try:
+                    save_runs(self.version, self._state)
+                except Exception as exc:
+                    QMessageBox.critical(
+                        self,
+                        "Save Failed",
+                        f"Could not save final batch duration:\n{exc}",
+                    )
+                    return
             finally:
-                QApplication.restoreOverrideCursor()
+                progress.close()
 
         if self._is_edit:
             self._state["runs"] = runs
@@ -1974,8 +2043,8 @@ class CellRunsDialog(QDialog):
             f"{run.get('date') or '(no date)'}"
             f"   •   {run.get('executed_by') or '(no executor)'}"
             + (
-                f"   •   {format_duration(run.get('duration_seconds'))}"
-                if format_duration(run.get("duration_seconds"))
+                f"   •   {format_run_duration(run)}"
+                if format_run_duration(run)
                 else ""
             )
         )
@@ -2319,7 +2388,9 @@ class TimelineDialog(QDialog):
         btn_delete_group = QPushButton("Delete Run Group")
         btn_delete_group.setObjectName("danger")
         btn_delete_group.setStyleSheet(DANGER_BUTTON_STYLE)
-        btn_delete_group.setToolTip("Delete all timeline run records with the selected run group name.")
+        btn_delete_group.setToolTip(
+            "Delete all timeline run records for the checked named multiple-run filters."
+        )
         btn_delete_group.clicked.connect(self._on_delete_run_group)
         group_buttons.addWidget(btn_delete_group)
         gfl.addLayout(group_buttons)
@@ -2416,11 +2487,20 @@ class TimelineDialog(QDialog):
 
     def _run_group_duration_totals(self) -> dict[str, float]:
         totals: dict[str, float] = {}
+        counted_batches: set[tuple[str, str]] = set()
         for run in self._runs:
             run_name = (run.get("run_name") or "").strip()
             if not run_name:
                 continue
-            seconds = _coerce_duration_seconds(run.get("duration_seconds"))
+            batch_id = (run.get("batch_id") or "").strip()
+            if batch_id and run.get("batch_duration_seconds") not in (None, ""):
+                batch_key = (run_name, batch_id)
+                if batch_key in counted_batches:
+                    continue
+                counted_batches.add(batch_key)
+                seconds = _coerce_duration_seconds(run.get("batch_duration_seconds"))
+            else:
+                seconds = _coerce_duration_seconds(run.get("duration_seconds"))
             if seconds is not None:
                 totals[run_name] = totals.get(run_name, 0.0) + seconds
         return totals
@@ -2576,7 +2656,7 @@ class TimelineDialog(QDialog):
                 result = latest.get("result") or "NOT RUN"
                 count = len(cell_runs)
                 text = result if count == 1 else f"{result} ×{count}"
-                duration_text = format_duration(latest.get("duration_seconds"))
+                duration_text = format_run_duration(latest)
                 if duration_text:
                     text = f"{text}\n{duration_text}"
                 bg, fg = RUN_RESULT_COLORS.get(result, ("#2a2a3a", "#cdd6f4"))
@@ -2589,8 +2669,8 @@ class TimelineDialog(QDialog):
                 tip_lines = [
                     f"{r.get('date') or '(no date)'}  ·  {r.get('result')}"
                     + (
-                        f"  ·  {format_duration(r.get('duration_seconds'))}"
-                        if format_duration(r.get("duration_seconds"))
+                        f"  ·  {format_run_duration(r)}"
+                        if format_run_duration(r)
                         else ""
                     )
                     + (f"  ·  {r.get('notes')}" if r.get("notes") else "")
@@ -2700,28 +2780,32 @@ class TimelineDialog(QDialog):
             )
             return
 
-        choices = [
-            f"{name} ({count} record{'s' if count != 1 else ''})"
-            for name, count in sorted(group_counts.items(), key=lambda item: item[0].casefold())
-        ]
-        choice, ok = QInputDialog.getItem(
-            self,
-            "Delete Run Group",
-            "Choose a named multiple-run group to delete from the Timeline:",
-            choices,
-            0,
-            False,
-        )
-        if not ok or not choice:
+        selected_groups = self._selected_run_groups()
+        if not selected_groups:
+            QMessageBox.information(
+                self,
+                "Select Run Group",
+                "Tick one or more named multiple-run groups in the filter list, "
+                "then click Delete Run Group.",
+            )
             return
 
-        run_name = choice.rsplit(" (", 1)[0]
-        record_count = group_counts.get(run_name, 0)
+        ordered_names = sorted(selected_groups, key=str.casefold)
+        record_count = sum(group_counts.get(name, 0) for name in ordered_names)
+        group_lines = "\n".join(
+            f"  - {name} ({group_counts.get(name, 0)} record"
+            f"{'s' if group_counts.get(name, 0) != 1 else ''})"
+            for name in ordered_names
+        )
         confirm = QMessageBox.question(
             self,
             "Delete Run Group?",
-            f"Delete all {record_count} run record"
-            f"{'s' if record_count != 1 else ''} named {run_name!r}?",
+            "Please confirm you want to delete the selected named multiple-run "
+            "group from the Timeline.\n\n"
+            f"This will permanently delete {record_count} run record"
+            f"{'s' if record_count != 1 else ''} from runs.yaml:\n"
+            f"{group_lines}\n\n"
+            "This cannot be undone.",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             QMessageBox.StandardButton.No,
         )
@@ -2732,7 +2816,7 @@ class TimelineDialog(QDialog):
         runs = list(state.get("runs") or [])
         state["runs"] = [
             run for run in runs
-            if (run.get("run_name") or "").strip() != run_name
+            if (run.get("run_name") or "").strip() not in selected_groups
         ]
         try:
             save_runs(self.version, state)
@@ -2745,7 +2829,9 @@ class TimelineDialog(QDialog):
             self,
             "Run Group Deleted",
             f"Deleted {record_count} run record"
-            f"{'s' if record_count != 1 else ''} named {run_name!r}.",
+            f"{'s' if record_count != 1 else ''} from "
+            f"{len(ordered_names)} selected run group"
+            f"{'s' if len(ordered_names) != 1 else ''}.",
         )
 
     def _on_export_csv(self) -> None:
@@ -2778,7 +2864,7 @@ class TimelineDialog(QDialog):
                         "Date": latest.get("date") or "",
                         "Result": latest.get("result") or "",
                         "Run Group": latest.get("run_name") or "",
-                        "Time Taken": format_duration(latest.get("duration_seconds")),
+                        "Time Taken": format_run_duration(latest),
                         "Notes": latest.get("notes") or "",
                         "Jira Link": latest.get("jira_link") or "",
                         "Executed By": latest.get("executed_by") or "",

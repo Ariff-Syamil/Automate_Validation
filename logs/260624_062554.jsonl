@@ -1,0 +1,1 @@
+{"ts": "2026-06-24T06:25:55.020432", "level": "WARN", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor E-STOP node=0 motor=0"}

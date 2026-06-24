@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 
+from tests._paths import AUTOMATE5_ROOT, module_file_within_automate5, require_automate5_root
 from tests.framework.base import TestCaseFramework, scenario
 
 
@@ -34,18 +35,23 @@ class TestSmoke(TestCaseFramework):
     @scenario("import_smoke", "Core packages import without errors")
     def test_import_smoke(self) -> None:
         self.log("test_import_smoke: begin")
+        require_automate5_root()
+        self.log(f"AUTOMATE5_ROOT={AUTOMATE5_ROOT}")
 
         import automate5
         assert hasattr(automate5, "Subsystem")
         assert hasattr(automate5, "PhaseCode")
         assert hasattr(automate5, "ErrorCode")
+        self.log(f"automate5 imported from {module_file_within_automate5(automate5)}")
         self.log("test_import_smoke: automate5 OK")
 
         import automate5.log
         assert hasattr(automate5.log, "logger")
+        self.log(f"automate5.log imported from {module_file_within_automate5(automate5.log)}")
         self.log("test_import_smoke: automate5.log OK")
 
         import gui.main_window
+        self.log(f"gui.main_window imported from {module_file_within_automate5(gui.main_window)}")
         self.log("test_import_smoke: gui.main_window OK")
 
         self.log("test_import_smoke: all imports passed")

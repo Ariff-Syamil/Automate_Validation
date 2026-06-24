@@ -11,11 +11,12 @@ from pathlib import Path
 
 import yaml
 
-from .run_store import append_run, latest_run_per_test_case, load_runs
+from tests._paths import DEFAULT_AUTOMATE5_ROOT, require_automate5_root
+
+from .run_store import append_run
 
 VALIDATION_ROOT = Path(__file__).resolve().parents[2]
 AUTOMATION_DIR = Path(__file__).resolve().parent
-DEFAULT_AUTOMATE5_ROOT = VALIDATION_ROOT.parent / "Automate5"
 DEFAULT_TEST_MODULE = "tests/test_suite_gui/testcase_tc_gui_automation.py"
 
 
@@ -58,7 +59,8 @@ def _default_pytest_target(test_case_id: str) -> str:
 
 
 def _automate5_root() -> Path:
-    return Path(os.environ.get("AUTOMATE5_ROOT", str(DEFAULT_AUTOMATE5_ROOT))).resolve()
+    root = Path(os.environ.get("AUTOMATE5_ROOT", str(DEFAULT_AUTOMATE5_ROOT))).resolve()
+    return require_automate5_root(root)
 
 
 def _pytest_root() -> Path:
@@ -66,26 +68,13 @@ def _pytest_root() -> Path:
 
 
 def _python_executable(root: Path) -> Path:
+    candidate = root / ".venv" / "bin" / "python"
+    if candidate.exists():
+        return candidate
     candidate = root / ".venv" / "Scripts" / "python.exe"
     if candidate.exists():
         return candidate
     return Path(os.environ.get("PYTHON", "python"))
-
-
-def _dependency_block_reason(version: str, tc: dict) -> str | None:
-    dependencies = tc.get("dependency") or []
-    if not dependencies:
-        return None
-
-    latest = latest_run_per_test_case(load_runs(version).get("runs") or [])
-    missing: list[str] = []
-    for dep in dependencies:
-        dep_latest = latest.get(dep)
-        if dep_latest is None or dep_latest.get("result") != "PASS":
-            missing.append(dep)
-    if missing:
-        return "Dependency not PASS: " + ", ".join(missing)
-    return None
 
 
 def _summarize_output(output: str, limit: int = 3500) -> str:
@@ -103,6 +92,39 @@ def _is_pytest_skip(output: str, returncode: int) -> bool:
     )
 
 
+def _dependencies(tc: dict) -> list[str]:
+    raw = tc.get("dependency") or []
+    if isinstance(raw, str):
+        raw = [raw]
+    if not isinstance(raw, list):
+        return []
+    return [str(dep).strip() for dep in raw if str(dep).strip()]
+
+
+def _hardware_note(tc: dict) -> str:
+    env = str(tc.get("test_environment_ci_hil") or "").strip().upper()
+    if env != "HIL":
+        return ""
+    return (
+        "Dependency is marked HIL/hardware environment; result may require physical "
+        "hardware or configured hardware mocks."
+    )
+
+
+def _automation_unavailable_reason(tc: dict) -> str:
+    status = str(tc.get("automation_status") or "").strip()
+    if status == "Not Ready":
+        return "Automation status is Not Ready."
+    readiness = str(tc.get("automation_readiness") or "").strip()
+    if readiness and readiness not in {"Automatable", "Semi-Automatable"}:
+        return f"Automation is not available: automation_readiness is {readiness}."
+    return ""
+
+
+def _join_notes(*parts: str) -> str:
+    return "\n".join(part.strip() for part in parts if part and part.strip())
+
+
 def run_case(
     version: str,
     test_case_id: str,
@@ -110,31 +132,92 @@ def run_case(
     executed_by: str = "",
     record: bool = True,
 ) -> ExecutionResult:
+    return _run_case(
+        version,
+        test_case_id,
+        executed_by=executed_by,
+        record=record,
+        dependency_stack=[],
+        triggered_by="",
+    )
+
+
+def _run_case(
+    version: str,
+    test_case_id: str,
+    *,
+    executed_by: str,
+    record: bool,
+    dependency_stack: list[str],
+    triggered_by: str,
+) -> ExecutionResult:
     cases = _load_gui_cases(version)
     tc = cases.get(test_case_id)
+    trigger_note = (
+        f"Run because {triggered_by} depends on this test case."
+        if triggered_by
+        else ""
+    )
     if tc is None:
         return _record(
             version,
             test_case_id,
             "BLOCKED",
-            f"Unknown test case ID: {test_case_id}",
+            _join_notes(trigger_note, f"Unknown test case ID: {test_case_id}"),
             executed_by,
             record=record,
         )
 
-    if str(tc.get("automation_status") or "") == "Not Ready":
+    unavailable_reason = _automation_unavailable_reason(tc)
+    if unavailable_reason:
         return _record(
             version,
             test_case_id,
             "BLOCKED",
-            "Automation status is Not Ready.",
+            _join_notes(trigger_note, _hardware_note(tc), unavailable_reason),
             executed_by,
             record=record,
         )
 
-    dep_reason = _dependency_block_reason(version, tc)
-    if dep_reason:
-        return _record(version, test_case_id, "BLOCKED", dep_reason, executed_by, record=record)
+    if test_case_id in dependency_stack:
+        cycle = " -> ".join([*dependency_stack, test_case_id])
+        return _record(
+            version,
+            test_case_id,
+            "BLOCKED",
+            _join_notes(trigger_note, f"Dependency cycle detected: {cycle}"),
+            executed_by,
+            record=record,
+        )
+
+    failed_dependencies: list[str] = []
+    for dep_id in _dependencies(tc):
+        dep_result = _run_case(
+            version,
+            dep_id,
+            executed_by=executed_by,
+            record=record,
+            dependency_stack=[*dependency_stack, test_case_id],
+            triggered_by=test_case_id,
+        )
+        if dep_result.result != "PASS":
+            dep_notes = " / ".join(dep_result.notes.splitlines())
+            failed_dependencies.append(
+                f"{dep_id}={dep_result.result}: {dep_notes}"
+            )
+
+    if failed_dependencies:
+        return _record(
+            version,
+            test_case_id,
+            "BLOCKED",
+            _join_notes(
+                trigger_note,
+                "Dependency not PASS: " + "; ".join(failed_dependencies),
+            ),
+            executed_by,
+            record=record,
+        )
 
     entry = _load_execution_overrides().get(test_case_id) or {}
     if not isinstance(entry, dict):
@@ -146,7 +229,7 @@ def run_case(
             version,
             test_case_id,
             "BLOCKED",
-            str(blocked_reason),
+            _join_notes(trigger_note, _hardware_note(tc), str(blocked_reason)),
             executed_by,
             record=record,
         )
@@ -191,7 +274,11 @@ def run_case(
         )
     except subprocess.TimeoutExpired as exc:
         duration = round(time.perf_counter() - started_at, 3)
-        notes = f"Timed out running pytest target after {exc.timeout}s: {pytest_target}"
+        notes = _join_notes(
+            trigger_note,
+            _hardware_note(tc),
+            f"Timed out running pytest target after {exc.timeout}s: {pytest_target}",
+        )
         return _record(
             version,
             test_case_id,
@@ -204,7 +291,11 @@ def run_case(
         )
     except Exception as exc:
         duration = round(time.perf_counter() - started_at, 3)
-        notes = f"Could not start pytest for {pytest_target}: {exc}"
+        notes = _join_notes(
+            trigger_note,
+            _hardware_note(tc),
+            f"Could not start pytest for {pytest_target}: {exc}",
+        )
         return _record(
             version,
             test_case_id,
@@ -219,7 +310,11 @@ def run_case(
     duration = round(time.perf_counter() - started_at, 3)
     combined = "\n".join(part for part in (proc.stdout, proc.stderr) if part)
     result = "BLOCKED" if _is_pytest_skip(combined, proc.returncode) else ("PASS" if proc.returncode == 0 else "FAIL")
-    notes = _summarize_output(combined) or f"pytest exited with code {proc.returncode}"
+    notes = _join_notes(
+        trigger_note,
+        _hardware_note(tc),
+        _summarize_output(combined) or f"pytest exited with code {proc.returncode}",
+    )
     return _record(
         version,
         test_case_id,

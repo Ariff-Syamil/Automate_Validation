@@ -68,6 +68,12 @@ def normalise_run(raw: dict) -> dict | None:
     duration = _coerce_duration_seconds(raw.get("duration_seconds"))
     if duration is not None:
         clean["duration_seconds"] = duration
+    batch_id = (raw.get("batch_id") or "").strip()
+    if batch_id:
+        clean["batch_id"] = batch_id
+    batch_duration = _coerce_duration_seconds(raw.get("batch_duration_seconds"))
+    if batch_duration is not None:
+        clean["batch_duration_seconds"] = batch_duration
     return clean
 
 

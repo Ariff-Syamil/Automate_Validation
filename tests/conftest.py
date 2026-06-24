@@ -10,15 +10,18 @@ from pathlib import Path
 
 import pytest
 
-from tests._paths import AUTOMATE5_ROOT, VALIDATION_ROOT
+from tests._paths import AUTOMATE5_ROOT, VALIDATION_ROOT, require_automate5_root
 from tests._session import get_active_config, set_active_config
 from tests.framework.config import TestConfig, discover_suite_config_paths
 
 
-for _path in (VALIDATION_ROOT, AUTOMATE5_ROOT):
+require_automate5_root()
+
+for _path in (AUTOMATE5_ROOT, VALIDATION_ROOT):
     _text = str(_path)
-    if _text not in sys.path:
-        sys.path.insert(0, _text)
+    while _text in sys.path:
+        sys.path.remove(_text)
+    sys.path.insert(0, _text)
 
 os.environ.setdefault("AUTOMATE5_ROOT", str(AUTOMATE5_ROOT))
 
