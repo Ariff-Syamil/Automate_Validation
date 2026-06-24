@@ -1,0 +1,7 @@
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:18:15  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:18:15  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started

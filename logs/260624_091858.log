@@ -1,0 +1,11 @@
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 09:18:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 09:18:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:18:59  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'

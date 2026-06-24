@@ -21,1544 +21,6 @@ work_weeks:
 - WW28
 - WW29
 runs:
-- id: ee5c19641d4f
-  test_case_id: TC-FPGA-003
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 92a465a0a6fa
-  test_case_id: TC-SW-010
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 84c3d0dc1dba
-  test_case_id: TC-SW-012
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: c0d867d839db
-  test_case_id: TC-SW-016
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: a816503bd95b
-  test_case_id: TC-SW-018
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: e87ff21aec36
-  test_case_id: TC-SW-021
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 669dd5a7e8d6
-  test_case_id: TC-GUI-001
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.78
-- id: 9b4e6f4438d4
-  test_case_id: TC-GUI-002
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.661
-- id: 570f882b8dfd
-  test_case_id: TC-GUI-003
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.15s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.654
-- id: 8c20e1443f04
-  test_case_id: TC-GUI-100
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 's                                                                        [100%]
-
-    1 skipped, 3 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.667
-- id: 460ec5ee712b
-  test_case_id: TC-GUI-120
-  date: '2026-06-24'
-  work_week: WW26
-  result: FAIL
-  notes: '.                                                                        [100%]
-
-    1 passed, 9 warnings in 0.73s
-
-
-    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 2.269
-- id: 9e0d44804e75
-  test_case_id: TC-GUI-125
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.686
-- id: c3d54d8ba768
-  test_case_id: TC-GUI-130
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.752
-- id: f6ac441d4727
-  test_case_id: TC-GUI-180
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.802
-- id: 6392696cde68
-  test_case_id: TC-GUI-181
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.23s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.876
-- id: 092f5d503bdd
-  test_case_id: TC-GUI-182
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.805
-- id: 87114d2dfda5
-  test_case_id: TC-FPGA-004
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 4d5ebf9c8b72
-  test_case_id: TC-SW-011
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 588e99125723
-  test_case_id: TC-SW-013
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: eb81927fbcc0
-  test_case_id: TC-SW-014
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 05e372d42456
-  test_case_id: TC-SW-015
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 0e5890bf2a71
-  test_case_id: TC-SW-017
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 2b647d458eb9
-  test_case_id: TC-SW-019
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 72958c5a2905
-  test_case_id: TC-SW-022
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 71e2a73823d8
-  test_case_id: TC-GUI-010
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.646
-- id: c8d542a1a980
-  test_case_id: TC-GUI-011
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.628
-- id: f2ec6e3009bc
-  test_case_id: TC-GUI-012
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.704
-- id: f7e4b7773835
-  test_case_id: TC-GUI-030
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.734
-- id: 42c6641819ce
-  test_case_id: TC-GUI-040
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.23s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.741
-- id: 8b5a14700d78
-  test_case_id: TC-GUI-101
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. /
-    s                                                                        [100%] / 1 skipped, 3 warnings
-    in 0.23s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: a070cfe4d23f
-  test_case_id: TC-GUI-102
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this test case. /
-    s                                                                        [100%] / 1 skipped, 3 warnings
-    in 0.22s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: ebc511e49d9c
-  test_case_id: TC-GUI-124
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-124 depends on this test case. / .                                                                        [100%]
-    / 1 passed, 10 warnings in 0.64s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
-    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 787685b833a4
-  test_case_id: TC-GUI-131
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.17s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.662
-- id: 98e05f3027ea
-  test_case_id: TC-GUI-187
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '........                                                                 [100%]
-
-    8 passed, 2 warnings in 0.39s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.92
-- id: 00f786490e21
-  test_case_id: TC-SW-001
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 08427de2f99f
-  test_case_id: TC-GUI-013
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.15s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.604
-- id: 2bb6fe99e878
-  test_case_id: TC-GUI-020
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 6 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.705
-- id: 4f25233499ee
-  test_case_id: TC-GUI-041
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.702
-- id: a6f329a8230e
-  test_case_id: TC-GUI-070
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.69
-- id: 4774f1892ea9
-  test_case_id: TC-GUI-121
-  date: '2026-06-24'
-  work_week: WW26
-  result: FAIL
-  notes: '.                                                                        [100%]
-
-    1 passed, 10 warnings in 0.70s
-
-
-    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 2.27
-- id: 85e49c57ab3a
-  test_case_id: TC-GUI-122
-  date: '2026-06-24'
-  work_week: WW26
-  result: FAIL
-  notes: '.                                                                        [100%]
-
-    1 passed, 14 warnings in 0.73s
-
-
-    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 2.304
-- id: 044543d4082a
-  test_case_id: TC-GUI-123
-  date: '2026-06-24'
-  work_week: WW26
-  result: FAIL
-  notes: '.                                                                        [100%]
-
-    1 passed, 14 warnings in 0.66s
-
-
-    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 2.207
-- id: 9d2a49f4cbcb
-  test_case_id: TC-GUI-132
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.717
-- id: 07340e825c3a
-  test_case_id: TC-GUI-133
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.17s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.714
-- id: a6d969ffaea1
-  test_case_id: TC-GUI-160
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.649
-- id: 6fbf299d1fab
-  test_case_id: TC-GUI-163
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.864
-- id: c39bc778ec53
-  test_case_id: TC-GUI-170
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.745
-- id: 619abbb3feac
-  test_case_id: TC-GUI-173
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.751
-- id: 7fce913cf6fc
-  test_case_id: TC-GUI-183
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.707
-- id: fdc351ce7110
-  test_case_id: TC-GUI-188
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-101=BLOCKED: Run because TC-GUI-188 depends on this test case. /
-    Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. / s                                                                        [100%]
-    / 1 skipped, 3 warnings in 0.20s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
-    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings;
-    TC-GUI-102=BLOCKED: Run because TC-GUI-188 depends on this test case. / Dependency not PASS: TC-GUI-100=BLOCKED:
-    Run because TC-GUI-102 depends on this test case. / s                                                                        [100%]
-    / 1 skipped, 3 warnings in 0.21s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
-    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: af436f0bf52a
-  test_case_id: TC-SW-004
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 2f59e3146bfc
-  test_case_id: TC-SW-008
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 9401b0a70e9a
-  test_case_id: TC-GUI-021
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 7 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.731
-- id: ec5ee493fd62
-  test_case_id: TC-GUI-023
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 7 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.738
-- id: d168177f87a2
-  test_case_id: TC-GUI-031
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 6 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.706
-- id: ecc0d8dcbd53
-  test_case_id: TC-GUI-032
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 6 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.69
-- id: f0343f7e6a6c
-  test_case_id: TC-GUI-050
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.728
-- id: 8226abcbd71b
-  test_case_id: TC-GUI-056
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.739
-- id: 97db6307a58f
-  test_case_id: TC-GUI-057
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.86
-- id: c3b08c7c1435
-  test_case_id: TC-GUI-071
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.683
-- id: 6dd66f77882d
-  test_case_id: TC-GUI-072
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.682
-- id: b9ce56002663
-  test_case_id: TC-GUI-074
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.14s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.628
-- id: 6c020e91d3c3
-  test_case_id: TC-GUI-076
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.825
-- id: c54a725ede0d
-  test_case_id: TC-GUI-134
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.16s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.746
-- id: 5ed9864e8feb
-  test_case_id: TC-GUI-161
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.693
-- id: 23027bbc3555
-  test_case_id: TC-GUI-162
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.67
-- id: 493da1d24623
-  test_case_id: TC-GUI-164
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.713
-- id: 701c00137a04
-  test_case_id: TC-GUI-171
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.632
-- id: b08807a9ce96
-  test_case_id: TC-GUI-172
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.741
-- id: 1397f65e1321
-  test_case_id: TC-GUI-174
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.84
-- id: b280c4d43103
-  test_case_id: TC-GUI-185
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-185 depends on this test case. / .                                                                        [100%]
-    / 1 passed, 10 warnings in 0.72s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
-    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
-    -q --tb=short --disable-warnings; TC-GUI-123=FAIL: Run because TC-GUI-185 depends on this test case.
-    / .                                                                        [100%] / 1 passed, 14 warnings
-    in 0.66s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  / Command:
-    /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: a8b16972048c
-  test_case_id: TC-GUI-186
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 3 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.863
-- id: ca870e26e9d3
-  test_case_id: TC-GUI-110
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
-    hardware mocks.
-
-    Automation status is Not Ready.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 841809f9911d
-  test_case_id: TC-SW-005
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 5f93024adedb
-  test_case_id: TC-SW-009
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: cf36358dc452
-  test_case_id: TC-SYS-002
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: db6377079ab2
-  test_case_id: TC-GUI-022
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 10 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.846
-- id: 4a04956bd2ae
-  test_case_id: TC-GUI-051
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.826
-- id: 1d76bf4e08da
-  test_case_id: TC-GUI-053
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.829
-- id: b0eddfecf77a
-  test_case_id: TC-GUI-054
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.76
-- id: 9e30f305f499
-  test_case_id: TC-GUI-055
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.768
-- id: d901dc581eb9
-  test_case_id: TC-GUI-060
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.76
-- id: 2b60c316b900
-  test_case_id: TC-GUI-073
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 7 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.709
-- id: fbca967e7115
-  test_case_id: TC-GUI-075
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.712
-- id: e6dc2a231d78
-  test_case_id: TC-GUI-077
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.17s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.689
-- id: c312394348a6
-  test_case_id: TC-GUI-135
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.827
-- id: f5777a958afd
-  test_case_id: TC-GUI-175
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.18s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.747
-- id: 903230cc0fc5
-  test_case_id: TC-GUI-176
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 2 warnings in 0.20s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.832
-- id: 090e7be3fb7c
-  test_case_id: TC-GUI-184
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 7 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.672
-- id: b25ea4a40f15
-  test_case_id: TC-GUI-111
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
-    hardware mocks.
-
-    Automation status is Not Ready.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: b53d0ab2abc8
-  test_case_id: TC-SW-006
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: df61fb9ff532
-  test_case_id: TC-SW-007
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: cec5d36c6765
-  test_case_id: TC-GUI-052
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.22s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.863
-- id: 413b4d4b1c7b
-  test_case_id: TC-GUI-061
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.723
-- id: f4a9bb47d155
-  test_case_id: TC-GUI-062
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.681
-- id: df49050932f8
-  test_case_id: TC-GUI-063
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.21s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.698
-- id: 23043a43a6df
-  test_case_id: TC-GUI-064
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 4 warnings in 0.19s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.699
-- id: b9e3a2cf7a2a
-  test_case_id: TC-GUI-104
-  date: '2026-06-24'
-  work_week: WW26
-  result: PASS
-  notes: '.                                                                        [100%]
-
-    1 passed, 6 warnings in 0.23s
-
-
-    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
-    -q --tb=short --disable-warnings'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-  duration_seconds: 1.833
-- id: b1086d728ba5
-  test_case_id: TC-GUI-189
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Dependency not PASS: TC-GUI-110=BLOCKED: Run because TC-GUI-189 depends on this test case. /
-    Dependency is marked HIL/hardware environment; result may require physical hardware or configured
-    hardware mocks. / Automation status is Not Ready.; TC-GUI-111=BLOCKED: Run because TC-GUI-189 depends
-    on this test case. / Dependency is marked HIL/hardware environment; result may require physical hardware
-    or configured hardware mocks. / Automation status is Not Ready.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 8d863cea91cd
-  test_case_id: TC-SYS-003
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
-- id: 56c123bfa252
-  test_case_id: TC-SYS-004
-  date: '2026-06-24'
-  work_week: WW26
-  result: BLOCKED
-  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
-  jira_link: ''
-  executed_by: ''
-  created_at: '2026-06-24T14:33:12'
-  run_name: Real_02
 - id: a35df9db19dc
   test_case_id: TC-FPGA-003
   date: '2026-06-24'
@@ -3440,3 +1902,3892 @@ runs:
   executed_by: ''
   created_at: '2026-06-24T14:42:37'
   run_name: Real_Run_01
+- id: 9039f57fbda3
+  test_case_id: TC-FPGA-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1a14c03e494d
+  test_case_id: TC-SW-010
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 8b5760e45d04
+  test_case_id: TC-SW-012
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 45750ff19f7a
+  test_case_id: TC-SW-016
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 7f8de471ea29
+  test_case_id: TC-SW-018
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 43e0e120f39c
+  test_case_id: TC-SW-021
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 41277ff242b0
+  test_case_id: TC-GUI-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.531
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 7bca5b85c3a3
+  test_case_id: TC-GUI-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.13s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.596
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: ff364e550e9c
+  test_case_id: TC-GUI-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.11s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.532
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: bf10441b5bb9
+  test_case_id: TC-GUI-100
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 's                                                                        [100%]
+
+    1 skipped, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.587
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f0668d6d6be8
+  test_case_id: TC-GUI-120
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.63s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 2.079
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f03c7a8aacfb
+  test_case_id: TC-GUI-125
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.40s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.901
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 0d363c30ce1c
+  test_case_id: TC-GUI-130
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.532
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 6db90edcd4f0
+  test_case_id: TC-GUI-180
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.61
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 4018405a6115
+  test_case_id: TC-GUI-181
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.21s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.635
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 28ea1860e383
+  test_case_id: TC-GUI-182
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.584
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 082b84a94e01
+  test_case_id: TC-FPGA-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 2fa68e62ac54
+  test_case_id: TC-SW-011
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 781157461bc0
+  test_case_id: TC-SW-013
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: a69f1d671598
+  test_case_id: TC-SW-014
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d03706d8fd46
+  test_case_id: TC-SW-015
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f32bc38241c4
+  test_case_id: TC-SW-017
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: e0968a1f3d00
+  test_case_id: TC-SW-019
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 4397efbba18f
+  test_case_id: TC-SW-022
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 95c1a13cf35b
+  test_case_id: TC-GUI-010
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.13s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.558
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 5ab74c2d3266
+  test_case_id: TC-GUI-011
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.489
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: dc106d207447
+  test_case_id: TC-GUI-012
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.581
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f2339129ddc8
+  test_case_id: TC-GUI-030
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.608
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 6de97246bf9d
+  test_case_id: TC-GUI-040
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.584
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: adb6395f8718
+  test_case_id: TC-GUI-101
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. /
+    s                                                                        [100%] / 1 skipped, 3 warnings
+    in 0.18s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: c0e795a0cce3
+  test_case_id: TC-GUI-102
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this test case. /
+    s                                                                        [100%] / 1 skipped, 3 warnings
+    in 0.18s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: e7e0f86389ae
+  test_case_id: TC-GUI-124
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-124 depends on this test case. / .                                                                        [100%]
+    / 1 passed, 10 warnings in 1.00s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
+    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 3e170272e6c3
+  test_case_id: TC-GUI-131
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.577
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 41447faf7576
+  test_case_id: TC-GUI-187
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '........                                                                 [100%]
+
+    8 passed, 2 warnings in 0.35s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.776
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: a3298e7810ea
+  test_case_id: TC-SW-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f51f7450aed0
+  test_case_id: TC-GUI-013
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.558
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d323735b9c94
+  test_case_id: TC-GUI-020
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.648
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 277cc00c26da
+  test_case_id: TC-GUI-041
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.61
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d577edb6a251
+  test_case_id: TC-GUI-070
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.612
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: e4e73a349642
+  test_case_id: TC-GUI-121
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.62s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 2.112
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 63f159bd24fa
+  test_case_id: TC-GUI-122
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 14 warnings in 0.69s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 2.193
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: c04155191de6
+  test_case_id: TC-GUI-123
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 14 warnings in 0.63s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 2.145
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 09c8b44c2f34
+  test_case_id: TC-GUI-132
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.541
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d8f9838260af
+  test_case_id: TC-GUI-133
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.604
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d671e0c7da23
+  test_case_id: TC-GUI-160
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.56
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 97556ac6ee8d
+  test_case_id: TC-GUI-163
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.637
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 69544bc2ba3e
+  test_case_id: TC-GUI-170
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.631
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 7236bfa1ed12
+  test_case_id: TC-GUI-173
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.56
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: b9ff18101c64
+  test_case_id: TC-GUI-183
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.13s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.534
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1e46efb6e615
+  test_case_id: TC-GUI-188
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-101=BLOCKED: Run because TC-GUI-188 depends on this test case. /
+    Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.17s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings;
+    TC-GUI-102=BLOCKED: Run because TC-GUI-188 depends on this test case. / Dependency not PASS: TC-GUI-100=BLOCKED:
+    Run because TC-GUI-102 depends on this test case. / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.18s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: bec874752c6c
+  test_case_id: TC-SW-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 8ccc601d1c5b
+  test_case_id: TC-SW-008
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: bb734f04077f
+  test_case_id: TC-GUI-021
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.6
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 00c02cd69bac
+  test_case_id: TC-GUI-023
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.65
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 2dfd7220c699
+  test_case_id: TC-GUI-031
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.616
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 123f500eafa5
+  test_case_id: TC-GUI-032
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.634
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1926d14ba4fa
+  test_case_id: TC-GUI-050
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.685
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: a3fbd3e31911
+  test_case_id: TC-GUI-056
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.598
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1416ff10d6eb
+  test_case_id: TC-GUI-057
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.679
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 495642d04dcd
+  test_case_id: TC-GUI-071
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.684
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 4ba68d886de8
+  test_case_id: TC-GUI-072
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.644
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1a941ee12a05
+  test_case_id: TC-GUI-074
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.518
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 64932c06ab3a
+  test_case_id: TC-GUI-076
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.572
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 661eebfdc9a6
+  test_case_id: TC-GUI-134
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.603
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: ce86281074b5
+  test_case_id: TC-GUI-161
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.641
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: '835067645351'
+  test_case_id: TC-GUI-162
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.57
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d43aa13fe0d9
+  test_case_id: TC-GUI-164
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.534
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: a5ffb4ce3f5c
+  test_case_id: TC-GUI-171
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.604
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: f6e23ae2ca39
+  test_case_id: TC-GUI-172
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.577
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: dfb979166f0d
+  test_case_id: TC-GUI-174
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.551
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: c6bbdd7c4779
+  test_case_id: TC-GUI-185
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-185 depends on this test case. / .                                                                        [100%]
+    / 1 passed, 10 warnings in 0.62s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
+    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings; TC-GUI-123=FAIL: Run because TC-GUI-185 depends on this test case.
+    / .                                                                        [100%] / 1 passed, 14 warnings
+    in 0.64s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  / Command:
+    /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 7efd7ce497d6
+  test_case_id: TC-GUI-186
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.571
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 1003413ad7ca
+  test_case_id: TC-GUI-110
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d1cfc04fcae4
+  test_case_id: TC-SW-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 270f79dd59aa
+  test_case_id: TC-SW-009
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 9cac2f6d6d0a
+  test_case_id: TC-SYS-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 9515a3858765
+  test_case_id: TC-GUI-022
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.581
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 48512d00c8e9
+  test_case_id: TC-GUI-051
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.583
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d9bf38a2858d
+  test_case_id: TC-GUI-053
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.625
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 570b0e6448d5
+  test_case_id: TC-GUI-054
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.642
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 78ac9221c1cd
+  test_case_id: TC-GUI-055
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.589
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 8a7e1b42310f
+  test_case_id: TC-GUI-060
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.612
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 61b9d230ce2d
+  test_case_id: TC-GUI-073
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.6
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: eb3daaab22b4
+  test_case_id: TC-GUI-075
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.672
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 5058d823d629
+  test_case_id: TC-GUI-077
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.14s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.562
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 29abf121b3f7
+  test_case_id: TC-GUI-135
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.527
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 8a7c5dbaea0f
+  test_case_id: TC-GUI-175
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.678
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 2d789e7957ce
+  test_case_id: TC-GUI-176
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.603
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 5b539158a1b8
+  test_case_id: TC-GUI-184
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.586
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 2cb80e486164
+  test_case_id: TC-GUI-111
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 3139faebe7d4
+  test_case_id: TC-SW-006
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 69ff6d0b1bd6
+  test_case_id: TC-SW-007
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 01ad075d391b
+  test_case_id: TC-GUI-052
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.582
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 241efbafc57a
+  test_case_id: TC-GUI-061
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.571
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: d671724e6e7c
+  test_case_id: TC-GUI-062
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.602
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 668fc0239003
+  test_case_id: TC-GUI-063
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.573
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: cf447acec26a
+  test_case_id: TC-GUI-064
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.582
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 7c09d8bcdc50
+  test_case_id: TC-GUI-104
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  duration_seconds: 1.628
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 8740a5972588
+  test_case_id: TC-GUI-189
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-110=BLOCKED: Run because TC-GUI-189 depends on this test case. /
+    Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks. / Automation status is Not Ready.; TC-GUI-111=BLOCKED: Run because TC-GUI-189 depends
+    on this test case. / Dependency is marked HIL/hardware environment; result may require physical hardware
+    or configured hardware mocks. / Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: fcfe91b3e200
+  test_case_id: TC-SYS-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 4c6857606739
+  test_case_id: TC-SYS-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:17:31'
+  run_name: Real_Run_02
+  batch_id: bacca648a5fb
+  batch_duration_seconds: 478.373
+- id: 66e275d6aaff
+  test_case_id: TC-FPGA-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1db76c5f9748
+  test_case_id: TC-SW-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a284fd7d9085
+  test_case_id: TC-FPGA-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3166bd0efadb
+  test_case_id: TC-SW-010
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: aa0a6babd7b2
+  test_case_id: TC-SW-012
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 02e6373943d7
+  test_case_id: TC-SW-016
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: b0a170b778c8
+  test_case_id: TC-SW-018
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8cb91db16a6c
+  test_case_id: TC-SW-021
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 34f16616b30f
+  test_case_id: TC-HW-04
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 2a33337bab20
+  test_case_id: TC-GUI-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.47s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.947
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8b2fc8cc6781
+  test_case_id: TC-GUI-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.568
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5adea1adb4af
+  test_case_id: TC-GUI-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.566
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: c7d33a15278a
+  test_case_id: TC-GUI-100
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 's                                                                        [100%]
+
+    1 skipped, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.61
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 993e7b24a8ec
+  test_case_id: TC-GUI-103
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    .                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_103
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.487
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 35917e4ef751
+  test_case_id: TC-GUI-120
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.62s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 2.151
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8f8dc2fc3fc7
+  test_case_id: TC-GUI-125
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.21s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.606
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: cf72bae3bd1f
+  test_case_id: TC-GUI-130
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.51s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.978
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: ecf302e154b3
+  test_case_id: TC-GUI-180
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.607
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 48c0adb93441
+  test_case_id: TC-GUI-181
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.584
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: d0279f053faa
+  test_case_id: TC-GUI-182
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.629
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e9d3feb65516
+  test_case_id: TC-FPGA-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: d629d392c667
+  test_case_id: TC-FPGA-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 2868a6497e1e
+  test_case_id: TC-SW-011
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 15864034658d
+  test_case_id: TC-SW-013
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 002081d43f7c
+  test_case_id: TC-SW-014
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8447938d65e0
+  test_case_id: TC-SW-015
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3b60cdb1518b
+  test_case_id: TC-SW-017
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 0f98187187fb
+  test_case_id: TC-SW-019
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3aa4d375fa66
+  test_case_id: TC-SW-022
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1db1060f40f0
+  test_case_id: TC-MAMC-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 55ec353061ad
+  test_case_id: TC-GUI-010
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.53
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: d168cede070c
+  test_case_id: TC-GUI-011
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.517
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: fc8b1c517741
+  test_case_id: TC-GUI-012
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.478
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5f69c3dfa8aa
+  test_case_id: TC-GUI-030
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.569
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 294523a17a42
+  test_case_id: TC-GUI-040
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.685
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 152ba343da02
+  test_case_id: TC-GUI-101
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. /
+    s                                                                        [100%] / 1 skipped, 3 warnings
+    in 0.59s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 9b3442505550
+  test_case_id: TC-GUI-102
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this test case. /
+    s                                                                        [100%] / 1 skipped, 3 warnings
+    in 0.19s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 13ba67f79893
+  test_case_id: TC-GUI-124
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-124 depends on this test case. / .                                                                        [100%]
+    / 1 passed, 10 warnings in 0.62s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
+    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3696a9e70d7d
+  test_case_id: TC-GUI-131
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.46s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.958
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1265f1286d19
+  test_case_id: TC-GUI-187
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '........                                                                 [100%]
+
+    8 passed, 2 warnings in 0.34s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.784
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 7a756c286494
+  test_case_id: TC-SW-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 6d0f5cfe5d2b
+  test_case_id: TC-FPGA-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: f62af398618d
+  test_case_id: TC-VLA-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 653c6823110c
+  test_case_id: TC-SW-020
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 536f2bf4f51d
+  test_case_id: TC-MAMC-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: f0c2f7dddc4f
+  test_case_id: TC-GUI-013
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.13s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.518
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1b1b6678339d
+  test_case_id: TC-GUI-020
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.626
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 93e59aceec79
+  test_case_id: TC-GUI-041
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.633
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e7ca9d6dce53
+  test_case_id: TC-GUI-070
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.621
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 38f5d1ededa8
+  test_case_id: TC-GUI-121
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.68s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 2.197
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 04021a5d0373
+  test_case_id: TC-GUI-122
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 14 warnings in 0.63s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 2.092
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 86e12971fd1f
+  test_case_id: TC-GUI-123
+  date: '2026-06-24'
+  work_week: WW26
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 14 warnings in 0.64s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 2.11
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 180e66602ade
+  test_case_id: TC-GUI-132
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.588
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1712ba4e9bb2
+  test_case_id: TC-GUI-133
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.585
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 45396fd60cdb
+  test_case_id: TC-GUI-160
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.567
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a2a4f59fca2f
+  test_case_id: TC-GUI-163
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.536
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: aaca2d93fc1a
+  test_case_id: TC-GUI-170
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.543
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: b0bc16acf846
+  test_case_id: TC-GUI-173
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.554
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8b1585c78369
+  test_case_id: TC-GUI-183
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.14s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.567
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: d39677ac368c
+  test_case_id: TC-GUI-188
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-101=BLOCKED: Run because TC-GUI-188 depends on this test case. /
+    Dependency not PASS: TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this test case. / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.19s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings;
+    TC-GUI-102=BLOCKED: Run because TC-GUI-188 depends on this test case. / Dependency not PASS: TC-GUI-100=BLOCKED:
+    Run because TC-GUI-102 depends on this test case. / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.19s /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 56b7dc6989e4
+  test_case_id: TC-SW-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 74b0ca1dd6b4
+  test_case_id: TC-FPGA-006
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 4812ca32e6ab
+  test_case_id: TC-SW-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5d8d3b915ec3
+  test_case_id: TC-SW-008
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 0358cc93ba55
+  test_case_id: TC-VLA-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: bd528da35532
+  test_case_id: TC-VLA-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 6c1dd0df5263
+  test_case_id: TC-MAMC-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: f930ae986e8a
+  test_case_id: TC-MAMC-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 63c66079b30b
+  test_case_id: TC-MAMC-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 70458589712f
+  test_case_id: TC-GUI-021
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.564
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 983cc268d5c2
+  test_case_id: TC-GUI-023
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.607
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1dfa827f90e0
+  test_case_id: TC-GUI-031
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.59
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 6c2daf3ba104
+  test_case_id: TC-GUI-032
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.631
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 4af498290ce5
+  test_case_id: TC-GUI-050
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.582
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: ab335180ca90
+  test_case_id: TC-GUI-056
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.594
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 9633507829ad
+  test_case_id: TC-GUI-057
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.628
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e5d82df9c3e1
+  test_case_id: TC-GUI-071
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.595
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: faef8ba2fd7b
+  test_case_id: TC-GUI-072
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.598
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 6877693e3deb
+  test_case_id: TC-GUI-074
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.5
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 34dd03d798e7
+  test_case_id: TC-GUI-076
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.572
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: da6764daecec
+  test_case_id: TC-GUI-110
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 288d2b3c906f
+  test_case_id: TC-GUI-134
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.59
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e4a9bc1a7cca
+  test_case_id: TC-GUI-161
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.562
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3f81dd9d8d3b
+  test_case_id: TC-GUI-162
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.61
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: d41f42aba642
+  test_case_id: TC-GUI-164
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.562
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 2dbf82859cfd
+  test_case_id: TC-GUI-171
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.564
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: dbe042096b51
+  test_case_id: TC-GUI-172
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.559
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8e5ec1337390
+  test_case_id: TC-GUI-174
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.602
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 1d44f870a3a2
+  test_case_id: TC-GUI-185
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-120=FAIL: Run because TC-GUI-185 depends on this test case. / .                                                                        [100%]
+    / 1 passed, 10 warnings in 0.66s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
+    running /  / Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings; TC-GUI-123=FAIL: Run because TC-GUI-185 depends on this test case.
+    / .                                                                        [100%] / 1 passed, 14 warnings
+    in 0.62s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  / Command:
+    /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a5d0a1067e12
+  test_case_id: TC-GUI-186
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.579
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: c632e3536783
+  test_case_id: TC-VLA-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a43e8d683b3b
+  test_case_id: TC-SW-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 502bf7fe172e
+  test_case_id: TC-SW-009
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 2b60a4472b4f
+  test_case_id: TC-SYS-002
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5a6cfae5eb7b
+  test_case_id: TC-SYS-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e81993931157
+  test_case_id: TC-VLA-005
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5812575a7df7
+  test_case_id: TC-MAMC-006
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 35f9d55648c9
+  test_case_id: TC-GUI-022
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.577
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 4a9e5a7454ef
+  test_case_id: TC-GUI-051
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.571
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 4337377fb5af
+  test_case_id: TC-GUI-053
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.57
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 8c3038101c7f
+  test_case_id: TC-GUI-054
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.647
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: ed206a7b0ffe
+  test_case_id: TC-GUI-055
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.573
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: c01e053ad340
+  test_case_id: TC-GUI-060
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.576
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 69433a6acc6e
+  test_case_id: TC-GUI-073
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.20s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.649
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3730543a8d8a
+  test_case_id: TC-GUI-075
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.62
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: b04353473137
+  test_case_id: TC-GUI-077
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.14s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.584
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 05d66f9e895b
+  test_case_id: TC-GUI-111
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: b8a41c64f79c
+  test_case_id: TC-GUI-112
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a27bc2835827
+  test_case_id: TC-GUI-135
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.612
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 7712a43d89c0
+  test_case_id: TC-GUI-175
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.613
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 05b7c7a3a5ac
+  test_case_id: TC-GUI-176
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.59
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 9e4164677ba1
+  test_case_id: TC-GUI-184
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.606
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 297200d59fb3
+  test_case_id: TC-SYS-001
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: fb03e9e4bcbf
+  test_case_id: TC-SW-006
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 7aab0c4ddeeb
+  test_case_id: TC-SW-007
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: ee8e33626c72
+  test_case_id: TC-GUI-052
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.618
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: e97c0e0c540b
+  test_case_id: TC-GUI-061
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.584
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a96eedc64aaf
+  test_case_id: TC-GUI-062
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.639
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 096241f6024a
+  test_case_id: TC-GUI-063
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.601
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: fcf83b6fe373
+  test_case_id: TC-GUI-064
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.6
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 5596e8d29b2b
+  test_case_id: TC-GUI-104
+  date: '2026-06-24'
+  work_week: WW26
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/latticeapp/KinNamWorkspace/automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  duration_seconds: 1.635
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 30d0096a1d46
+  test_case_id: TC-GUI-189
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Dependency not PASS: TC-GUI-110=BLOCKED: Run because TC-GUI-189 depends on this test case. /
+    Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks. / Automation status is Not Ready.; TC-GUI-111=BLOCKED: Run because TC-GUI-189 depends
+    on this test case. / Dependency is marked HIL/hardware environment; result may require physical hardware
+    or configured hardware mocks. / Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 05bbccd870a3
+  test_case_id: TC-SYS-003
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 988e25b49375
+  test_case_id: TC-HW-01
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 524d927e95d2
+  test_case_id: TC-SYS-004
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 315f6e124061
+  test_case_id: TC-HW-02
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 9b6211ee97de
+  test_case_id: TC-HW-06
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 7ec2ba105e77
+  test_case_id: TC-VLA-006
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: c8ad1ac01398
+  test_case_id: TC-HW-03
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: b8205defae6d
+  test_case_id: TC-HW-05
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 3e7db3345b20
+  test_case_id: TC-HW-07
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: c4d0d10dbdbb
+  test_case_id: TC-HW-08
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: a2bdaee67fc9
+  test_case_id: TC-HW-09
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097
+- id: 0653efe162e0
+  test_case_id: TC-HW-10
+  date: '2026-06-24'
+  work_week: WW26
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-06-24T17:26:29'
+  run_name: Real_Run_03
+  batch_id: 1e7799d5c8d0
+  batch_duration_seconds: 484.097

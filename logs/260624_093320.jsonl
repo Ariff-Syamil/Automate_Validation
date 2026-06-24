@@ -1,0 +1,4 @@
+{"ts": "2026-06-24T09:33:21.080620", "level": "INFO", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor direction node=0 motor=0 dir=-1"}
+{"ts": "2026-06-24T09:33:21.080916", "level": "INFO", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor mode node=0 motor=0 mode=speed"}
+{"ts": "2026-06-24T09:33:21.081007", "level": "INFO", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor target-rpm node=0 motor=0 rpm=250"}
+{"ts": "2026-06-24T09:33:21.081067", "level": "WARN", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor E-STOP node=0 motor=0"}

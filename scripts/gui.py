@@ -174,16 +174,9 @@ def format_duration(value) -> str:
     return f"{hours}h {mins:02d}m"
 
 
-def _effective_duration_seconds(run: dict) -> float | None:
-    """Prefer full Execute Run batch duration, falling back to per-case runtime."""
-    return _coerce_duration_seconds(
-        run.get("batch_duration_seconds", run.get("duration_seconds"))
-    )
-
-
 def format_run_duration(run: dict) -> str:
-    """Format the duration shown in Timeline/cell/export rows."""
-    return format_duration(_effective_duration_seconds(run))
+    """Format one test-case result's own execution duration."""
+    return format_duration(run.get("duration_seconds"))
 
 
 def format_total_duration(runs: list[dict]) -> str:
