@@ -113,8 +113,12 @@ def _hardware_note(tc: dict) -> str:
 
 def _automation_unavailable_reason(tc: dict) -> str:
     status = str(tc.get("automation_status") or "").strip()
-    if status == "Not Ready":
-        return "Automation status is Not Ready."
+    if status != "Ready":
+        return (
+            f"Automation status is {status}."
+            if status
+            else "Automation status is not Ready."
+        )
     readiness = str(tc.get("automation_readiness") or "").strip()
     if readiness and readiness not in {"Automatable", "Semi-Automatable"}:
         return f"Automation is not available: automation_readiness is {readiness}."
@@ -176,7 +180,7 @@ def _run_case(
             "BLOCKED",
             _join_notes(trigger_note, _hardware_note(tc), unavailable_reason),
             executed_by,
-            record=record,
+            record=record and not triggered_by,
         )
 
     if test_case_id in dependency_stack:

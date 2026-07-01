@@ -11,14 +11,16 @@ from __future__ import annotations
 
 import csv
 import datetime as _dt
+import html
 import io
+import subprocess
 import sys
 import time
 import uuid
 from pathlib import Path
 
 import yaml
-from PyQt6.QtCore import Qt, QSortFilterProxyModel, QDate
+from PyQt6.QtCore import Qt, QSortFilterProxyModel, QDate, QTimer
 from PyQt6.QtGui import QStandardItemModel, QStandardItem, QColor, QFont
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
@@ -63,6 +65,16 @@ ALLOWED_PREFIXES: dict[str, tuple[str, ...]] = {
     "multi_axis_motor_control_fpga": ("TC-MAMC",),
     "gui": ("TC-GUI",),
 }
+
+VALIDATION_REPORT_MODULES: tuple[tuple[str, str], ...] = (
+    ("Software", "TC-SW"),
+    ("System", "TC-SYS"),
+    ("Hardware", "TC-HW"),
+    ("FPGA", "TC-FPGA"),
+    ("VLA", "TC-VLA"),
+    ("MAMC", "TC-MAMC"),
+    ("GUI", "TC-GUI"),
+)
 
 # Default prefix used when generating new IDs from the Add dialog.
 DEFAULT_PREFIX: dict[str, str] = {
@@ -116,8 +128,8 @@ def save_test_cases(yaml_path: Path, test_cases: list[dict]) -> None:
         )
 
 
-# Default work-week range used when runs.yaml does not yet exist.
-DEFAULT_WORK_WEEKS: tuple[str, ...] = tuple(f"WW{n:02d}" for n in range(17, 30))
+# Valid work-week universe used for run records and date-to-week snapping.
+DEFAULT_WORK_WEEKS: tuple[str, ...] = tuple(f"WW{n:02d}" for n in range(1, 53))
 
 # Allowed run-result values.
 RUN_RESULTS: tuple[str, ...] = (
@@ -135,6 +147,9 @@ RUN_RESULT_COLORS: dict[str, tuple[str, str]] = {
 
 # Header labels for the computed summary in the Timeline header.
 METRIC_LABELS: tuple[str, ...] = ("% PASS", "% FAIL", "% NOT RUN")
+
+TIMELINE_ID_COLUMN_WIDTH = 140
+TIMELINE_WEEK_COLUMN_WIDTH = 110
 
 DANGER_BUTTON_STYLE = (
     "background-color: #c0392b;"
@@ -201,6 +216,87 @@ def runs_path(version: str) -> Path:
     return REPO_ROOT / version / "runs.yaml"
 
 
+def _work_week_number(value: str) -> int | None:
+    text = (value or "").strip().upper()
+    if not text.startswith("WW"):
+        return None
+    try:
+        number = int(text[2:])
+    except ValueError:
+        return None
+    if 1 <= number <= 52:
+        return number
+    return None
+
+
+def _work_week_labels(start: int, end: int) -> list[str]:
+    start = max(start, 1)
+    end = min(end, 52)
+    return [f"WW{number:02d}" for number in range(start, end + 1)]
+
+
+def _expand_week_range_balanced(
+    start: int,
+    end: int,
+    minimum_columns: int,
+) -> tuple[int, int]:
+    while end - start + 1 < minimum_columns and (start > 1 or end < 52):
+        expanded = False
+        if start > 1:
+            start -= 1
+            expanded = True
+            if end - start + 1 >= minimum_columns:
+                break
+        if end < 52:
+            end += 1
+            expanded = True
+        if not expanded:
+            break
+    return start, end
+
+
+def display_work_weeks_for_runs(
+    runs: list[dict],
+    *,
+    today: _dt.date | None = None,
+    minimum_columns: int | None = None,
+) -> list[str]:
+    """Return result-week display span, expanding to fill visible columns."""
+    min_columns = max(0, minimum_columns or 0)
+    numbers = [
+        number
+        for run in runs
+        if (number := _work_week_number(run.get("work_week") or "")) is not None
+    ]
+    if numbers:
+        start = min(numbers) - 1
+        end = max(numbers) + 1
+        start = max(start, 1)
+        end = min(end, 52)
+        start, end = _expand_week_range_balanced(start, end, min_columns)
+    else:
+        current = (today or _dt.date.today()).isocalendar().week
+        current = min(max(current, 1), 52)
+        start = max(current - 1, 1)
+        end = min(current + 1, 52)
+        if min_columns:
+            end = min(52, max(end, start + min_columns - 1))
+    return _work_week_labels(start, end)
+
+
+def next_unnamed_run_name(runs: list[dict]) -> str:
+    """Return the next available unnamed_N run name."""
+    used_names = {
+        (run.get("run_name") or "").strip().casefold()
+        for run in runs
+        if (run.get("run_name") or "").strip()
+    }
+    suffix = 1
+    while f"unnamed_{suffix}" in used_names:
+        suffix += 1
+    return f"unnamed_{suffix}"
+
+
 def _all_test_case_ids(version: str) -> list[str]:
     """Every test_case_id in the YAML database for `version`, in folder order."""
     ids: list[str] = []
@@ -265,7 +361,7 @@ def load_runs(version: str) -> dict:
 
         {
             "year":       2026,                # int
-            "work_weeks": ["WW17", ...],
+            "work_weeks": ["WW01", ...],
             "runs":       [run_record, ...],
         }
     """
@@ -276,7 +372,7 @@ def load_runs(version: str) -> dict:
     else:
         data = {}
 
-    work_weeks: list[str] = list(data.get("work_weeks") or DEFAULT_WORK_WEEKS)
+    work_weeks: list[str] = list(DEFAULT_WORK_WEEKS)
 
     year = data.get("year")
     try:
@@ -306,7 +402,7 @@ def save_runs(version: str, state: dict) -> None:
 
     payload = {
         "year": int(state.get("year") or _dt.date.today().year),
-        "work_weeks": list(state.get("work_weeks") or DEFAULT_WORK_WEEKS),
+        "work_weeks": list(DEFAULT_WORK_WEEKS),
         "runs": runs_clean,
     }
 
@@ -377,9 +473,165 @@ def compute_run_metrics(runs: list[dict], all_test_case_ids: list[str]) -> dict[
     }
 
 
+def validation_report_summary(runs: list[dict], test_case_ids: list[str]) -> dict:
+    """Return three-bucket module totals for the manager HTML report."""
+    latest = latest_run_per_test_case(runs)
+    rows: list[dict] = []
+    total = {"module": "Total", "prefix": "", "total": 0, "pass": 0, "fail": 0, "blocked": 0}
+
+    for module, prefix in VALIDATION_REPORT_MODULES:
+        row = {
+            "module": module,
+            "prefix": prefix.removeprefix("TC-"),
+            "total": 0,
+            "pass": 0,
+            "fail": 0,
+            "blocked": 0,
+        }
+        for tid in test_case_ids:
+            if id_prefix(tid) != prefix:
+                continue
+            row["total"] += 1
+            result = (latest.get(tid, {}).get("result") or "BLOCKED").upper()
+            if result == "PASS":
+                row["pass"] += 1
+            elif result == "FAIL":
+                row["fail"] += 1
+            else:
+                row["blocked"] += 1
+
+        row["pass_percent"] = round(row["pass"] / row["total"] * 100) if row["total"] else 0
+        rows.append(row)
+        for key in ("total", "pass", "fail", "blocked"):
+            total[key] += row[key]
+
+    total["pass_percent"] = round(total["pass"] / total["total"] * 100) if total["total"] else 0
+    return {"rows": rows, "total": total}
+
+
+def _validation_report_week_label(work_weeks: list[str]) -> str:
+    if not work_weeks:
+        return "No WW"
+    if len(work_weeks) == 1:
+        return work_weeks[0]
+    return f"{work_weeks[0]}-{work_weeks[-1]}"
+
+
+def _validation_report_run_label(run_names: list[str] | None) -> str:
+    names = [name.strip() for name in (run_names or []) if name.strip()]
+    return ", ".join(names) if names else "All Runs"
+
+
+def build_validation_html_report(
+    *,
+    version: str,
+    runs: list[dict],
+    test_case_ids: list[str],
+    work_weeks: list[str],
+    run_names: list[str] | None = None,
+    report_date: _dt.date | None = None,
+) -> str:
+    """Build the manager-facing validation report HTML."""
+    summary = validation_report_summary(runs, test_case_ids)
+    total = summary["total"]
+    rows = summary["rows"]
+    report_date = report_date or _dt.date.today()
+    version_label = version.replace("_", " ").title()
+    week_label = _validation_report_week_label(work_weeks)
+    run_label = _validation_report_run_label(run_names)
+    date_label = report_date.strftime("%d %b %Y")
+    if total["total"]:
+        pass_width = total["pass"] / total["total"] * 100
+        fail_width = total["fail"] / total["total"] * 100
+        blocked_width = total["blocked"] / total["total"] * 100
+    else:
+        pass_width = 0
+        fail_width = 0
+        blocked_width = 100
+
+    def esc(value) -> str:
+        return html.escape(str(value), quote=True)
+
+    module_rows: list[str] = []
+    for index, row in enumerate(rows):
+        bg = "#f6f9f9" if index % 2 == 0 else "#ffffff"
+        module_rows.append(
+            f'<tr style="background:{bg}">'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;'
+            f'font-size:13px;color:#1b1b1b;text-align:left;border:1px solid #e1e8e8">'
+            f'{esc(row["module"])} <span style="color:#6b7a7d;font-size:11px">'
+            f'{esc(row["prefix"])}</span></td>'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+            f'text-align:center;border:1px solid #e1e8e8;color:#1b1b1b">{row["total"]}</td>'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+            f'text-align:center;border:1px solid #e1e8e8;color:#54B948;font-weight:bold">'
+            f'{row["pass"]}</td>'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+            f'text-align:center;border:1px solid #e1e8e8;color:#F26B43;font-weight:bold">'
+            f'{row["fail"]}</td>'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+            f'text-align:center;border:1px solid #e1e8e8;color:#717073;font-weight:bold">'
+            f'{row["blocked"]}</td>'
+            f'<td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+            f'text-align:center;border:1px solid #e1e8e8;color:#1b1b1b">'
+            f'{row["pass_percent"]}%</td>'
+            "</tr>"
+        )
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation Test Report - {esc(week_label)}</title>
+</head>
+<body style="margin:0;padding:24px 0;background:#eef1f1;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef1f1;margin:0;padding:0"><tr><td align="center" style="padding:0">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff;border-collapse:collapse;border:1px solid #d3dada"><tbody>
+<tr><td style="background:#001619;padding:24px 28px 22px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tbody><tr>
+<td style="font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:22px;letter-spacing:.5px;color:#FFC222">LATTICE<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:9px;letter-spacing:3px;color:#9fb0b3;margin-top:3px">SEMICONDUCTOR</span></td>
+<td align="right" style="font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:10px;letter-spacing:.18em;color:#7d8e91">CONFIDENTIAL</td>
+</tr></tbody></table>
+<div style="font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:26px;color:#ffffff;margin-top:20px;line-height:1.15">Validation Test Report</div>
+<div style="width:64px;height:5px;background:#FFC222;margin-top:12px"></div>
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#b8c5c7;margin-top:14px;line-height:1.6">{esc(version_label)} - Validation Suite &nbsp;|&nbsp; {esc(week_label)} &nbsp;|&nbsp; {esc(date_label)} &nbsp;|&nbsp; Run: {esc(run_label)}</div>
+</td></tr>
+<tr><td style="padding:24px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tbody><tr>
+<td style="font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#1b1b1b">Overall Health</td>
+<td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b7a7d">{total["total"]} tests - {total["pass_percent"]}% pass</td>
+</tr></tbody></table></td></tr>
+<tr><td style="padding:12px 28px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;table-layout:fixed;border:1px solid #d8dede"><tbody><tr>
+<td width="{pass_width}%" style="background:#54B948;height:18px;font-size:1px;line-height:1px">&nbsp;</td>
+<td width="{fail_width}%" style="background:#F26B43;height:18px;font-size:1px;line-height:1px">&nbsp;</td>
+<td width="{blocked_width}%" style="background:#717073;height:18px;font-size:1px;line-height:1px">&nbsp;</td>
+</tr></tbody></table></td></tr>
+<tr><td style="padding:10px 28px 0"><span style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#1b1b1b"><span style="display:inline-block;width:9px;height:9px;background:#54B948;margin-right:6px;vertical-align:middle"></span><b>{total["pass"]}</b> Passed &nbsp;&nbsp; <span style="display:inline-block;width:9px;height:9px;background:#F26B43;margin-right:6px;vertical-align:middle"></span><b>{total["fail"]}</b> Failed &nbsp;&nbsp; <span style="display:inline-block;width:9px;height:9px;background:#717073;margin-right:6px;vertical-align:middle"></span><b>{total["blocked"]}</b> Blocked</span></td></tr>
+<tr><td style="padding:22px 28px 26px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #00A3E3"><tbody>
+<tr style="background:#001619"><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:left;border:1px solid #00A3E3">Module</td><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:center;border:1px solid #00A3E3">Total</td><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:center;border:1px solid #00A3E3">Pass</td><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:center;border:1px solid #00A3E3">Fail</td><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:center;border:1px solid #00A3E3">Blocked</td><td style="padding:9px 10px;font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#FFC222;text-align:center;border:1px solid #00A3E3">Pass %</td></tr>
+{''.join(module_rows)}
+<tr style="background:#0a2228"><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:left;color:#fff;font-weight:bold;border:1px solid #0a2228">Total</td><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:center;color:#fff;font-weight:bold;border:1px solid #0a2228">{total["total"]}</td><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:center;color:#54B948;font-weight:bold;border:1px solid #0a2228">{total["pass"]}</td><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:center;color:#F26B43;font-weight:bold;border:1px solid #0a2228">{total["fail"]}</td><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:center;color:#cdd6d7;font-weight:bold;border:1px solid #0a2228">{total["blocked"]}</td><td style="padding:9px 10px;font-family:Arial,Helvetica,sans-serif;font-size:13px;text-align:center;color:#fff;font-weight:bold;border:1px solid #0a2228">{total["pass_percent"]}%</td></tr>
+</tbody></table></td></tr>
+<tr><td style="background:#001619;padding:14px 28px;font-family:Arial,Helvetica,sans-serif;font-size:9px;color:#7d8e91;letter-spacing:.02em">Lattice Semiconductor Confidential &nbsp;-&nbsp; {esc(week_label)} &nbsp;-&nbsp; {esc(date_label)} &nbsp;-&nbsp; {esc(run_label)} &nbsp;-&nbsp; {total["total"]} test cases</td></tr>
+</tbody></table>
+</td></tr></table>
+</body>
+</html>
+"""
+
+
+def reveal_in_file_explorer(path: Path) -> None:
+    """Reveal an exported file in the platform file manager."""
+    resolved = path.resolve()
+    if sys.platform.startswith("win"):
+        subprocess.Popen(["explorer.exe", "/select,", str(resolved)])
+        return
+    subprocess.Popen(["xdg-open", str(resolved.parent)])
+
+
 def current_work_week(date: _dt.date, valid_weeks: list[str]) -> str | None:
     """Return the WWnn label for `date` if it falls in `valid_weeks`, else None."""
-    iso = date.isocalendar().week
+    iso = min(max(date.isocalendar().week, 1), 52)
     candidate = f"WW{iso:02d}"
     return candidate if candidate in valid_weeks else None
 
@@ -1553,22 +1805,33 @@ class RunFormDialog(QDialog):
     def _is_executable_test_case(self, tid: str) -> bool:
         return self._test_case_subcomponent(tid) == "gui" and tid.startswith("TC-GUI-")
 
+    def _is_automation_ready(self, tid: str) -> bool:
+        return self._test_case_meta(tid).get("automation_status") == "Ready"
+
+    def _automation_status_label(self, tid: str) -> str:
+        status = self._test_case_meta(tid).get("automation_status") or "(none)"
+        return f"{tid} ({status})"
+
     def _dependency_ids(self, tid: str) -> list[str]:
         deps = self._test_case_meta(tid).get("dependency") or []
         if isinstance(deps, str):
             deps = [part.strip() for part in deps.replace("\n", ",").split(",")]
         return [dep for dep in deps if dep]
 
-    def _with_dependencies(self, tids: list[str]) -> tuple[list[str], list[str]]:
+    def _with_dependencies(self, tids: list[str]) -> tuple[list[str], list[str], list[str]]:
         known_tids = set(self._all_tids)
         seen: set[str] = set()
         missing: list[str] = []
+        skipped: list[str] = []
         closure: list[str] = []
 
         def add_with_deps(tid: str) -> None:
             if tid in seen:
                 return
             seen.add(tid)
+            if not self._is_automation_ready(tid):
+                skipped.append(tid)
+                return
             for dep in self._dependency_ids(tid):
                 if dep in known_tids:
                     add_with_deps(dep)
@@ -1578,7 +1841,7 @@ class RunFormDialog(QDialog):
 
         for tid in tids:
             add_with_deps(tid)
-        return self._dependency_priority_order(closure), missing
+        return self._dependency_priority_order(closure), missing, skipped
 
     def _dependency_priority_order(self, tids: list[str]) -> list[str]:
         """Run dependency-free cases first, then cases whose dependencies passed.
@@ -1614,12 +1877,12 @@ class RunFormDialog(QDialog):
             return f"{user_notes}\n\nAutomation output:\n{detail_notes}"
         return detail_notes or user_notes
 
-    def _prompt_multi_run_name(self, run_count: int) -> str | None:
+    def _prompt_run_name(self, run_count: int) -> str | None:
         name, ok = QInputDialog.getText(
             self,
-            "Name Multiple Run Tests",
+            "Name Run",
             f"{run_count} tests will run.\n"
-            "Optional group name for Timeline delete/search:",
+            "Run name for Timeline filter/delete (blank auto-generates unnamed_N):",
         )
         if not ok:
             return None
@@ -1773,7 +2036,7 @@ class RunFormDialog(QDialog):
                     "Tick at least one test case in the picker before saving."
                 )
                 return
-            tids, missing_dependencies = self._with_dependencies(selected_tids)
+            tids, missing_dependencies, skipped_test_cases = self._with_dependencies(selected_tids)
             if missing_dependencies:
                 QMessageBox.warning(
                     self,
@@ -1781,12 +2044,29 @@ class RunFormDialog(QDialog):
                     "These dependency test cases were not found and will not run:\n"
                     + ", ".join(missing_dependencies),
                 )
-            run_name = ""
-            if len(tids) > 1:
-                prompt_result = self._prompt_multi_run_name(len(tids))
-                if prompt_result is None:
-                    return
-                run_name = prompt_result
+            if skipped_test_cases:
+                QMessageBox.warning(
+                    self,
+                    "Skipped Non-Ready Test Cases",
+                    "These selected or dependency test cases do not have "
+                    "Automation Status Ready and will not run:\n"
+                    + ", ".join(
+                        self._automation_status_label(tid)
+                        for tid in skipped_test_cases
+                    ),
+                )
+            if not tids:
+                QMessageBox.warning(
+                    self,
+                    "No Ready Test Cases",
+                    "No selected test cases or dependencies have Automation "
+                    "Status Ready, so no automation will run.",
+                )
+                return
+            prompt_result = self._prompt_run_name(len(tids))
+            if prompt_result is None:
+                return
+            run_name = prompt_result or next_unnamed_run_name(runs)
             now = _dt.datetime.now().isoformat(timespec="seconds")
             batch_id = uuid.uuid4().hex[:12]
             batch_started_at = execute_started_at
@@ -1851,8 +2131,7 @@ class RunFormDialog(QDialog):
                         "created_at":   now,
                         "batch_id":     batch_id,
                     }
-                    if run_name:
-                        run_record["run_name"] = run_name
+                    run_record["run_name"] = run_name
                     duration = _coerce_duration_seconds(duration_seconds)
                     if duration is not None:
                         run_record["duration_seconds"] = duration
@@ -2290,6 +2569,8 @@ class TimelineDialog(QDialog):
         self.resize(1280, 640)
 
         self._reload_state()
+        self._minimum_week_columns = 0
+        self._building_model = False
 
         outer = QVBoxLayout(self)
         outer.setContentsMargins(14, 12, 14, 12)
@@ -2353,8 +2634,8 @@ class TimelineDialog(QDialog):
         hint.setWordWrap(True)
         outer.addWidget(hint)
 
-        # ── Named run-group filter ──────────────────────────────────────────
-        group_filter = QGroupBox("Named Multiple Run")
+        # ── Run-name filter ─────────────────────────────────────────────────
+        group_filter = QGroupBox("Name Run")
         gfl = QHBoxLayout(group_filter)
         gfl.setSpacing(8)
 
@@ -2378,11 +2659,11 @@ class TimelineDialog(QDialog):
         btn_clear_groups.setObjectName("secondary")
         btn_clear_groups.clicked.connect(self._clear_run_group_filter)
         group_buttons.addWidget(btn_clear_groups)
-        btn_delete_group = QPushButton("Delete Run Group")
+        btn_delete_group = QPushButton("Delete Run Name")
         btn_delete_group.setObjectName("danger")
         btn_delete_group.setStyleSheet(DANGER_BUTTON_STYLE)
         btn_delete_group.setToolTip(
-            "Delete all timeline run records for the checked named multiple-run filters."
+            "Delete all timeline run records for the checked run names."
         )
         btn_delete_group.clicked.connect(self._on_delete_run_group)
         group_buttons.addWidget(btn_delete_group)
@@ -2409,6 +2690,7 @@ class TimelineDialog(QDialog):
         hh.setStretchLastSection(False)
         outer.addWidget(self.table, 1)
         self._build_model()
+        QTimer.singleShot(0, self._build_model)
 
         # ── Bottom bar (no Save) ────────────────────────────────────────────
         bottom = QHBoxLayout()
@@ -2424,6 +2706,13 @@ class TimelineDialog(QDialog):
         )
         btn_export.clicked.connect(self._on_export_csv)
         bottom.addWidget(btn_export)
+        btn_report = QPushButton("Export HTML Report")
+        btn_report.setObjectName("secondary")
+        btn_report.setToolTip(
+            "Export a manager-friendly validation summary report to HTML."
+        )
+        btn_report.clicked.connect(self._on_export_html_report)
+        bottom.addWidget(btn_report)
         bottom.addStretch()
         btn_close = QPushButton("Close")
         btn_close.setObjectName("secondary")
@@ -2431,13 +2720,21 @@ class TimelineDialog(QDialog):
         bottom.addWidget(btn_close)
         outer.addLayout(bottom)
 
+    def resizeEvent(self, event) -> None:
+        super().resizeEvent(event)
+        if not hasattr(self, "table") or self._building_model:
+            return
+        minimum_columns = self._minimum_visible_week_columns()
+        if minimum_columns != self._minimum_week_columns:
+            self._build_model()
+
     # ── data ────────────────────────────────────────────────────────────────
 
     def _reload_state(self) -> None:
         self._state = load_runs(self.version)
-        self._weeks: list[str] = list(self._state.get("work_weeks") or DEFAULT_WORK_WEEKS)
         self._tids: list[str] = _all_test_case_ids(self.version)
         self._runs: list[dict] = list(self._state.get("runs") or [])
+        self._weeks: list[str] = display_work_weeks_for_runs(self._runs)
         self._test_cases_by_id = self._load_test_cases_by_id()
 
     def _load_test_cases_by_id(self) -> dict[str, dict]:
@@ -2552,7 +2849,7 @@ class TimelineDialog(QDialog):
         try:
             self._group_filter_list.clear()
             if not group_counts:
-                item = QListWidgetItem("(no named multiple-test runs)")
+                item = QListWidgetItem("(no named runs)")
                 item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEnabled)
                 self._group_filter_list.addItem(item)
                 return
@@ -2608,24 +2905,49 @@ class TimelineDialog(QDialog):
 
     # ── table build ─────────────────────────────────────────────────────────
 
+    def _minimum_visible_week_columns(self) -> int:
+        viewport_width = self.table.viewport().width()
+        table_width = self.table.width() - TIMELINE_ID_COLUMN_WIDTH
+        available_width = max(viewport_width, table_width, 0)
+        if available_width <= 0:
+            available_width = max(0, self.width() - TIMELINE_ID_COLUMN_WIDTH - 40)
+        return max(
+            1,
+            (available_width + TIMELINE_WEEK_COLUMN_WIDTH - 1)
+            // TIMELINE_WEEK_COLUMN_WIDTH,
+        )
+
     def _build_model(self) -> None:
+        if self._building_model:
+            return
+        self._building_model = True
         self.model.clear()
-        self.model.setHorizontalHeaderLabels(["Test Case ID", *self._weeks])
+        try:
+            display_runs = self._display_runs()
+            self._minimum_week_columns = self._minimum_visible_week_columns()
+            self._weeks = display_work_weeks_for_runs(
+                display_runs,
+                minimum_columns=self._minimum_week_columns,
+            )
+            self.model.setHorizontalHeaderLabels(["Test Case ID", *self._weeks])
 
-        display_runs = self._display_runs()
-        display_tids = self._display_tids(display_runs)
-        for tid in display_tids:
-            row = self._make_row(tid, display_runs)
-            self.model.appendRow(row)
+            display_tids = self._display_tids(display_runs)
+            for tid in display_tids:
+                row = self._make_row(tid, display_runs)
+                self.model.appendRow(row)
 
-        self.table.setColumnWidth(0, 140)
-        for row in range(self.model.rowCount()):
-            self.table.setRowHeight(row, 46)
-        for col in range(1, self.model.columnCount()):
-            self.table.setColumnWidth(col, 110)
-        self.table.refresh_frozen_columns()
+            self.table.setColumnWidth(0, TIMELINE_ID_COLUMN_WIDTH)
+            for row in range(self.model.rowCount()):
+                self.table.setRowHeight(row, 46)
+            for col in range(1, self.model.columnCount()):
+                self.table.setColumnWidth(col, TIMELINE_WEEK_COLUMN_WIDTH)
+            self.table.refresh_frozen_columns()
 
-        self._refresh_metric_labels()
+            self._refresh_metric_labels()
+            if hasattr(self, "lbl_status"):
+                self.lbl_status.setText(self._status_text())
+        finally:
+            self._building_model = False
 
     def _make_row(self, tid: str, display_runs: list[dict]) -> list[QStandardItem]:
         head = QStandardItem(tid)
@@ -2667,7 +2989,7 @@ class TimelineDialog(QDialog):
                         else ""
                     )
                     + (f"  ·  {r.get('notes')}" if r.get("notes") else "")
-                    + (f"  ·  Group: {r.get('run_name')}" if r.get("run_name") else "")
+                    + (f"  ·  Run name: {r.get('run_name')}" if r.get("run_name") else "")
                     for r in cell_runs
                 ]
                 cell.setToolTip("\n".join(tip_lines))
@@ -2768,8 +3090,8 @@ class TimelineDialog(QDialog):
         if not group_counts:
             QMessageBox.information(
                 self,
-                "No Named Run Groups",
-                "There are no named multiple-run groups to delete.",
+                "No Named Runs",
+                "There are no named runs to delete.",
             )
             return
 
@@ -2777,9 +3099,9 @@ class TimelineDialog(QDialog):
         if not selected_groups:
             QMessageBox.information(
                 self,
-                "Select Run Group",
-                "Tick one or more named multiple-run groups in the filter list, "
-                "then click Delete Run Group.",
+                "Select Run Name",
+                "Tick one or more run names in the filter list, "
+                "then click Delete Run Name.",
             )
             return
 
@@ -2792,9 +3114,9 @@ class TimelineDialog(QDialog):
         )
         confirm = QMessageBox.question(
             self,
-            "Delete Run Group?",
-            "Please confirm you want to delete the selected named multiple-run "
-            "group from the Timeline.\n\n"
+            "Delete Run Name?",
+            "Please confirm you want to delete the selected run name "
+            "records from the Timeline.\n\n"
             f"This will permanently delete {record_count} run record"
             f"{'s' if record_count != 1 else ''} from runs.yaml:\n"
             f"{group_lines}\n\n"
@@ -2820,15 +3142,37 @@ class TimelineDialog(QDialog):
         self._on_refresh()
         QMessageBox.information(
             self,
-            "Run Group Deleted",
+            "Run Name Deleted",
             f"Deleted {record_count} run record"
             f"{'s' if record_count != 1 else ''} from "
-            f"{len(ordered_names)} selected run group"
+            f"{len(ordered_names)} selected run name"
             f"{'s' if len(ordered_names) != 1 else ''}.",
         )
 
+    def _show_export_complete_message(self, title: str, text: str, output_path: Path) -> None:
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setWindowTitle(title)
+        msg.setText(text)
+        reveal_button = msg.addButton(
+            "Reveal Exported File",
+            QMessageBox.ButtonRole.ActionRole,
+        )
+        msg.addButton(QMessageBox.StandardButton.Ok)
+        msg.exec()
+        if msg.clickedButton() != reveal_button:
+            return
+        try:
+            reveal_in_file_explorer(output_path)
+        except Exception as exc:
+            QMessageBox.warning(
+                self,
+                "Reveal File Failed",
+                f"Could not reveal the exported file:\n{output_path}\n\n{exc}",
+            )
+
     def _on_export_csv(self) -> None:
-        output_path = REPO_ROOT / f"{self.version}_results.csv"
+        output_path = (REPO_ROOT / f"{self.version}_results.csv").resolve()
         try:
             output = io.StringIO()
             headers = [
@@ -2836,7 +3180,7 @@ class TimelineDialog(QDialog):
                 "Work Week",
                 "Date",
                 "Result",
-                "Run Group",
+                "Run Name",
                 "Time Taken",
                 "Notes",
                 "Jira Link",
@@ -2856,7 +3200,7 @@ class TimelineDialog(QDialog):
                         "Work Week": latest.get("work_week") or week,
                         "Date": latest.get("date") or "",
                         "Result": latest.get("result") or "",
-                        "Run Group": latest.get("run_name") or "",
+                        "Run Name": latest.get("run_name") or "",
                         "Time Taken": format_run_duration(latest),
                         "Notes": latest.get("notes") or "",
                         "Jira Link": latest.get("jira_link") or "",
@@ -2874,10 +3218,54 @@ class TimelineDialog(QDialog):
             )
             return
 
-        QMessageBox.information(
-            self,
+        self._show_export_complete_message(
             "CSV Export Complete",
             f"CSV report written to:\n{output_path}",
+            output_path,
+        )
+
+    def _on_export_html_report(self) -> None:
+        selected_groups = sorted(self._selected_run_groups(), key=str.casefold)
+        if len(selected_groups) == 1:
+            suffix = selected_groups[0]
+        elif selected_groups:
+            suffix = f"{len(selected_groups)}_selected_runs"
+        else:
+            suffix = "all_runs"
+        safe_suffix = "".join(
+            ch if ch.isalnum() or ch in ("-", "_") else "_"
+            for ch in suffix
+        ).strip("_") or "all_runs"
+        output_path = (REPO_ROOT / f"{self.version}_validation_report_{safe_suffix}.html").resolve()
+        display_runs = self._display_runs()
+        display_tids = self._display_tids(display_runs)
+        week_numbers: set[int] = set()
+        for run in display_runs:
+            number = _work_week_number(run.get("work_week") or "")
+            if number is not None:
+                week_numbers.add(number)
+        report_weeks = [f"WW{number:02d}" for number in sorted(week_numbers)] or list(self._weeks)
+        try:
+            html_report = build_validation_html_report(
+                version=self.version,
+                runs=display_runs,
+                test_case_ids=display_tids,
+                work_weeks=report_weeks,
+                run_names=selected_groups,
+            )
+            output_path.write_text(html_report, encoding="utf-8")
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "Export HTML Report Failed",
+                f"Could not write HTML report to:\n{output_path}\n\n{exc}",
+            )
+            return
+
+        self._show_export_complete_message(
+            "HTML Report Export Complete",
+            f"HTML report written to:\n{output_path}",
+            output_path,
         )
 
 

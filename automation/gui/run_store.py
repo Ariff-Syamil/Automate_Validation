@@ -10,7 +10,7 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-DEFAULT_WORK_WEEKS: tuple[str, ...] = tuple(f"WW{n:02d}" for n in range(17, 30))
+DEFAULT_WORK_WEEKS: tuple[str, ...] = tuple(f"WW{n:02d}" for n in range(1, 53))
 RUN_RESULTS: tuple[str, ...] = (
     "PASS",
     "FAIL",
@@ -65,6 +65,9 @@ def normalise_run(raw: dict) -> dict | None:
         "executed_by": (raw.get("executed_by") or "").strip(),
         "created_at": str(raw.get("created_at") or _dt.datetime.now().isoformat(timespec="seconds")),
     }
+    run_name = (raw.get("run_name") or "").strip()
+    if run_name:
+        clean["run_name"] = run_name
     duration = _coerce_duration_seconds(raw.get("duration_seconds"))
     if duration is not None:
         clean["duration_seconds"] = duration
@@ -98,7 +101,7 @@ def load_runs(version: str) -> dict:
 
     return {
         "year": year,
-        "work_weeks": list(data.get("work_weeks") or DEFAULT_WORK_WEEKS),
+        "work_weeks": list(DEFAULT_WORK_WEEKS),
         "runs": runs,
     }
 
@@ -115,7 +118,7 @@ def save_runs(version: str, state: dict) -> None:
 
     payload = {
         "year": int(state.get("year") or _dt.date.today().year),
-        "work_weeks": list(state.get("work_weeks") or DEFAULT_WORK_WEEKS),
+        "work_weeks": list(DEFAULT_WORK_WEEKS),
         "runs": runs_clean,
     }
 
@@ -132,7 +135,8 @@ def save_runs(version: str, state: dict) -> None:
 
 
 def current_work_week(date: _dt.date, valid_weeks: list[str]) -> str | None:
-    candidate = f"WW{date.isocalendar().week:02d}"
+    iso_week = min(max(date.isocalendar().week, 1), 52)
+    candidate = f"WW{iso_week:02d}"
     return candidate if candidate in valid_weeks else None
 
 
