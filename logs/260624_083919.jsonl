@@ -1,4 +1,0 @@
-{"ts": "2026-06-24T08:39:19.825445", "level": "INFO", "subsystem": "HOLOLINK", "sub_id": 3, "phase": "CAPTURE", "phase_id": 100, "code": 0, "code_name": "", "message": "camera configure requested (mode=1, cam1=0, cam2=0, fps=15)"}
-{"ts": "2026-06-24T08:39:19.834741", "level": "INFO", "subsystem": "HOLOLINK", "sub_id": 3, "phase": "CAPTURE", "phase_id": 100, "code": 0, "code_name": "", "message": "camera pipeline running (slot 0)"}
-{"ts": "2026-06-24T08:39:19.834895", "level": "INFO", "subsystem": "HOLOLINK", "sub_id": 3, "phase": "CAPTURE", "phase_id": 100, "code": 0, "code_name": "", "message": "camera pipeline running (slot 1)"}
-{"ts": "2026-06-24T08:39:19.834987", "level": "ERROR", "subsystem": "HOLOLINK", "sub_id": 3, "phase": "CAPTURE", "phase_id": 100, "code": 0, "code_name": "", "message": "camera configure failed: Pipeline error: No module named 'holoscan'"}

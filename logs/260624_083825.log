@@ -1,4 +1,0 @@
-2026-06-24 08:38:25  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
-2026-06-24 08:38:25  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
-2026-06-24 08:38:25  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
-2026-06-24 08:38:25  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s

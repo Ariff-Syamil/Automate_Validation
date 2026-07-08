@@ -27,7 +27,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Foundation networking test for host-to-FPGA packet exchange after Ethernet link validation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-224
   next_action_if_fail: Check FPGA sender counters, host MTU, socket buffers, firewall rules, and packet
     capture for loss or corruption.
 - test_case_id: TC-SW-002
@@ -57,7 +57,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Protocol validation for motor-control messaging before HIL bus integration.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Validate bit timing, DBC/frame definitions, endian handling, and encode/decode
     boundary checks.
 - test_case_id: TC-SW-003
@@ -90,7 +90,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: Core HIL motion-control communication path; depends on stable Ethernet and UDP packet
     exchange.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-197
   next_action_if_fail: Inspect EtherCAT state machine transitions, distributed-clock sync, NIC binding,
     and slave diagnostics.
 - test_case_id: TC-SYS-001
@@ -130,7 +130,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: Final HIL acceptance gate tying together FPGA capture, software transport, VLA action
     generation, and mechanical actuation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-270
   next_action_if_fail: Use prerequisite results and logs to isolate the first failing subsystem, then
     rerun the relevant lower-level case before repeating E2E validation.
 - test_case_id: TC-SW-004
@@ -155,7 +155,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers automate5/packets/udp_header.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-224
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-005
   owner: Automate5 QA
@@ -179,7 +179,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers EthercatMotorCommand.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-293
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-006
   owner: Automate5 QA
@@ -203,7 +203,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers EthercatMotorStatus.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-293
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-007
   owner: Automate5 QA
@@ -228,7 +228,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers vla_ethercat_packet.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-293
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-008
   owner: Automate5 QA
@@ -252,7 +252,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers ecb_header.py and ecb_codec.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-293
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-009
   owner: Automate5 QA
@@ -276,7 +276,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers pack_ecb_message, Thor payload helpers, and length helpers.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-293
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-010
   owner: Automate5 QA
@@ -298,7 +298,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Extends enum spot checks.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-222
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-011
   owner: Automate5 QA
@@ -322,7 +322,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers automate5/errors.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-222
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-012
   owner: Automate5 QA
@@ -345,7 +345,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers tests/framework/config.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-223
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-013
   owner: Automate5 QA
@@ -369,7 +369,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers config.py and env_checks.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-223
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-014
   owner: Automate5 QA
@@ -393,7 +393,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Covers runtime_logger.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-015
   owner: Automate5 QA
@@ -417,7 +417,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Extends testcase_benchmark.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-016
   owner: Automate5 QA
@@ -440,7 +440,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: Existing pytest in tests/test_suite_backend/testcase_mock_motor.py; backend config should
     enable it.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-221
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-017
   owner: Automate5 QA
@@ -464,7 +464,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Additional backend coverage for MotorBank and MockMotor helpers.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-221
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-018
   owner: Automate5 QA
@@ -487,7 +487,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Existing coverage appears in GUI base panel tests.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-019
   owner: Automate5 QA
@@ -511,7 +511,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Derived from tests/test_hololink_controller.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-020
   owner: Automate5 QA
@@ -535,7 +535,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: New CI-safe lifecycle coverage recommended from backend gap analysis.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-021
   owner: Automate5 QA
@@ -558,7 +558,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Fills backend/gesture_controller.py lifecycle coverage gap.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SW-022
   owner: Automate5 QA
@@ -582,7 +582,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Fast unit coverage for backend/gesture_worker.py geometry helpers.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SYS-002
   owner: Automate5 QA
@@ -608,7 +608,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Extends smoke suite to match documented smoke scope.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-268
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SYS-003
   owner: Automate5 QA
@@ -634,7 +634,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Replaces placeholder control-loop tests with mocked ZMQ contract checks.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SYS-004
   owner: Automate5 QA
@@ -659,7 +659,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Connects RuntimeLogger, PhaseCode, and Analytics requirements.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.
 - test_case_id: TC-SYS-005
   owner: Automate5 QA
@@ -688,5 +688,5 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Optional HIL lane for full-stack acceptance.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-270
   next_action_if_fail: Inspect the referenced Automate5 module, fixture, and pytest output.

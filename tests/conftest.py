@@ -10,6 +10,7 @@ from pathlib import Path
 
 import pytest
 
+from automation.log_consolidation import consolidate_logs
 from tests._paths import AUTOMATE5_ROOT, VALIDATION_ROOT, require_automate5_root
 from tests._session import get_active_config, set_active_config
 from tests.framework.config import TestConfig, discover_suite_config_paths
@@ -107,6 +108,13 @@ def pytest_sessionfinish(session: pytest.Session, exitstatus: int) -> None:
     """Overwrite tests/test_suite_*/log.txt for each suite that ran tests this session."""
     cfg = session.config
     set_active_config(None)
+
+    # Every process that imports automate5.log (i.e. most test sessions here)
+    # gets its own timestamped RuntimeLogger file pair under VALIDATION_ROOT
+    # / "logs". Fold this session's files into per-day archives so they don't
+    # pile up as one file pair per run.
+    consolidate_logs(VALIDATION_ROOT / "logs")
+
     suite_outcomes: dict[Path, dict[str, str]] = getattr(cfg, "_suite_outcomes", {})
     suite_run_logs: dict[Path, list[str]] = getattr(cfg, "_suite_run_logs", {})
     suite_failures: dict[Path, dict[str, str]] = getattr(cfg, "_suite_failure_text", {})

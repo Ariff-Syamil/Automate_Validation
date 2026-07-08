@@ -1,0 +1,1080 @@
+2026-06-24 06:00:19  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:00:19  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:00:19  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:00:19  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:00:19  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:00:19  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:00:19  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:00:58  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:00:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:00:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:01:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:01:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:01:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:01:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:01:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:01:04  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:01:04  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:01:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:01:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:01:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:01:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:01:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:01:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:01:07  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:01:07  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 06:01:07  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 06:01:07  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:01:07  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:01:09  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:01:09  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:01:09  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:01:09  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:01:09  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:01:09  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:01:24  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:01:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:01:24  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:01:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:01:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:01:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:01:26  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 06:01:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:01:28  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:01:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:01:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:01:30  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:01:30  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:01:30  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:01:34  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 06:01:36  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:02:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:02:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:02:01  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:02:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:02:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:02:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:02:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:02:03  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:02:05  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:02:06  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 06:02:08  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 06:02:10  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:02:12  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:02:12  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:02:12  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:02:12  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:02:14  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:02:24  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:02:24  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:02:24  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 06:02:24  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:02:26  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 06:02:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 06:02:30  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 06:02:31  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 06:02:34  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 06:02:35  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 06:02:35  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:02:35  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:11:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:11:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:11:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:11:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:11:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:11:43  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:11:43  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:12:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:12:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:12:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:12:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:12:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:12:30  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:12:30  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:12:53  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:12:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:12:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:13:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:13:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:13:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:13:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:13:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:13:10  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:13:10  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:13:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:13:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:13:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:13:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:13:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:13:17  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:13:17  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:13:17  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 06:13:17  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 06:13:17  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:13:17  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:13:23  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:13:23  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:13:23  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:13:23  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:13:23  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:13:23  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:14:17  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:19  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:14:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:24  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:26  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 06:14:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:31  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:31  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:31  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:33  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:39  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:41  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:41  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:41  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:53  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:14:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:14:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:14:55  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 06:15:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:15:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:15:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:15:03  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:16:25  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:16:25  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:16:25  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:16:25  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:16:25  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:16:25  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:16:25  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:16:30  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:16:30  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:16:30  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:16:30  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:16:30  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:16:30  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:16:49  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:16:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:16:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:16:50  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:16:50  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:16:50  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:16:50  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:16:52  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:16:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:16:52  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:16:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:16:52  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:16:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:16:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:17:01  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:17:10  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:17:20  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 06:17:29  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 06:17:38  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:17:47  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:17:47  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:17:47  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:17:47  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:17:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:19:04  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:19:04  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:19:39  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:19:39  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:19:39  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:19:39  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:19:39  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:19:39  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:19:39  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:20:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:20:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:20:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:20:18  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:20:18  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:20:18  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:20:18  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:20:18  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:20:18  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:20:18  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:20:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:20:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:20:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:20:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:20:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:20:24  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:20:24  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:20:24  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 06:20:24  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 06:20:24  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:20:24  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:20:30  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:20:30  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:20:30  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:20:30  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:20:30  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:20:30  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:21:24  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:26  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:21:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:31  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:31  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:31  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:33  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:33  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 06:21:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:38  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:38  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:38  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:40  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:40  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:40  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:45  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:45  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:45  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:21:47  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:21:47  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:21:47  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:22:00  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:22:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:22:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:22:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 06:22:07  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:22:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:22:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:22:09  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:23:31  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:23:31  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:23:31  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:23:31  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:23:31  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:23:31  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:23:31  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:23:37  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:23:37  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:23:37  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:23:37  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:23:37  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:23:37  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:23:56  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:23:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:23:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:23:58  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:23:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:23:58  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:23:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:24:00  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:24:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:24:00  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:24:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:24:00  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:24:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:24:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:24:09  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:24:18  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:24:27  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 06:24:36  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 06:24:46  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:24:55  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:24:55  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:24:55  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:24:55  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:25:04  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:25:53  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:25:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:25:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:25:55  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:25:56  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:25:56  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:25:56  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 06:25:56  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:26:06  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:26:07  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 06:26:17  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:26:18  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 06:26:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:26:30  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 06:26:39  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:26:40  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 06:26:49  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:26:51  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 06:33:21  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:33:21  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:33:22  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:33:22  [ERROR]  [ROBOT_ARM   ]  [ARM_CONNECT]       [ERR_SERIAL_DISCONNECT]   failed to connect SO-101 arm on /dev/ttyACM0: Failed to write 'Lock' on id_=3 with '1' after 1 tries. [TxRxResult] There is no status packet!
+2026-06-24 06:33:22  [ERROR]  [VLA         ]  [-]                 [ERR_POLICY_SERVER_DOWN]  VLA preflight: arm NOT connected (robot.enabled=true but connect failed) — check the serial port / calibration / lerobot install.
+2026-06-24 06:33:22  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:33:57  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:33:57  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:33:57  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:33:57  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:33:57  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:33:57  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:33:57  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:34:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:34:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:34:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:34:35  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:34:35  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:34:35  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:34:35  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:34:35  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:34:35  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:34:35  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:34:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:34:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:34:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:34:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:34:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:34:41  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:34:41  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:34:41  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 06:34:41  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 06:34:41  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:34:41  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:34:47  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:34:47  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:34:47  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:34:47  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:34:47  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:34:47  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:35:42  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:42  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:42  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:35:44  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:44  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:44  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:35:44  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:35:49  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:35:51  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:51  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:51  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 06:35:51  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:35:57  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:57  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:57  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:35:58  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:35:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:35:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:36:04  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:36:04  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:36:04  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:36:06  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:36:06  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:36:06  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:36:18  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:36:18  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:36:18  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:36:20  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 06:36:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:36:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:36:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:36:27  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:37:51  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:37:51  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:37:51  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:37:51  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:37:51  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:37:51  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:37:51  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:37:56  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:37:56  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:37:56  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:37:56  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:37:56  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:37:56  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:38:15  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:38:15  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:38:15  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:38:17  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:38:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:38:17  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:38:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:38:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:38:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:38:19  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:38:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:38:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:38:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:38:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:38:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:38:37  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:38:47  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 06:38:56  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 06:39:05  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:39:14  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:39:14  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:39:14  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:39:14  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:39:23  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:40:13  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:40:13  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:40:13  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:40:14  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:40:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 06:40:16  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:40:26  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:40:27  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 06:40:37  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:40:39  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 06:40:48  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:40:50  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 06:40:59  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:41:00  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 06:41:10  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:41:11  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 06:41:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:41:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:41:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:41:21  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:41:22  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 06:41:22  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:41:22  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:42:49  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:42:49  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:42:49  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:42:49  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:42:49  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:42:49  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:42:49  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:43:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:43:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:43:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:43:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:43:24  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:43:24  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:43:24  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:43:47  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:43:47  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:43:47  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:44:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:44:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:44:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:44:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:44:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:44:04  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:44:04  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:44:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:44:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:44:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:44:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:44:10  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:44:10  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:44:10  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:44:10  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 06:44:10  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 06:44:10  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:44:10  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:44:16  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:44:16  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:44:16  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:44:16  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:44:16  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:44:16  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:45:11  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:11  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:11  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:13  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:13  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:13  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:45:13  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:21  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:21  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 06:45:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:27  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:27  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:27  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:28  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:34  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:36  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:36  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:36  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:49  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:49  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:51  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 06:45:56  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:45:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:45:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:45:58  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:47:20  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:47:20  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:47:20  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:47:20  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:47:20  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:47:20  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:47:20  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 06:47:26  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 06:47:26  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 06:47:26  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 06:47:26  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 06:47:26  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 06:47:26  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 06:47:44  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:47:44  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:47:44  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:47:46  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:47:46  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:47:46  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:47:46  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:47:48  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:47:48  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:47:48  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 06:47:48  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:47:48  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:47:48  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:47:48  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:47:57  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:48:07  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:48:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 06:48:25  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 06:48:35  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:48:44  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:48:44  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:48:44  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:48:44  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:48:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:49:42  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 06:49:42  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 06:49:42  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 06:49:44  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:49:45  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 06:49:45  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:49:45  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 06:49:45  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 06:49:55  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 06:49:57  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 06:50:06  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:50:08  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 06:50:17  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:50:19  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 06:50:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:50:30  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 06:50:39  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 06:50:41  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 06:50:50  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 06:50:50  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:50:50  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 06:50:50  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 06:50:52  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 06:50:52  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 06:50:52  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 08:33:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:33:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:33:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:33:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:33:43  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:33:43  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:33:43  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:34:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:34:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:34:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:34:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:34:17  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:34:17  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:34:17  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:34:39  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:34:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:34:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:34:54  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:34:54  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:34:54  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:34:54  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:34:54  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:34:54  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:34:54  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:35:00  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:35:00  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:35:00  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:35:00  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:35:00  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:35:00  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:35:00  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:35:00  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 08:35:00  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 08:35:00  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 08:35:00  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:35:06  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:35:06  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:35:06  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 08:35:06  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 08:35:06  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 08:35:06  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 08:35:59  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:35:59  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:35:59  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:00  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:00  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 08:36:00  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:05  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:05  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:05  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:07  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:07  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 08:36:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:12  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:14  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:14  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:14  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:21  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:33  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:33  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:34  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 08:36:39  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:36:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:36:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:36:41  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 08:37:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:37:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:37:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:37:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:37:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:37:59  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:37:59  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 08:38:05  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 08:38:05  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 08:38:05  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 08:38:05  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 08:38:05  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 08:38:05  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 08:38:23  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:38:23  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:38:23  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:38:25  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:38:25  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:38:25  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 08:38:25  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:38:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:38:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:38:26  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 08:38:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:38:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:38:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:38:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:38:35  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 08:38:43  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 08:38:53  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 08:39:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 08:39:11  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:39:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 08:39:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 08:39:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 08:39:19  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 08:39:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:40:15  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 08:40:15  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 08:40:15  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 08:40:17  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 08:40:18  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 08:40:18  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:40:18  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 08:40:18  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 08:40:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 08:40:29  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 08:40:38  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:40:39  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 08:40:48  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:40:50  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 08:40:59  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:41:00  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 08:41:09  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 08:41:11  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 08:41:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 08:41:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 08:41:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 08:41:19  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 08:41:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 08:41:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 08:41:21  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:17:40  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:17:40  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:17:40  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:17:40  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:17:40  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:18:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:18:15  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:18:15  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:18:37  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:18:37  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:18:37  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:18:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:18:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:18:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:18:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:18:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:18:53  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:18:53  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:18:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:18:59  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 09:18:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 09:18:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:18:59  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:19:04  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:19:04  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:19:04  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 09:19:04  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 09:19:04  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 09:19:04  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 09:19:56  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:19:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:19:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:19:58  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:19:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:19:58  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:19:58  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:03  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:03  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:03  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:05  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:05  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:05  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 09:20:05  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:10  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:10  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:10  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:12  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:17  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:19  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:19  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:32  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:32  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:32  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:33  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 09:20:39  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:20:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:20:39  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:20:41  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:21:58  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:21:58  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:21:58  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:21:58  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:21:58  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:21:58  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:21:58  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:22:03  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:22:03  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:22:03  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 09:22:03  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 09:22:03  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 09:22:03  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 09:22:21  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:22:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:22:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:22:23  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:22:23  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:22:23  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:22:23  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:22:24  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:22:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:22:24  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:22:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:22:24  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:22:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:22:24  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:22:33  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 09:22:42  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 09:22:51  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 09:22:59  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 09:23:08  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:23:17  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 09:23:17  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:23:17  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 09:23:17  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:23:25  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:24:12  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:24:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:24:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:24:14  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:24:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 09:24:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:24:16  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 09:24:16  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:24:25  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 09:24:27  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 09:24:36  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:24:37  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 09:24:46  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:24:48  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 09:24:57  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:24:59  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 09:25:08  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:25:09  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 09:25:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 09:25:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:25:19  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 09:25:19  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:25:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 09:25:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:25:21  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:26:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:26:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:26:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:26:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:26:41  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:26:41  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:26:41  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:27:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:27:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:27:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:27:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:27:15  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:27:15  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:27:15  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:27:37  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:27:37  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:27:37  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:27:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:27:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:27:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:27:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:27:53  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:27:53  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:27:53  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:27:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:27:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:27:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:27:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:27:59  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:27:59  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:27:59  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:27:59  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-24 09:27:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-24 09:27:59  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:27:59  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:28:05  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:28:05  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:28:05  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 09:28:05  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 09:28:05  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 09:28:05  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 09:28:59  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:28:59  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:28:59  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:01  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:29:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:06  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:06  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:06  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:07  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:07  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-24 09:29:07  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:12  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:12  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:14  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:14  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:14  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:20  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:20  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:20  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:21  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:21  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:34  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:36  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-24 09:29:41  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:29:41  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:29:41  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:29:43  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:31:02  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:31:02  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:31:02  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:31:02  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:31:02  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:31:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:31:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       loaded arm calibration from /home/latticeapp/.cache/huggingface/lerobot/calibration/robots/so_follower/my_awesome_follower_arm.json
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 motor bus connected on /dev/ttyACM0
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 calibration written to motor bus
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONFIG]        [-]                       SO-101 motors configured (POSITION mode, PID, torque limits) for 6 joints
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       SO-101 arm connected and configured on /dev/ttyACM0
+2026-06-24 09:31:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm READY (port=/dev/ttyACM0)
+2026-06-24 09:31:07  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-24 09:31:07  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-24 09:31:07  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-24 09:31:07  [INFO ]  [ROBOT_ARM   ]  [ARM_TORQUE]        [-]                       SO-101 arm relaxed (torque disabled)
+2026-06-24 09:31:07  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA stop: arm relaxed (torque off) for manual readjustment
+2026-06-24 09:31:26  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:31:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:31:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:31:28  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:31:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:31:28  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:31:28  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:31:29  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:31:29  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:31:29  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-24 09:31:29  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:31:29  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:31:29  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:31:29  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:31:38  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 09:31:46  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 09:31:55  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-24 09:32:04  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-24 09:32:13  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:32:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 09:32:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:32:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 09:32:21  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:32:30  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:33:17  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-24 09:33:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-24 09:33:17  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-24 09:33:19  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:33:21  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-24 09:33:21  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:33:21  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-24 09:33:21  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-24 09:33:30  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-24 09:33:32  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-24 09:33:41  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:33:42  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-24 09:33:52  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:33:53  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-24 09:34:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:34:04  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-24 09:34:13  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-24 09:34:14  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-24 09:34:23  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-24 09:34:23  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:34:23  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-24 09:34:23  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-24 09:34:25  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-24 09:34:25  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-24 09:34:25  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'

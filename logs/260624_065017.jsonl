@@ -1,1 +1,0 @@
-{"ts": "2026-06-24T06:50:17.499737", "level": "INFO", "subsystem": "MOTOR", "sub_id": 6, "phase": "JOINT_WRITE", "phase_id": 105, "code": 0, "code_name": "", "message": "motor mode node=0 motor=0 mode=speed"}

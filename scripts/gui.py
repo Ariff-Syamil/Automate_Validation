@@ -1805,33 +1805,31 @@ class RunFormDialog(QDialog):
     def _is_executable_test_case(self, tid: str) -> bool:
         return self._test_case_subcomponent(tid) == "gui" and tid.startswith("TC-GUI-")
 
-    def _is_automation_ready(self, tid: str) -> bool:
-        return self._test_case_meta(tid).get("automation_status") == "Ready"
-
-    def _automation_status_label(self, tid: str) -> str:
-        status = self._test_case_meta(tid).get("automation_status") or "(none)"
-        return f"{tid} ({status})"
-
     def _dependency_ids(self, tid: str) -> list[str]:
         deps = self._test_case_meta(tid).get("dependency") or []
         if isinstance(deps, str):
             deps = [part.strip() for part in deps.replace("\n", ",").split(",")]
         return [dep for dep in deps if dep]
 
-    def _with_dependencies(self, tids: list[str]) -> tuple[list[str], list[str], list[str]]:
+    def _with_dependencies(self, tids: list[str]) -> tuple[list[str], list[str]]:
+        """Expand selected test cases with their dependency closure.
+
+        Non-ready test cases are intentionally NOT filtered out here: they still
+        need a run record. Non-GUI cases are recorded BLOCKED by the execution
+        loop below, and non-ready TC-GUI cases are recorded BLOCKED by
+        ``run_case`` itself (see ``automation/gui/executor.py``). Silently
+        dropping them here would leave selected test cases with no run record
+        at all.
+        """
         known_tids = set(self._all_tids)
         seen: set[str] = set()
         missing: list[str] = []
-        skipped: list[str] = []
         closure: list[str] = []
 
         def add_with_deps(tid: str) -> None:
             if tid in seen:
                 return
             seen.add(tid)
-            if not self._is_automation_ready(tid):
-                skipped.append(tid)
-                return
             for dep in self._dependency_ids(tid):
                 if dep in known_tids:
                     add_with_deps(dep)
@@ -1841,7 +1839,7 @@ class RunFormDialog(QDialog):
 
         for tid in tids:
             add_with_deps(tid)
-        return self._dependency_priority_order(closure), missing, skipped
+        return self._dependency_priority_order(closure), missing
 
     def _dependency_priority_order(self, tids: list[str]) -> list[str]:
         """Run dependency-free cases first, then cases whose dependencies passed.
@@ -2036,7 +2034,7 @@ class RunFormDialog(QDialog):
                     "Tick at least one test case in the picker before saving."
                 )
                 return
-            tids, missing_dependencies, skipped_test_cases = self._with_dependencies(selected_tids)
+            tids, missing_dependencies = self._with_dependencies(selected_tids)
             if missing_dependencies:
                 QMessageBox.warning(
                     self,
@@ -2044,23 +2042,11 @@ class RunFormDialog(QDialog):
                     "These dependency test cases were not found and will not run:\n"
                     + ", ".join(missing_dependencies),
                 )
-            if skipped_test_cases:
-                QMessageBox.warning(
-                    self,
-                    "Skipped Non-Ready Test Cases",
-                    "These selected or dependency test cases do not have "
-                    "Automation Status Ready and will not run:\n"
-                    + ", ".join(
-                        self._automation_status_label(tid)
-                        for tid in skipped_test_cases
-                    ),
-                )
             if not tids:
                 QMessageBox.warning(
                     self,
-                    "No Ready Test Cases",
-                    "No selected test cases or dependencies have Automation "
-                    "Status Ready, so no automation will run.",
+                    "No Test Cases Selected",
+                    "Tick at least one test case in the picker before saving."
                 )
                 return
             prompt_result = self._prompt_run_name(len(tids))

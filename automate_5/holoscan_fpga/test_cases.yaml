@@ -25,7 +25,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: HIL
   observations: Baseline Phase-1 HIL validation for the camera ingress path.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-230
   next_action_if_fail: Check camera power, lane mapping, PLL/clock configuration, bitstream version, and
     capture error counters.
 - test_case_id: TC-FPGA-002
@@ -55,7 +55,7 @@ test_cases:
   automation_status: Not Ready
   test_environment_ci_hil: HIL
   observations: Dual-camera HIL bring-up is Not Ready until bandwidth and timing constraints are confirmed.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Profile aggregate bandwidth, PLL timing, lane mapping, and per-stream buffer allocation.
 - test_case_id: TC-FPGA-003
   owner: Sheng Li
@@ -83,7 +83,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Re-validation needed before software UDP and EtherCAT dependencies can be trusted.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect PCS status, clocking, cable/SFP, link partner configuration, and signal-integrity
     counters.
 - test_case_id: TC-FPGA-004
@@ -113,7 +113,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Known Thor dependency; WIP until driver/firmware and FPGA timing are stable.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Resolve Thor driver/firmware configuration, verify transceiver timing, and compare
     PCS counters against 10G baseline.
 - test_case_id: TC-FPGA-005
@@ -143,7 +143,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Core ingress validation for Ethernet RX to memory path before firmware payload processing.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-230
   next_action_if_fail: Debug SGDMA descriptors, buffer alignment, AXI path, cache coherency, and PCS loopback
     configuration.
 - test_case_id: TC-FPGA-006
@@ -175,7 +175,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Phase-2 firmware deliverable connecting DMA capture to embedded validation logic.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-230
   next_action_if_fail: Add firmware logging around DMA descriptors, cache maintenance, memory barriers,
     and payload comparison.
 - test_case_id: TC-VLA-001
@@ -206,7 +206,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Phase-3 HIL system proof for live camera-to-vision processing.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-268
   next_action_if_fail: Profile GPU kernels, Holoscan stage timings, capture source health, and memory
     transfer bottlenecks.
 - test_case_id: TC-VLA-002
@@ -245,7 +245,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Human-in-loop validation for the full vision-to-action-to-motor path.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Review gesture thresholds, model output, transport logs, and motor-control response
     before retraining or retuning.
 - test_case_id: TC-VLA-003
@@ -274,7 +274,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: Derived from tests/test_suite_gesture/testcase_gesture.py; skip_in_ci remains true because
     video/model assets are required.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
 - test_case_id: TC-VLA-004
   owner: Automate5 QA
@@ -302,7 +302,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Optional hardware success-path counterpart to CI negative-path tests.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
 - test_case_id: TC-VLA-005
   owner: Automate5 QA
@@ -327,7 +327,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Covers dual preview behavior used by Base and VLA GUI panels.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
 - test_case_id: TC-VLA-006
   owner: Automate5 QA
@@ -352,5 +352,126 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Bridges mocked control-loop contract tests to real VLA service validation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-290
   next_action_if_fail: Inspect the VLA, Hololink, gesture, and hardware setup referenced by this case.
+- test_case_id: TC-FPGA-007
+  owner: Seow Jie / Sheng Li
+  component: Ethernet RX / SGDMA (25G Optimization)
+  dependency:
+  - TC-FPGA-004
+  - TC-FPGA-005
+  precondition: 25G link established (TC-FPGA-004 passed); real motor/sensor traffic source available
+    (not synthetic test patterns); torn-rate counters instrumented in RTL/firmware.
+  test_name: 25G Sustained Torn-Rate Soak Test
+  description: Checks that the ingress datapath sustains full 25G line rate with MTU-sized real
+    application traffic over an extended run without torn (dropped/corrupted) packets.
+  steps:
+  - Confirm 25G link is up and stable (TC-FPGA-004 passed).
+  - Replace synthetic test-pattern generator with real motor/sensor application traffic.
+  - Drive sustained, MTU-sized traffic at full 25G line rate for the soak duration.
+  - Monitor SGDMA descriptor completion, buffer occupancy, and torn/dropped packet counters throughout.
+  - Confirm measured sustained bandwidth against target and record final torn-rate count.
+  expected_result: Torn-rate counter stays at zero (or within agreed tolerance) for the full soak
+    duration, sustained bandwidth meets target, and no descriptor completion errors occur.
+  fail_conditions: Torn/dropped packets accumulate, sustained bandwidth falls below target, buffers
+    overflow/underrun, or descriptor completions stall or error out.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Direct acceptance test for DSSOL-298 (Optimize Ingress Path). Blocked until DSSOL-229
+    egress live-streaming verification completes.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-298
+  next_action_if_fail: Profile SGDMA buffer depth, drain timing, and completion-handling logic in the
+    custom RTL; compare against 10G baseline torn-rate counters.
+- test_case_id: TC-VLA-007
+  owner: Seow Jie Tan
+  component: Holoscan Sensor Bridge Demo Container
+  dependency:
+  - TC-FPGA-004
+  - TC-VLA-001
+  precondition: 25G link established; Holoscan Sensor Bridge Demo Container image built and deployed
+    on Jetson AGX Thor.
+  test_name: Holoscan Demo Container Live Stream Verification
+  description: Checks that the Holoscan Sensor Bridge Demo Container builds successfully and displays
+    a live camera stream end-to-end over the 25G link.
+  steps:
+  - Build the Holoscan Sensor Bridge Demo Container image against the current reference design.
+  - Deploy and launch the container on the flashed Jetson AGX Thor.
+  - Confirm the container connects to the FPGA over the 25G Ethernet link.
+  - Verify live video renders in the demo viewer with expected frame rate.
+  - Run for the validation interval and check for stalls, disconnects, or container crashes.
+  expected_result: Container builds without errors, connects over 25G, and displays a stable live
+    stream for the full validation interval with no crashes or disconnects.
+  fail_conditions: Container fails to build, fails to connect over 25G, stream does not render, stalls,
+    or the container crashes during the run.
+  priority: P0
+  severity: Critical
+  automation_readiness: Manual
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Direct acceptance test for the two open WW27 action items on DSSOL-229 ("Building the
+    Holoscan Sensor Bridge Demo Container" and "Live streaming verification").
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
+  next_action_if_fail: Check container build logs, Thor-to-FPGA network reachability, and Hololink
+    camera pipeline health (see TC-VLA-004/005).
+- test_case_id: TC-FPGA-008
+  owner: Seow Jie Tan
+  component: MIPI Camera Input (Fault Detection)
+  dependency:
+  - TC-FPGA-001
+  precondition: Camera module under test connected to a validated AvantX camera slot.
+  test_name: Camera Module I2C Bus-Scan Regression
+  description: Checks that a camera module responds correctly to an I2C bus-id scan, guarding against
+    a repeat of the SF5X258 hardware-fault failure mode.
+  steps:
+  - Connect the camera module under test to a known-good AvantX camera slot.
+  - Run an I2C bus-id scan against the expected camera address.
+  - Confirm the camera responds and reports its expected device ID.
+  - Repeat on the second camera slot to rule out slot-specific faults.
+  - Record pass/fail per camera unit serial number for traceability.
+  expected_result: Camera responds to the I2C bus-id scan with the correct device ID on both camera
+    slots.
+  fail_conditions: I2C scan times out, wrong device ID is returned, or camera fails on one slot but
+    not the other (indicating a module-specific hardware fault).
+  priority: P1
+  severity: Major
+  automation_readiness: Semi-Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Added after root-causing the non-functional SF5X258 unit to a hardware fault (DSSOL-229,
+    WW22-WW24). Intended as an incoming-inspection gate for future camera batches.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
+  next_action_if_fail: Quarantine the camera unit, request a replacement from the CH team, and log the
+    failing serial number.
+- test_case_id: TC-FPGA-009
+  owner: Seow Jie Tan
+  component: MIPI Camera Input (Image Quality)
+  dependency:
+  - TC-FPGA-002
+  precondition: Dual-camera capture passes (TC-FPGA-002); focus/calibration tooling available with an
+    objective sharpness metric.
+  test_name: Dual-Camera Focus & Sharpness Calibration
+  description: Checks that both camera streams meet an objective sharpness threshold after focus
+    tuning, replacing the current subjective "looks clear" assessment.
+  steps:
+  - Enable dual-camera stereo mode with both streams live.
+  - Capture a reference test-chart image on each stream.
+  - Compute an objective sharpness/MTF score for each captured frame.
+  - Compare each stream's score against the agreed minimum threshold.
+  - Record per-camera scores for trend tracking across future calibration passes.
+  expected_result: Both camera streams meet or exceed the minimum sharpness/MTF threshold with no
+    visible blur.
+  fail_conditions: Either stream's sharpness score falls below threshold, or visible blur persists
+    after focus tuning.
+  priority: P2
+  severity: Minor
+  automation_readiness: Semi-Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Converts the open "image blur, ongoing calibration" note (DSSOL-229 WW24-WW26) into an
+    objective, repeatable pass/fail gate.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
+  next_action_if_fail: Re-run focus tuning procedure, check lens seating and back-focus distance, and
+    re-measure.

@@ -32,7 +32,7 @@ test_cases:
     Falls back to ''Automate5 Industrial Control Hub'' when the key is absent.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: 'Check configs/gui/gui_configuration.yaml for window.title key; confirm _load_window_cfg()
     is not raising an exception silently.
 
@@ -67,7 +67,7 @@ test_cases:
     Off-by-one is acceptable due to OS DPI scaling; >2 px difference is a defect.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Inspect _load_window_cfg() return value; check YAML integer types.
 - test_case_id: TC-GUI-003
   owner: GUI Automation Team
@@ -100,7 +100,7 @@ test_cases:
     so defaults apply silently.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Trace _load_window_cfg() exception path in main.py.
 - test_case_id: TC-GUI-010
   owner: GUI Automation Team
@@ -134,7 +134,7 @@ test_cases:
     then calls setCurrentIndex(0).
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Check MainWindow._on_nav wiring; inspect LeftRail signal emission.
 - test_case_id: TC-GUI-011
   owner: GUI Automation Team
@@ -161,7 +161,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Navigation path mirrors MainWindow._on_nav("vla") and validates bridge section synchronization.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Inspect vla_nav_clicked signal wiring in MainWindow.
 - test_case_id: TC-GUI-012
   owner: GUI Automation Team
@@ -189,7 +189,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: Navigation path mirrors MainWindow._on_nav("analysis") and verifies Analytics section
     activation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Inspect analytic_nav_clicked signal wiring in MainWindow.
 - test_case_id: TC-GUI-013
   owner: GUI Automation Team
@@ -218,7 +218,7 @@ test_cases:
     no side effects trigger twice.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Review _on_nav for guard logic.
 - test_case_id: TC-GUI-020
   owner: GUI Automation Team
@@ -256,7 +256,7 @@ test_cases:
     starts mock timer.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: 'Check presenter _handle_start; verify mock data timer QTimer is created and started
     with correct interval.
 
@@ -291,7 +291,7 @@ test_cases:
     timer.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect _handle_stop; check gesture controller stop path.
 - test_case_id: TC-GUI-022
   owner: GUI Automation Team
@@ -321,7 +321,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Tests that presenter does not hold stale state from first stop.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: 'Check if gesture controller re-initializes correctly after stop; verify QTimer.start()
     is idempotent.
 
@@ -357,7 +357,7 @@ test_cases:
     motors, stops gesture, and stops mock timer.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Verify _handle_reset loops all nodes/motors; check mock timer stop.
 - test_case_id: TC-GUI-030
   owner: GUI Automation Team
@@ -381,7 +381,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: KpiStrip initial state is driven by base_transport_playing=false in QML.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check initial value of base_transport_playing binding in QML.
 - test_case_id: TC-GUI-031
   owner: GUI Automation Team
@@ -412,7 +412,7 @@ test_cases:
     not the bridge directly.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: 'Inspect KpiStrip QML binding for totalRpm; verify motor card RPM properties are
     updated by bridge.base_update_motor().
 
@@ -441,7 +441,7 @@ test_cases:
     and stops on Stop/Reset.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check QML uptime timer binding to base_transport_playing.
 - test_case_id: TC-GUI-040
   owner: GUI Automation Team
@@ -471,7 +471,7 @@ test_cases:
     in QML.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check base_node_count property value on bridge after init.
 - test_case_id: TC-GUI-041
   owner: GUI Automation Team
@@ -494,7 +494,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: NodeTabBar emits currentIndex which sets base_active_node via QML binding.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect NodeTabBar signal → base_active_node binding in base_panel.qml.
 - test_case_id: TC-GUI-050
   owner: GUI Automation Team
@@ -521,7 +521,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: bridge.base_motors_per_node drives the repeater count in NodeView.qml.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Verify base_motors_per_node property on bridge matches YAML.
 - test_case_id: TC-GUI-051
   owner: GUI Automation Team
@@ -544,7 +544,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Signal-level coverage for manual motor start command routing from the Base panel overlay.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect MotorCard.qml onClicked binding for start action.
 - test_case_id: TC-GUI-052
   owner: GUI Automation Team
@@ -567,7 +567,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Signal-level coverage for manual motor stop command routing from the Base panel overlay.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check MotorCard.qml stop button binding.
 - test_case_id: TC-GUI-053
   owner: GUI Automation Team
@@ -591,7 +591,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Signal-level coverage for direction command routing and signed direction payload.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect direction toggle binding in MotorCard.qml.
 - test_case_id: TC-GUI-054
   owner: GUI Automation Team
@@ -616,7 +616,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Signal-level coverage for numeric setpoint propagation from UI input to presenter bridge.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check setpoint TextInput onEditingFinished or onAccepted in MotorCard.qml.
 - test_case_id: TC-GUI-055
   owner: GUI Automation Team
@@ -639,7 +639,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Signal-level coverage for torque-limit propagation from UI input to presenter bridge.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect torque limit control binding in MotorCard.qml.
 - test_case_id: TC-GUI-056
   owner: GUI Automation Team
@@ -669,7 +669,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Presenter's e-stop handler zeros bridge motor fields via base_update_motor.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect _handle_motor_reset in base_presenter.py.
 - test_case_id: TC-GUI-057
   owner: GUI Automation Team
@@ -703,7 +703,7 @@ test_cases:
     the specified (node, motor) index.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Verify E-stop only affects targeted motor index in presenter.
 - test_case_id: TC-GUI-060
   owner: GUI Automation Team
@@ -729,7 +729,7 @@ test_cases:
     bound to bridge overlay-open properties.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check overlay visibility binding and signal emission in MotorCard.qml.
 - test_case_id: TC-GUI-061
   owner: GUI Automation Team
@@ -753,7 +753,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Overlay mode selection is validated at bridge-signal level before deeper presenter execution.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect mode selector binding in ManualOverrideOverlay.qml.
 - test_case_id: TC-GUI-062
   owner: GUI Automation Team
@@ -778,7 +778,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Target RPM entry is validated at bridge-signal level with numeric payload preservation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check target RPM input binding in ManualOverrideOverlay.qml.
 - test_case_id: TC-GUI-063
   owner: GUI Automation Team
@@ -803,7 +803,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: Full-rotation toggle is validated at bridge-signal level with boolean/numeric payload
     preservation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect full_rotation toggle binding in ManualOverrideOverlay.qml.
 - test_case_id: TC-GUI-064
   owner: GUI Automation Team
@@ -828,7 +828,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: IQ torque entry is validated at bridge-signal level with numeric payload preservation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect IQ torque input binding in ManualOverrideOverlay.qml.
 - test_case_id: TC-GUI-070
   owner: GUI Automation Team
@@ -852,7 +852,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: base_logs_clicked or inspector toggle in LeftRail emits signal bound to dock visibility.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect inspector toggle signal → dock visible binding in base_panel.qml.
 - test_case_id: TC-GUI-071
   owner: GUI Automation Team
@@ -875,7 +875,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Inspector dock close/toggle behavior complements the open-path coverage in TC-GUI-070.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Check toggle state logic in LeftRail and binding to dock visible property.
 - test_case_id: TC-GUI-072
   owner: GUI Automation Team
@@ -902,7 +902,7 @@ test_cases:
     bridge.base_camera_mode in response.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect ToggleSwitch or camMode controls in InspectorDock.qml.
 - test_case_id: TC-GUI-073
   owner: GUI Automation Team
@@ -927,7 +927,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: Settings configure signal is the handoff point from GUI selection to camera/controller
     setup.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect Configure button onClicked in InspectorDock.qml.
 - test_case_id: TC-GUI-074
   owner: GUI Automation Team
@@ -954,7 +954,7 @@ test_cases:
     passed as context property base_gesture_model.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Verify gesture_model is populated in base_view.py and passed to QML context.
 - test_case_id: TC-GUI-075
   owner: GUI Automation Team
@@ -981,7 +981,7 @@ test_cases:
     setter; presenter responds to base_gesture_enabled_changed signal.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Trace base_gesture_enabled_changed signal through presenter.
 - test_case_id: TC-GUI-076
   owner: GUI Automation Team
@@ -1005,7 +1005,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: base_log_model is a local QML ListModel in base_panel.qml.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect base_log_model population path in base_panel.qml and bridge.
 - test_case_id: TC-GUI-077
   owner: GUI Automation Team
@@ -1030,7 +1030,7 @@ test_cases:
   observations: 'onClearLogsRequested only clears the local QML base_log_model; it does NOT call analytic_bridge.analytic_clear_logs().
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Verify Clear only calls base_log_model.clear() and not bridge methods.
 - test_case_id: TC-GUI-100
   owner: GUI Automation Team
@@ -1062,7 +1062,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_camera_bridge_mock_props in testcase_basePanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Check BasePanelBridge.__init__ mock camera config loading from YAML.
 - test_case_id: TC-GUI-101
   owner: GUI Automation Team
@@ -1088,7 +1088,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_camera_configure_mock_single.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect presenter _handle_configure for single-mode branch.
 - test_case_id: TC-GUI-102
   owner: GUI Automation Team
@@ -1116,7 +1116,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_camera_configure_mock_double.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect presenter _handle_configure for double-mode branch and source selection.
 - test_case_id: TC-GUI-103
   owner: GUI Automation Team
@@ -1140,7 +1140,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: HIL
   observations: Headless test; safe to run even with no physical camera.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect enumerate_video_inputs() in backend/camera_controller.py.
 - test_case_id: TC-GUI-104
   owner: GUI Automation Team
@@ -1170,7 +1170,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Guard path in BasePanelPresenter._handle_configure when device list is empty.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Verify early-return guard in _handle_configure when len(devices)==0.
 - test_case_id: TC-GUI-110
   owner: GUI Automation Team
@@ -1202,7 +1202,7 @@ test_cases:
     module exists. Marked Not Ready.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: 'Confirm GestureController is present at backend/gesture_controller.py; check base_gesture_enabled
     binding in GestureOverlay.qml.
 
@@ -1228,7 +1228,7 @@ test_cases:
   automation_status: Not Ready
   test_environment_ci_hil: HIL
   observations: Blocked on GestureController module availability.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Check _handle_stop in base_presenter.py; verify gesture.stop() is called.
 - test_case_id: TC-GUI-112
   owner: GUI Automation Team
@@ -1259,7 +1259,7 @@ test_cases:
     id, speed, and stopped flag.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Verify _handle_gesture_detected bridge update path in base_presenter.py.
 - test_case_id: TC-GUI-120
   owner: GUI Automation Team
@@ -1284,7 +1284,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_bridge_defaults in testcase_vlaPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Check VlaPanelBridge.__init__ YAML loading.
 - test_case_id: TC-GUI-121
   owner: GUI Automation Team
@@ -1310,7 +1310,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: VLA panel uses the same node/motor config keys as Base panel.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Check vla_node_count and vla_motors_per_node bridge properties.
 - test_case_id: TC-GUI-122
   owner: GUI Automation Team
@@ -1337,7 +1337,7 @@ test_cases:
     QML is the testable contract.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Inspect VLA prompt input onAccepted binding in vla_panel.qml.
 - test_case_id: TC-GUI-123
   owner: GUI Automation Team
@@ -1371,7 +1371,7 @@ test_cases:
     controller.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Compare _handle_start in VlaPanelPresenter vs BasePanelPresenter.
 - test_case_id: TC-GUI-124
   owner: GUI Automation Team
@@ -1394,7 +1394,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_camera_configure_mock_single/double in testcase_vlaPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Inspect VlaPanelPresenter._handle_configure configure path.
 - test_case_id: TC-GUI-125
   owner: GUI Automation Team
@@ -1417,7 +1417,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_qml_loads in testcase_vlaPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Print QQmlComponent errors and fix import or syntax issues in vla_panel.qml.
 - test_case_id: TC-GUI-130
   owner: GUI Automation Team
@@ -1443,7 +1443,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_bridge_defaults in testcase_analyticPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Verify AnalyticPanelBridge.__init__ reads analytic_panel config keys.
 - test_case_id: TC-GUI-131
   owner: GUI Automation Team
@@ -1478,7 +1478,7 @@ test_cases:
     if paths exist.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check autoload branch in AnalyticPanelPresenter.__init__.
 - test_case_id: TC-GUI-132
   owner: GUI Automation Team
@@ -1505,7 +1505,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: SplitStack collapses top or bottom pane based on analytic_display_mode value.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect mode picker onClicked → analytic_set_display_mode in analytic_panel.qml.
 - test_case_id: TC-GUI-133
   owner: GUI Automation Team
@@ -1529,7 +1529,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: Analytics display mode coverage verifies benchmark-only pane selection without file I/O
     side effects.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check SplitStack pane collapse logic for 'bench' mode.
 - test_case_id: TC-GUI-134
   owner: GUI Automation Team
@@ -1553,7 +1553,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Analytics display mode coverage verifies combined logs and benchmark split-view state.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect SplitStack collapse/expand logic for 'both' mode.
 - test_case_id: TC-GUI-135
   owner: GUI Automation Team
@@ -1586,7 +1586,7 @@ test_cases:
     the property.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Verify clamping logic in analytic_set_split_ratio slot.
 - test_case_id: TC-GUI-160
   owner: GUI Automation Team
@@ -1616,7 +1616,7 @@ test_cases:
     analytic_bridge.analytic_open_logs(path).
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check FileDialog onAccepted handler in LogsAnalyticsPane.qml.
 - test_case_id: TC-GUI-161
   owner: GUI Automation Team
@@ -1644,7 +1644,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: analytic_refresh_logs_requested signal triggers presenter to reload file.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Trace analytic_refresh_logs → presenter load_log_file path.
 - test_case_id: TC-GUI-162
   owner: GUI Automation Team
@@ -1675,7 +1675,7 @@ test_cases:
     which zeros all log bridge properties including error.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Verify set_logs_payload empties all fields in AnalyticPanelBridge.
 - test_case_id: TC-GUI-163
   owner: GUI Automation Team
@@ -1708,7 +1708,7 @@ test_cases:
     calls set_logs_payload; bridge exposes analytic_log_error.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check error propagation from load_log_file → set_logs_payload → bridge.
 - test_case_id: TC-GUI-164
   owner: GUI Automation Team
@@ -1743,7 +1743,7 @@ test_cases:
     is applied in QML via a proxy model or JS filter.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect log entry binding and subsystem filter logic in LogsAnalyticsPane.qml.
 - test_case_id: TC-GUI-170
   owner: GUI Automation Team
@@ -1773,7 +1773,7 @@ test_cases:
     strips file:/// prefix and calls analytic_bridge.analytic_open_bench(path).
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check FileDialog onAccepted handler in BenchmarkAnalyticsPane.qml.
 - test_case_id: TC-GUI-171
   owner: GUI Automation Team
@@ -1800,7 +1800,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Refresh path validates benchmark CSV re-read and summary recomputation after file changes.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Trace analytic_refresh_bench_requested → presenter load_benchmark_csv.
 - test_case_id: TC-GUI-172
   owner: GUI Automation Team
@@ -1831,7 +1831,7 @@ test_cases:
   observations: 'AnalyticPanelPresenter._handle_clear_bench() calls set_bench_payload with empty payload.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Verify set_bench_payload zeroes all bench bridge properties.
 - test_case_id: TC-GUI-173
   owner: GUI Automation Team
@@ -1861,7 +1861,7 @@ test_cases:
     error banner visibility bound to _error != ''''.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Check error propagation from load_benchmark_csv → set_bench_payload → analytic_bench_error.
 - test_case_id: TC-GUI-174
   owner: GUI Automation Team
@@ -1892,7 +1892,7 @@ test_cases:
     QML reads from bridge property.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: 'Run load_benchmark_csv() directly on test CSV; compare returned totals against
     manually computed values.
 
@@ -1923,7 +1923,7 @@ test_cases:
   observations: 'BenchmarkAnalyticsPane builds _phaseRows from analytic_bench_by_phase and passes to BarChart.model.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect _phaseRows computed property in BenchmarkAnalyticsPane.qml.
 - test_case_id: TC-GUI-176
   owner: GUI Automation Team
@@ -1952,7 +1952,7 @@ test_cases:
     coloring.
 
     '
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect _subsystemRows computed property in BenchmarkAnalyticsPane.qml.
 - test_case_id: TC-GUI-180
   owner: GUI Automation Team
@@ -1981,7 +1981,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_qml_loads in testcase_basePanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: 'Print all QQmlComponent errors with file:line:column; fix missing import or syntax
     issue in base_panel.qml or AppComponents.
 
@@ -2007,7 +2007,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_qml_loads in testcase_vlaPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Print QQmlComponent errors; fix vla_panel.qml issues.
 - test_case_id: TC-GUI-182
   owner: GUI Automation Team
@@ -2030,7 +2030,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Corresponds to existing test_qml_loads in testcase_analyticPanel.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Print QQmlComponent errors; fix analytic_panel.qml issues.
 - test_case_id: TC-GUI-183
   owner: GUI Automation Team
@@ -2058,7 +2058,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Adds deeper coverage beyond existing stub navigation tests.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-184
   owner: GUI Automation Team
@@ -2083,7 +2083,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Fills gap where motor cases mostly spy signal emission only.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-219
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-185
   owner: GUI Automation Team
@@ -2110,7 +2110,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Presenter handler coverage consolidates VLA prompt, transport, and camera branch wiring.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-235
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-186
   owner: GUI Automation Team
@@ -2138,7 +2138,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Adds pure data coverage for analytic_data.py.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-283
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-187
   owner: GUI Automation Team
@@ -2165,7 +2165,7 @@ test_cases:
   test_environment_ci_hil: CI
   observations: QML compile coverage catches import/type errors without launching the full application
     window.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-215
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-188
   owner: GUI Automation Team
@@ -2193,7 +2193,7 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: InspectorDock validation protects against invalid duplicate camera source selection.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.
 - test_case_id: TC-GUI-189
   owner: GUI Automation Team
@@ -2220,5 +2220,5 @@ test_cases:
   automation_status: Ready
   test_environment_ci_hil: CI
   observations: Gesture overlay coverage uses fake controller events to avoid requiring HIL camera hardware.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-220
   next_action_if_fail: Inspect the referenced GUI bridge, presenter, QML, and test harness wiring.

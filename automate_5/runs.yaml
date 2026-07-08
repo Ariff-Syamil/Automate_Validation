@@ -2209,3 +2209,2228 @@ runs:
   run_name: Real_Run_03
   batch_id: 1e7799d5c8d0
   batch_duration_seconds: 484.097
+- id: 36d5af7c6daf
+  test_case_id: TC-SW-004
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: d06209bd8736
+  test_case_id: TC-SW-008
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 33a24b1b4cbb
+  test_case_id: TC-SW-010
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f62000710da4
+  test_case_id: TC-SW-012
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 9013cd8b20a5
+  test_case_id: TC-SW-016
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: d567be17b6c7
+  test_case_id: TC-SW-018
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 1a16eccd58f1
+  test_case_id: TC-SW-019
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 557dead843e6
+  test_case_id: TC-SW-022
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b3f63291f3b1
+  test_case_id: TC-FPGA-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 1acdcc36fccf
+  test_case_id: TC-VLA-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: c84f02842604
+  test_case_id: TC-GUI-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.23s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.323
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 4e14b48518c6
+  test_case_id: TC-GUI-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.20s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.204
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a39dcb000cf3
+  test_case_id: TC-GUI-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.23s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.269
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 07493a556892
+  test_case_id: TC-GUI-100
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 's                                                                        [100%]
+
+    1 skipped, 1 warning in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.72
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2071c89f136f
+  test_case_id: TC-GUI-103
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    .                                                                        [100%]
+
+    1 passed in 0.21s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_103 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.207
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b25f2d670b67
+  test_case_id: TC-GUI-120
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.77s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.942
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: db55d6103d97
+  test_case_id: TC-GUI-125
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 3.10s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 4.207
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: cfe833c80dfd
+  test_case_id: TC-GUI-130
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.44s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.472
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: c6c2776106af
+  test_case_id: TC-GUI-180
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.82s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.76
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 4e62ec8c31c6
+  test_case_id: TC-GUI-181
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.81s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.814
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 8e2fb6ce0667
+  test_case_id: TC-GUI-182
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 1.34s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.39
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 800acdc4199e
+  test_case_id: TC-GUI-189
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-110=BLOCKED: Run because TC-GUI-189 depends on this
+    test case. / Dependency is marked HIL/hardware environment; result may require physical hardware or
+    configured hardware mocks. / Automation status is Not Ready.; TC-GUI-111=BLOCKED: Run because TC-GUI-189
+    depends on this test case. / Dependency is marked HIL/hardware environment; result may require physical
+    hardware or configured hardware mocks. / Automation status is Not Ready.
+
+    .                                                                        [100%]
+
+    1 passed, 1 warning in 0.76s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_gesture_overlay_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.778
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 73c787c4d11d
+  test_case_id: TC-SW-005
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 060a42b0c836
+  test_case_id: TC-SW-009
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0df72e7f22c3
+  test_case_id: TC-SW-011
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2a964ec204e1
+  test_case_id: TC-SW-013
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 8c28c0421c9c
+  test_case_id: TC-SW-014
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b910bfa74d6e
+  test_case_id: TC-SW-015
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: d86941625bd8
+  test_case_id: TC-SW-017
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f1cdcf92d5b7
+  test_case_id: TC-SYS-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2954443be8cc
+  test_case_id: TC-GUI-010
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.24s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.303
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: c8cc1e22a067
+  test_case_id: TC-GUI-011
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.23s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.272
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: d9ae4525b2d6
+  test_case_id: TC-GUI-012
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.21s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.217
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a3449a8cecf4
+  test_case_id: TC-GUI-030
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.69s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.653
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 30e2ad5c115c
+  test_case_id: TC-GUI-040
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.69s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.622
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5032ea53aec4
+  test_case_id: TC-GUI-101
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this
+    test case. / s                                                                        [100%] / 1 skipped,
+    1 warning in 0.72s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 1 warning in 0.74s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_101 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.749
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b87c309c1b75
+  test_case_id: TC-GUI-102
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this
+    test case. / s                                                                        [100%] / 1 skipped,
+    1 warning in 0.75s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 1 warning in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_102 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.737
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5fd31cacedc4
+  test_case_id: TC-GUI-124
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-120=FAIL: Run because TC-GUI-124 depends on this test
+    case. / .                                                                        [100%] / 1 passed,
+    4 warnings in 0.75s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  /
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120 -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 4 warnings in 0.73s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_124 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.6
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2ded84945587
+  test_case_id: TC-GUI-131
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.47s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.611
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: becbcf396bc0
+  test_case_id: TC-GUI-187
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '........                                                                 [100%]
+
+    8 passed in 0.92s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.986
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 6809b3bdb9de
+  test_case_id: TC-SW-006
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: ec1c3da53b68
+  test_case_id: TC-SW-007
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5d6ed320e427
+  test_case_id: TC-SYS-004
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 790c5ccedcc4
+  test_case_id: TC-GUI-013
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.23s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.192
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a9418cf3190f
+  test_case_id: TC-GUI-020
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.73s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.721
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5e197bce623b
+  test_case_id: TC-GUI-041
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.69s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.661
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 4a6bf077c022
+  test_case_id: TC-GUI-070
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.74s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.775
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f9924b9de5eb
+  test_case_id: TC-GUI-121
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.72s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.428
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a273b7c0e945
+  test_case_id: TC-GUI-122
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 8 warnings in 0.75s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.492
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b4e317f34e02
+  test_case_id: TC-GUI-123
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.75s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.525
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: da6538bdfcc3
+  test_case_id: TC-GUI-132
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.45s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.428
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: eb3aef9bf221
+  test_case_id: TC-GUI-133
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.42s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.421
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 588e4f6a1eae
+  test_case_id: TC-GUI-160
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.45s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.439
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: bc10582e7ddb
+  test_case_id: TC-GUI-163
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.44s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.391
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5799cd376401
+  test_case_id: TC-GUI-170
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.43s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.387
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0381b736654c
+  test_case_id: TC-GUI-173
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.43s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.414
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 035ac3a6bcb3
+  test_case_id: TC-GUI-183
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.14s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.157
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 38d2a69da1e9
+  test_case_id: TC-GUI-188
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-101=BLOCKED: Run because TC-GUI-188 depends on this
+    test case. / Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends
+    on this test case. / s                                                                        [100%]
+    / 1 skipped, 1 warning in 0.75s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings
+    / s                                                                        [100%] / 1 skipped, 1 warning
+    in 0.74s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_101 -q --tb=short --disable-warnings;
+    TC-GUI-102=BLOCKED: Run because TC-GUI-188 depends on this test case. / Dependency not PASS (ran anyway):
+    TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this test case. / s                                                                        [100%]
+    / 1 skipped, 1 warning in 0.72s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100 -q --tb=short --disable-warnings
+    / s                                                                        [100%] / 1 skipped, 1 warning
+    in 0.70s /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_102 -q --tb=short --disable-warnings
+
+    .                                                                        [100%]
+
+    1 passed, 1 warning in 0.50s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_camera_source_forcing
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.496
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f890babcd931
+  test_case_id: TC-GUI-021
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 5 warnings in 0.74s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.641
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b0cf3bdfde69
+  test_case_id: TC-GUI-023
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 5 warnings in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.651
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b301e6ec12d7
+  test_case_id: TC-GUI-031
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.75s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.691
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 81c1fe453cb1
+  test_case_id: TC-GUI-032
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.75s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.739
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2bf975b34e1b
+  test_case_id: TC-GUI-050
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.73s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.74
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: d62d58418dd0
+  test_case_id: TC-GUI-056
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.70s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.651
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a038dc69f494
+  test_case_id: TC-GUI-057
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.685
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: e6ea2e60fde2
+  test_case_id: TC-GUI-071
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.74s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.754
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: e94f71d7467f
+  test_case_id: TC-GUI-072
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.71
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 6c723be95b56
+  test_case_id: TC-GUI-074
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.22s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.139
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2c39dd6c6a69
+  test_case_id: TC-GUI-076
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.71s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.757
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: fc26d40cb5a0
+  test_case_id: TC-GUI-134
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.45s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.42
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 435bd0855a70
+  test_case_id: TC-GUI-161
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.46s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.451
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 12230955be0e
+  test_case_id: TC-GUI-162
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.42s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.392
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f2d845fd5201
+  test_case_id: TC-GUI-164
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.45s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.434
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: e02b59b68964
+  test_case_id: TC-GUI-171
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.48s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.458
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 950e73411c2f
+  test_case_id: TC-GUI-172
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.47s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.404
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f72f8cbdb310
+  test_case_id: TC-GUI-174
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.47s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.48
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5c1f2becf68b
+  test_case_id: TC-GUI-185
+  date: '2026-07-06'
+  work_week: WW28
+  result: FAIL
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-120=FAIL: Run because TC-GUI-185 depends on this test
+    case. / .                                                                        [100%] / 1 passed,
+    4 warnings in 0.75s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  /
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120 -q --tb=short --disable-warnings;
+    TC-GUI-123=FAIL: Run because TC-GUI-185 depends on this test case. / .                                                                        [100%]
+    / 1 passed, 6 warnings in 0.76s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still
+    running /  / Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123 -q --tb=short --disable-warnings
+
+    .                                                                        [100%]
+
+    1 passed, 9 warnings in 0.79s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_vla_presenter_prompt_transport_and_camera
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 2.514
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 3f6c49841d54
+  test_case_id: TC-GUI-186
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 1 warning in 0.76s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.748
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: dfa7be911766
+  test_case_id: TC-GUI-022
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 8 warnings in 0.78s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.811
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: c319d9f92643
+  test_case_id: TC-GUI-051
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.71s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.771
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 1b2ddacd39a1
+  test_case_id: TC-GUI-053
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.76s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.823
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 10bb41dd895a
+  test_case_id: TC-GUI-054
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.69s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.662
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: '939961030212'
+  test_case_id: TC-GUI-055
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.70s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.682
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a216e0f01218
+  test_case_id: TC-GUI-060
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.75s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.705
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 41535c00e8b8
+  test_case_id: TC-GUI-073
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 5 warnings in 0.68s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.698
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: ed0ab57ff1c5
+  test_case_id: TC-GUI-075
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.70s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.662
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 1eba719bc822
+  test_case_id: TC-GUI-077
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.42s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.377
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: bd64d38131cc
+  test_case_id: TC-GUI-135
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.43s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.39
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 77058cd49184
+  test_case_id: TC-GUI-175
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.44s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.418
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 3e09a576158b
+  test_case_id: TC-GUI-176
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed in 0.44s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.405
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 680f881557dc
+  test_case_id: TC-GUI-184
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 5 warnings in 0.75s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.722
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 13f39bfd1f17
+  test_case_id: TC-GUI-052
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.71s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.686
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a8aae02e39b8
+  test_case_id: TC-GUI-061
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.70s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.689
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: e84991d7171e
+  test_case_id: TC-GUI-062
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.71s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.664
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: dffb6e6812fc
+  test_case_id: TC-GUI-063
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.677
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: dbb28185b6ce
+  test_case_id: TC-GUI-064
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.72s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.674
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 1d93413c32ce
+  test_case_id: TC-GUI-104
+  date: '2026-07-06'
+  work_week: WW28
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.73s
+
+
+    Command: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\.venv\Scripts\python.exe
+    -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104 -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  duration_seconds: 1.656
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: aaf0c67bd707
+  test_case_id: TC-FPGA-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b27e1ce5bff7
+  test_case_id: TC-FPGA-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a53a39f17ca0
+  test_case_id: TC-FPGA-004
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f3319472390c
+  test_case_id: TC-FPGA-005
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 02564df9f722
+  test_case_id: TC-FPGA-006
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 9da17ffe4b08
+  test_case_id: TC-GUI-110
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a5da43de89fb
+  test_case_id: TC-GUI-111
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 6f249180929d
+  test_case_id: TC-GUI-112
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0a68a95065a2
+  test_case_id: TC-HW-01
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: e819a4157de5
+  test_case_id: TC-HW-02
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a08a570f0160
+  test_case_id: TC-HW-03
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 23b2218d3c9a
+  test_case_id: TC-HW-04
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 23769ce09f7c
+  test_case_id: TC-HW-05
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f53cefd1bd79
+  test_case_id: TC-HW-06
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a25e6b0634b4
+  test_case_id: TC-HW-07
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 5a3e153c26d3
+  test_case_id: TC-HW-08
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: dd94a9f5d818
+  test_case_id: TC-HW-09
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0df37c896aa6
+  test_case_id: TC-HW-10
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 82328d083f15
+  test_case_id: TC-MAMC-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: a595a570aa8a
+  test_case_id: TC-MAMC-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f16b36b3f80f
+  test_case_id: TC-MAMC-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f1f775033cdf
+  test_case_id: TC-MAMC-004
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: c6914a334e4e
+  test_case_id: TC-MAMC-005
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: da566618d9cb
+  test_case_id: TC-MAMC-006
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: ba4ddafb0619
+  test_case_id: TC-SW-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: ba5478a66103
+  test_case_id: TC-SW-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: f12238ebe398
+  test_case_id: TC-SW-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 4febaca9d5d2
+  test_case_id: TC-SW-020
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: b363fc773426
+  test_case_id: TC-SW-021
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 6da8a01d7bb0
+  test_case_id: TC-SYS-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 86a763dbed20
+  test_case_id: TC-SYS-003
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0cd763feec2e
+  test_case_id: TC-SYS-005
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 488f97796e71
+  test_case_id: TC-VLA-001
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 7154e1db5b73
+  test_case_id: TC-VLA-002
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 2bbe56ac1841
+  test_case_id: TC-VLA-004
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 33d5c4cd09a3
+  test_case_id: TC-VLA-005
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074
+- id: 0b420b0be957
+  test_case_id: TC-VLA-006
+  date: '2026-07-06'
+  work_week: WW28
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ''
+  created_at: '2026-07-06T13:00:28'
+  run_name: Real_Run_06
+  batch_id: a52e478c5ce2
+  batch_duration_seconds: 463.074

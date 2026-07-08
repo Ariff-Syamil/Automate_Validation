@@ -1,7 +1,0 @@
-2026-06-22 02:17:40  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
-2026-06-22 02:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
-2026-06-22 02:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
-2026-06-22 02:17:40  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
-2026-06-22 02:17:40  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
-2026-06-22 02:17:40  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
-2026-06-22 02:17:40  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'

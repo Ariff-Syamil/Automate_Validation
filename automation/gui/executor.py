@@ -210,18 +210,11 @@ def _run_case(
                 f"{dep_id}={dep_result.result}: {dep_notes}"
             )
 
-    if failed_dependencies:
-        return _record(
-            version,
-            test_case_id,
-            "BLOCKED",
-            _join_notes(
-                trigger_note,
-                "Dependency not PASS: " + "; ".join(failed_dependencies),
-            ),
-            executed_by,
-            record=record,
-        )
+    dependency_note = (
+        "Dependency not PASS (ran anyway): " + "; ".join(failed_dependencies)
+        if failed_dependencies
+        else ""
+    )
 
     entry = _load_execution_overrides().get(test_case_id) or {}
     if not isinstance(entry, dict):
@@ -233,7 +226,7 @@ def _run_case(
             version,
             test_case_id,
             "BLOCKED",
-            _join_notes(trigger_note, _hardware_note(tc), str(blocked_reason)),
+            _join_notes(trigger_note, dependency_note, _hardware_note(tc), str(blocked_reason)),
             executed_by,
             record=record,
         )
@@ -280,6 +273,7 @@ def _run_case(
         duration = round(time.perf_counter() - started_at, 3)
         notes = _join_notes(
             trigger_note,
+            dependency_note,
             _hardware_note(tc),
             f"Timed out running pytest target after {exc.timeout}s: {pytest_target}",
         )
@@ -297,6 +291,7 @@ def _run_case(
         duration = round(time.perf_counter() - started_at, 3)
         notes = _join_notes(
             trigger_note,
+            dependency_note,
             _hardware_note(tc),
             f"Could not start pytest for {pytest_target}: {exc}",
         )
@@ -316,6 +311,7 @@ def _run_case(
     result = "BLOCKED" if _is_pytest_skip(combined, proc.returncode) else ("PASS" if proc.returncode == 0 else "FAIL")
     notes = _join_notes(
         trigger_note,
+        dependency_note,
         _hardware_note(tc),
         _summarize_output(combined) or f"pytest exited with code {proc.returncode}",
     )

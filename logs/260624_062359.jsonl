@@ -1,7 +1,0 @@
-{"ts": "2026-06-24T06:24:00.018253", "level": "INFO", "subsystem": "GUI", "sub_id": 1, "phase": "PLAY", "phase_id": 114, "code": 0, "code_name": "", "message": "Base transport: Play"}
-{"ts": "2026-06-24T06:24:00.018541", "level": "WARN", "subsystem": "GUI", "sub_id": 1, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "[DIAG][gesture] heartbeat START  gesture_enabled=True"}
-{"ts": "2026-06-24T06:24:00.018649", "level": "INFO", "subsystem": "GUI", "sub_id": 1, "phase": "STOP", "phase_id": 116, "code": 0, "code_name": "", "message": "Base transport: Stop"}
-{"ts": "2026-06-24T06:24:00.018834", "level": "WARN", "subsystem": "GUI", "sub_id": 1, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "[DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s"}
-{"ts": "2026-06-24T06:24:00.018990", "level": "INFO", "subsystem": "GUI", "sub_id": 1, "phase": "PLAY", "phase_id": 114, "code": 0, "code_name": "", "message": "Base transport: Play"}
-{"ts": "2026-06-24T06:24:00.019061", "level": "WARN", "subsystem": "GUI", "sub_id": 1, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "[DIAG][gesture] heartbeat START  gesture_enabled=True"}
-{"ts": "2026-06-24T06:24:00.021032", "level": "WARN", "subsystem": "GUI", "sub_id": 1, "phase": "", "phase_id": 0, "code": 0, "code_name": "", "message": "[DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s"}

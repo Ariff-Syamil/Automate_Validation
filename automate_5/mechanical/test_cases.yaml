@@ -21,7 +21,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: HIL acceptance case for safe startup and homing before any movement tests.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Collect controller boot logs, servo fault state, and homing sensor readings before
     retrying.
 - test_case_id: TC-HW-02
@@ -50,7 +50,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: Foundational HIL motion case for validating individual joint actuation before coordinated
     movement.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Disable the affected joint and inspect motor driver status, encoder calibration,
     and configured soft limits.
 - test_case_id: TC-HW-03
@@ -78,7 +78,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Validates coordinated motion after individual joint movement is proven.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Review trajectory planner output, joint calibration, and controller fault logs
     for the failed target.
 - test_case_id: TC-HW-04
@@ -100,7 +100,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: HIL case requires a physical object and visual confirmation of grip retention.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Inspect gripper actuation command, force setting, object alignment, and mechanical
     wear.
 - test_case_id: TC-HW-05
@@ -128,7 +128,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Critical HIL load case; do not run before basic motion validation passes.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Stop load testing and inspect torque limits, payload rating, joint current traces,
     and mechanical mounting.
 - test_case_id: TC-HW-06
@@ -155,7 +155,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Validates controller speed profile handling across representative operating modes.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Review speed profile configuration, controller scaling, and encoder feedback timing.
 - test_case_id: TC-HW-07
   owner: Ji Lik / Ariff
@@ -185,7 +185,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: Position accuracy depends on prior coordinated movement validation and calibrated measurement
     setup.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Recalibrate home position, inspect kinematic parameters, and repeat the failed
     coordinate set.
 - test_case_id: TC-HW-08
@@ -216,7 +216,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Safety-critical HIL case; run with operator ready to remove power.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Keep the system disabled and inspect E-stop wiring, safety relay status, and controller
     interlock handling.
 - test_case_id: TC-HW-09
@@ -247,7 +247,7 @@ test_cases:
   test_environment_ci_hil: HIL
   observations: HIL safety behavior depends on configured force/current thresholds and obstacle fixture
     placement.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Inspect collision thresholds, current sensing, and obstacle placement before repeating
     the case.
 - test_case_id: TC-HW-10
@@ -278,6 +278,6 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Long-duration HIL soak case; schedule after all shorter safety and motion cases pass.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-266
   next_action_if_fail: Collect thermal/current logs and inspect mechanical wear or controller fault history
     before retrying.

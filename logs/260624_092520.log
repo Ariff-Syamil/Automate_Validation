@@ -1,3 +1,0 @@
-2026-06-24 09:25:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
-2026-06-24 09:25:21  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
-2026-06-24 09:25:21  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'

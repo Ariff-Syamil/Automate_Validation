@@ -1,0 +1,66 @@
+2026-06-22 02:17:16  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-06-22 02:17:16  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-06-22 02:17:16  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-22 02:17:34  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:17:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:17:34  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:17:38  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-06-22 02:17:38  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-06-22 02:17:38  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-22 02:17:40  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-06-22 02:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-06-22 02:17:40  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-22 02:17:40  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-06-22 02:17:40  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-06-22 02:17:40  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-22 02:17:40  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-22 02:17:42  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-06-22 02:17:42  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-06-22 02:17:42  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-06-22 02:17:42  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-06-22 02:17:42  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-06-22 02:17:52  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:17:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:17:52  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-22 02:17:52  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:17:53  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:17:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:17:53  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-06-22 02:17:53  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:17:55  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:17:55  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:17:55  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:17:56  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:17:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:17:56  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:17:59  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-06-22 02:18:00  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-22 02:18:16  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:18:16  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:18:16  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-06-22 02:18:16  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:18:16  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-06-22 02:18:16  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-06-22 02:18:16  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:18:17  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-06-22 02:18:19  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-22 02:18:20  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-06-22 02:18:22  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-06-22 02:18:23  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-22 02:18:24  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-06-22 02:18:24  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-22 02:18:24  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-06-22 02:18:24  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-06-22 02:18:26  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-06-22 02:18:32  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-06-22 02:18:32  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-06-22 02:18:32  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-06-22 02:18:32  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-06-22 02:18:34  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-06-22 02:18:36  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-06-22 02:18:37  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-06-22 02:18:38  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-06-22 02:18:40  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-06-22 02:18:42  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-06-22 02:18:42  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-06-22 02:18:42  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'

@@ -1,3 +1,0 @@
-2026-06-22 02:17:16  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
-2026-06-22 02:17:16  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
-2026-06-22 02:17:16  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started

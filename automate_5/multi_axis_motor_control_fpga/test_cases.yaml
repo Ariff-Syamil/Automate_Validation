@@ -26,7 +26,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Foundation bring-up case for the reserved MAMC validation area.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Check bitstream version, clock/reset tree, host-interface wiring, and power sequencing
     before running axis tests.
 - test_case_id: TC-MAMC-002
@@ -56,7 +56,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Can be partially automated with command-decoder simulation before HIL execution.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Inspect frame parsing, axis bounds checks, payload length validation, and command-state
     update ordering.
 - test_case_id: TC-MAMC-003
@@ -87,7 +87,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Safety-critical HIL case; start with dummy load before live motor validation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Review PWM timer configuration, current-sense scaling, PI gains, and current-limit
     comparator wiring.
 - test_case_id: TC-MAMC-004
@@ -119,7 +119,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Defines the safety gate for all later live-axis MAMC tests.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Keep outputs disabled and inspect fault input synchronization, latch logic, and
     recovery state machine.
 - test_case_id: TC-MAMC-005
@@ -149,7 +149,7 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: CI
   observations: Supports CI simulation and HIL readback; pairs with command decoder validation.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Inspect telemetry packing, axis indexing, register snapshot timing, and host parser
     alignment.
 - test_case_id: TC-MAMC-006
@@ -181,6 +181,6 @@ test_cases:
   automation_status: In Progress
   test_environment_ci_hil: HIL
   observations: Endurance case for MAMC FPGA after individual safety and telemetry paths pass.
-  jira_link: null
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-237
   next_action_if_fail: Correlate axis telemetry, current/thermal logs, and command scheduler traces to
     identify the first failing axis or shared resource.
