@@ -1534,6 +1534,159 @@ AddTestDialog = TestCaseFormDialog
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  Manual Result Dialog – operator input for hardware-dependent test cases
+#  that have no automation script (e.g. TC-HW / mechanical, HIL-only cases)
+# ═══════════════════════════════════════════════════════════════════════════
+
+class ManualResultDialog(QDialog):
+    """Ask the operator for the observed result of a test case that cannot
+    be executed by automation because it depends on physical hardware
+    (``test_environment_ci_hil: HIL``).
+
+    Cancelling (or "Skip -> Blocked") signals the caller to fall back to
+    BLOCKED instead of silently recording it without ever asking.
+    """
+
+    def __init__(self, tid: str, meta: dict, dependencies: list[dict] | None = None, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle(f"Manual Result Required – {tid}")
+        self.setMinimumWidth(480)
+
+        outer = QVBoxLayout(self)
+        outer.setContentsMargins(16, 14, 16, 14)
+        outer.setSpacing(10)
+
+        # Test-case context (name, precondition, expected result, dependency
+        # history) can get long — especially with several dependencies — so
+        # it scrolls independently and never pushes the result/notes/buttons
+        # off-screen.
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.Shape.NoFrame)
+        scroll.viewport().setStyleSheet("background-color: #1e1e2e;")
+        inner = QWidget()
+        inner.setObjectName("dialogContent")
+        inner.setAttribute(Qt.WidgetAttribute.WA_StyledBackground, True)
+        content = QVBoxLayout(inner)
+        content.setContentsMargins(0, 0, 0, 0)
+        content.setSpacing(10)
+
+        heading = QLabel(f"{tid}  —  {meta.get('test_name') or ''}")
+        heading.setObjectName("heading")
+        heading.setWordWrap(True)
+        content.addWidget(heading)
+
+        info = QLabel(
+            "No automation script exists for this test case and it requires "
+            "physical hardware (HIL). Run it manually, then enter the "
+            "observed result below. If you skip this, it will be recorded "
+            "as BLOCKED."
+        )
+        info.setWordWrap(True)
+        info.setProperty("role", "fieldLabel")
+        content.addWidget(info)
+
+        if meta.get("precondition"):
+            precondition = QLabel(f"Precondition: {meta['precondition']}")
+            precondition.setWordWrap(True)
+            content.addWidget(precondition)
+
+        if meta.get("expected_result"):
+            expected = QLabel(f"Expected result: {meta['expected_result']}")
+            expected.setWordWrap(True)
+            content.addWidget(expected)
+
+        if dependencies:
+            dep_box = QGroupBox("Dependencies (already run)")
+            dep_layout = QVBoxLayout(dep_box)
+            dep_layout.setSpacing(8)
+            for dep in dependencies:
+                dep_id = dep.get("id") or ""
+                dep_name = dep.get("test_name") or ""
+                header_text = f"{dep_id}  —  {dep_name}" if dep_name else dep_id
+                header = QLabel(header_text)
+                header.setWordWrap(True)
+                header.setStyleSheet("font-weight: bold;")
+                dep_layout.addWidget(header)
+
+                dep_result = (dep.get("result") or "NOT RUN").upper()
+                fg = RUN_RESULT_COLORS.get(dep_result, (None, "#cdd6f4"))[1]
+                source = dep.get("source") or ""
+                result_text = f"Result: {dep_result}"
+                if source:
+                    result_text += f"  ({source})"
+                result_lbl = QLabel(result_text)
+                result_lbl.setWordWrap(True)
+                result_lbl.setStyleSheet(f"color: {fg};")
+                dep_layout.addWidget(result_lbl)
+
+                if dep.get("expected_result"):
+                    exp_lbl = QLabel(f"Expected: {dep['expected_result']}")
+                    exp_lbl.setWordWrap(True)
+                    exp_lbl.setProperty("role", "fieldLabel")
+                    dep_layout.addWidget(exp_lbl)
+            content.addWidget(dep_box)
+
+        content.addStretch()
+        scroll.setWidget(inner)
+        outer.addWidget(scroll, 1)
+
+        # ── Fixed footer: always visible, never scrolled out of view ────────
+        form = QFormLayout()
+        form.setHorizontalSpacing(14)
+        form.setVerticalSpacing(8)
+
+        self.combo_result = QComboBox()
+        self.combo_result.addItems(("PASS", "FAIL", "BLOCKED", "NOT RUN"))
+        form.addRow(QLabel("Observed result:"), self.combo_result)
+        outer.addLayout(form)
+
+        self.txt_notes = QTextEdit()
+        self.txt_notes.setPlaceholderText(
+            "Observations / evidence for this manual result (optional)"
+        )
+        self.txt_notes.setMinimumHeight(70)
+        self.txt_notes.setMaximumHeight(110)
+        outer.addWidget(self.txt_notes)
+
+        btn_row = QHBoxLayout()
+        btn_row.addStretch()
+        btn_blocked = QPushButton("Skip -> Blocked")
+        btn_blocked.setObjectName("secondary")
+        btn_blocked.clicked.connect(self.reject)
+        btn_row.addWidget(btn_blocked)
+
+        btn_save = QPushButton("Save Result")
+        btn_save.setObjectName("success")
+        btn_save.setDefault(True)
+        btn_save.clicked.connect(self.accept)
+        btn_row.addWidget(btn_save)
+        outer.addLayout(btn_row)
+
+        self._size_to_screen()
+
+    def _size_to_screen(self) -> None:
+        """Cap the dialog height to the available screen so it never renders
+        off-screen, regardless of how much dependency/context content there
+        is to show; the scroll area absorbs the overflow instead."""
+        screen = self.screen() or QApplication.primaryScreen()
+        target_width = 560
+        target_height = 640
+        if screen is not None:
+            avail = screen.availableGeometry()
+            target_height = min(target_height, max(360, int(avail.height() * 0.85)))
+            target_width = min(target_width, max(420, int(avail.width() * 0.9)))
+        self.resize(target_width, target_height)
+        self.setMaximumHeight(target_height)
+
+    def result_value(self) -> str:
+        return self.combo_result.currentText().strip().upper()
+
+    def notes_value(self) -> str:
+        return self.txt_notes.toPlainText().strip()
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  Run Form Dialog – create one record per selected test case OR edit one
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -1542,8 +1695,12 @@ class RunFormDialog(QDialog):
 
     Two modes:
       * **Create** – pass `test_case_ids=[...]`. Selected TC-GUI cases are
-        executed and one new run record is appended per ID. Non-executable
-        cases are recorded as BLOCKED.
+        executed and one new run record is appended per ID. Hardware-dependent
+        cases with no automation script (``test_environment_ci_hil: HIL``)
+        are deferred to run last (see ``_defer_manual_to_end``) and prompt
+        the operator for a manual result, showing each dependency's result
+        and expected outcome for context; if skipped, they fall back to
+        BLOCKED. All other non-executable cases are recorded as BLOCKED.
       * **Edit**   – pass `existing_run={...}` plus `existing_index=int`. The
         single record at that position in `runs.yaml` is updated in place.
     """
@@ -1689,8 +1846,10 @@ class RunFormDialog(QDialog):
         if not self._is_edit:
             self.combo_result.setEnabled(False)
             self.combo_result.setToolTip(
-                "New run results are filled from automation. Non-executable "
-                "test cases are recorded as BLOCKED."
+                "New run results are filled from automation. Hardware-dependent "
+                "test cases with no automation script prompt for a manual "
+                "result; other non-executable test cases are recorded as "
+                "BLOCKED."
             )
         form.addRow(self._field_label("Result:"), self.combo_result)
 
@@ -1792,6 +1951,8 @@ class RunFormDialog(QDialog):
                             "dependency": tc.get("dependency") or [],
                             "automation_status": tc.get("automation_status") or "",
                             "test_environment_ci_hil": tc.get("test_environment_ci_hil") or "",
+                            "precondition": tc.get("precondition") or "",
+                            "expected_result": tc.get("expected_result") or "",
                         }
         return self._test_case_meta_cache.get(tid, {})
 
@@ -1805,6 +1966,64 @@ class RunFormDialog(QDialog):
     def _is_executable_test_case(self, tid: str) -> bool:
         return self._test_case_subcomponent(tid) == "gui" and tid.startswith("TC-GUI-")
 
+    def _is_hardware_dependent(self, tid: str) -> bool:
+        """True for test cases that need physical hardware (HIL) to run.
+
+        These can never be exercised by ``run_case`` automation, so instead
+        of silently recording BLOCKED, the executor loop asks the operator
+        for the manually-observed result.
+        """
+        env = (self._test_case_meta(tid).get("test_environment_ci_hil") or "").strip().upper()
+        return env == "HIL"
+
+    def _dependency_context(self, tid: str, executed_so_far: dict[str, str]) -> list[dict]:
+        """Build a display summary of each dependency of ``tid``: its result
+        (from this batch if already run, else the latest historical run) and
+        its expected-result text, so the operator has context on whether the
+        prerequisite actually passed before entering a manual result.
+        """
+        historical = latest_run_per_test_case(self._state.get("runs") or [])
+        context: list[dict] = []
+        for dep in self._dependency_ids(tid):
+            meta = self._test_case_meta(dep)
+            if dep in executed_so_far:
+                result = executed_so_far[dep]
+                source = "this run"
+            else:
+                hist = historical.get(dep)
+                if hist:
+                    result = (hist.get("result") or "NOT RUN").upper()
+                    source = " ".join(
+                        part for part in (hist.get("work_week"), hist.get("date")) if part
+                    )
+                else:
+                    result = "NOT RUN"
+                    source = "no prior run"
+            context.append({
+                "id": dep,
+                "test_name": meta.get("test_name") or "",
+                "result": result,
+                "source": source,
+                "expected_result": meta.get("expected_result") or "",
+            })
+        return context
+
+    def _prompt_manual_result(
+        self, tid: str, executed_so_far: dict[str, str] | None = None
+    ) -> tuple[str, str] | None:
+        """Ask the operator for the manually-observed result of a
+        hardware-dependent, non-automatable test case.
+
+        Returns ``(result, notes)`` if the operator supplied a result, or
+        ``None`` if they skipped it (the caller should then fall back to
+        BLOCKED).
+        """
+        dep_context = self._dependency_context(tid, executed_so_far or {})
+        dlg = ManualResultDialog(tid, self._test_case_meta(tid), dep_context, self)
+        if dlg.exec() == QDialog.DialogCode.Accepted:
+            return dlg.result_value(), dlg.notes_value()
+        return None
+
     def _dependency_ids(self, tid: str) -> list[str]:
         deps = self._test_case_meta(tid).get("dependency") or []
         if isinstance(deps, str):
@@ -1816,10 +2035,10 @@ class RunFormDialog(QDialog):
 
         Non-ready test cases are intentionally NOT filtered out here: they still
         need a run record. Non-GUI cases are recorded BLOCKED by the execution
-        loop below, and non-ready TC-GUI cases are recorded BLOCKED by
-        ``run_case`` itself (see ``automation/gui/executor.py``). Silently
-        dropping them here would leave selected test cases with no run record
-        at all.
+        loop below (after prompting for a manual result if hardware-dependent),
+        and non-ready TC-GUI cases are recorded BLOCKED by ``run_case`` itself
+        (see ``automation/gui/executor.py``). Silently dropping them here would
+        leave selected test cases with no run record at all.
         """
         known_tids = set(self._all_tids)
         seen: set[str] = set()
@@ -1868,6 +2087,26 @@ class RunFormDialog(QDialog):
                 pending.remove(tid)
 
         return ordered
+
+    def _defer_manual_to_end(self, tids: list[str]) -> list[str]:
+        """Move hardware-dependent, non-automatable test cases to the end of
+        the run order.
+
+        Automatable and auto-BLOCKED cases finish first (fast, no operator
+        interaction needed), so by the time each manual prompt appears its
+        dependency results from *this run* are already recorded and can be
+        shown as context. Relative order is preserved within each group, so
+        the topological ordering from ``_dependency_priority_order`` still
+        holds inside each half. (Edge case: if a non-manual case depended on
+        a manual one, it would now run before that dependency — not seen in
+        current test data, where hardware cases are always leaves.)
+        """
+        manual = [tid for tid in tids if self._needs_manual_result(tid)]
+        other = [tid for tid in tids if not self._needs_manual_result(tid)]
+        return other + manual
+
+    def _needs_manual_result(self, tid: str) -> bool:
+        return not self._is_executable_test_case(tid) and self._is_hardware_dependent(tid)
 
     @staticmethod
     def _combine_run_notes(user_notes: str, detail_notes: str) -> str:
@@ -2035,6 +2274,7 @@ class RunFormDialog(QDialog):
                 )
                 return
             tids, missing_dependencies = self._with_dependencies(selected_tids)
+            tids = self._defer_manual_to_end(tids)
             if missing_dependencies:
                 QMessageBox.warning(
                     self,
@@ -2074,6 +2314,7 @@ class RunFormDialog(QDialog):
             QApplication.processEvents()
             try:
                 execution_results = []
+                results_by_tid: dict[str, str] = {}
                 for idx, tid in enumerate(tids, start=1):
                     progress.setLabelText(f"Running {idx}/{len(tids)}: {tid}")
                     progress.setValue(idx - 1)
@@ -2096,6 +2337,20 @@ class RunFormDialog(QDialog):
                                 f"Automation failed before producing a result: {exc}",
                             )
                             duration_seconds = None
+                    elif self._is_hardware_dependent(tid):
+                        manual = self._prompt_manual_result(tid, results_by_tid)
+                        if manual is not None:
+                            run_result, manual_notes = manual
+                            run_notes = self._combine_run_notes(notes, manual_notes)
+                        else:
+                            run_result = "BLOCKED"
+                            run_notes = self._combine_run_notes(
+                                notes,
+                                "Hardware-dependent test case with no automation "
+                                "script; no manual result was supplied, so it was "
+                                "recorded as BLOCKED.",
+                            )
+                        duration_seconds = None
                     else:
                         run_result = "BLOCKED"
                         run_notes = self._combine_run_notes(
@@ -2105,6 +2360,7 @@ class RunFormDialog(QDialog):
                         )
                         duration_seconds = None
                     execution_results.append((tid, run_result))
+                    results_by_tid[tid] = run_result
                     run_record = {
                         "id":           uuid.uuid4().hex[:12],
                         "test_case_id": tid,
