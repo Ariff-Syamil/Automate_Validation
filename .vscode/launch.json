@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: gui.py",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/gui.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "purpose": ["debug-in-terminal"],
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "LD_LIBRARY_PATH": "${env:HOME}/.local/lib:${env:LD_LIBRARY_PATH}"
+      }
+    }
+  ]
+}

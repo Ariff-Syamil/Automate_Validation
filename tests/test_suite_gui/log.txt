@@ -1,8 +1,8 @@
 Test run log (overwritten each run)
-Finished: 2026-07-06 05:07:45 UTC
-Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_gui
+Finished: 2026-07-17 10:02:40 UTC
+Suite directory: /home/thor/Validation/Automate_Validation/tests/test_suite_gui
 
 Results:
-  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
+  PASSED    tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_gesture_overlay_handlers
 
 OVERALL: PASSED
