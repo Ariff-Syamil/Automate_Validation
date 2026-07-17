@@ -4434,3 +4434,2294 @@ runs:
   run_name: Real_Run_06
   batch_id: a52e478c5ce2
   batch_duration_seconds: 463.074
+- id: 514d3e8ffe64
+  test_case_id: TC-SW-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a05a0f25a2ec
+  test_case_id: TC-SW-010
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: bf5631ee18ee
+  test_case_id: TC-SW-012
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 8a93b44f3ff8
+  test_case_id: TC-SW-016
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 684920bb9767
+  test_case_id: TC-SW-018
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: be399e7bfcfc
+  test_case_id: TC-SW-021
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 95eb5ad7499f
+  test_case_id: TC-GUI-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.14s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.872
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: f702ffdd301a
+  test_case_id: TC-GUI-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.494
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c2d4de2b38d9
+  test_case_id: TC-GUI-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.11s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.478
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: b4ddc74c14a9
+  test_case_id: TC-GUI-100
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 's                                                                        [100%]
+
+    1 skipped, 3 warnings in 0.20s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.6
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 77fac73f9505
+  test_case_id: TC-GUI-103
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    .                                                                        [100%]
+
+    1 passed, 2 warnings in 0.11s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_103
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.467
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: faa37dfdddcd
+  test_case_id: TC-GUI-120
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.20s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.554
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e985127e1b41
+  test_case_id: TC-GUI-125
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.20s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.587
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: fd9364d55914
+  test_case_id: TC-GUI-130
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.537
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 3a019fd9a956
+  test_case_id: TC-GUI-180
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.579
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e5ca7df5ecd6
+  test_case_id: TC-GUI-181
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.597
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e303612b84eb
+  test_case_id: TC-GUI-182
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.601
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 3c2d07c6b01f
+  test_case_id: TC-SW-011
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 3eb853ce7384
+  test_case_id: TC-SW-013
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c56b5e7cad9b
+  test_case_id: TC-SW-014
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 8896034ca715
+  test_case_id: TC-SW-015
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 694719f5a55c
+  test_case_id: TC-SW-017
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: ab3bdf10b7fd
+  test_case_id: TC-SW-019
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 70e2a7d932dc
+  test_case_id: TC-SW-022
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: cecdf9d42663
+  test_case_id: TC-GUI-010
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.48
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 66a2d7c961a0
+  test_case_id: TC-GUI-011
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.495
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4f12cbaa7bfd
+  test_case_id: TC-GUI-012
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.11s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.482
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 665b897cf3e8
+  test_case_id: TC-GUI-030
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.558
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: daea018c16eb
+  test_case_id: TC-GUI-040
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.569
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: ffd94bc0f796
+  test_case_id: TC-GUI-101
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends on this
+    test case. / s                                                                        [100%] / 1 skipped,
+    3 warnings in 0.18s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_101
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.555
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 92b8f9ed9cca
+  test_case_id: TC-GUI-102
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this
+    test case. / s                                                                        [100%] / 1 skipped,
+    3 warnings in 0.18s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_102
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.569
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 50091106b7b9
+  test_case_id: TC-GUI-124
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-120=FAIL: Run because TC-GUI-124 depends on this test
+    case. / .                                                                        [100%] / 1 passed,
+    6 warnings in 0.20s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  /
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings
+
+    s                                                                        [100%]
+
+    1 skipped, 6 warnings in 0.21s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_124
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.532
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: aec178e03e2e
+  test_case_id: TC-GUI-131
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.556
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 8290c88d5b7d
+  test_case_id: TC-GUI-187
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '........                                                                 [100%]
+
+    8 passed, 2 warnings in 0.33s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.745
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 02504a3551e4
+  test_case_id: TC-SW-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 0b088ddedb00
+  test_case_id: TC-SW-020
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a0dc593df882
+  test_case_id: TC-MAMC-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 514b64c42451
+  test_case_id: TC-GUI-013
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.542
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 00370146a793
+  test_case_id: TC-GUI-020
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.609
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e011a09a9b90
+  test_case_id: TC-GUI-041
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.588
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 80d610600221
+  test_case_id: TC-GUI-070
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.58
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a352b6e0f03f
+  test_case_id: TC-GUI-121
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.21s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.574
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 62fc5ce505fc
+  test_case_id: TC-GUI-122
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.22s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.614
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 206861e64d99
+  test_case_id: TC-GUI-123
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: '.                                                                        [100%]
+
+    1 passed, 8 warnings in 0.20s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.542
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: fcdb49ca9ce4
+  test_case_id: TC-GUI-132
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.539
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 87488cf7c7cd
+  test_case_id: TC-GUI-133
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.536
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 8fad686274df
+  test_case_id: TC-GUI-160
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.545
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 9d8f8c555005
+  test_case_id: TC-GUI-163
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.552
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5131d8e8b709
+  test_case_id: TC-GUI-170
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.547
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e737c4ffc440
+  test_case_id: TC-GUI-173
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.562
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 9bf531d82a1f
+  test_case_id: TC-GUI-183
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.509
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: aebc1e92fd9f
+  test_case_id: TC-GUI-188
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-101=BLOCKED: Run because TC-GUI-188 depends on this
+    test case. / Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-101 depends
+    on this test case. / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.18s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.18s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_101
+    -q --tb=short --disable-warnings; TC-GUI-102=BLOCKED: Run because TC-GUI-188 depends on this test
+    case. / Dependency not PASS (ran anyway): TC-GUI-100=BLOCKED: Run because TC-GUI-102 depends on this
+    test case. / s                                                                        [100%] / 1 skipped,
+    3 warnings in 0.18s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+    -q --tb=short --disable-warnings / s                                                                        [100%]
+    / 1 skipped, 3 warnings in 0.19s /  / Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_102
+    -q --tb=short --disable-warnings
+
+    .                                                                        [100%]
+
+    1 passed, 3 warnings in 0.17s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_camera_source_forcing
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.594
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 49ad71b7ee56
+  test_case_id: TC-FPGA-006
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 64bbc91b2e30
+  test_case_id: TC-SW-004
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2c1184f4f780
+  test_case_id: TC-SW-008
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 37e5088dc958
+  test_case_id: TC-MAMC-005
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 12ecac2a4ec5
+  test_case_id: TC-GUI-021
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.606
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 6c6ed2380864
+  test_case_id: TC-GUI-023
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.586
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e9cc6f160feb
+  test_case_id: TC-GUI-031
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.6
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 6fede7e8fdff
+  test_case_id: TC-GUI-032
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.613
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a3df5b157a28
+  test_case_id: TC-GUI-050
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.571
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: fd9ca9063952
+  test_case_id: TC-GUI-056
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.589
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a126c35b4c72
+  test_case_id: TC-GUI-057
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.583
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4abca1e90f07
+  test_case_id: TC-GUI-071
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.576
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 6f6c35771963
+  test_case_id: TC-GUI-072
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.611
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 36199398da30
+  test_case_id: TC-GUI-074
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.12s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.513
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: d1176e546fc4
+  test_case_id: TC-GUI-076
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.573
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 47a563bb6851
+  test_case_id: TC-GUI-110
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 54b5e303297c
+  test_case_id: TC-GUI-134
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.582
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: de7bb5946a74
+  test_case_id: TC-GUI-161
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.568
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5bbe0619f65b
+  test_case_id: TC-GUI-162
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.554
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 71f94958e93d
+  test_case_id: TC-GUI-164
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.558
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4a449aa95c95
+  test_case_id: TC-GUI-171
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.559
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: f63a920a77ed
+  test_case_id: TC-GUI-172
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.573
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5669c1b370e1
+  test_case_id: TC-GUI-174
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.17s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.626
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 1607f69ddc60
+  test_case_id: TC-GUI-185
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-120=FAIL: Run because TC-GUI-185 depends on this test
+    case. / .                                                                        [100%] / 1 passed,
+    6 warnings in 0.19s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  /
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+    -q --tb=short --disable-warnings; TC-GUI-123=FAIL: Run because TC-GUI-185 depends on this test case.
+    / .                                                                        [100%] / 1 passed, 8 warnings
+    in 0.20s /  / QThread: Destroyed while thread ''VlaInferenceWorker'' is still running /  / Command:
+    /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+    -q --tb=short --disable-warnings
+
+    .                                                                        [100%]
+
+    1 passed, 11 warnings in 0.21s
+
+
+    QThread: Destroyed while thread ''VlaInferenceWorker'' is still running
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_vla_presenter_prompt_transport_and_camera
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.557
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c417decee59e
+  test_case_id: TC-GUI-186
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.605
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: bf498bddfa75
+  test_case_id: TC-SW-005
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 9d51bbaf6f00
+  test_case_id: TC-SW-009
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: dd99f8148e30
+  test_case_id: TC-SYS-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 8a220733826d
+  test_case_id: TC-GUI-022
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 10 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.581
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c0ce39d095ef
+  test_case_id: TC-GUI-051
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.594
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4901339de404
+  test_case_id: TC-GUI-053
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.32s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.863
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2d26938137a5
+  test_case_id: TC-GUI-054
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.644
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 7c8684367390
+  test_case_id: TC-GUI-055
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.579
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e57a14d57c0a
+  test_case_id: TC-GUI-060
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.662
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 189815f61f52
+  test_case_id: TC-GUI-073
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 8 warnings in 0.20s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.654
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: cd0f9ece1617
+  test_case_id: TC-GUI-075
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.664
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 09693734c586
+  test_case_id: TC-GUI-077
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.14s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.555
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: d070660cbdd5
+  test_case_id: TC-GUI-111
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 331f74752b2e
+  test_case_id: TC-GUI-112
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Dependency is marked HIL/hardware environment; result may require physical hardware or configured
+    hardware mocks.
+
+    Automation status is Not Ready.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 7f5e8acc5f4d
+  test_case_id: TC-GUI-135
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.15s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.582
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 7b3e8ea3c552
+  test_case_id: TC-GUI-175
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.602
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 60d9cfe1d933
+  test_case_id: TC-GUI-176
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 2 warnings in 0.16s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.551
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 24027f25f3b5
+  test_case_id: TC-GUI-184
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 7 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.667
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4d8011a6ec43
+  test_case_id: TC-SW-006
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2d75932ddd52
+  test_case_id: TC-SW-007
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a811291e09ba
+  test_case_id: TC-GUI-052
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.589
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: d97775d190e7
+  test_case_id: TC-GUI-061
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.618
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 28e09bed443e
+  test_case_id: TC-GUI-062
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.637
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 35c53ddfa5ea
+  test_case_id: TC-GUI-063
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.608
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 13c0e3782b74
+  test_case_id: TC-GUI-064
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 4 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.717
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 36d335cf78f8
+  test_case_id: TC-GUI-104
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: '.                                                                        [100%]
+
+    1 passed, 6 warnings in 0.19s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.58
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5918ee51f277
+  test_case_id: TC-GUI-189
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: 'Dependency not PASS (ran anyway): TC-GUI-110=BLOCKED: Run because TC-GUI-189 depends on this
+    test case. / Dependency is marked HIL/hardware environment; result may require physical hardware or
+    configured hardware mocks. / Automation status is Not Ready.; TC-GUI-111=BLOCKED: Run because TC-GUI-189
+    depends on this test case. / Dependency is marked HIL/hardware environment; result may require physical
+    hardware or configured hardware mocks. / Automation status is Not Ready.
+
+    .                                                                        [100%]
+
+    1 passed, 3 warnings in 0.18s
+
+
+    Command: /home/thor/Automate5/.venv/bin/python -m pytest tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_gesture_overlay_handlers
+    -q --tb=short --disable-warnings'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  duration_seconds: 1.585
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c2374f2165b8
+  test_case_id: TC-SYS-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 81fd11851b70
+  test_case_id: TC-SYS-004
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: 'Automation unavailable: only TC-GUI cases can be executed automatically.'
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 211975fd5882
+  test_case_id: TC-FPGA-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: fa8a9fa69ed8
+  test_case_id: TC-FPGA-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: ''
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a086f0297a28
+  test_case_id: TC-HW-04
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2d2cf6a314e4
+  test_case_id: TC-FPGA-004
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 71af81ee099a
+  test_case_id: TC-FPGA-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: ''
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: a292ba61257a
+  test_case_id: TC-FPGA-008
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2bf30e2c0fcf
+  test_case_id: TC-MAMC-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5a64c145e99b
+  test_case_id: TC-FPGA-005
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 004e25d1461a
+  test_case_id: TC-VLA-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: FAIL
+  notes: Thor is crashes
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 2861daf9b6c8
+  test_case_id: TC-FPGA-009
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5df06aca5c6c
+  test_case_id: TC-SW-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: e6fcf85aab1f
+  test_case_id: TC-VLA-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 43745469fce7
+  test_case_id: TC-VLA-004
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: ''
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: c2e81968e6bf
+  test_case_id: TC-FPGA-007
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 86259bdd83c8
+  test_case_id: TC-VLA-007
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 0011803b7dd9
+  test_case_id: TC-MAMC-003
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 7d0cc08cc343
+  test_case_id: TC-MAMC-004
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 4c0569ca74f9
+  test_case_id: TC-VLA-002
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 9bdac5fbc787
+  test_case_id: TC-SYS-005
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 357956868e81
+  test_case_id: TC-VLA-005
+  date: '2026-07-17'
+  work_week: WW29
+  result: PASS
+  notes: ''
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 09815b4f47e9
+  test_case_id: TC-MAMC-006
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 32390fd6923f
+  test_case_id: TC-SYS-001
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 912287bbf0a9
+  test_case_id: TC-HW-01
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 7738d752eaca
+  test_case_id: TC-HW-02
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 1bcb1e223830
+  test_case_id: TC-HW-06
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 85ee7a55e583
+  test_case_id: TC-VLA-006
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 6291e257af59
+  test_case_id: TC-HW-03
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 76d04cc53851
+  test_case_id: TC-HW-05
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 0707a7097d24
+  test_case_id: TC-HW-07
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 5d49b37cf149
+  test_case_id: TC-HW-08
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 9cd3cd7c4cc2
+  test_case_id: TC-HW-09
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674
+- id: 69fbdef9ebc4
+  test_case_id: TC-HW-10
+  date: '2026-07-17'
+  work_week: WW29
+  result: BLOCKED
+  notes: Hardware-dependent test case with no automation script; no manual result was supplied, so it
+    was recorded as BLOCKED.
+  jira_link: ''
+  executed_by: ARIFF
+  created_at: '2026-07-17T17:54:51'
+  run_name: Real_Run_09
+  batch_id: 424a1bdb79ce
+  batch_duration_seconds: 712.674

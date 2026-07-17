@@ -12,6 +12,8 @@ VALIDATION_ROOT = Path(__file__).resolve().parents[1]
 def _candidate_roots() -> tuple[Path, ...]:
     workspace_home = VALIDATION_ROOT.parents[1]
     return (
+        workspace_home / "Automate5",
+        workspace_home / "automate5",
         workspace_home / "KinNamWorkspace" / "automate5",
         VALIDATION_ROOT.parent / "automate5",
         VALIDATION_ROOT.parent / "Automate5",
