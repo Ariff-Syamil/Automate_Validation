@@ -25,8 +25,14 @@ automate_validation/
 ├── templates/
 │   └── test_case_template.yaml      # Blank template for new test cases
 ├── scripts/
-│   ├── manage_tests.py              # CLI tool: validate, report, summary
+│   ├── manage_tests.py              # CLI tool: validate, report, summary, priority
 │   └── gui.py                       # PyQt6 desktop GUI
+├── Manual/                          # Run-priority policy + manual test procedures (see below)
+│   ├── README.md
+│   ├── PRIORITY.md                  # Generated: automated-first, then manual run order
+│   └── thor_25g_link_validation/    # Full hands-on runbook for TC-FPGA-004
+├── drafts/                          # Proposed automation not yet wired into automation/ or tests/
+│   └── fpga_ingress_automation/     # Pseudo-code draft for TC-FPGA-010..013
 └── automate_5/                      # ← Current implementation round
     ├── timeline.yaml                 # Work-week schedule grid (Excel `Timeline` tab)
     ├── software/
@@ -42,6 +48,25 @@ automate_validation/
 ```
 
 When the next Automate version begins (e.g. Automate 6), create a new top-level folder `automate_6/` with the same four subcomponent subdirectories.
+
+---
+
+## Run Priority: Which Test Case to Run Next
+
+With 142 test cases spanning CI unit tests through hands-on HIL procedures, run them in two phases:
+
+1. **Phase 1 — Automated.** Every case with `automation_status: Ready` has a working script — run these first via `pytest`, `run.bat validate`, or the GUI's Run Test action.
+2. **Phase 2 — Manual.** Everything else (`In Progress` / `Not Ready`) still needs a human. Run these **in dependency order**: a manual case that depends on another one is always the very next thing you run after that dependency passes, with nothing else run in between.
+
+The full, generated checklist for both phases lives in **[`Manual/PRIORITY.md`](Manual/PRIORITY.md)** — see **[`Manual/README.md`](Manual/README.md)** for how it's organized. Regenerate it whenever `test_cases.yaml` changes:
+
+```bash
+python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md
+# or:
+run.bat priority
+```
+
+`TC-FPGA-010`–`013` have neither a script nor a written manual procedure yet (they're tracked as a proposed-automation draft in `drafts/fpga_ingress_automation/`) and are called out separately at the bottom of `PRIORITY.md` instead of being silently skipped.
 
 ---
 
@@ -110,6 +135,7 @@ run.bat validate     :: Validate all Automate 5 test cases
 run.bat report       :: Print Markdown report to console
 run.bat report csv   :: Export CSV to automate_5_results.csv
 run.bat summary      :: Print priority / automation-status counts
+run.bat priority     :: Regenerate Manual/PRIORITY.md (run-order checklist)
 ```
 
 The batch script auto-creates a `.venv` and installs dependencies on first run.
@@ -168,6 +194,14 @@ Quick view of priority and automation-status breakdowns:
 
 ```bash
 python scripts/manage_tests.py summary automate_5
+```
+
+#### Run-priority checklist
+
+Generates the two-phase (automated-first, then dependency-ordered manual) run checklist described in [Run Priority](#run-priority-which-test-case-to-run-next) above:
+
+```bash
+python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md
 ```
 
 > **Note on execution tracking:** the legacy "Record Result" workflow (mark a test pass/fail with date / executed-by / notes) has been removed because `Automate5_Test_Cases.xlsx` does not have those columns. Use `automation_status` for state (`Ready` / `Not Ready` / `In Progress` / `Blocked`) and `observations` for free-form notes; or, if you want execution-result tracking back, ask to add `executed` / `result` / `execution_date` / `executed_by` as additional non-Excel YAML fields.

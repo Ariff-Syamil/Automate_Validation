@@ -414,6 +414,264 @@ def summarise(automate_version: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Priority / manual run order
+# ---------------------------------------------------------------------------
+
+READY_STATUS = "Ready"
+
+# Test cases that already have a full hands-on runbook checked in elsewhere
+# in the repo. Path is relative to the `Manual/` folder (where the
+# generated priority doc lives by default) so it renders as a working link
+# instead of duplicating the runbook's own step-by-step prose inline.
+RUNBOOK_LINKS: dict[str, str] = {
+    "TC-FPGA-004": "thor_25g_link_validation/STEPS.md",
+}
+
+# Test cases that are neither automated (`automation_status: Ready`) nor
+# covered by a written manual procedure yet. These are excluded from the
+# ordered manual checklist (there is nothing to check off) and called out
+# separately instead of silently disappearing from the priority doc.
+BLOCKED_NO_PROCEDURE: dict[str, str] = {
+    "TC-FPGA-010": "../drafts/fpga_ingress_automation/README.md",
+    "TC-FPGA-011": "../drafts/fpga_ingress_automation/README.md",
+    "TC-FPGA-012": "../drafts/fpga_ingress_automation/README.md",
+    "TC-FPGA-013": "../drafts/fpga_ingress_automation/README.md",
+}
+
+_PRIORITY_RANK: dict[str, int] = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
+
+
+def load_all_cases(automate_version: str) -> dict[str, dict]:
+    """Load every test case for an Automate version into one id-keyed dict.
+
+    Each case is annotated with a `_subcomponent` key recording which
+    folder (`software`, `mechanical`, ...) it was loaded from.
+    """
+    automate_dir = REPO_ROOT / automate_version
+    files = discover_test_files(automate_dir)
+    cases_by_id: dict[str, dict] = {}
+    for sub, path in files.items():
+        for tc in load_test_cases(path):
+            tc = dict(tc)
+            tc["_subcomponent"] = sub
+            cases_by_id[tc["test_case_id"]] = tc
+    return cases_by_id
+
+
+def _priority_sort_key(test_case_id: str, cases_by_id: dict[str, dict]) -> tuple[int, str]:
+    """Deterministic tie-break order: P0 before P1 before ..., then by ID."""
+    priority = cases_by_id[test_case_id].get("priority")
+    return (_PRIORITY_RANK.get(priority, len(_PRIORITY_RANK)), test_case_id)
+
+
+def compute_manual_run_order(cases_by_id: dict[str, dict]) -> list[str]:
+    """Order the non-`Ready` ("manual") test cases for hands-on execution.
+
+    Uses a dependency-first depth-first traversal that, the instant a
+    case's last dependency becomes satisfied, immediately schedules that
+    case and then cascades straight into its own dependents before
+    returning to any unrelated branch. That is what keeps a dependency and
+    its dependent adjacent in the resulting order instead of scattering
+    them across unrelated cases: a manual case that depends on another one
+    always ends up run directly after it, with nothing else in between.
+
+    A dependency that points at an already-automated (`Ready`) case is
+    treated as satisfied from the start, since Phase 1 (automated cases)
+    always runs before any manual case.
+    """
+    manual_ids = {
+        tid
+        for tid, tc in cases_by_id.items()
+        if tc.get("automation_status") != READY_STATUS and tid not in BLOCKED_NO_PROCEDURE
+    }
+    manual_deps: dict[str, list[str]] = {
+        tid: [dep for dep in (cases_by_id[tid].get("dependency") or []) if dep in manual_ids]
+        for tid in manual_ids
+    }
+    dependents: dict[str, list[str]] = {tid: [] for tid in manual_ids}
+    for tid, deps in manual_deps.items():
+        for dep in deps:
+            dependents[dep].append(tid)
+
+    def sort_key(tid: str) -> tuple[int, str]:
+        return _priority_sort_key(tid, cases_by_id)
+
+    scheduled: set[str] = set()
+    order: list[str] = []
+
+    def process(tid: str) -> None:
+        if tid in scheduled:
+            return
+        for dep in sorted(manual_deps[tid], key=sort_key):
+            process(dep)
+        scheduled.add(tid)
+        order.append(tid)
+        for dependent in sorted(dependents[tid], key=sort_key):
+            ready = dependent not in scheduled and all(
+                dep in scheduled for dep in manual_deps[dependent]
+            )
+            if ready:
+                process(dependent)
+
+    roots = [tid for tid in manual_ids if not manual_deps[tid]]
+    for tid in sorted(roots, key=sort_key):
+        process(tid)
+    # Safety net so the function is total even if the graph ever has a node
+    # unreachable from any root (should not happen for a valid dependency
+    # DAG, but avoids silently dropping a test case).
+    for tid in sorted(manual_ids, key=sort_key):
+        process(tid)
+
+    return order
+
+
+def _steps_block(tc: dict) -> str:
+    steps = tc.get("steps") or []
+    if not steps:
+        return "  _(no steps recorded)_"
+    return "\n".join(f"  {i}. {step}" for i, step in enumerate(steps, 1))
+
+
+def _phase1_table(cases_by_id: dict[str, dict], sub: str) -> str:
+    rows = sorted(
+        (tc for tc in cases_by_id.values() if tc["_subcomponent"] == sub
+         and tc.get("automation_status") == READY_STATUS),
+        key=lambda tc: tc["test_case_id"],
+    )
+    if not rows:
+        return "_No automated cases in this subcomponent yet._"
+    lines = [
+        "| Test Case ID | Test Name | Component | Priority |",
+        "|---|---|---|---|",
+    ]
+    for tc in rows:
+        lines.append(
+            f"| {tc['test_case_id']} | {tc.get('test_name') or '-'} | "
+            f"{tc.get('component') or '-'} | {tc.get('priority') or '-'} |"
+        )
+    return "\n".join(lines)
+
+
+def _phase2_entry(index: int, tid: str, cases_by_id: dict[str, dict]) -> str:
+    tc = cases_by_id[tid]
+    deps = tc.get("dependency") or []
+    manual_deps = [d for d in deps if d in cases_by_id and cases_by_id[d].get("automation_status") != READY_STATUS]
+    automated_deps = [d for d in deps if d not in manual_deps]
+
+    lines = [f"### {index}. `{tid}` — {tc.get('test_name') or '(unnamed)'}", ""]
+    lines.append(
+        f"- [ ] **Component:** {tc.get('component') or '-'} &nbsp;·&nbsp; "
+        f"**Priority:** {tc.get('priority') or '-'} &nbsp;·&nbsp; "
+        f"**Jira:** {tc.get('jira_link') or '-'}"
+    )
+    if manual_deps:
+        lines.append(
+            f"- **Run immediately after:** {', '.join(f'`{d}`' for d in manual_deps)} "
+            "— do not run any other test case between that one finishing and this one starting."
+        )
+    if automated_deps:
+        lines.append(
+            f"- **Also depends on (already covered in Phase 1):** "
+            f"{', '.join(f'`{d}`' for d in automated_deps)}"
+        )
+    if tc.get("precondition"):
+        lines.append(f"- **Precondition:** {tc['precondition']}")
+
+    if tid in RUNBOOK_LINKS:
+        lines.append(f"- **Full runbook:** [{RUNBOOK_LINKS[tid]}]({RUNBOOK_LINKS[tid]})")
+    else:
+        lines.append("- **Steps:**")
+        lines.append(_steps_block(tc))
+
+    if tc.get("expected_result"):
+        lines.append(f"- **Expected result:** {tc['expected_result']}")
+    if tc.get("fail_conditions"):
+        lines.append(f"- **Fail conditions:** {tc['fail_conditions']}")
+    return "\n".join(lines)
+
+
+def generate_priority_doc(automate_version: str) -> str:
+    """Generate the two-phase run-priority Markdown for an Automate version.
+
+    Phase 1 lists every `automation_status: Ready` case (has a real
+    automation script) grouped by subcomponent - run these first. Phase 2
+    is an ordered checklist of every other case ("manual" for now) in a
+    dependency-safe order, see `compute_manual_run_order`.
+    """
+    cases_by_id = load_all_cases(automate_version)
+    total = len(cases_by_id)
+    ready_ids = [tid for tid, tc in cases_by_id.items() if tc.get("automation_status") == READY_STATUS]
+    manual_order = compute_manual_run_order(cases_by_id)
+
+    lines: list[str] = [
+        f"# {automate_version} — Test Case Run Priority",
+        "",
+        "Generated by `python scripts/manage_tests.py priority "
+        f"{automate_version} -o Manual/PRIORITY.md`. Regenerate this file "
+        "whenever `test_cases.yaml` changes instead of editing it by hand.",
+        "",
+        f"- **{total} total test cases** — **{len(ready_ids)} automated** "
+        f"(Phase 1) · **{len(manual_order)} manual** (Phase 2) · "
+        f"**{len(BLOCKED_NO_PROCEDURE)} blocked** (no procedure yet, see bottom)",
+        "- **Run order:** all of Phase 1 first, then Phase 2 top to bottom. "
+        "Within Phase 2, a case tagged \"Run immediately after\" must be run "
+        "right after that dependency, with no other test case in between.",
+        "",
+        "---",
+        "",
+        "## Phase 1 — Automated (run first)",
+        "",
+        "These already have a working automation script "
+        "(`automation_status: Ready`). Run them via `pytest`, "
+        "`run.bat validate`, or the GUI's Run Test action "
+        "(`automation/gui/executor.py`) before touching any manual case "
+        "below.",
+        "",
+    ]
+    for sub in SUBCOMPONENTS:
+        lines.append(f"### {DISPLAY_NAMES.get(sub, sub)}")
+        lines.append("")
+        lines.append(_phase1_table(cases_by_id, sub))
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    lines.append("## Phase 2 — Manual (run after Phase 1, in this exact order)")
+    lines.append("")
+    lines.append(
+        "Every case below still needs a human to execute it "
+        "(`automation_status` is `In Progress` or `Not Ready`). Work "
+        "through them **top to bottom**; do not skip ahead or interleave "
+        "with a different case's dependency chain."
+    )
+    lines.append("")
+    for i, tid in enumerate(manual_order, 1):
+        lines.append(_phase2_entry(i, tid, cases_by_id))
+        lines.append("")
+
+    if BLOCKED_NO_PROCEDURE:
+        lines.append("---")
+        lines.append("")
+        lines.append("## Blocked — no automation and no manual procedure yet")
+        lines.append("")
+        lines.append(
+            "These cases are intentionally left out of the checklist above "
+            "because there is nothing runnable yet: no working automation "
+            "script and no written manual steps."
+        )
+        lines.append("")
+        for tid, ref in sorted(BLOCKED_NO_PROCEDURE.items()):
+            tc = cases_by_id.get(tid, {})
+            lines.append(
+                f"- `{tid}` — {tc.get('test_name') or '(unnamed)'}. "
+                f"Tracked at [{ref}]({ref})."
+            )
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -435,6 +693,13 @@ def main() -> None:
     p_sum = sub.add_parser("summary", help="Show priority / automation status counts")
     p_sum.add_argument("version", help="Automate version directory (e.g. automate_5)")
 
+    p_pri = sub.add_parser(
+        "priority",
+        help="Generate the two-phase (automated-first, then manual) run-priority Markdown",
+    )
+    p_pri.add_argument("version", help="Automate version directory (e.g. automate_5)")
+    p_pri.add_argument("--output", "-o", help="Write the doc to file instead of stdout")
+
     args = parser.parse_args()
 
     if args.command == "validate":
@@ -452,6 +717,15 @@ def main() -> None:
 
     elif args.command == "summary":
         print(summarise(args.version))
+
+    elif args.command == "priority":
+        doc = generate_priority_doc(args.version)
+        if args.output:
+            with open(args.output, "w", encoding="utf-8") as f:
+                f.write(doc)
+            print(f"Priority doc written to {args.output}")
+        else:
+            print(doc)
 
 
 if __name__ == "__main__":

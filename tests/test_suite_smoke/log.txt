@@ -1,72 +1,23 @@
 Test run log (overwritten each run)
-Finished: 2026-07-08 05:48:06 UTC
+Finished: 2026-07-20 07:47:10 UTC
 Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_smoke
 
 Results:
-  FAILED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_import_smoke
-  FAILED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_qapplication_launch
+  PASSED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_import_smoke
+  PASSED    tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_qapplication_launch
 
 --- Suite run log (TestCaseFramework.log) ---
-[05:48:06.622] test_qapplication_launch: begin
-[05:48:06.684] test_import_smoke: begin
-[05:48:06.685] AUTOMATE5_ROOT=C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5
-[05:48:06.685] automate5 imported from C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\automate5\__init__.py
-[05:48:06.685] test_import_smoke: automate5 OK
-[05:48:06.686] automate5.log imported from C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\automate5\log\__init__.py
-[05:48:06.686] test_import_smoke: automate5.log OK
+[07:47:07.709] test_qapplication_launch: begin
+[07:47:07.709] test_qapplication_launch: QApplication created — platform=windows
+[07:47:07.709] test_qapplication_launch: quit() called successfully
+[07:47:07.711] test_import_smoke: begin
+[07:47:07.711] AUTOMATE5_ROOT=C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5
+[07:47:07.712] automate5 imported from C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\automate5\__init__.py
+[07:47:07.712] test_import_smoke: automate5 OK
+[07:47:07.712] automate5.log imported from C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\automate5\log\__init__.py
+[07:47:07.712] test_import_smoke: automate5.log OK
+[07:47:07.713] gui.main_window imported from C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\main_window.py
+[07:47:07.713] test_import_smoke: gui.main_window OK
+[07:47:07.713] test_import_smoke: all imports passed
 
---- Failures (exceptions; first failure stops that test) ---
-
-tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_import_smoke
-self = <tests.test_suite_smoke.testcase_smoke.TestSmoke object at 0x000001ADA2DBF250>
-
-    @scenario("import_smoke", "Core packages import without errors")
-    def test_import_smoke(self) -> None:
-        self.log("test_import_smoke: begin")
-        require_automate5_root()
-        self.log(f"AUTOMATE5_ROOT={AUTOMATE5_ROOT}")
-    
-        import automate5
-        assert hasattr(automate5, "Subsystem")
-        assert hasattr(automate5, "PhaseCode")
-        assert hasattr(automate5, "ErrorCode")
-        self.log(f"automate5 imported from {module_file_within_automate5(automate5)}")
-        self.log("test_import_smoke: automate5 OK")
-    
-        import automate5.log
-        assert hasattr(automate5.log, "logger")
-        self.log(f"automate5.log imported from {module_file_within_automate5(automate5.log)}")
-        self.log("test_import_smoke: automate5.log OK")
-    
->       import gui.main_window
-
-tests\test_suite_smoke\testcase_smoke.py:53: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-
-    """Main application window — stacked panel container."""
-    
-    from __future__ import annotations
-    
->   from PySide6.QtGui import QCloseEvent
-E   ModuleNotFoundError: No module named 'PySide6'
-
-..\Automate5\gui\main_window.py:5: ModuleNotFoundError
-
-tests/test_suite_smoke/testcase_smoke.py::TestSmoke::test_qapplication_launch
-self = <tests.test_suite_smoke.testcase_smoke.TestSmoke object at 0x000001ADA2DBF390>
-
-    @scenario("qapplication_launch", "PySide6 QApplication initialises without crashing (offscreen)")
-    def test_qapplication_launch(self) -> None:
-        self.log("test_qapplication_launch: begin")
-    
-        # Force offscreen platform so no display is required (Docker / CI / headless Linux)
-        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
-    
-        import sys
-    
->       from PySide6.QtWidgets import QApplication
-E       ModuleNotFoundError: No module named 'PySide6'
-
-tests\test_suite_smoke\testcase_smoke.py:23: ModuleNotFoundError
-
-OVERALL: FAILED
+OVERALL: PASSED

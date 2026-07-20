@@ -1,8 +1,458 @@
 Test run log (overwritten each run)
-Finished: 2026-07-17 10:02:40 UTC
-Suite directory: /home/thor/Validation/Automate_Validation/tests/test_suite_gui
+Finished: 2026-07-20 07:47:10 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_gui
 
 Results:
+  PASSED    tests/test_suite_gui/testcase_analyticPanel.py::TestAnalyticPanel::test_bridge_defaults
+  FAILED    tests/test_suite_gui/testcase_analyticPanel.py::TestAnalyticPanel::test_qml_loads
+  PASSED    tests/test_suite_gui/testcase_analyticPanel.py::TestAnalyticPanel::test_qml_source
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_action1
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_action2
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_action3
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_bridge_defaults
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_bridge_mock_props
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_configure_mock_double
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_configure_mock_single
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_controller_signals
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_enumerate
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_live_mock
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_live_real
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_camera_stop_releases_pipeline
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_mock_video_survives_configure
+  SKIPPED   tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_motor_running_after_start
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_qml_loads
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_qml_source
+  PASSED    tests/test_suite_gui/testcase_basePanel.py::TestBasePanel::test_stop_resets_gesture_overlay
+  PASSED    tests/test_suite_gui/testcase_main_window_integration.py::TestMainWindowIntegration::test_main_window_navigation_and_shutdown
+  PASSED    tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_analytics_bridge_presenter_flow
   PASSED    tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_gesture_overlay_handlers
+  PASSED    tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_base_presenter_motor_handlers
+  PASSED    tests/test_suite_gui/testcase_presenter_handlers.py::TestPresenterHandlers::test_vla_presenter_prompt_transport_and_camera
+  FAILED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[BenchmarkAnalyticsPane]
+  PASSED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[CameraFeed]
+  PASSED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[CameraHero]
+  FAILED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[InspectorDock]
+  PASSED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[LeftRail]
+  FAILED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[LogsAnalyticsPane]
+  PASSED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[MotorCard]
+  PASSED    tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[NodeView]
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_001
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_002
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_003
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_010
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_011
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_012
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_013
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_020
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_021
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_022
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_023
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_030
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_031
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_032
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_040
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_041
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_050
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_051
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_052
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_053
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_054
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_055
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_056
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_057
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_060
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_061
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_062
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_063
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_064
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_070
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_071
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_072
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_073
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_074
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_075
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_076
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_077
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_100
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_101
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_102
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_103
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_104
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_110
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_111
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_112
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_120
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_121
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_122
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_123
+  SKIPPED   tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_124
+  FAILED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_130
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_131
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_132
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_133
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_134
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_135
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_160
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_161
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_162
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_163
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_164
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_170
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_171
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_172
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_173
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_174
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_175
+  PASSED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_176
+  FAILED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
+  FAILED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
+  FAILED    tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_camera_source_forcing
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_gesture_capture_plumbing
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_gesture_run_drives_services
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_pose_video_forcing
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_runner_cancel
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_runner_pass_with_synthetic_state
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_runner_registry
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_runner_unknown_case_id
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_service_lifecycle_end_to_end
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_shared_log_model
+  PASSED    tests/test_suite_gui/testcase_test_panel.py::TestAutomatedTestPanel::test_test_controller_surface
+  PASSED    tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_bridge_defaults
+  SKIPPED   tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_camera_bridge_mock_props
+  SKIPPED   tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_camera_configure_mock_double
+  SKIPPED   tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_camera_configure_mock_single
+  SKIPPED   tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_camera_live_mock
+  SKIPPED   tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_camera_live_real
+  FAILED    tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_qml_loads
+  PASSED    tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_qml_source
+  PASSED    tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_vla_config_loads
+  PASSED    tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_vla_joint_map_defaults
 
-OVERALL: PASSED
+--- Suite run log (TestCaseFramework.log) ---
+[07:47:00.724] test_bridge_defaults: creating AnalyticPanelBridge
+[07:47:00.724] test_bridge_defaults: OK (mode=both, split=0.55)
+[07:47:00.726] test_qml_source: checking C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\analytic_design\qml\analytic_panel.qml
+[07:47:00.727] test_qml_source: OK
+[07:47:00.731] test_qml_loads: compiling C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\analytic_design\qml\analytic_panel.qml
+[07:47:00.837] test_bridge_defaults: creating BasePanelBridge
+[07:47:00.850] test_bridge_defaults: OK (nodes=2, motors_per_node=4)
+[07:47:00.879] test_camera_stop_releases_pipeline: OK
+[07:47:00.903] test_mock_video_survives_configure: OK
+[07:47:00.929] test_stop_resets_gesture_overlay: OK
+[07:47:00.936] test_camera_enumerate: 2 camera(s) found
+[07:47:00.938] test_camera_controller_signals: shutdown OK, emissions=[]
+[07:47:00.940] test_qml_source: checking C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\base_design\qml\base_panel.qml
+[07:47:00.941] test_qml_source: OK
+[07:47:00.942] test_qml_loads: compiling C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\base_design\qml\base_panel.qml in a fresh subprocess
+[07:47:01.473] test_qml_loads: OK (component Ready, imports resolved)
+[07:47:03.487] registered cases: ['gesture_detection', 'gesture_left', 'gesture_right', 'service_lifecycle']
+[07:47:03.510] test_test_controller_surface: OK
+[07:47:03.513] test_shared_log_model: OK
+[07:47:04.549] result: passed=True summary='PASS — recognition running and gesture worker received 1280x720 frames (source=mock).'
+[07:47:05.557] service states seen: {'camera': ['running', 'starting', 'stopping'], 'gesture': ['running', 'starting', 'stopping']}
+[07:47:06.099] cancel result: passed=False summary='Cancelled by operator.'
+[07:47:06.116] camera source forcing OK (original=False, mock_url=file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/assets/mock_camera.mp4)
+[07:47:07.443] service_lifecycle result: passed=True summary='PASS — supervisor honoured start, dependency, and stop transitions.'
+[07:47:07.567] test_bridge_defaults: creating VlaPanelBridge
+[07:47:07.580] test_bridge_defaults: OK (nodes=2, motors_per_node=4)
+[07:47:07.590] test_vla_config_loads: OK
+[07:47:07.592] test_vla_joint_map_defaults: OK
+[07:47:07.598] test_qml_source: checking C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\vla_design\qml\vla_panel.qml
+[07:47:07.598] test_qml_source: OK
+[07:47:07.604] test_qml_loads: compiling C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\Automate5\gui\panels\vla_design\qml\vla_panel.qml
+
+--- Failures (exceptions; first failure stops that test) ---
+
+tests/test_suite_gui/testcase_analyticPanel.py::TestAnalyticPanel::test_qml_loads
+self = <testcase_analyticPanel.TestAnalyticPanel object at 0x000002391EAB7A80>
+
+    @scenario("qml_loads", "analytic_panel.qml parses and resolves all imports")
+    def test_qml_loads(self) -> None:
+        """QQmlComponent to Ready — no .create() (avoids scene graph / Windows offscreen issues)."""
+        from PySide6.QtCore import QUrl
+        from PySide6.QtGui import QGuiApplication
+        from PySide6.QtQml import QQmlComponent, QQmlEngine
+    
+        app = QGuiApplication.instance() or QGuiApplication(sys.argv[:1])
+    
+        repo_root = AUTOMATE5_ROOT
+        qml_path = repo_root / "gui" / "panels" / "analytic_design" / "qml" / "analytic_panel.qml"
+        components_path = repo_root / "gui" / "components"
+    
+        engine = QQmlEngine()
+        engine.addImportPath(str(components_path.resolve()))
+    
+        self.log(f"test_qml_loads: compiling {qml_path}")
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str(qml_path.resolve())))
+    
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+    
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}"
+                  for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, (
+            "analytic_panel.qml failed to load:\n  " + "\n  ".join(errors)
+        )
+E       AssertionError: analytic_panel.qml failed to load:
+E           file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/analytic_design/qml/analytic_panel.qml:14:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002391FE6EC00>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002391FE6EC00> = <PySide6.QtQml.QQmlComponent(0x2391f409190) at 0x000002391FE6EC00>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = <class 'PySide6.QtQml.QQmlComponent'>.Status
+
+tests\test_suite_gui\testcase_analyticPanel.py:77: AssertionError
+
+tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[BenchmarkAnalyticsPane]
+self = <testcase_qml_components.TestQmlComponents object at 0x000002391FC7FB10>
+relative_path = 'gui/panels/analytic_design/qml/BenchmarkAnalyticsPane.qml'
+
+    @scenario("qml_component_sweep", "High-risk AppComponents compile")
+    @pytest.mark.parametrize("relative_path", _COMPONENTS, ids=lambda value: Path(value).stem)
+    def test_qml_component_compiles(self, relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((_REPO_ROOT / "gui" / "components").resolve()))
+        qml_path = _REPO_ROOT / relative_path
+    
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str(qml_path.resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+    
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/analytic_design/qml/BenchmarkAnalyticsPane.qml:13:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239202F0640>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239202F0640> = <PySide6.QtQml.QQmlComponent(0x23904f7dd80) at 0x00000239202F0640>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_qml_components.py:46: AssertionError
+
+tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[InspectorDock]
+self = <testcase_qml_components.TestQmlComponents object at 0x000002391FEED940>
+relative_path = 'gui/components/AppComponents/InspectorDock.qml'
+
+    @scenario("qml_component_sweep", "High-risk AppComponents compile")
+    @pytest.mark.parametrize("relative_path", _COMPONENTS, ids=lambda value: Path(value).stem)
+    def test_qml_component_compiles(self, relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((_REPO_ROOT / "gui" / "components").resolve()))
+        qml_path = _REPO_ROOT / relative_path
+    
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str(qml_path.resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+    
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/components/AppComponents/InspectorDock.qml:11:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239200D88C0>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239200D88C0> = <PySide6.QtQml.QQmlComponent(0x23904f7d840) at 0x00000239200D88C0>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_qml_components.py:46: AssertionError
+
+tests/test_suite_gui/testcase_qml_components.py::TestQmlComponents::test_qml_component_compiles[LogsAnalyticsPane]
+self = <testcase_qml_components.TestQmlComponents object at 0x000002391FC7F9D0>
+relative_path = 'gui/panels/analytic_design/qml/LogsAnalyticsPane.qml'
+
+    @scenario("qml_component_sweep", "High-risk AppComponents compile")
+    @pytest.mark.parametrize("relative_path", _COMPONENTS, ids=lambda value: Path(value).stem)
+    def test_qml_component_compiles(self, relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((_REPO_ROOT / "gui" / "components").resolve()))
+        qml_path = _REPO_ROOT / relative_path
+    
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str(qml_path.resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+    
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/analytic_design/qml/LogsAnalyticsPane.qml:17:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002391FD9B5C0>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002391FD9B5C0> = <PySide6.QtQml.QQmlComponent(0x2391ef4bbd0) at 0x000002391FD9B5C0>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_qml_components.py:46: AssertionError
+
+tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_125
+def test_tc_gui_125():
+>       _qml_ready("gui/panels/vla_design/qml/vla_panel.qml")
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:582: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+relative_path = 'gui/panels/vla_design/qml/vla_panel.qml'
+
+    def _qml_ready(relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((REPO_ROOT / "gui" / "components").resolve()))
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str((REPO_ROOT / relative_path).resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/vla_design/qml/vla_panel.qml:6:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239201F7180>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239201F7180> = <PySide6.QtQml.QQmlComponent(0x2391f853c40) at 0x00000239201F7180>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:86: AssertionError
+
+tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_180
+def test_tc_gui_180():
+>       _qml_ready("gui/panels/base_design/qml/base_panel.qml")
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:748: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+relative_path = 'gui/panels/base_design/qml/base_panel.qml'
+
+    def _qml_ready(relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((REPO_ROOT / "gui" / "components").resolve()))
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str((REPO_ROOT / relative_path).resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/base_design/qml/base_panel.qml:7:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x0000023920211680>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x0000023920211680> = <PySide6.QtQml.QQmlComponent(0x2391f877f80) at 0x0000023920211680>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:86: AssertionError
+
+tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_181
+def test_tc_gui_181():
+>       _qml_ready("gui/panels/vla_design/qml/vla_panel.qml")
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:752: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+relative_path = 'gui/panels/vla_design/qml/vla_panel.qml'
+
+    def _qml_ready(relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((REPO_ROOT / "gui" / "components").resolve()))
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str((REPO_ROOT / relative_path).resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/vla_design/qml/vla_panel.qml:6:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239202132C0>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239202132C0> = <PySide6.QtQml.QQmlComponent(0x2391f87a590) at 0x00000239202132C0>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:86: AssertionError
+
+tests/test_suite_gui/testcase_tc_gui_automation.py::test_tc_gui_182
+def test_tc_gui_182():
+>       _qml_ready("gui/panels/analytic_design/qml/analytic_panel.qml")
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:756: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+relative_path = 'gui/panels/analytic_design/qml/analytic_panel.qml'
+
+    def _qml_ready(relative_path: str) -> None:
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+        engine = QQmlEngine()
+        engine.addImportPath(str((REPO_ROOT / "gui" / "components").resolve()))
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str((REPO_ROOT / relative_path).resolve())))
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}" for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, "\n".join(errors)
+E       AssertionError: file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/analytic_design/qml/analytic_panel.qml:14:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002392152C400>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x000002392152C400> = <PySide6.QtQml.QQmlComponent(0x2391f878920) at 0x000002392152C400>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = QQmlComponent.Status
+
+tests\test_suite_gui\testcase_tc_gui_automation.py:86: AssertionError
+
+tests/test_suite_gui/testcase_vlaPanel.py::TestVlaPanel::test_qml_loads
+self = <testcase_vlaPanel.TestVlaPanel object at 0x000002391FCF28A0>
+
+    @scenario("qml_loads", "vla_panel.qml parses and resolves all imports")
+    def test_qml_loads(self) -> None:
+        """QQmlComponent to Ready — no .create() (avoids scene graph / Windows offscreen issues).
+    
+        NOTE: runs after the live camera test because the QQmlEngine type cache
+        can block a later QQuickWidget from initialising in the same process."""
+        from PySide6.QtCore import QUrl
+        from PySide6.QtQml import QQmlComponent, QQmlEngine
+        from PySide6.QtWidgets import QApplication
+    
+        app = QApplication.instance() or QApplication(sys.argv[:1])
+    
+        repo_root = AUTOMATE5_ROOT
+        qml_path = repo_root / "gui" / "panels" / "vla_design" / "qml" / "vla_panel.qml"
+        components_path = repo_root / "gui" / "components"
+    
+        engine = QQmlEngine()
+        engine.addImportPath(str(components_path.resolve()))
+    
+        self.log(f"test_qml_loads: compiling {qml_path}")
+        component = QQmlComponent(engine, QUrl.fromLocalFile(str(qml_path.resolve())))
+    
+        for _ in range(200):
+            if component.status() != QQmlComponent.Status.Loading:
+                break
+            app.processEvents()
+    
+        errors = [f"{e.url().toString()}:{e.line()}:{e.column()} {e.description()}"
+                  for e in component.errors()]
+>       assert component.status() == QQmlComponent.Status.Ready, (
+            "vla_panel.qml failed to load:\n  " + "\n  ".join(errors)
+        )
+E       AssertionError: vla_panel.qml failed to load:
+E           file:///C:/Users/midrus/OneDrive - Lattice Semiconductor Corp/Automate5/gui/panels/vla_design/qml/vla_panel.qml:6:1 Cannot load library C:\Users\midrus\AppData\Local\Programs\Python\Python313\Lib\site-packages\PySide6\qml\QtQuick\Controls\Basic\qtquickcontrols2basicstyleplugin.dll: The specified procedure could not be found.
+E       assert <Status.Error: 3> == <Status.Ready: 1>
+E        +  where <Status.Error: 3> = <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239201F5500>()
+E        +    where <built-in method status of PySide6.QtQml.QQmlComponent object at 0x00000239201F5500> = <PySide6.QtQml.QQmlComponent(0x2391f87cc10) at 0x00000239201F5500>.status
+E        +  and   <Status.Ready: 1> = <enum 'Status'>.Ready
+E        +    where <enum 'Status'> = <class 'PySide6.QtQml.QQmlComponent'>.Status
+
+tests\test_suite_gui\testcase_vlaPanel.py:448: AssertionError
+
+OVERALL: FAILED

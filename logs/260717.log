@@ -246,3 +246,10 @@
 2026-07-17 10:02:17  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
 2026-07-17 10:02:26  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
 2026-07-17 10:02:28  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-07-17 10:02:36  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-07-17 10:02:36  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-07-17 10:02:36  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-07-17 10:02:36  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-07-17 10:02:38  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-07-17 10:02:38  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-07-17 10:02:38  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'

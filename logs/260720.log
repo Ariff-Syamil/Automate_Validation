@@ -1,0 +1,258 @@
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: starting recognition
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: already running
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: stopping recognition
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: starting recognition
+2026-07-20 07:46:59  [ERROR]  [GUI         ]  [-]                 [-]                       gesture: worker error: boom
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: stopping recognition
+2026-07-20 07:46:59  [INFO ]  [GUI         ]  [-]                 [-]                       gesture: starting recognition
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: idle → starting
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: starting → running
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: running → stopping
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: stopping → idle
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: start gesture: implicitly starting dependency camera
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: idle → starting
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: idle → starting
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: starting → running
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: starting → running
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: running → stopping
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: running → stopping
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: stopping → idle
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: stopping → idle
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: idle → starting
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: starting → running
+2026-07-20 07:46:59  [ERROR]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: fault code=42 msg=simulated VLA disconnect
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: running → starting
+2026-07-20 07:46:59  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: scheduling restart attempt=0 in 0.1s
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: starting → running
+2026-07-20 07:47:00  [ERROR]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: fault code=42 msg=simulated VLA disconnect
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: running → starting
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: scheduling restart attempt=1 in 0.1s
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: starting → running
+2026-07-20 07:47:00  [ERROR]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: fault code=42 msg=simulated VLA disconnect
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: running → starting
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: scheduling restart attempt=2 in 0.1s
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: starting → running
+2026-07-20 07:47:00  [ERROR]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: fault code=42 msg=simulated VLA disconnect
+2026-07-20 07:47:00  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: vla: running → faulted
+2026-07-20 07:47:00  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:00  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera stop requested (operator)
+2026-07-20 07:47:00  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:00  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-07-20 07:47:01  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-07-20 07:47:01  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-07-20 07:47:01  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=250
+2026-07-20 07:47:01  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-07-20 07:47:01  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:01  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:01  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:01  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-07-20 07:47:01  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-07-20 07:47:01  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:01  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-07-20 07:47:01  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [STOP]              [-]                       Base transport: Stop
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:01  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:01  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:02  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:02  [INFO ]  [GUI         ]  [RESET]             [-]                       Base transport: Reset
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:02  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:02  [INFO ]  [GUI         ]  [PLAY]              [-]                       Base transport: Play
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat START  gesture_enabled=True
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor START node=0 motor=0
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor STOP node=0 motor=0
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor direction node=0 motor=0 dir=-1
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor setpoint node=0 motor=0 rpm=250
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor torque-limit node=0 motor=0 Nm=1.5
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor reset node=0 motor=0
+2026-07-20 07:47:02  [WARN ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor E-STOP node=0 motor=0
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=speed
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor mode node=0 motor=0 mode=position
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor target-rpm node=0 motor=0 rpm=300
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor full-rotation node=0 motor=0 turns=1.0
+2026-07-20 07:47:02  [INFO ]  [MOTOR       ]  [JOINT_WRITE]       [-]                       motor iq-torque node=0 motor=0 Nm=1.5
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=1, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 1)
+2026-07-20 07:47:02  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-07-20 07:47:02  [WARN ]  [GUI         ]  [-]                 [-]                       [DIAG][gesture] heartbeat STOP  gesture_enabled=False  duration=0.0s
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=999, cam2=999, fps=15)
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-07-20 07:47:02  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure failed: Pipeline error: No module named 'holoscan'
+2026-07-20 07:47:02  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:02  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:02  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:02  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera pipeline running (slot 0)
+2026-07-20 07:47:02  [ERROR]  [HOLOLINK    ]  [CAPTURE]           [CAMERA_CONFIG_FAIL]      camera configure failed: Pipeline error: No module named 'holoscan'
+2026-07-20 07:47:02  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [PLAY]              [-]                       VLA transport: Play
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [STOP]              [-]                       VLA transport: Stop
+2026-07-20 07:47:02  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:02  [INFO ]  [VLA         ]  [-]                 [-]                       VlaInferenceWorker started
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Unknown test case: 'does_not_exist'
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Unknown test case: 'anything'
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: START case=gesture_detection source=mock
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step START Gesture Detection
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Camera source: mock
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Configuring camera (single-mode, slot 0, FPS 30) …
+2026-07-20 07:47:03  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: base_cam1_preview_live == True (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Camera preview is live.
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Starting recognition (transport Play) …
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: base_gesture_frame_size[0] > 0 (≤ 10s) (timeout 10.0s)
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Gesture worker received frames at 1280x720.
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: END   case=gesture_detection passed=True dur=0.93s msg=PASS — recognition running and gesture worker received 1280x720 frames (source=mock).
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: details case=gesture_detection {'camera_source': 'mock', 'frame_width': 1280, 'frame_height': 720}
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: START case=gesture_detection source=mock
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step START Gesture Detection
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Camera source: mock
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Configuring camera (single-mode, slot 0, FPS 30) …
+2026-07-20 07:47:04  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: base_cam1_preview_live == True (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Camera preview is live.
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Starting recognition (transport Play) …
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: start gesture: implicitly starting dependency camera
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: idle → starting
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: idle → starting
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: base_gesture_frame_size[0] > 0 (≤ 10s) (timeout 10.0s)
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: starting → running
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: starting → running
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Gesture worker received frames at 1280x720.
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: running → stopping
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: running → stopping
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: END   case=gesture_detection passed=True dur=0.94s msg=PASS — recognition running and gesture worker received 1280x720 frames (source=mock).
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: details case=gesture_detection {'camera_source': 'mock', 'frame_width': 1280, 'frame_height': 720}
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: stopping → idle
+2026-07-20 07:47:05  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: stopping → idle
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: START case=gesture_detection source=mock
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step START Gesture Detection
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Cancellation requested.
+2026-07-20 07:47:05  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: END   case=gesture_detection passed=False dur=0.12s msg=Cancelled by operator.
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: START case=service_lifecycle source=mock
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step START Service Lifecycle
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Starting camera service …
+2026-07-20 07:47:06  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: idle → starting
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: camera state == running (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:06  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: starting → running
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Camera is RUNNING.
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Starting gesture service (depends on camera) …
+2026-07-20 07:47:06  [WARN ]  [VLA         ]  [INFER]             [-]                       VLA prompt aborted — no camera frame within 5s
+2026-07-20 07:47:06  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: idle → starting
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: gesture state == running (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:06  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: starting → running
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Gesture is RUNNING (dependency honoured).
+2026-07-20 07:47:06  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Stopping gesture service …
+2026-07-20 07:47:07  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: running → stopping
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: gesture state == idle (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:07  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: gesture: stopping → idle
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: step Stopping camera service …
+2026-07-20 07:47:07  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: running → stopping
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Waiting until: camera state == idle (≤ 5s) (timeout 5.0s)
+2026-07-20 07:47:07  [INFO ]  [SERVICE     ]  [SERVICE_LIFECYCLE]  [-]                       supervisor: camera: stopping → idle
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: END   case=service_lifecycle passed=True dur=1.26s msg=PASS — supervisor honoured start, dependency, and stop transitions.
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: details case=service_lifecycle {'snapshot': [{'name': 'camera', 'state': 'idle'}, {'name': 'vla', 'state': 'idle'}, {'name': 'gesture', 'state': 'idle'}]}
+2026-07-20 07:47:07  [INFO ]  [GUI         ]  [GUI_TEST_AUTOMATION]  [-]                       test_runner: log  Unknown test case: 'does_not_exist'
+2026-07-20 07:47:07  [ERROR]  [VLA         ]  [INFER]             [ERR_POLICY_SERVER_DOWN]  policy server get_action failed at 127.0.0.1:1: simulated: policy server unreachable
+2026-07-20 07:47:07  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA panel deactivated (section='base') — stopping supervisor
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [SHUTDOWN]          [-]                       VLA presenter shutting down (worker, supervisor, arm, camera)
+2026-07-20 07:47:07  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA panel deactivated (section='base') — stopping supervisor
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [SHUTDOWN]          [-]                       VLA presenter shutting down (worker, supervisor, arm, camera)
+2026-07-20 07:47:07  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [SHUTDOWN]          [-]                       VLA presenter shutting down (worker, supervisor, arm, camera)
+2026-07-20 07:47:07  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [ACTION_PARSE]      [-]                       VLA action playback started: T=16, rate=30 Hz
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA panel deactivated (section='base') — stopping supervisor
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [SHUTDOWN]          [-]                       VLA presenter shutting down (worker, supervisor, arm, camera)
+2026-07-20 07:47:07  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:07  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA supervisor state='offline' — calling start() and deferring job
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [DEBUG]  [VLA         ]  [-]                 [-]                       VLA prompt ignored — panel not active (section='base')
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-07-20 07:47:08  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA camera frame available — resuming deferred prompt
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA prompt deferred — camera off; auto-starting it before inference
+2026-07-20 07:47:08  [INFO ]  [HOLOLINK    ]  [CAPTURE]           [-]                       camera configure requested (mode=0, cam1=0, cam2=0, fps=15)
+2026-07-20 07:47:08  [WARN ]  [VLA         ]  [INFER]             [-]                       VLA prompt aborted — no camera frame within 5s
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA supervisor in error state — auto-resetting before retry
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA supervisor state='offline' — calling start() and deferring job
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA supervisor state='offline' — calling start() and deferring job
+2026-07-20 07:47:08  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [INFER]             [-]                       VLA preflight OK: arm_ready=True (enabled=False) — submitting first job; policy client will connect to the GR00T server next.
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: policy server ready at 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_STOP]  [-]                       VLA supervisor: policy server stopped (127.0.0.1:15555)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:08  [WARN ]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: attempt 1 failed: timeout after 0.2s waiting for ZMQ port — retrying in 0.1s
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 2)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: policy server ready at 127.0.0.1:15555 (attempt 2)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_STOP]  [-]                       VLA supervisor: policy server stopped (127.0.0.1:15555)
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:08  [WARN ]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: attempt 1 failed: timeout after 0.2s waiting for ZMQ port — retrying in 0.1s
+2026-07-20 07:47:08  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 2)
+2026-07-20 07:47:09  [ERROR]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: both attempts failed: attempt 1: timeout after 0.2s waiting for ZMQ port; attempt 2: timeout after 0.2s waiting for ZMQ port
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:09  [WARN ]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: attempt 1 failed: timeout after 0.2s waiting for ZMQ port — retrying in 0.1s
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 2)
+2026-07-20 07:47:09  [ERROR]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: both attempts failed: attempt 1: timeout after 0.2s waiting for ZMQ port; attempt 2: timeout after 0.2s waiting for ZMQ port
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_STOP]  [-]                       VLA supervisor: policy server stopped (127.0.0.1:15555)
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: policy server ready at 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_STOP]  [-]                       VLA supervisor: policy server stopped (127.0.0.1:15555)
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 1)
+2026-07-20 07:47:09  [WARN ]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: attempt 1 failed: timeout after 0.2s waiting for ZMQ port — retrying in 0.1s
+2026-07-20 07:47:09  [INFO ]  [VLA         ]  [POLICY_SERVER_START]  [-]                       VLA supervisor: launching 127.0.0.1:15555 (attempt 2)
+2026-07-20 07:47:10  [ERROR]  [VLA         ]  [POLICY_SERVER_START]  [ERR_POLICY_SERVER_DOWN]  VLA supervisor: both attempts failed: attempt 1: timeout after 0.2s waiting for ZMQ port; attempt 2: timeout after 0.2s waiting for ZMQ port
+2026-07-20 07:47:10  [WARN ]  [ROBOT_ARM   ]  [ARM_CONNECT]       [-]                       lerobot unavailable — arm disabled (No module named 'lerobot')
+2026-07-20 07:47:10  [INFO ]  [VLA         ]  [-]                 [-]                       VLA preflight: arm DISABLED (robot.enabled=false) — actions will drive the GUI gauges only, not a physical SO-101.
+2026-07-20 07:47:10  [INFO ]  [VLA         ]  [SHUTDOWN]          [-]                       VLA presenter shutting down (worker, supervisor, arm, camera)

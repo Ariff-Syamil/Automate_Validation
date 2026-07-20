@@ -1,0 +1,218 @@
+Test run log (overwritten each run)
+Finished: 2026-07-20 07:47:10 UTC
+Suite directory: C:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla
+
+Results:
+  PASSED    tests/test_suite_vla/testcase_robot_arm_controller.py::TestRobotArmController::test_disabled_controller_is_inert
+  PASSED    tests/test_suite_vla/testcase_robot_arm_controller.py::TestRobotArmController::test_read_state_orders_by_joint_names
+  PASSED    tests/test_suite_vla/testcase_robot_arm_controller.py::TestRobotArmController::test_write_goal_sync_writes_goal_position
+  FAILED    tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_action_chunk_emits_four_motor_gauge_signals
+  FAILED    tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_action_chunk_updates_motor_states
+  FAILED    tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_gripper_held_open
+  FAILED    tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_wrist_roll_excluded_from_gauge_display
+  FAILED    tests/test_suite_vla/testcase_vla_arm_playback.py::TestVlaArmPlayback::test_continuous_loop_resubmits
+  FAILED    tests/test_suite_vla/testcase_vla_arm_playback.py::TestVlaArmPlayback::test_write_goal_called_per_timestep
+  PASSED    tests/test_suite_vla/testcase_vla_client.py::TestVlaClient::test_vla_client_mock_shape
+  PASSED    tests/test_suite_vla/testcase_vla_client.py::TestVlaClient::test_vla_client_real_server_unreachable
+  PASSED    tests/test_suite_vla/testcase_vla_config.py::TestVlaConfig::test_vla_config_loads
+  PASSED    tests/test_suite_vla/testcase_vla_config.py::TestVlaConfig::test_vla_joint_map_defaults
+  FAILED    tests/test_suite_vla/testcase_vla_e2e.py::TestVlaEndToEndMock::test_prompt_to_motor_e2e_mock
+  FAILED    tests/test_suite_vla/testcase_vla_e2e.py::TestVlaEndToEndMock::test_tab_switch_e2e_mock
+  PASSED    tests/test_suite_vla/testcase_vla_nav_lifecycle.py::TestVlaNavLifecycle::test_nav_away_cancels_in_flight_inference
+  PASSED    tests/test_suite_vla/testcase_vla_nav_lifecycle.py::TestVlaNavLifecycle::test_nav_away_during_startup_stops_subprocess
+  PASSED    tests/test_suite_vla/testcase_vla_nav_lifecycle.py::TestVlaNavLifecycle::test_nav_away_stops_server
+  PASSED    tests/test_suite_vla/testcase_vla_nav_lifecycle.py::TestVlaNavLifecycle::test_nav_back_does_not_auto_start
+  FAILED    tests/test_suite_vla/testcase_vla_presenter.py::TestVlaPresenterFrameCaching::test_vla_caches_latest_camera_frame
+  FAILED    tests/test_suite_vla/testcase_vla_presenter.py::TestVlaPresenterFrameCaching::test_vla_frame_cache_is_throttled
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_empty_prompt_is_ignored
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_joint_state_padding_shape
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_after_error_state_auto_resets
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_blocked_when_panel_inactive
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_blocked_when_start_fails_twice
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_reuses_ready_server
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_starts_server_when_down
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_without_frame_autostarts_camera_and_defers
+  PASSED    tests/test_suite_vla/testcase_vla_prompt_handler.py::TestVlaPromptHandler::test_prompt_without_frame_times_out
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaBridgeMirroring::test_bridge_reflects_server_state
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_initial_state_is_offline
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_reset_clears_error
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_start_fails_twice
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_start_succeeds_on_retry
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_start_success_first_attempt
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_state_transitions_emit_signal
+  PASSED    tests/test_suite_vla/testcase_vla_supervisor.py::TestVlaServerSupervisor::test_supervisor_stop_from_starting
+  FAILED    tests/test_suite_vla/testcase_vla_worker.py::TestVlaInferenceWorker::test_worker_emits_action_ready
+  FAILED    tests/test_suite_vla/testcase_vla_worker.py::TestVlaInferenceWorker::test_worker_emits_error_on_failure
+
+--- Suite run log (TestCaseFramework.log) ---
+[07:47:07.719] disabled controller stayed inert: zeros read, write no-op
+[07:47:07.722] read_state ordered correctly: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+[07:47:07.725] write_goal wrote full 6-joint Goal_Position: {'shoulder_pan': 10.0, 'shoulder_lift': 20.0, 'elbow_flex': 30.0, 'wrist_flex': 40.0, 'wrist_roll': 50.0, 'gripper': 60.0}
+[07:47:07.810] mock chunk shape=(8, 6) dtype=float32
+[07:47:07.812] injected stub PolicyClient that raises ConnectionRefusedError
+[07:47:07.814] infer() raised after 1 ms: policy server at 127.0.0.1:1 get_action failed: simulated: policy server unreachable
+[07:47:07.817] loaded VLA config with 10 top-level keys
+[07:47:07.819] joint_map defaults: mapped=[0, 1, 2, 3] unmapped=[4, 5]
+
+--- Failures (exceptions; first failure stops that test) ---
+
+tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_action_chunk_emits_four_motor_gauge_signals
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py, line 117
+      @scenario(
+          "action_chunk_emits_four_motor_gauge_signals",
+          "An (8, 6) chunk produces exactly 4 vla_motor_angle_deg GUI emissions per step "
+          "(all 6 positions are still written to the arm via write_goal; only joints 0-3 "
+          "appear as motor angle gauges in the GUI)",
+      )
+      def test_action_chunk_emits_four_motor_gauge_signals(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaActionPlayback, _xunit_setup_method_fixture_TestVlaActionPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py:117
+
+tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_action_chunk_updates_motor_states
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py, line 209
+      @scenario(
+          "action_chunk_updates_motor_states",
+          "presenter._motor_states reflects the final step of the chunk",
+      )
+      def test_action_chunk_updates_motor_states(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaActionPlayback, _xunit_setup_method_fixture_TestVlaActionPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py:209
+
+tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_gripper_held_open
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py, line 175
+      @scenario(
+          "gripper_held_open",
+          "Gripper stays 'open' through varying gripper values and never emits motor signals",
+      )
+      def test_gripper_held_open(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaActionPlayback, _xunit_setup_method_fixture_TestVlaActionPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py:175
+
+tests/test_suite_vla/testcase_vla_action_playback.py::TestVlaActionPlayback::test_wrist_roll_excluded_from_gauge_display
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py, line 148
+      @scenario(
+          "wrist_roll_excluded_from_gauge_display",
+          "wrist_roll (joint index 4) is excluded from the vla_motor_angle_deg GUI signal "
+          "(write_goal() still forwards it to the physical arm)",
+      )
+      def test_wrist_roll_excluded_from_gauge_display(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaActionPlayback, _xunit_setup_method_fixture_TestVlaActionPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_action_playback.py:148
+
+tests/test_suite_vla/testcase_vla_arm_playback.py::TestVlaArmPlayback::test_continuous_loop_resubmits
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_arm_playback.py, line 137
+      @scenario(
+          "continuous_loop_resubmits",
+          "When a chunk finishes while running, the presenter re-submits a fresh inference job",
+      )
+      def test_continuous_loop_resubmits(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaArmPlayback, _xunit_setup_method_fixture_TestVlaArmPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_arm_playback.py:137
+
+tests/test_suite_vla/testcase_vla_arm_playback.py::TestVlaArmPlayback::test_write_goal_called_per_timestep
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_arm_playback.py, line 116
+      @scenario(
+          "write_goal_called_per_timestep",
+          "Each action step is forwarded to the arm via write_goal with the full 6-joint vector",
+      )
+      def test_write_goal_called_per_timestep(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaArmPlayback, _xunit_setup_method_fixture_TestVlaArmPlayback, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_arm_playback.py:116
+
+tests/test_suite_vla/testcase_vla_e2e.py::TestVlaEndToEndMock::test_prompt_to_motor_e2e_mock
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_e2e.py, line 114
+      @scenario(
+          "prompt_to_motor_e2e_mock",
+          "Full chain in mock mode drives all four motors; Stop halts the continuous loop cleanly",
+      )
+      def test_prompt_to_motor_e2e_mock(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaEndToEndMock, _xunit_setup_method_fixture_TestVlaEndToEndMock, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_e2e.py:114
+
+tests/test_suite_vla/testcase_vla_e2e.py::TestVlaEndToEndMock::test_tab_switch_e2e_mock
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_e2e.py, line 180
+      @scenario(
+          "tab_switch_e2e_mock",
+          "Submit then nav away: supervisor.stop() called and motor signals halt",
+      )
+      def test_tab_switch_e2e_mock(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaEndToEndMock, _xunit_setup_method_fixture_TestVlaEndToEndMock, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_e2e.py:180
+
+tests/test_suite_vla/testcase_vla_presenter.py::TestVlaPresenterFrameCaching::test_vla_caches_latest_camera_frame
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_presenter.py, line 64
+      @scenario(
+          "vla_caches_latest_camera_frame",
+          "After QML sink registration, the next videoFrameChanged populates _last_frame",
+      )
+      def test_vla_caches_latest_camera_frame(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaPresenterFrameCaching, _xunit_setup_method_fixture_TestVlaPresenterFrameCaching, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_presenter.py:64
+
+tests/test_suite_vla/testcase_vla_presenter.py::TestVlaPresenterFrameCaching::test_vla_frame_cache_is_throttled
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_presenter.py, line 96
+      @scenario(
+          "vla_frame_cache_throttled_to_15_fps",
+          "Bursts of frames within the throttle window do not overwrite the cache",
+      )
+      def test_vla_frame_cache_is_throttled(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaPresenterFrameCaching, _xunit_setup_method_fixture_TestVlaPresenterFrameCaching, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_presenter.py:96
+
+tests/test_suite_vla/testcase_vla_worker.py::TestVlaInferenceWorker::test_worker_emits_action_ready
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_worker.py, line 67
+      @scenario(
+          "worker_emits_action_ready",
+          "Worker emits action_ready with the (T, 6) chunk returned by the client",
+      )
+      def test_worker_emits_action_ready(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaInferenceWorker, _xunit_setup_method_fixture_TestVlaInferenceWorker, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_worker.py:67
+
+tests/test_suite_vla/testcase_vla_worker.py::TestVlaInferenceWorker::test_worker_emits_error_on_failure
+file c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_worker.py, line 98
+      @scenario(
+          "worker_emits_error_on_failure",
+          "Worker emits error_occurred and not action_ready when infer() raises",
+      )
+      def test_worker_emits_error_on_failure(self, qtbot) -> None:
+E       fixture 'qtbot' not found
+>       available fixtures: _xunit_setup_class_fixture_TestVlaInferenceWorker, _xunit_setup_method_fixture_TestVlaInferenceWorker, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, monkeypatch, pytestconfig, qapp_vla, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\midrus\OneDrive - Lattice Semiconductor Corp\automate_validation\tests\test_suite_vla\testcase_vla_worker.py:98
+
+OVERALL: FAILED

@@ -9,6 +9,7 @@
 ::   run.bat report       Generate Markdown report
 ::   run.bat report csv   Generate CSV report to automate_5_results.csv
 ::   run.bat summary      Print priority / automation-status counts
+::   run.bat priority     Generate Manual/PRIORITY.md (automated-first, then manual run order)
 :: ============================================================================
 
 setlocal
@@ -66,5 +67,12 @@ if /i "%CMD%"=="summary" (
     goto :eof
 )
 
+:: ── Priority ────────────────────────────────────────────────────────────────
+if /i "%CMD%"=="priority" (
+    echo [automate_validation] Regenerating Manual/PRIORITY.md...
+    "%PYTHON%" "%ROOT%scripts\manage_tests.py" priority automate_5 -o "%ROOT%Manual\PRIORITY.md"
+    goto :eof
+)
+
 echo Unknown command: %CMD%
-echo Usage: run.bat [gui ^| validate ^| report ^| report csv ^| summary]
+echo Usage: run.bat [gui ^| validate ^| report ^| report csv ^| summary ^| priority]
