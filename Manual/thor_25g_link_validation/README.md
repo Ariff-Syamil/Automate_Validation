@@ -19,7 +19,9 @@ It also feeds `TC-FPGA-007` (*25G Sustained Torn-Rate Soak Test*), which
 depends on `TC-FPGA-004` passing first — see the throughput caveat below
 before using this to gate that case.
 
-See `STEPS.md` for the actual runbook.
+See `STEPS.md` for the actual runbook. See `DEBUG_LOG.md` for a record of
+in-progress debugging sessions where a run stalled before completion —
+check there first if you're resuming a partial attempt.
 
 ## Why Thor, and why this is safe to run without RTL knowledge
 
@@ -65,8 +67,8 @@ the DUT puts on the wire and what an independent, known-good MAC measured.
 
 | # | Item | Blocks | Status |
 |---|------|--------|--------|
-| 1 | Is Thor's QSFP already reflashed for 25GbE (`ODMDATA` / DTB patched), or still default 10GbE? | Step 0 | ❌ Open |
-| 2 | Which physical SFP28 leg(s) of the breakout cable are actually connected to the Avant-X board? | Step 1 | ❌ Open |
+| 1 | Is Thor's QSFP already reflashed for 25GbE (`ODMDATA` / DTB patched), or still default 10GbE? | Step 0 | ✅ Confirmed 25GbE — see `DEBUG_LOG.md`, 2026-07-20 session (`ethtool mgbe0_0` → `Speed: 25000Mb/s`) |
+| 2 | Which physical SFP28 leg(s) of the breakout cable are actually connected to the Avant-X board? | Step 1 | ❌ Open — see `DEBUG_LOG.md`, 2026-07-20 session saw 3-of-4 legs with carrier, opposite of the expected single-leg pattern |
 | 3 | JetPack/Jetson Linux version on this Thor unit (tuning commands differ slightly by release) | Step 4 | ❌ Open |
 | 4 | Do you have `sudo`/SSH access to this Thor unit, or does someone else operate it? | All steps | ❌ Open |
 

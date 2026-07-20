@@ -66,6 +66,23 @@ Only the leg(s) actually plugged into the Avant-X board should show
 `Link detected: yes`. Record which `mgbeN_0` that is — call it
 `$IFACE` for the rest of this runbook.
 
+⚠️ `$IFACE` here is just this doc's shorthand, not a shell variable that
+gets set for you. Before running Steps 2–3, actually run
+`export IFACE=mgbeN_0` (substituting the real interface) in your shell, or
+every later `$IFACE` reference will silently expand to nothing and produce
+confusing errors (see `DEBUG_LOG.md`).
+
+⚠️ `ethtool` does not accept multiple device names on one command line the
+way the combined command below might suggest — passing several names only
+reports on the first and silently errors on the rest (especially with
+`2>/dev/null`). If you need to check all four in one pass, loop instead:
+
+```bash
+for i in mgbe0_0 mgbe1_0 mgbe2_0 mgbe3_0; do
+  ethtool "$i" | grep -E "^Settings|Link detected|Speed"
+done
+```
+
 **Expected output on pass:** exactly one (or however many legs you
 physically connected) of the four blocks shows `Link detected: yes` /
 `Speed: 25000Mb/s`; the rest show `Link detected: no`, e.g.:
@@ -107,8 +124,10 @@ Now that link is up on `$IFACE`, look at real traffic content:
 sudo tcpdump -i $IFACE -e -XX -c 20
 ```
 
-Or, if a desktop session is available on Thor: `sudo apt install wireshark`
-and capture on `$IFACE` directly.
+`tcpdump` may not be preinstalled on the Thor image — if you get
+`command not found`, run `sudo apt install tcpdump` first (see
+`DEBUG_LOG.md`). Or, if a desktop session is available on Thor:
+`sudo apt install wireshark` and capture on `$IFACE` directly.
 
 Check: source/destination MAC, EtherType, frame length, and payload pattern
 against whatever the Avant-X board is expected to be transmitting (a
