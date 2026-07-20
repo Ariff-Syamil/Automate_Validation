@@ -475,3 +475,137 @@ test_cases:
   jira_link: https://latticesemi.atlassian.net/browse/DSSOL-229
   next_action_if_fail: Re-run focus tuning procedure, check lens seating and back-focus distance, and
     re-measure.
+- test_case_id: TC-FPGA-010
+  owner: Sheng Li / Kin Nam
+  component: Ethernet RX / SGDMA (Robustness)
+  dependency:
+  - TC-FPGA-005
+  - TC-FPGA-006
+  precondition: TC-FPGA-005 and TC-FPGA-006 passed; THOR Python traffic generator and fabric-RTL pattern
+    generator are both available on the same bitstream; SGDMA descriptor/memory readback harness is in
+    place.
+  test_name: Ingress UDP Payload Size Sweep
+  description: Checks that SGDMA and firmware correctly capture and validate payloads across a sweep
+    of UDP payload sizes, including boundary values around the AXIS tkeep width and MTU.
+  steps:
+  - Define the payload size sweep list, covering minimum payload, tkeep-width boundary values (width-1,
+    width, width+1), a typical mid-size payload, and MTU-sized payload.
+  - For each size, send a deterministic payload from the THOR Python script over UDP to the FPGA.
+  - Repeat the same sweep using the fabric-RTL pattern generator with matching frame lengths.
+  - For each transfer, have firmware read back the SGDMA buffer and compare byte-for-byte against the
+    expected payload and length.
+  - Record pass/fail per payload size and per source (THOR vs. pattern generator).
+  expected_result: Every payload size in the sweep is captured with correct length and byte-exact content
+    from both the THOR and pattern-generator sources, with no SGDMA descriptor or bus errors.
+  fail_conditions: Any payload size is truncated, padded incorrectly, misaligned at a tkeep boundary,
+    corrupted, or reports a descriptor/bus error.
+  priority: P1
+  severity: Major
+  automation_readiness: Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Formalizes the WW24'26 "sweep payload size" robustness item from the Bi-Weekly Updates
+    page; builds directly on the TC-FPGA-005/006 dual-source proof.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-298
+  next_action_if_fail: Check tkeep/tlast handling at the failing size, the descriptor length field, and
+    buffer alignment in the SGDMA RTL.
+- test_case_id: TC-FPGA-011
+  owner: Sheng Li
+  component: Ethernet RX / SGDMA (Robustness)
+  dependency:
+  - TC-FPGA-005
+  - TC-FPGA-006
+  precondition: TC-FPGA-005 and TC-FPGA-006 passed; descriptor ring depth is known; THOR script supports
+    configurable inter-frame gap and burst count.
+  test_name: Back-to-Back Burst / Descriptor Ring Wraparound
+  description: Checks that SGDMA correctly handles bursts of back-to-back frames at minimum inter-frame
+    gap without dropping frames or corrupting the descriptor ring, including wraparound past the ring
+    depth.
+  steps:
+  - Configure THOR to send bursts of N frames at minimum inter-frame gap, sweeping N across 1, a mid-size
+    burst, and a burst exceeding the descriptor ring depth to force wraparound.
+  - Trigger each burst and allow SGDMA to capture all frames into the configured descriptor ring.
+  - Have firmware walk every completed descriptor and verify payload, length, and ordering for each frame
+    in the burst.
+  - Repeat the largest burst size using the fabric-RTL pattern generator for cross-source confirmation.
+  - Record any dropped, reordered, or corrupted frames per burst size.
+  expected_result: All frames in every burst size are captured in order with correct payload and length,
+    including bursts that wrap the descriptor ring, with no dropped or corrupted frames.
+  fail_conditions: Any frame in a burst is dropped, reordered, duplicated, or corrupted, or the descriptor
+    ring stalls/errors on wraparound.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Formalizes the WW24'26 "burst mode" robustness item; also exercises the same ring-wraparound
+    path stressed further at line rate in TC-FPGA-007.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-298
+  next_action_if_fail: Inspect descriptor ring pointer management, FIFO occupancy during bursts, and completion-interrupt
+    handling in firmware.
+- test_case_id: TC-FPGA-012
+  owner: Sheng Li / Kin Nam
+  component: Ethernet RX / SGDMA (Robustness)
+  dependency:
+  - TC-FPGA-005
+  precondition: TC-FPGA-005 passed; THOR script can target arbitrary/invalid UDP destination ports and
+    send malformed frames.
+  test_name: Wrong-Port UDP and Malformed Frame Rejection
+  description: Checks that packets addressed to an unexpected UDP port, or malformed/short frames, are
+    cleanly dropped without hanging the RX FSM, and that the system keeps accepting valid traffic afterward.
+  steps:
+  - Send a valid payload to the expected UDP destination port and confirm normal capture as a baseline.
+  - Send a packet to an unexpected/wrong UDP destination port and confirm it is dropped, not captured
+    into the buffer.
+  - Send a short/runt frame and a frame with a bad checksum, confirming both are dropped.
+  - Immediately after each negative case, send another valid-port packet and confirm it is captured correctly.
+  - Repeat the wrong-port and malformed cases back-to-back several times to confirm the FSM never latches
+    into a stuck state.
+  expected_result: Wrong-port and malformed packets are dropped with no capture, the RX FSM returns to
+    idle every time, and subsequent valid packets are always captured correctly.
+  fail_conditions: The FSM hangs or stops accepting valid packets after a wrong-port/malformed packet,
+    a wrong-port packet is incorrectly captured, or recovery requires a manual reset.
+  priority: P0
+  severity: Critical
+  automation_readiness: Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Formalizes the WW24'26 "wrong-port UDP will not hang the FSM" robustness item.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-298
+  next_action_if_fail: Inspect UDP/IP header filter logic and RX FSM state transitions on the drop path;
+    check for a missing default/idle transition.
+- test_case_id: TC-FPGA-013
+  owner: Kin Nam / Haikal
+  component: Ethernet RX / SGDMA (Robustness)
+  dependency:
+  - TC-FPGA-005
+  - TC-FPGA-006
+  precondition: TC-FPGA-005 and TC-FPGA-006 passed; reset can be triggered at controlled points (idle,
+    mid-transfer, mid-burst) without a full power cycle.
+  test_name: Reset-During-Transfer Recovery
+  description: Checks that asserting and releasing reset at various points, including mid-transfer, leaves
+    SGDMA and firmware in a clean, working state without requiring a power cycle.
+  steps:
+  - Assert and release reset while idle with no traffic in flight; confirm firmware re-initializes SGDMA
+    and a subsequent transfer succeeds.
+  - Start a transfer, assert reset mid-transfer, release reset, and confirm firmware re-initializes and
+    the next transfer succeeds cleanly.
+  - Repeat mid-burst (reset during a multi-frame burst) and confirm recovery without stale descriptors
+    or partial data being reported as valid.
+  - Send a known-good payload immediately after each recovery and verify byte-exact capture.
+  - Repeat the full sequence multiple times to confirm repeatable recovery, not a one-time fluke.
+  expected_result: After reset at any point (idle, mid-transfer, mid-burst), firmware re-initializes cleanly
+    and the next transfer is captured correctly with no stale or partial data.
+  fail_conditions: Reset leaves stale descriptor state, firmware hangs during re-init, or a post-reset
+    transfer is corrupted, partial, or requires a power cycle to recover.
+  priority: P0
+  severity: Critical
+  automation_readiness: Semi-Automatable
+  automation_status: Not Ready
+  test_environment_ci_hil: HIL
+  observations: Formalizes the WW24'26 "reset" robustness item. Data-integrity checking (byte-exact readback)
+    is embedded as the pass criterion across TC-FPGA-010 through TC-FPGA-013 rather than tracked as a
+    separate case.
+  jira_link: https://latticesemi.atlassian.net/browse/DSSOL-298
+  next_action_if_fail: Check descriptor/ring re-initialization sequence, firmware boot/re-init order relative
+    to SGDMA reset release, and any missing state-clear on reset.
