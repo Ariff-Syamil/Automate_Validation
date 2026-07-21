@@ -74,4 +74,8 @@ Two cases keep their content elsewhere instead of duplicating it:
 To point a case at an existing runbook elsewhere instead of the generated
 `runbooks/<sub>/<TC-ID>.md` location (like `TC-FPGA-004` above), add an
 entry to `RUNBOOK_LINKS` in
-[scripts/manage_tests.py](../scripts/manage_tests.py).
+[scripts/manage_tests.py](../scripts/manage_tests.py). `scripts/gui.py`
+keeps its own small mirrored copy of `RUNBOOK_LINKS` (used by the
+`ManualResultDialog` operators see while recording a manual result, to
+pull in that case's "Manual Procedure" excerpt) — update both dicts
+together so the GUI and the generated docs stay pointed at the same file.

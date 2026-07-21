@@ -13,6 +13,7 @@ import csv
 import datetime as _dt
 import html
 import io
+import os
 import subprocess
 import sys
 import time
@@ -25,7 +26,7 @@ from PyQt6.QtGui import QStandardItemModel, QStandardItem, QColor, QFont
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QTableView, QHeaderView, QPushButton, QComboBox, QLabel,
-    QDialog, QFormLayout, QLineEdit, QTextEdit, QDateEdit,
+    QDialog, QFormLayout, QLineEdit, QTextEdit, QTextBrowser, QDateEdit,
     QMessageBox, QGroupBox, QFrame, QInputDialog,
     QScrollArea, QAbstractItemView, QListWidget, QListWidgetItem,
     QProgressDialog,
@@ -40,6 +41,15 @@ except ImportError:  # pragma: no cover - supports unusual direct import context
 # ── Data layer ──────────────────────────────────────────────────────────────
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+MANUAL_DIR = REPO_ROOT / "Manual"
+
+# Cases whose hands-on runbook lives at a bespoke path instead of the
+# generated `Manual/runbooks/<subcomponent>/<TC-ID>.md` location. Mirrors
+# `RUNBOOK_LINKS` in `scripts/manage_tests.py` — keep both in sync when
+# adding an override (see the note in `Manual/README.md`).
+RUNBOOK_LINKS: dict[str, str] = {
+    "TC-FPGA-004": "thor_25g_link_validation/STEPS.md",
+}
 
 SUBCOMPONENTS: list[str] = [
     "software",
@@ -627,6 +637,61 @@ def reveal_in_file_explorer(path: Path) -> None:
         subprocess.Popen(["explorer.exe", "/select,", str(resolved)])
         return
     subprocess.Popen(["xdg-open", str(resolved.parent)])
+
+
+def open_file_with_default_app(path: Path) -> None:
+    """Open a file with the platform's default associated application.
+
+    Best-effort: a launch failure (missing app association, sandboxed
+    environment, etc.) is swallowed rather than raised, since this is only
+    ever called from a convenience button/link inside a dialog.
+    """
+    try:
+        if sys.platform.startswith("win"):
+            os.startfile(str(path))  # type: ignore[attr-defined]
+        elif sys.platform == "darwin":
+            subprocess.Popen(["open", str(path)])
+        else:
+            subprocess.Popen(["xdg-open", str(path)])
+    except OSError:
+        pass
+
+
+def _runbook_path(tid: str, subcomponent: str | None) -> Path | None:
+    """Resolve the `Manual/` runbook file for a test case, if any exists.
+
+    Checks `RUNBOOK_LINKS` first for cases with a bespoke runbook location
+    (e.g. `TC-FPGA-004` -> `thor_25g_link_validation/STEPS.md`), otherwise
+    falls back to the generated `Manual/runbooks/<subcomponent>/<TC-ID>.md`
+    location. Returns `None` when there's nothing to resolve against (no
+    `subcomponent` and no override) — the caller should treat that the same
+    as "no runbook found".
+    """
+    if tid in RUNBOOK_LINKS:
+        return MANUAL_DIR / RUNBOOK_LINKS[tid]
+    if not subcomponent:
+        return None
+    return MANUAL_DIR / "runbooks" / subcomponent / f"{tid}.md"
+
+
+def _manual_procedure_excerpt(text: str) -> str:
+    """Extract the hands-on procedure from a generated runbook's contents.
+
+    Generated runbooks (`scripts/manage_tests.py::generate_case_runbook`)
+    put the actual step-by-step procedure under a `## Manual Procedure`
+    heading, followed by a forward-looking `## Path to Automation` section
+    that isn't useful while actually recording today's result — this trims
+    that part off. Freeform runbooks that don't follow the generated
+    template (e.g. `thor_25g_link_validation/STEPS.md`, which has no
+    `## Manual Procedure` heading at all) fall back to the full text.
+    """
+    marker = "## Manual Procedure"
+    start = text.find(marker)
+    if start == -1:
+        return text.strip()
+    end = text.find("\n## Path to Automation", start)
+    excerpt = text[start:end] if end != -1 else text[start:]
+    return excerpt.strip()
 
 
 def current_work_week(date: _dt.date, valid_weeks: list[str]) -> str | None:
@@ -1595,6 +1660,43 @@ class ManualResultDialog(QDialog):
             expected = QLabel(f"Expected result: {meta['expected_result']}")
             expected.setWordWrap(True)
             content.addWidget(expected)
+
+        runbook_path = _runbook_path(tid, meta.get("subcomponent"))
+        runbook_text = ""
+        if runbook_path is not None and runbook_path.exists():
+            try:
+                runbook_text = runbook_path.read_text(encoding="utf-8")
+            except OSError:
+                runbook_text = ""
+        excerpt = _manual_procedure_excerpt(runbook_text) if runbook_text else ""
+        if excerpt:
+            runbook_box = QGroupBox("Manual Runbook")
+            runbook_layout = QVBoxLayout(runbook_box)
+            runbook_layout.setSpacing(6)
+
+            viewer = QTextBrowser()
+            viewer.setReadOnly(True)
+            viewer.setOpenLinks(False)
+            viewer.setMaximumHeight(260)
+            viewer.setMarkdown(excerpt)
+            runbook_dir = runbook_path.parent
+
+            def _open_runbook_link(url, _base=runbook_dir):
+                target = (_base / url.toString()).resolve()
+                if target.exists():
+                    open_file_with_default_app(target)
+
+            viewer.anchorClicked.connect(_open_runbook_link)
+            runbook_layout.addWidget(viewer)
+
+            open_btn = QPushButton("Open Full Runbook")
+            open_btn.setObjectName("secondary")
+            open_btn.clicked.connect(
+                lambda _checked=False, _p=runbook_path: open_file_with_default_app(_p)
+            )
+            runbook_layout.addWidget(open_btn)
+
+            content.addWidget(runbook_box)
 
         if dependencies:
             dep_box = QGroupBox("Dependencies (already run)")
