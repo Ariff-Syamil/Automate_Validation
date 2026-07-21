@@ -30,9 +30,15 @@ automate_validation/
 ├── Manual/                          # Run-priority policy + manual test procedures (see below)
 │   ├── README.md
 │   ├── PRIORITY.md                  # Generated: automated-first, then manual run order
+│   ├── runbooks/                    # Generated: one file per manual test case
+│   │   ├── software/TC-SW-001.md    #   Manual Procedure (+ Path to Automation if In Progress)
+│   │   ├── mechanical/TC-HW-01.md
+│   │   ├── holoscan_fpga/TC-FPGA-005.md
+│   │   ├── multi_axis_motor_control_fpga/TC-MAMC-001.md
+│   │   └── gui/TC-GUI-110.md
 │   └── thor_25g_link_validation/    # Full hands-on runbook for TC-FPGA-004
 ├── drafts/                          # Proposed automation not yet wired into automation/ or tests/
-│   └── fpga_ingress_automation/     # Pseudo-code draft for TC-FPGA-010..013
+│   └── fpga_ingress_automation/     # Pseudo-code draft backing TC-FPGA-010..013's Path to Automation
 └── automate_5/                      # ← Current implementation round
     ├── timeline.yaml                 # Work-week schedule grid (Excel `Timeline` tab)
     ├── software/
@@ -58,15 +64,15 @@ With 142 test cases spanning CI unit tests through hands-on HIL procedures, run 
 1. **Phase 1 — Automated.** Every case with `automation_status: Ready` has a working script — run these first via `pytest`, `run.bat validate`, or the GUI's Run Test action.
 2. **Phase 2 — Manual.** Everything else (`In Progress` / `Not Ready`) still needs a human. Run these **in dependency order**: a manual case that depends on another one is always the very next thing you run after that dependency passes, with nothing else run in between.
 
-The full, generated checklist for both phases lives in **[`Manual/PRIORITY.md`](Manual/PRIORITY.md)** — see **[`Manual/README.md`](Manual/README.md)** for how it's organized. Regenerate it whenever `test_cases.yaml` changes:
+The full, generated checklist for both phases lives in **[`Manual/PRIORITY.md`](Manual/PRIORITY.md)**, and every Phase 2 case links out to its own step-by-step file under **[`Manual/runbooks/`](Manual/runbooks/)** (`runbooks/<subcomponent>/<TC-ID>.md`) — see **[`Manual/README.md`](Manual/README.md)** for how it's organized. Regenerate both whenever `test_cases.yaml` changes:
 
 ```bash
-python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md
-# or:
+python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md --write-runbooks Manual/runbooks
+# or (PRIORITY.md only):
 run.bat priority
 ```
 
-`TC-FPGA-010`–`013` have neither a script nor a written manual procedure yet (they're tracked as a proposed-automation draft in `drafts/fpga_ingress_automation/`) and are called out separately at the bottom of `PRIORITY.md` instead of being silently skipped.
+Each runbook has a **Manual Procedure** section (precondition, steps, pass/fail criteria) for every case, plus a **Path to Automation** section (open questions + implementation steps) for every `In Progress` case and for `TC-FPGA-010`–`013`, whose questions draw on the real research already tracked in `drafts/fpga_ingress_automation/`.
 
 ---
 
@@ -196,12 +202,12 @@ Quick view of priority and automation-status breakdowns:
 python scripts/manage_tests.py summary automate_5
 ```
 
-#### Run-priority checklist
+#### Run-priority checklist + per-case runbooks
 
-Generates the two-phase (automated-first, then dependency-ordered manual) run checklist described in [Run Priority](#run-priority-which-test-case-to-run-next) above:
+Generates the two-phase (automated-first, then dependency-ordered manual) run checklist described in [Run Priority](#run-priority-which-test-case-to-run-next) above, and optionally (re)writes every manual case's runbook under `Manual/runbooks/`:
 
 ```bash
-python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md
+python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md --write-runbooks Manual/runbooks
 ```
 
 > **Note on execution tracking:** the legacy "Record Result" workflow (mark a test pass/fail with date / executed-by / notes) has been removed because `Automate5_Test_Cases.xlsx` does not have those columns. Use `automation_status` for state (`Ready` / `Not Ready` / `In Progress` / `Blocked`) and `observations` for free-form notes; or, if you want execution-result tracking back, ask to add `executed` / `result` / `execution_date` / `executed_by` as additional non-Excel YAML fields.

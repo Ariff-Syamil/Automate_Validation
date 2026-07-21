@@ -419,23 +419,15 @@ def summarise(automate_version: str) -> str:
 
 READY_STATUS = "Ready"
 
+RUNBOOKS_DIRNAME = "runbooks"
+
 # Test cases that already have a full hands-on runbook checked in elsewhere
-# in the repo. Path is relative to the `Manual/` folder (where the
-# generated priority doc lives by default) so it renders as a working link
-# instead of duplicating the runbook's own step-by-step prose inline.
+# in the repo instead of the generated `Manual/runbooks/` location. Path is
+# relative to the `Manual/` folder (where the generated priority doc lives
+# by default) so it renders as a working link instead of duplicating the
+# runbook's own step-by-step prose inline.
 RUNBOOK_LINKS: dict[str, str] = {
     "TC-FPGA-004": "thor_25g_link_validation/STEPS.md",
-}
-
-# Test cases that are neither automated (`automation_status: Ready`) nor
-# covered by a written manual procedure yet. These are excluded from the
-# ordered manual checklist (there is nothing to check off) and called out
-# separately instead of silently disappearing from the priority doc.
-BLOCKED_NO_PROCEDURE: dict[str, str] = {
-    "TC-FPGA-010": "../drafts/fpga_ingress_automation/README.md",
-    "TC-FPGA-011": "../drafts/fpga_ingress_automation/README.md",
-    "TC-FPGA-012": "../drafts/fpga_ingress_automation/README.md",
-    "TC-FPGA-013": "../drafts/fpga_ingress_automation/README.md",
 }
 
 _PRIORITY_RANK: dict[str, int] = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
@@ -480,9 +472,7 @@ def compute_manual_run_order(cases_by_id: dict[str, dict]) -> list[str]:
     always runs before any manual case.
     """
     manual_ids = {
-        tid
-        for tid, tc in cases_by_id.items()
-        if tc.get("automation_status") != READY_STATUS and tid not in BLOCKED_NO_PROCEDURE
+        tid for tid, tc in cases_by_id.items() if tc.get("automation_status") != READY_STATUS
     }
     manual_deps: dict[str, list[str]] = {
         tid: [dep for dep in (cases_by_id[tid].get("dependency") or []) if dep in manual_ids]
@@ -525,11 +515,9 @@ def compute_manual_run_order(cases_by_id: dict[str, dict]) -> list[str]:
     return order
 
 
-def _steps_block(tc: dict) -> str:
-    steps = tc.get("steps") or []
-    if not steps:
-        return "  _(no steps recorded)_"
-    return "\n".join(f"  {i}. {step}" for i, step in enumerate(steps, 1))
+def _runbook_rel_path(tid: str, tc: dict) -> str:
+    """Path to this case's runbook file, relative to the `Manual/` folder."""
+    return RUNBOOK_LINKS.get(tid, f"{RUNBOOKS_DIRNAME}/{tc['_subcomponent']}/{tid}.md")
 
 
 def _phase1_table(cases_by_id: dict[str, dict], sub: str) -> str:
@@ -577,17 +565,384 @@ def _phase2_entry(index: int, tid: str, cases_by_id: dict[str, dict]) -> str:
     if tc.get("precondition"):
         lines.append(f"- **Precondition:** {tc['precondition']}")
 
-    if tid in RUNBOOK_LINKS:
-        lines.append(f"- **Full runbook:** [{RUNBOOK_LINKS[tid]}]({RUNBOOK_LINKS[tid]})")
-    else:
-        lines.append("- **Steps:**")
-        lines.append(_steps_block(tc))
+    runbook_path = _runbook_rel_path(tid, tc)
+    label = "Full runbook" if tid in RUNBOOK_LINKS else "Runbook"
+    if _has_path_to_automation(tid, tc):
+        label += " (includes Path to Automation)"
+    lines.append(f"- **{label}:** [{runbook_path}]({runbook_path})")
 
     if tc.get("expected_result"):
         lines.append(f"- **Expected result:** {tc['expected_result']}")
     if tc.get("fail_conditions"):
         lines.append(f"- **Fail conditions:** {tc['fail_conditions']}")
     return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
+# Per-case runbooks (Manual Procedure + Path to Automation)
+# ---------------------------------------------------------------------------
+
+# Bespoke, research-backed "Path to Automation" content for the handful of
+# cases that already have real domain research behind them elsewhere in the
+# repo (the Thor 25G runbook, and the FPGA ingress automation draft),
+# instead of the generic templates further below.
+_INGRESS_QUESTIONS: dict[int, str] = {
+    1: "What IP address and UDP destination port does the ingress-path "
+       "firmware listen on for the current reference-design bitstream? "
+       "Static, or does it need DHCP/ARP setup from Thor first?",
+    2: "Does the firmware's ingress parser expect the ECB-wrapped frame "
+       "(`automate5/packets/ecb_codec.py` format), or a raw/unwrapped UDP "
+       "payload?",
+    3: "When you validate manually today, how do you actually inspect "
+       "SGDMA/firmware state after sending a packet — UART print, "
+       "JTAG/debug-bridge memory read, register dump command? Share one "
+       "literal example of the real output.",
+    4: "If UART is the channel: what's the COM port naming convention, "
+       "baud rate, and can you paste one real captured log line showing a "
+       "successful SGDMA capture?",
+    5: "When a wrong-port or malformed packet is dropped today, is there "
+       "any observable signal (counter, log line, LED) confirming it was "
+       "dropped vs. silently ignored?",
+    6: "Is there a soft/register-level reset available, or is the Bellwin "
+       "USB power-cycle path the only reset mechanism?",
+}
+
+_INGRESS_QUESTION_IDS: dict[str, list[int]] = {
+    "TC-FPGA-010": [1, 2, 3, 4],
+    "TC-FPGA-011": [1, 2, 3, 4],
+    "TC-FPGA-012": [1, 2, 3, 4, 5],
+    "TC-FPGA-013": [1, 2, 3, 4, 6],
+}
+
+_INGRESS_IMPLEMENTATION_STEPS: list[str] = [
+    "Get answers to the open questions above from whoever owns the "
+    "ingress-path firmware + Thor stimulus side (e.g. Sheng Li / Seow Jie).",
+    "Replace the placeholder/guessed pieces in "
+    "`drafts/fpga_ingress_automation/stimulus.py` and `readback.py` with "
+    "the confirmed behavior.",
+    "Move the contents into `automation/fpga/` + `tests/test_suite_fpga/`, "
+    "following the same pattern as `automation/gui/` + "
+    "`tests/test_suite_gui/`.",
+    "Flip `automation_status` from `Not Ready` to `Ready` only once the "
+    "previous step is done and a real run has produced a genuine PASS.",
+    "(Optional) Extend `automation/gui/executor.py`'s dispatch so these "
+    "cases are triggerable the same way `TC-GUI-*` cases are today.",
+]
+
+_THOR_QUESTIONS: list[str] = [
+    "Is Thor's QSFP already reflashed for 25GbE (`ODMDATA` / DTB patched), "
+    "or still default 10GbE?",
+    "Which physical SFP28 leg(s) of the breakout cable are actually "
+    "connected to the Avant-X board?",
+    "JetPack/Jetson Linux version on this Thor unit (tuning commands "
+    "differ slightly by release)?",
+    "Do you have `sudo`/SSH access to this Thor unit, or does someone "
+    "else operate it?",
+    "Is there a scriptable way to capture `ethtool` / `tcpdump` / counter "
+    "output over SSH so Steps 0-3 of the runbook could run unattended, "
+    "leaving only Step 4's throughput judgement call to a human?",
+]
+
+_THOR_IMPLEMENTATION_STEPS: list[str] = [
+    "Confirm the open items above with whoever owns this Thor unit (see "
+    "the \"Open items to confirm\" table in "
+    "`Manual/thor_25g_link_validation/README.md`).",
+    "Wrap the `ethtool` / `tcpdump` / `ethtool -S` commands from "
+    "`Manual/thor_25g_link_validation/STEPS.md` in an SSH-driven script "
+    "(e.g. paramiko/fabric) that parses `Speed:` / `Link detected:` / "
+    "counters instead of requiring a human to read terminal output.",
+    "Keep the `iperf3` throughput step (Step 4) as a human judgement call, "
+    "per the known Thor software-path throughput ceiling caveat, unless a "
+    "numeric pass band is agreed with the FPGA owner.",
+    "Land the script under `automation/fpga/` + `tests/test_suite_fpga/`, "
+    "and flip `automation_status` to `Ready` only once verified against "
+    "real hardware.",
+]
+
+
+def _has_path_to_automation(tid: str, tc: dict) -> bool:
+    """Whether this case gets a "Path to Automation" section.
+
+    True for every `In Progress` case, plus the `Not Ready` FPGA ingress
+    cases that already have a real (if unverified) automation draft to
+    point at.
+    """
+    return tc.get("automation_status") == "In Progress" or tid in _INGRESS_QUESTION_IDS
+
+
+def _generic_questions(tc: dict) -> list[str]:
+    """Template open-question set, parameterized by env + readiness.
+
+    Used for every `In Progress` case that doesn't have bespoke,
+    research-backed content above (i.e. everything except `TC-FPGA-004`).
+    """
+    env = tc.get("test_environment_ci_hil")
+    readiness = tc.get("automation_readiness")
+    component = tc.get("component") or "this area"
+
+    if readiness == "Manual":
+        return [
+            "Which of this case's prerequisite subsystems already have "
+            "their own automated check, so a human only needs to start "
+            f"the {component} portion once every dependency's latest "
+            "`runs.yaml` entry is a PASS?",
+            "Is there a scriptable way to capture the evidence this case "
+            "relies on (logs, latency numbers, transported values), even "
+            "if the final pass/fail judgement itself stays human?",
+            "Given `automation_readiness` is already `Manual`, is full "
+            "automation actually the goal here, or should this case "
+            "simply be treated as \"as automated as it will get\" once "
+            "prerequisite-checking and evidence-capture are scripted?",
+        ]
+    if env == "CI" and readiness == "Automatable":
+        return [
+            f"Does a draft pytest already exist for {component} (check "
+            "`tests/` and this case's `observations` field), and if so, "
+            "what's failing or missing to make it pass reliably in CI?",
+            "What mock/fixture data does this case need (sample frames, "
+            "config files, golden vectors) that isn't committed yet?",
+            "Does it depend on real hardware state at all, or can it run "
+            "fully headless in CI once the fixture/mocks exist?",
+        ]
+    if env == "HIL" and readiness == "Automatable":
+        return [
+            f"Is there already a draft script/fixture for {component}, "
+            "and if so, what's blocking it from a verified passing run on "
+            "real hardware?",
+            "What's the exact pass/fail measurement source (counter, "
+            "register, log) for this case, and is it already "
+            "machine-readable?",
+            "Is there a safe way to run this repeatedly without a human "
+            "present, or does hardware setup (cabling, bitstream load, "
+            "power-on) require a human step every time?",
+        ]
+    # HIL + Semi-Automatable is the most common remaining combination.
+    return [
+        f"Which parts of {component} can already be driven by a "
+        "scriptable API/SDK/CLI, and which genuinely need a human at the "
+        "bench (physical setup, visual/audible judgement)?",
+        "What's today's pass/fail signal, and is there a sensor/log/"
+        "counter equivalent that could replace the human observation?",
+        "Is there a safe way to simulate or mock the hardware response "
+        "for a CI-only smoke check, even if the full HIL case still needs "
+        "a human?",
+    ]
+
+
+def _generic_implementation_steps(tc: dict) -> list[str]:
+    """Implementation-steps counterpart to `_generic_questions`."""
+    env = tc.get("test_environment_ci_hil")
+    readiness = tc.get("automation_readiness")
+
+    if readiness == "Manual":
+        return [
+            "Script the prerequisite-check (this case's `dependency` "
+            "list) so a human only starts the manual portion once every "
+            "dependency's latest run is a PASS.",
+            "Instrument logging (see "
+            "`tests/test_suite_log/testcase_runtime_logger.py` for the "
+            "pattern) so the human only has to judge the final result, "
+            "not manually record every intermediate signal.",
+            "Treat this as fully covered once the previous two steps "
+            "land; don't force `automation_status` toward `Ready` if a "
+            "human judgement call will always remain.",
+        ]
+    if env == "CI" and readiness == "Automatable":
+        return [
+            "Add or finish the pytest module under the matching "
+            "`tests/test_suite_*/` folder, following the structure of an "
+            "existing passing suite in the same area.",
+            "Commit any missing fixture data referenced by the test.",
+            "Run `pytest` locally, confirm it's green, then flip "
+            "`automation_status` to `Ready`.",
+        ]
+    if env == "HIL" and readiness == "Automatable":
+        return [
+            "Confirm the open questions above with this case's owner.",
+            "Script the setup/measurement/pass-fail logic under a "
+            "`tests/test_suite_*/` module, following the fixture patterns "
+            "already used in `tests/test_suite_backend/`.",
+            "Run it once against real hardware, record the result in "
+            "`automate_5/runs.yaml`, and flip `automation_status` to "
+            "`Ready` only after that passes.",
+        ]
+    return [
+        "Script whatever is answered \"yes\" to the scriptable-parts "
+        "question above into a HIL test module (see "
+        "`tests/test_suite_hil/testcase_hil_gates.py` for the pattern).",
+        "Keep a required manual sign-off step for whatever remains "
+        "human-only, especially where `severity` is `Critical`.",
+        "Run once for real, record the result, and flip "
+        "`automation_status` to `Ready` only for the parts that are "
+        "genuinely automated (or keep it `Semi-Automatable` permanently "
+        "if a human step will always remain).",
+    ]
+
+
+def _path_to_automation_section(tid: str, tc: dict) -> str:
+    """Render the "Path to Automation" section for a case that has one."""
+    lines = [
+        "## Path to Automation",
+        "",
+        f"Current state: `automation_readiness` "
+        f"{tc.get('automation_readiness') or '-'}, `automation_status` "
+        f"{tc.get('automation_status') or '-'}.",
+        "",
+    ]
+    if tid == "TC-FPGA-004":
+        lines.append(
+            "A manual procedure already exists and is grounded in real "
+            "NVIDIA Jetson AGX Thor documentation/forum reports — see "
+            "[../thor_25g_link_validation/README.md]"
+            "(../thor_25g_link_validation/README.md)."
+        )
+        lines.append("")
+        questions, steps = _THOR_QUESTIONS, _THOR_IMPLEMENTATION_STEPS
+    elif tid in _INGRESS_QUESTION_IDS:
+        lines.append(
+            "Pseudo-code already drafted in "
+            "[../../drafts/fpga_ingress_automation/]"
+            "(../../drafts/fpga_ingress_automation/) (`stimulus.py`, "
+            "`readback.py`, `test_tc_fpga_ingress.py`) but unverified "
+            "against real hardware."
+        )
+        lines.append("")
+        questions = [_INGRESS_QUESTIONS[i] for i in _INGRESS_QUESTION_IDS[tid]]
+        steps = _INGRESS_IMPLEMENTATION_STEPS
+    else:
+        questions = _generic_questions(tc)
+        steps = _generic_implementation_steps(tc)
+
+    lines.append("**Open Questions:**")
+    lines.append("")
+    lines.extend(f"{i}. {q}" for i, q in enumerate(questions, 1))
+    lines.append("")
+    lines.append("**Implementation steps once answered:**")
+    lines.append("")
+    lines.extend(f"{i}. {s}" for i, s in enumerate(steps, 1))
+    return "\n".join(lines)
+
+
+def _dependency_lines(tid: str, cases_by_id: dict[str, dict]) -> list[str]:
+    tc = cases_by_id[tid]
+    deps = tc.get("dependency") or []
+    manual_deps = [
+        d for d in deps if d in cases_by_id and cases_by_id[d].get("automation_status") != READY_STATUS
+    ]
+    automated_deps = [d for d in deps if d not in manual_deps]
+    lines: list[str] = []
+    if manual_deps:
+        lines.append(
+            f"**Run immediately after:** {', '.join(f'`{d}`' for d in manual_deps)} "
+            "— do not run any other test case between that one finishing and this one starting."
+        )
+    if automated_deps:
+        lines.append(
+            "**Also depends on (covered in Phase 1, already automated):** "
+            f"{', '.join(f'`{d}`' for d in automated_deps)}"
+        )
+    if not deps:
+        lines.append("**Dependency:** None.")
+    return lines
+
+
+def _manual_procedure_section(tid: str, tc: dict) -> str:
+    if tid == "TC-FPGA-004":
+        return (
+            "## Manual Procedure\n\n"
+            "This case already has a full hands-on runbook grounded in "
+            "real Jetson AGX Thor documentation — see "
+            "[../thor_25g_link_validation/STEPS.md]"
+            "(../thor_25g_link_validation/STEPS.md) (and "
+            "[../thor_25g_link_validation/README.md]"
+            "(../thor_25g_link_validation/README.md) for context/caveats) "
+            "rather than duplicating it here."
+        )
+
+    lines = ["## Manual Procedure", ""]
+    if tc.get("severity") == "Critical":
+        lines.append(
+            "**Safety note:** this is a Critical-severity case — follow "
+            "your bench's standard safety procedure (clear boundary, "
+            "E-stop armed, etc.) before starting."
+        )
+        lines.append("")
+    lines.append(f"**Precondition:** {tc.get('precondition') or 'None recorded.'}")
+    lines.append("")
+    steps = tc.get("steps") or []
+    if steps:
+        lines.extend(f"{i}. {step}" for i, step in enumerate(steps, 1))
+    else:
+        lines.append("_(No steps recorded in `test_cases.yaml` yet.)_")
+    lines.append("")
+    if tc.get("expected_result"):
+        lines.append(f"**Record as PASS if:** {tc['expected_result']}")
+    if tc.get("fail_conditions"):
+        lines.append(f"**Record as FAIL if:** {tc['fail_conditions']}")
+    if tc.get("next_action_if_fail"):
+        lines.append(f"**If it fails:** {tc['next_action_if_fail']}")
+    lines.append("")
+    lines.append("### Recording the result")
+    lines.append("")
+    lines.append(
+        "Once done, add an entry to `automate_5/runs.yaml` consistent "
+        "with existing entries for this case, e.g.:"
+    )
+    lines.append("")
+    lines.append("```yaml")
+    lines.append(f"- test_case_id: {tid}")
+    lines.append("  date: 'YYYY-MM-DD'")
+    lines.append("  work_week: WWxx")
+    lines.append("  result: PASS   # or FAIL / BLOCKED")
+    lines.append(
+        f"  notes: 'Manual run per Manual/{RUNBOOKS_DIRNAME}/"
+        f"{tc['_subcomponent']}/{tid}.md.'"
+    )
+    lines.append(f"  jira_link: {tc.get('jira_link') or 'null'}")
+    lines.append("```")
+    return "\n".join(lines)
+
+
+def generate_case_runbook(tid: str, cases_by_id: dict[str, dict]) -> str:
+    """Render the full standalone runbook file content for one test case."""
+    tc = cases_by_id[tid]
+    lines = [
+        f"# {tid} — {tc.get('test_name') or '(unnamed)'}",
+        "",
+        f"**Component:** {tc.get('component') or '-'} &nbsp;·&nbsp; "
+        f"**Priority:** {tc.get('priority') or '-'} &nbsp;·&nbsp; "
+        f"**Severity:** {tc.get('severity') or '-'} &nbsp;·&nbsp; "
+        f"**Jira:** {tc.get('jira_link') or '-'}",
+    ]
+    lines.extend(_dependency_lines(tid, cases_by_id))
+    lines.append("")
+    lines.append(_manual_procedure_section(tid, tc))
+    lines.append("")
+    if _has_path_to_automation(tid, tc):
+        lines.append(_path_to_automation_section(tid, tc))
+        lines.append("")
+    return "\n".join(lines)
+
+
+def write_case_runbooks(automate_version: str, out_dir: Path) -> list[Path]:
+    """Write `Manual/runbooks/<subcomponent>/<TC-ID>.md` for every case that
+    isn't `automation_status: Ready` yet.
+
+    `TC-FPGA-004` still gets a file here (for its "Path to Automation"
+    section) even though its Manual Procedure lives at
+    `Manual/thor_25g_link_validation/` instead of being duplicated inline.
+    """
+    cases_by_id = load_all_cases(automate_version)
+    written: list[Path] = []
+    for tid, tc in cases_by_id.items():
+        if tc.get("automation_status") == READY_STATUS:
+            continue
+        content = generate_case_runbook(tid, cases_by_id)
+        path = out_dir / tc["_subcomponent"] / f"{tid}.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+        written.append(path)
+    return written
 
 
 def generate_priority_doc(automate_version: str) -> str:
@@ -611,8 +966,8 @@ def generate_priority_doc(automate_version: str) -> str:
         "whenever `test_cases.yaml` changes instead of editing it by hand.",
         "",
         f"- **{total} total test cases** — **{len(ready_ids)} automated** "
-        f"(Phase 1) · **{len(manual_order)} manual** (Phase 2) · "
-        f"**{len(BLOCKED_NO_PROCEDURE)} blocked** (no procedure yet, see bottom)",
+        f"(Phase 1) · **{len(manual_order)} manual** (Phase 2), each with "
+        "its own runbook under `Manual/runbooks/`",
         "- **Run order:** all of Phase 1 first, then Phase 2 top to bottom. "
         "Within Phase 2, a case tagged \"Run immediately after\" must be run "
         "right after that dependency, with no other test case in between.",
@@ -649,25 +1004,6 @@ def generate_priority_doc(automate_version: str) -> str:
         lines.append(_phase2_entry(i, tid, cases_by_id))
         lines.append("")
 
-    if BLOCKED_NO_PROCEDURE:
-        lines.append("---")
-        lines.append("")
-        lines.append("## Blocked — no automation and no manual procedure yet")
-        lines.append("")
-        lines.append(
-            "These cases are intentionally left out of the checklist above "
-            "because there is nothing runnable yet: no working automation "
-            "script and no written manual steps."
-        )
-        lines.append("")
-        for tid, ref in sorted(BLOCKED_NO_PROCEDURE.items()):
-            tc = cases_by_id.get(tid, {})
-            lines.append(
-                f"- `{tid}` — {tc.get('test_name') or '(unnamed)'}. "
-                f"Tracked at [{ref}]({ref})."
-            )
-        lines.append("")
-
     return "\n".join(lines)
 
 
@@ -699,6 +1035,12 @@ def main() -> None:
     )
     p_pri.add_argument("version", help="Automate version directory (e.g. automate_5)")
     p_pri.add_argument("--output", "-o", help="Write the doc to file instead of stdout")
+    p_pri.add_argument(
+        "--write-runbooks",
+        metavar="DIR",
+        help="Also (re)generate one runbook file per non-Ready test case "
+             "under DIR/<subcomponent>/<TC-ID>.md (e.g. Manual/runbooks)",
+    )
 
     args = parser.parse_args()
 
@@ -719,6 +1061,10 @@ def main() -> None:
         print(summarise(args.version))
 
     elif args.command == "priority":
+        if args.write_runbooks:
+            written = write_case_runbooks(args.version, Path(args.write_runbooks))
+            print(f"Wrote {len(written)} runbook(s) under {args.write_runbooks}/")
+
         doc = generate_priority_doc(args.version)
         if args.output:
             with open(args.output, "w", encoding="utf-8") as f:

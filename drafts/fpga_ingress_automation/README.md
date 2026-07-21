@@ -26,18 +26,27 @@ It is deliberately kept **outside** `automation/` and `tests/` so that:
 ## Why it's pseudo-code, not real code
 
 Two pieces this automation depends on have never been confirmed against
-real hardware:
+real hardware, for the **ingress** direction these test cases target:
 
 1. **Stimulus** — how to actually address/format a UDP packet the real
    ingress-path firmware will accept. There are two conflicting candidates
-   in the repo (see `stimulus.py`), and neither is confirmed.
+   in the repo (see `stimulus.py`), and neither is confirmed for ingress.
 2. **Readback** — how to read the real firmware/SGDMA state after a
    stimulus to decide pass/fail. Nothing implements this today for the
-   ingress path; `readback.py` is a structural guess only.
+   ingress path; `readback.py` is still mostly a structural guess.
 
-Until both are confirmed, any pytest built on top of them would just be
-guessing, not verifying. See `QUESTIONS.md` for the exact asks that unblock
-this.
+**Update, 2026-07-20:** Sheng Li shared real, confirmed detail for the
+**egress** (SGDMA_TX) direction — a decoded packet capture showing the IP
+pair, port, and a raw (non-ECB) marker payload, plus how egress traffic is
+identified. Seow Jie's equivalent for **ingress** is still in progress.
+The egress facts are useful hints (and are now recorded, with clear
+"egress-only, unconfirmed for ingress" markers, in `stimulus.py` and
+`readback.py`) but must not be assumed to apply to ingress without
+confirmation. See `QUESTIONS.md` for the full detail and next steps.
+
+Until ingress is confirmed, any pytest built on top of these modules would
+just be guessing, not verifying. See `QUESTIONS.md` for the exact asks
+that unblock this.
 
 ## File legend
 

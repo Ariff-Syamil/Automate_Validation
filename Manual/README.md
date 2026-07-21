@@ -18,45 +18,60 @@ together with the cases that already have automation scripts.
    the right state for the next case.
 
 See **[PRIORITY.md](PRIORITY.md)** for the full, generated checklist
-covering all 142 test cases in `automate_5/` (97 automated, 41 manual, 4
-blocked).
+covering all 142 test cases in `automate_5/` (97 automated, 45 manual).
+Every manual case links out to its own runbook (below) instead of showing
+just the short `steps:` list inline.
 
-## Regenerating `PRIORITY.md`
+## Regenerating `PRIORITY.md` and the runbooks
 
-`PRIORITY.md` is generated from the live `automate_5/*/test_cases.yaml`
-files — don't hand-edit it, regenerate it instead whenever a test case's
-`automation_status`, `dependency`, or `steps` change:
+Both `PRIORITY.md` and every file under `runbooks/` are generated from the
+live `automate_5/*/test_cases.yaml` files — don't hand-edit them, regenerate
+instead whenever a test case's `automation_status`, `dependency`, `steps`,
+or other fields change:
 
 ```bash
-python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md
+python scripts/manage_tests.py priority automate_5 -o Manual/PRIORITY.md --write-runbooks Manual/runbooks
 ```
 
-## Detailed runbooks
+(`run.bat priority` currently only regenerates `PRIORITY.md` — pass
+`--write-runbooks` explicitly, as above, to also refresh the runbook files.)
 
-Most manual cases only have the short `steps:` list already stored in
-`test_cases.yaml` (which `PRIORITY.md` pulls in automatically). A few cases
-get a full hands-on runbook here instead, when the short steps aren't
-enough to execute the case without extra context:
+## `runbooks/` — one file per manual test case
 
-- **[thor_25g_link_validation/](thor_25g_link_validation/)** — full runbook
-  for `TC-FPGA-004` (*25G Ethernet Link Bring-Up*), run by hand on the
-  Jetson AGX Thor host. See
-  [thor_25g_link_validation/README.md](thor_25g_link_validation/README.md)
-  for context and
-  [thor_25g_link_validation/STEPS.md](thor_25g_link_validation/STEPS.md)
-  for the step-by-step procedure. `PRIORITY.md` links out to this instead
-  of duplicating it.
+**[runbooks/](runbooks/)** has one Markdown file per non-`Ready` test case,
+mirroring the `automate_5/<subcomponent>/` layout:
+`runbooks/<subcomponent>/<TC-ID>.md` (e.g. `runbooks/mechanical/TC-HW-01.md`).
+Each file has:
 
-To add another one: create a new subfolder here, write its runbook, then
-add an entry to `RUNBOOK_LINKS` in
-[scripts/manage_tests.py](../scripts/manage_tests.py) so the generated
-priority doc links to it instead of showing just the short steps.
+1. **Header** — component, priority, severity, Jira link, and dependency
+   info (including the same "run immediately after" callout used in
+   `PRIORITY.md`).
+2. **Manual Procedure** — precondition, numbered steps, pass/fail criteria,
+   and a `runs.yaml` snippet to record the result. Expanded straight from
+   that case's own `test_cases.yaml` fields.
+3. **Path to Automation** *(only for `automation_status: In Progress`
+   cases, plus the four `TC-FPGA-010`–`013` ingress cases)* — current
+   automation state, **Open Questions**, and **Implementation steps** for
+   finishing the script. Most of these are templated from the case's
+   `test_environment_ci_hil` + `automation_readiness`, since there's no
+   independent domain research behind them; `TC-FPGA-004` and
+   `TC-FPGA-010`–`013` instead draw on real research already in the repo
+   (see below).
 
-## Blocked test cases
+Two cases keep their content elsewhere instead of duplicating it:
 
-`TC-FPGA-010`–`TC-FPGA-013` have neither a working automation script nor a
-written manual procedure — they're proposed automation, tracked as
-pseudo-code in [../drafts/fpga_ingress_automation/](../drafts/fpga_ingress_automation/)
-(not a manual runbook, so it stays out of this folder). `PRIORITY.md` lists
-them separately at the bottom instead of putting them in the ordered
-checklist, since there's nothing runnable yet.
+- **`TC-FPGA-004`** — its Manual Procedure lives at
+  **[thor_25g_link_validation/](thor_25g_link_validation/)**
+  ([README](thor_25g_link_validation/README.md) for context,
+  [STEPS.md](thor_25g_link_validation/STEPS.md) for the procedure), run by
+  hand on the Jetson AGX Thor host.
+  `runbooks/holoscan_fpga/TC-FPGA-004.md` only carries its "Path to
+  Automation" section and links back here.
+- **`TC-FPGA-010`–`013`** — their "Path to Automation" sections draw on the
+  real open questions and pseudo-code already tracked in
+  [../drafts/fpga_ingress_automation/](../drafts/fpga_ingress_automation/).
+
+To point a case at an existing runbook elsewhere instead of the generated
+`runbooks/<sub>/<TC-ID>.md` location (like `TC-FPGA-004` above), add an
+entry to `RUNBOOK_LINKS` in
+[scripts/manage_tests.py](../scripts/manage_tests.py).
